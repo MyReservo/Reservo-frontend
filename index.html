@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <form class="form-box">
+          <h1>REJESTRACJA</h1>
+          <div class="user-company">
+              <div class="user-company-user">
+                  <input id="user" type="checkbox" class="special-input" checked>
+                  <label for="user">
+                      użytkownik
+                  </label>
+              </div>
+
+              <div class="user-company-company">
+                  <input id="company" type="checkbox" class="special-input">
+                  <label for="company">
+                      firma
+                  </label>
+              </div>
+
+          </div>
+          <div class="horizontal-line"></div>
+
+          <div class="basic-info">
+
+              <div class="basic-info-names">
+                  <div class="basic-info-data">
+                      <label for="name">Imię</label>
+                      <input id="name" type="text" class="input">
+                  </div>
+                  <div class="basic-info-data">
+                      <label for="surname">Nazwisko</label>
+                      <input id="surname" type="text" class="input">
+                  </div>
+              </div>
+
+              <div class="basic-info-contact">
+                  <div class="basic-info-data"> <label for="phone">Numer telefonu</label>
+                      <input id="phone" type="number" class="input">
+                  </div>
+
+                  <div class="basic-info-data"> <label for="e-mail">E-mail</label>
+                      <input id="e-mail" type="email" class="input">
+                  </div>
+              </div>
+          </div>
+
+          <div class="password-box">
+
+              <div class="password-box-password">
+                  <label for="password">Hasło</label>
+                  <input id="password" type="password" class="input">
+              </div>
+
+              <div class="password-box-password">
+                  <label for="password-repeat">Powtórz hasło</label>
+                  <input id="password-repeat" type="password" class="input">
+              </div>
+
+          </div>
+
+          <div class="register-terms">
+              <input for="terms" type="checkbox" class="special-input">
+              <label id="terms">
+                  Akceptuję warunki regulaminu
+              </label>
+          </div>
+
+
+          <button class="register">REJESTRUJ</button>
+
+      </form>
+  </div>
+
+    <script type="module" src="./src/ts/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+@use 'colors' as *;
+@use 'components' as *;
+@use 'reset' as *;
+@use 'animations' as *;
+@use 'btn' as *;
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	background-size: 300% 300%;
+	background-image: $aquablue;
+	background-color: tomato;
+	font-family: 'Lato', sans-serif;
+	font-size: 1.6rem;
+	animation: AnimateBg 30s ease infinite;
+}
+
+.form-box {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding: 2.5em;
+	text-align: center;
+	border-radius: 8px;
+	box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.35);
+	background-color: #fdfbfbb6;
+}
+
+h1 {
+	text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
+	letter-spacing: 0.1em;
+	// margin: .3em .7em;
+	margin-bottom: 1em;
+}
+
+.user-company {
+	display: flex;
+	justify-content: space-evenly;
+	margin: 0.7em 0em 0em;
+
+}
+.user-company-user,
+.user-company-company {
+    display: flex;
+    align-items: center;
+}
+
+.basic-info {
+	&-names,
+	&-contact {
+		display: flex;
+	}
+	&-data {
+		display: flex;
+		flex-direction: column;
+		width: 50%;
+	}
+}
+
+.password-box {
+	display: flex;
+	&-password {
+		display: flex;
+		flex-direction: column;
+		width: 50%;
+	}
+}
+
+.register-terms {
+	margin: 1.5em;
+}
+
+
