@@ -4,4 +4,4 @@ import '../sass/main.scss'
 // const companyInput: HTMLInputElement = document.querySelector('#company');
 
 
-console.log('halo1234567');
+console.log('halo12345678');
