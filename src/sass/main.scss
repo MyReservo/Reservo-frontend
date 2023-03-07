@@ -72,4 +72,12 @@ h1 {
 	margin: 1.5em;
 }
 
+.red-input{
+	border: 1px solid tomato;
+	background-color: rgba(255, 99, 71, 0.158);
+}
 
+
+.red-placeholder::placeholder {
+	color: red;
+  }
