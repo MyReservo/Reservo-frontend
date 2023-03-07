@@ -31,7 +31,6 @@ body {
 h1 {
 	text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
 	letter-spacing: 0.1em;
-	// margin: .3em .7em;
 	margin-bottom: 1em;
 }
 
@@ -39,12 +38,11 @@ h1 {
 	display: flex;
 	justify-content: space-evenly;
 	margin: 0.7em 0em 0em;
-
 }
 .user-company-user,
 .user-company-company {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .basic-info {
@@ -72,12 +70,17 @@ h1 {
 	margin: 1.5em;
 }
 
-.red-input{
-	border: 1px solid tomato;
+.red-input {
+	border: 1px solid $errorBgc;
 	background-color: rgba(255, 99, 71, 0.158);
 }
 
-
 .red-placeholder::placeholder {
-	color: red;
-  }
+	color: $errorFont;
+}
+
+.terms-error {
+	margin: .7em 0em 0em 1em;
+	color: $errorFont;
+	font-size: 1.4rem;
+}
