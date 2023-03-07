@@ -1,6 +1,7 @@
 
 import '../sass/main.scss'
 
+
 // const customerInput = document.querySelector('#user') as HTMLInputElement ;
 // const companyInput = document.querySelector('#company') as HTMLInputElement;
 
