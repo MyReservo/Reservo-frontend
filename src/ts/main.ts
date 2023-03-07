@@ -14,7 +14,8 @@ const emailInput = document.querySelector('#email') as HTMLInputElement;
 const passwordInput = document.querySelector('#password') as HTMLInputElement;
 const repeatInput = document.querySelector('#repeat') as HTMLInputElement;
 
-// const termsInput = document.querySelector("#terms") as HTMLInputElement;
+const termsInput = document.querySelector("#terms") as HTMLInputElement;
+const termsBox = document.querySelector(".register-terms") as HTMLElement;
 
 const registerBtn = document.querySelector(".register") as  HTMLButtonElement;
 
@@ -56,9 +57,26 @@ const inputsValidation = (e: Event): void => {
     if(repeatInput.value !== passwordInput.value){
         toggleError(repeatInput,true, 'Hasła muszą być takie same');
     }
+    checkboxCheck()
 };
 
-const removeError = (input: HTMLInputElement): void => {
+
+
+const termsError = document.createElement('p');
+termsError.classList.add('terms-error');
+const checkboxCheck = () => {
+    
+    if(!termsInput.checked){  
+        termsError.innerHTML = "Musisz zaakceptować regulamin";
+        termsBox.appendChild(termsError);
+         console.log('object');
+         } else if (termsInput.checked && termsBox.contains(termsError)) {
+            termsBox.removeChild(termsError);
+           console.log('oks');
+         }
+}
+
+const removeError = (input: HTMLInputElement) => {
     toggleError(input,false)
 };
 
@@ -68,5 +86,4 @@ numberInput.addEventListener('input', () => removeError(numberInput));
 emailInput.addEventListener('input', () => removeError(emailInput));
 passwordInput.addEventListener('input', () => removeError(passwordInput));
 repeatInput.addEventListener('input', () => removeError(repeatInput));
-registerBtn.addEventListener('click', inputsValidation);
-  
+registerBtn.addEventListener('click', inputsValidation)
