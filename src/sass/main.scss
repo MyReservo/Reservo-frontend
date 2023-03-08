@@ -55,9 +55,14 @@ h1 {
 		flex-direction: column;
 		width: 50%;
 	}
-	// &-company{
-	// 	flex-direction: row;
-	// }
+	&-company{
+		display: flex;
+		flex-direction: row;
+
+		// .basic-info-data{
+
+		// }
+	}
 }
 
 .password-box {
