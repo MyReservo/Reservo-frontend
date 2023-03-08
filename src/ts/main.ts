@@ -3,7 +3,7 @@ import '../sass/main.scss'
 
 
 // const customerInput = document.querySelector('#user') as HTMLInputElement ;
-// const companyInput = document.querySelector('#company') as HTMLInputElement;
+const companyInput = document.querySelector('#company') as HTMLInputElement;
 
 const nameInput = document.querySelector('#name') as HTMLInputElement;
 const surnameInput = document.querySelector('#surname') as HTMLInputElement;
@@ -19,7 +19,7 @@ const termsBox = document.querySelector(".register-terms") as HTMLElement;
 
 const registerBtn = document.querySelector(".register") as  HTMLButtonElement;
 
-// const nameBox = document.querySelector('.basic-info-data') as HTMLElement;
+const basicInfo = document.querySelector('.basic-info') as HTMLElement;
 
 
 
@@ -69,10 +69,8 @@ const checkboxCheck = () => {
     if(!termsInput.checked){  
         termsError.innerHTML = "Musisz zaakceptować regulamin";
         termsBox.appendChild(termsError);
-         console.log('object');
          } else if (termsInput.checked && termsBox.contains(termsError)) {
             termsBox.removeChild(termsError);
-           console.log('oks');
          }
 }
 
@@ -80,9 +78,45 @@ const removeError = (input: HTMLInputElement) => {
     toggleError(input,false)
 };
 
+
+
+
+const basicInfoCompany = document.createElement('div');
+basicInfoCompany.classList.add('basic-info-company')
+const basicInfoData = document.createElement('div');
+const label = document.createElement('label');
+const label2 = document.createElement('label');
+const input = document.createElement('input');
+const input2 = document.createElement('input');
+const addInputs = () => {
+  basicInfoCompany.classList.add('basic-info-company');
+  basicInfoData.classList.add('basic-info-data');
+  label.setAttribute('for', "company-name");
+  label2.setAttribute('for', "company-name");
+  label.innerHTML = "Nazwa firmy";
+  label2.innerHTML = "Świadczone usługi";
+  input.setAttribute('id','company-name');
+  basicInfoData.appendChild(input);
+  basicInfoData.appendChild(input2);
+  basicInfoData.appendChild(label);
+  basicInfoData.appendChild(label2);
+  basicInfoCompany.appendChild(basicInfoData);
+  basicInfo.appendChild(basicInfoCompany);
+}
+
+
+companyInput.addEventListener('change',addInputs );
+
+
+
 nameInput.addEventListener('input', () => removeError(nameInput));
 surnameInput.addEventListener('input', () => removeError(surnameInput));
 numberInput.addEventListener('input', () => removeError(numberInput));
+numberInput.addEventListener('keypress', function(e){
+    if (isNaN(parseInt(e.key))) {
+        e.preventDefault();
+    }
+});
 emailInput.addEventListener('input', () => removeError(emailInput));
 passwordInput.addEventListener('input', () => removeError(passwordInput));
 repeatInput.addEventListener('input', () => removeError(repeatInput));
