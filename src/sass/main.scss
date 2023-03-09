@@ -55,10 +55,34 @@ h1 {
 		flex-direction: column;
 		width: 50%;
 	}
-	// &-company{
-	// 	flex-direction: row;
-	// }
+	&-company{
+		display: flex;
+	}
 }
+
+.company-adress{
+	display: flex;
+justify-content: center;
+flex-wrap: wrap;
+
+	&-title{
+		font-size: 1.7rem;
+		margin: 1em;
+	}
+	&-place{
+		display: flex;
+		width: 100%;
+		
+	}
+
+	&-data{
+		display: flex;
+		flex-direction: column;
+		width: 50%;
+	}
+
+}
+
 
 .password-box {
 	display: flex;
@@ -81,6 +105,7 @@ h1 {
 .red-placeholder::placeholder {
 	color: $errorFont;
 }
+
 
 .terms-error {
 	margin: .7em 0em 0em 1em;
