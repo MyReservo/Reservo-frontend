@@ -170,6 +170,7 @@ const addInputs = () => {
     basicInfo.append(basicInfoCompany,companyAdress);
   } else {
     basicInfoCompany.remove();
+    companyAdress.remove();
   }
 }
 
