@@ -1,4 +1,5 @@
 
+
 export const adressFields = [
 	{ id: 'street', placeholder: 'Ulica' },
 	{ id: 'home', placeholder: 'Nr.domu' },
@@ -27,23 +28,6 @@ export const dataInputsCreator = (
 	removeError: (input: HTMLInputElement) => void,
 	inputsEvents: (event: Event) => void
 ) => {
-
-
-
-// 	const companyNamelabel = document.createElement('label');
-// 	companyNamelabel.htmlFor = 'company-name';
-// 	companyNamelabel.innerText = 'Nazwa firmy';
-
-// 	const companyInput = document.createElement('input');
-// 	companyInput.className = 'input';
-// 	companyInput.id = 'company-name';
-// 	companyInput.type = 'text';
-
-// 	const servicesLabel = document.createElement('label');
-// servicesLabel.htmlFor = 'services';
-// servicesLabel.innerText = 'Świadczone usługi';
-
-
 	
 	adressFields.forEach(field => {
 		const adressDiv = document.createElement('div');

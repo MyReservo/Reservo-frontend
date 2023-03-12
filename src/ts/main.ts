@@ -10,27 +10,28 @@ import {
 	}
  from './new-elements';
 import {clearAllErrors} from "./clear-errors";
+import './api-data';
 
 
 
 
-const customerInput = document.querySelector('#user') as HTMLInputElement;
+export const customerInput = document.querySelector('#user') as HTMLInputElement;
 export const checkCompanyInput = document.querySelector('#company') as HTMLInputElement;
+console.log('jedenn');
+export const nameInput = document.querySelector('#name') as HTMLInputElement;
+ export const surnameInput = document.querySelector('#surname') as HTMLInputElement;
 
-const nameInput = document.querySelector('#name') as HTMLInputElement;
-const surnameInput = document.querySelector('#surname') as HTMLInputElement;
+ export const numberInput = document.querySelector('#phone') as HTMLInputElement;
+export const emailInput = document.querySelector('#email') as HTMLInputElement;
 
-const numberInput = document.querySelector('#phone') as HTMLInputElement;
-const emailInput = document.querySelector('#email') as HTMLInputElement;
-
-const passwordInput = document.querySelector('#password') as HTMLInputElement;
-const repeatInput = document.querySelector('#repeat') as HTMLInputElement;
+export const passwordInput = document.querySelector('#password') as HTMLInputElement;
+export const repeatInput = document.querySelector('#repeat') as HTMLInputElement;
 
 
 export const termsInput = document.querySelector('#terms') as HTMLInputElement;
 const termsBox = document.querySelector('.register-terms') as HTMLElement;
 
-const registerBtn = document.querySelector('.register') as HTMLButtonElement;
+export const registerBtn = document.querySelector('.register') as HTMLButtonElement;
 
 const basicInfo = document.querySelector('.basic-info') as HTMLElement;
 
@@ -87,11 +88,10 @@ servicesLabel.innerText = 'Świadczone usługi';
 
 
 const services = [
-	{ value: 'default', label: 'Wybierz usługę' },
-	{ value: 'fryzjer', label: 'Fryzjer' },
-	{ value: 'kosmetyczka', label: 'Kosmetyczka' },
-	{ value: 'mechanik', label: 'Mechanik' },
-	{ value: 'hydraulik', label: 'Hydraulik' },
+	{ value: 'default', label: 'Wybierz usługę', id:"default"},
+	{ value: 'TUTOR', label: 'Korepetycje', id:'tutor'},
+	{ value: 'BARBER', label: 'Fryzjer', id:'barber'},
+	{ value: 'MECHANIC', label: 'Mechanik', id:'mechanic'},
 ];
 
 
@@ -103,6 +103,8 @@ services.forEach(service => {
 	const option = document.createElement('option');
 	option.value = service.value;
 	option.innerText = service.label;
+	option.id = service.id;
+	// console.log(option.id);
 	select.appendChild(option);
 	if(option.value === 'default'){
 		option.disabled = true;
@@ -193,7 +195,6 @@ customerInput.addEventListener('change', addInputs);
 
 	termsInput.addEventListener('change', function () {
 		if (termsBox.contains(termsError)){
-			console.log('ok usuwam błąd');
 			termsBox.removeChild(termsError);
 		}
 	});
