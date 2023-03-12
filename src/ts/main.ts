@@ -1,6 +1,9 @@
 import '../sass/main.scss';
+import './new-elements';
+import {dataInputsCreator,companyAdress,adressFields} from "./new-elements";
 
-// const customerInput = document.querySelector('#user') as HTMLInputElement ;
+
+const customerInput = document.querySelector('#user') as HTMLInputElement ;
 const checkCompanyInput = document.querySelector('#company') as HTMLInputElement;
 
 const nameInput = document.querySelector('#name') as HTMLInputElement;
@@ -15,14 +18,15 @@ const repeatInput = document.querySelector('#repeat') as HTMLInputElement;
 const termsInput = document.querySelector('#terms') as HTMLInputElement;
 const termsBox = document.querySelector('.register-terms') as HTMLElement;
 
-const registerBtn = document.querySelector('.register') as HTMLButtonElement;
+ const registerBtn = document.querySelector('.register') as HTMLButtonElement;
 
 const basicInfo = document.querySelector('.basic-info') as HTMLElement;
+
 
 const termsError = document.createElement('p');
 termsError.classList.add('terms-error');
 
-const checkboxCheck = () => {
+const termsCheckboxCheck = () => {
 	if (!termsInput.checked) {
 		termsError.innerHTML = 'Musisz zaakceptować regulamin';
 		termsBox.appendChild(termsError);
@@ -30,6 +34,31 @@ const checkboxCheck = () => {
 		termsBox.removeChild(termsError);
 	}
 };
+
+
+
+const checkboxesArr = [customerInput,checkCompanyInput];
+
+
+function handleCheckboxClick(this: HTMLInputElement) {
+	checkboxesArr.forEach(checkbox => {
+	  if (checkbox !== this) {
+		checkbox.checked = false;
+	  } else {
+		checkbox.checked = true;
+		console.log('pozostaje zaznaczony');
+	  }
+	});
+  }
+
+checkboxesArr.forEach(checkbox => {
+	checkbox.addEventListener('click', function(){
+		handleCheckboxClick.call(this);
+	});
+})
+
+
+console.log(customerInput.checked);
 
 const basicInfoCompany = document.createElement('div');
 basicInfoCompany.className = 'basic-info-company';
@@ -73,40 +102,7 @@ services.forEach(service => {
 });
 
 
-
-const adressFields = [
-	{ id: 'street', placeholder: 'Ulica' },
-	{ id: 'home', placeholder: 'Nr.domu' },
-	{ id: 'city', placeholder: 'Miasto' },
-	{ id: 'code', placeholder: 'Kod pocztowy' },
-];
-
-const companyAdress = document.createElement('div');
-companyAdress.className = 'company-adress';
-
-const companyAdressTitle = document.createElement('h2');
-companyAdressTitle.className = 'company-adress-title';
-companyAdressTitle.innerText = 'Adres pocztowy firmy';
-
-const companyAdressPlace = document.createElement('div');
-companyAdressPlace.className = 'company-adress-place';
-
-const toggleError = (input: HTMLInputElement, isError: boolean, placeholderText?: string): void => {
-	if (isError) {
-		input.setAttribute('placeholder', placeholderText ?? 'Musisz podać jakąś wartość');
-		input.classList.add('red-input');
-		input.classList.add('red-placeholder');
-	} else {
-		input.removeAttribute('placeholder');
-		input.classList.remove('red-input');
-		input.classList.remove('red-placeholder');
-	}
-};
-const removeError = (input: HTMLInputElement) => {
-	toggleError(input, false);
-};
-
-const inputsEvents = (event: Event) => {
+export const inputsEvents = (event: Event) => {
 	const input = event.target as HTMLInputElement;
 	if (input instanceof HTMLSelectElement) {
 		input.classList.remove('red-input');
@@ -116,59 +112,78 @@ const inputsEvents = (event: Event) => {
 	}
 };
 
-adressFields.forEach(field => {
-	const adressDiv = document.createElement('div');
-	adressDiv.className = 'company-adress-data';
-	const adressInput = document.createElement('input');
-	adressInput.className = 'input';
-	adressInput.type = 'text';
-	adressInput.id = field.id;
-	adressInput.placeholder = field.placeholder;
-	registerBtn.addEventListener('click', () => {
-		let placeholderText = '';
-		switch (adressInput.id) {
-			case 'street':
-				placeholderText = 'Podaj nazwę ulicy';
-				break;
-			case 'home':
-				placeholderText = 'Podaj numer domu';
-				break;
-			case 'city':
-				placeholderText = 'Podaj nazwę miasta';
-				break;
-			case 'code':
-				placeholderText = 'Podaj kod pocztowy';
-				break;
-			default:
-				break;
-		}
-		if (adressInput.value === '') {
-			toggleError(adressInput, true, placeholderText);
-		} else {
-			toggleError(adressInput, false);
-		}
-	});
-	adressDiv.appendChild(adressInput);
-	companyAdressPlace.appendChild(adressDiv);
-	adressInput.addEventListener('input', () => {
-		removeError(adressInput);
-	});
+	
 
-	if (adressInput.id === 'home' || adressInput.id === 'code') {
-		adressInput.addEventListener('input', inputsEvents);
+		export const toggleError = (input: HTMLInputElement, isError: boolean, placeholderText?: string) => {
+			if (isError) {
+		input.setAttribute('placeholder', placeholderText ?? 'Musisz podać jakąś wartość');
+		input.classList.add('red-input');
+		input.classList.add('red-placeholder');
+	} else {
+		input.removeAttribute('placeholder');
+		input.classList.remove('red-input');
+		input.classList.remove('red-placeholder');
 	}
-});
+};
+export const removeError = (input: HTMLInputElement) => {
+	toggleError(input, false);
+};
 
-companyAdress.appendChild(companyAdressTitle);
-companyAdress.appendChild(companyAdressPlace);
+
+dataInputsCreator(registerBtn,toggleError,removeError,inputsEvents);
+
+const clearAllErrors = (adressFields:  { id: string; placeholder: string; }[]) => {
+	
+	
+
+	nameInput.classList.remove('red-input');
+	nameInput.classList.remove('red-placeholder');
+	nameInput.removeAttribute('placeholder');
+	surnameInput.classList.remove('red-input');
+	surnameInput.classList.remove('red-placeholder');
+	surnameInput.removeAttribute('placeholder');
+	numberInput.classList.remove('red-input');
+	numberInput.classList.remove('red-placeholder');
+	numberInput.removeAttribute('placeholder');
+	emailInput.classList.remove('red-input');
+	emailInput.classList.remove('red-placeholder');
+	emailInput.removeAttribute('placeholder');
+	passwordInput.classList.remove('red-input');
+	passwordInput.classList.remove('red-placeholder');
+	passwordInput.removeAttribute('placeholder');
+	repeatInput.classList.remove('red-input');
+	repeatInput.classList.remove('red-placeholder');
+	repeatInput.removeAttribute('placeholder');
+	companyInput.classList.remove('red-input');
+	companyInput.classList.remove('red-placeholder');
+	companyInput.removeAttribute('placeholder');
+	select.classList.remove('red-input');
+	select.classList.remove('red-placeholder');
+	select.removeAttribute('placeholder');
+
+
+
+	adressFields.forEach(field => {
+		const input = document.getElementById(field.id) as HTMLInputElement;
+		if (input !== null) {
+			console.log('ok usuwam błędy ');
+		  input.classList.remove('red-input');
+		  input.classList.remove('red-placeholder');
+		  input.removeAttribute('placeholder');
+		}
+	  });
+}
+
+
 
 const addInputs = () => {
+	clearAllErrors(adressFields);
   if (checkCompanyInput.checked) {
     basicInfoData.append(companyNamelabel,companyInput);
     basicInfoData2.append(servicesLabel,select);
     basicInfoCompany.append(basicInfoData,basicInfoData2);
     basicInfo.append(basicInfoCompany,companyAdress);
-  } else {
+  } else if (customerInput.checked){
     basicInfoCompany.remove();
     companyAdress.remove();
   }
@@ -203,10 +218,16 @@ const inputsValidation = (e: Event) => {
 	if (select.value === 'default') {
 		select.classList.add('red-input');
 	}
-	checkboxCheck();
+	termsCheckboxCheck();
 };
 
+
+
+
+// window.addEventListener('load', checkboxesCheck);
+
 checkCompanyInput.addEventListener('change', addInputs);
+customerInput.addEventListener('change', addInputs);
 
 nameInput.addEventListener('input', () => removeError(nameInput));
 surnameInput.addEventListener('input', () => removeError(surnameInput));
@@ -222,3 +243,5 @@ select.addEventListener('input', inputsEvents);
 passwordInput.addEventListener('input', () => removeError(passwordInput));
 repeatInput.addEventListener('input', () => removeError(repeatInput));
 registerBtn.addEventListener('click', inputsValidation);
+
+
