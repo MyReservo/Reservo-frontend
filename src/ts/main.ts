@@ -1,10 +1,21 @@
 import '../sass/main.scss';
 import './new-elements';
-import {dataInputsCreator,companyAdress,adressFields} from "./new-elements";
+import {   
+	dataInputsCreator,
+	companyAdress,
+	adressFields,
+	// companyNamelabel,
+	// companyInput,
+	// servicesLabel,
+	}
+ from './new-elements';
+import {clearAllErrors} from "./clear-errors";
 
 
-const customerInput = document.querySelector('#user') as HTMLInputElement ;
-const checkCompanyInput = document.querySelector('#company') as HTMLInputElement;
+
+
+const customerInput = document.querySelector('#user') as HTMLInputElement;
+export const checkCompanyInput = document.querySelector('#company') as HTMLInputElement;
 
 const nameInput = document.querySelector('#name') as HTMLInputElement;
 const surnameInput = document.querySelector('#surname') as HTMLInputElement;
@@ -15,13 +26,13 @@ const emailInput = document.querySelector('#email') as HTMLInputElement;
 const passwordInput = document.querySelector('#password') as HTMLInputElement;
 const repeatInput = document.querySelector('#repeat') as HTMLInputElement;
 
-const termsInput = document.querySelector('#terms') as HTMLInputElement;
+
+export const termsInput = document.querySelector('#terms') as HTMLInputElement;
 const termsBox = document.querySelector('.register-terms') as HTMLElement;
 
- const registerBtn = document.querySelector('.register') as HTMLButtonElement;
+const registerBtn = document.querySelector('.register') as HTMLButtonElement;
 
 const basicInfo = document.querySelector('.basic-info') as HTMLElement;
-
 
 const termsError = document.createElement('p');
 termsError.classList.add('terms-error');
@@ -30,35 +41,26 @@ const termsCheckboxCheck = () => {
 	if (!termsInput.checked) {
 		termsError.innerHTML = 'Musisz zaakceptować regulamin';
 		termsBox.appendChild(termsError);
-	} else if (termsInput.checked && termsBox.contains(termsError)) {
-		termsBox.removeChild(termsError);
 	}
 };
 
-
-
-const checkboxesArr = [customerInput,checkCompanyInput];
-
+const checkboxesArr = [customerInput, checkCompanyInput];
 
 function handleCheckboxClick(this: HTMLInputElement) {
 	checkboxesArr.forEach(checkbox => {
-	  if (checkbox !== this) {
-		checkbox.checked = false;
-	  } else {
-		checkbox.checked = true;
-		console.log('pozostaje zaznaczony');
-	  }
+		if (checkbox !== this) {
+			checkbox.checked = false;
+		} else {
+			checkbox.checked = true;
+		}
 	});
-  }
+}
 
 checkboxesArr.forEach(checkbox => {
-	checkbox.addEventListener('click', function(){
+	checkbox.addEventListener('click', function () {
 		handleCheckboxClick.call(this);
 	});
-})
-
-
-console.log(customerInput.checked);
+});
 
 const basicInfoCompany = document.createElement('div');
 basicInfoCompany.className = 'basic-info-company';
@@ -68,6 +70,7 @@ basicInfoData.className = 'basic-info-data';
 
 const basicInfoData2 = document.createElement('div');
 basicInfoData2.className = 'basic-info-data';
+
 
 const companyNamelabel = document.createElement('label');
 companyNamelabel.htmlFor = 'company-name';
@@ -82,6 +85,7 @@ const servicesLabel = document.createElement('label');
 servicesLabel.htmlFor = 'services';
 servicesLabel.innerText = 'Świadczone usługi';
 
+
 const services = [
 	{ value: 'default', label: 'Wybierz usługę' },
 	{ value: 'fryzjer', label: 'Fryzjer' },
@@ -89,6 +93,7 @@ const services = [
 	{ value: 'mechanik', label: 'Mechanik' },
 	{ value: 'hydraulik', label: 'Hydraulik' },
 ];
+
 
 const select = document.createElement('select');
 select.id = 'services';
@@ -99,8 +104,10 @@ services.forEach(service => {
 	option.value = service.value;
 	option.innerText = service.label;
 	select.appendChild(option);
+	if(option.value === 'default'){
+		option.disabled = true;
+	}
 });
-
 
 export const inputsEvents = (event: Event) => {
 	const input = event.target as HTMLInputElement;
@@ -112,10 +119,8 @@ export const inputsEvents = (event: Event) => {
 	}
 };
 
-	
-
-		export const toggleError = (input: HTMLInputElement, isError: boolean, placeholderText?: string) => {
-			if (isError) {
+export const toggleError = (input: HTMLInputElement, isError: boolean, placeholderText?: string) => {
+	if (isError) {
 		input.setAttribute('placeholder', placeholderText ?? 'Musisz podać jakąś wartość');
 		input.classList.add('red-input');
 		input.classList.add('red-placeholder');
@@ -129,65 +134,25 @@ export const removeError = (input: HTMLInputElement) => {
 	toggleError(input, false);
 };
 
+const addInputs = () => {
+
+	if (checkCompanyInput.checked) {
+		basicInfoData.append(companyNamelabel, companyInput);
+		basicInfoData2.append(servicesLabel, select);
+		basicInfoCompany.append(basicInfoData, basicInfoData2);
+		
+		basicInfo.append(basicInfoCompany, companyAdress);
+		
+		clearAllErrors(adressFields, nameInput,surnameInput,numberInput,emailInput,passwordInput,repeatInput,companyInput,select,termsBox,termsError);
+	} else if (customerInput.checked) {
+		basicInfoCompany.remove();
+		companyAdress.remove();
+	}
+};
+
 
 dataInputsCreator(registerBtn,toggleError,removeError,inputsEvents);
 
-const clearAllErrors = (adressFields:  { id: string; placeholder: string; }[]) => {
-	
-	
-
-	nameInput.classList.remove('red-input');
-	nameInput.classList.remove('red-placeholder');
-	nameInput.removeAttribute('placeholder');
-	surnameInput.classList.remove('red-input');
-	surnameInput.classList.remove('red-placeholder');
-	surnameInput.removeAttribute('placeholder');
-	numberInput.classList.remove('red-input');
-	numberInput.classList.remove('red-placeholder');
-	numberInput.removeAttribute('placeholder');
-	emailInput.classList.remove('red-input');
-	emailInput.classList.remove('red-placeholder');
-	emailInput.removeAttribute('placeholder');
-	passwordInput.classList.remove('red-input');
-	passwordInput.classList.remove('red-placeholder');
-	passwordInput.removeAttribute('placeholder');
-	repeatInput.classList.remove('red-input');
-	repeatInput.classList.remove('red-placeholder');
-	repeatInput.removeAttribute('placeholder');
-	companyInput.classList.remove('red-input');
-	companyInput.classList.remove('red-placeholder');
-	companyInput.removeAttribute('placeholder');
-	select.classList.remove('red-input');
-	select.classList.remove('red-placeholder');
-	select.removeAttribute('placeholder');
-
-
-
-	adressFields.forEach(field => {
-		const input = document.getElementById(field.id) as HTMLInputElement;
-		if (input !== null) {
-			console.log('ok usuwam błędy ');
-		  input.classList.remove('red-input');
-		  input.classList.remove('red-placeholder');
-		  input.removeAttribute('placeholder');
-		}
-	  });
-}
-
-
-
-const addInputs = () => {
-	clearAllErrors(adressFields);
-  if (checkCompanyInput.checked) {
-    basicInfoData.append(companyNamelabel,companyInput);
-    basicInfoData2.append(servicesLabel,select);
-    basicInfoCompany.append(basicInfoData,basicInfoData2);
-    basicInfo.append(basicInfoCompany,companyAdress);
-  } else if (customerInput.checked){
-    basicInfoCompany.remove();
-    companyAdress.remove();
-  }
-}
 
 const inputsValidation = (e: Event) => {
 	e.preventDefault();
@@ -222,12 +187,17 @@ const inputsValidation = (e: Event) => {
 };
 
 
-
-
-// window.addEventListener('load', checkboxesCheck);
-
 checkCompanyInput.addEventListener('change', addInputs);
 customerInput.addEventListener('change', addInputs);
+
+
+	termsInput.addEventListener('change', function () {
+		if (termsBox.contains(termsError)){
+			console.log('ok usuwam błąd');
+			termsBox.removeChild(termsError);
+		}
+	});
+
 
 nameInput.addEventListener('input', () => removeError(nameInput));
 surnameInput.addEventListener('input', () => removeError(surnameInput));
@@ -243,5 +213,6 @@ select.addEventListener('input', inputsEvents);
 passwordInput.addEventListener('input', () => removeError(passwordInput));
 repeatInput.addEventListener('input', () => removeError(repeatInput));
 registerBtn.addEventListener('click', inputsValidation);
+
 
 
