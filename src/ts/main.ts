@@ -12,14 +12,14 @@ import {
 import {clearAllErrors} from "./clear-errors";
 
 import  './api-data';
-import {customerInput,checkCompanyInput,nameInput,surnameInput,numberInput,emailInput,passwordInput,repeatInput} from './constatns-elements';
+import {customerInput,checkCompanyInput,nameInput,surnameInput,numberInput,emailInput,passwordInput,repeatInput,companyNamelabel,companyInput} from './constatns-elements';
 
 
 
 export const termsInput = document.querySelector('#terms') as HTMLInputElement;
 const termsBox = document.querySelector('.register-terms') as HTMLElement;
 
-export const registerBtn = document.querySelector('.register') as HTMLButtonElement;
+export const registerBtn = document.querySelector('#register') as HTMLButtonElement;
 
 const basicInfo = document.querySelector('.basic-info') as HTMLElement;
 
@@ -61,15 +61,7 @@ const basicInfoData2 = document.createElement('div');
 basicInfoData2.className = 'basic-info-data';
 
 
-const companyNamelabel = document.createElement('label');
-companyNamelabel.htmlFor = 'company-name';
-companyNamelabel.innerText = 'Nazwa firmy';
-
-const companyInput = document.createElement('input');
-companyInput.className = 'input';
-companyInput.id = 'company-name';
-companyInput.name = "company-name";
-companyInput.type = 'text';
+// console.log('zero');
 
 const servicesLabel = document.createElement('label');
 servicesLabel.htmlFor = 'services';
@@ -145,8 +137,8 @@ const addInputs = () => {
 dataInputsCreator(registerBtn,toggleError,removeError,inputsEvents);
 
 
-const inputsValidation = (e: Event) => {
-	e.preventDefault();
+const inputsValidation = () => {
+	// e.preventDefault();
 	const regExPhone: RegExp = /^(?:\(?\?)?(?:[-\.\(\)\s]*(\d)){9}\)?$/;
 	const regExEmail: RegExp =
 		/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/;
@@ -176,6 +168,52 @@ const inputsValidation = (e: Event) => {
 	}
 	termsCheckboxCheck();
 };
+
+
+
+// passwordInput.addEventListener('onchange', function () {
+// 	if (passwordInput.value.length < 8) {
+// 		toggleError(passwordInput, true, 'Hasło musi zawierać min. 8 znaków');
+// 	}
+// })
+
+
+// registerBtn.addEventListener('click', function (e) {
+// 	// e.preventDefault();
+// 	const regExPhone: RegExp = /^(?:\(?\?)?(?:[-\.\(\)\s]*(\d)){9}\)?$/;
+// 	const regExEmail: RegExp =
+// 		/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/;
+
+// 	console.log('kliknieto!');
+
+// 	if (nameInput.value === '') {
+// 		toggleError(nameInput, true, 'Podaj imię');
+// 	}
+// 	if (surnameInput.value === '') {
+// 		toggleError(surnameInput, true, 'Podaj nazwisko');
+// 	}
+// 	if (!regExPhone.test(numberInput.value)) {
+// 		toggleError(numberInput, true, 'Podaj numer telefonu');
+// 	}
+// 	if (!regExEmail.test(emailInput.value)) {
+// 		toggleError(emailInput, true, 'Podaj adres e-mail');
+// 	}
+// 	if (passwordInput.value.length < 8) {
+// 		toggleError(passwordInput, true, 'Hasło musi zawierać min. 8 znaków');
+// 	}
+// 	if (repeatInput.value !== passwordInput.value) {
+// 		toggleError(repeatInput, true, 'Hasła muszą być takie same');
+// 	}
+// 	if (companyInput.value === '') {
+// 		toggleError(companyInput, true, 'Podaj nazwę firmy');
+// 	}
+// 	if (select.value === 'default') {
+// 		select.classList.add('red-input');
+// 	}
+// 	termsCheckboxCheck();
+// });
+
+
 
 
 checkCompanyInput.addEventListener('change', addInputs);

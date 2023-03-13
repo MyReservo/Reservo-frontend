@@ -10,13 +10,10 @@ import {
 	passwordInput,
 	repeatInput,
     form,
-    companyNameInput,
-    streetInput,
-    homeInput,
-    cityInput,
-    codeInput
+    companyInput,
 } from './constatns-elements';
-// import { registerBtn } from './main';
+
+import {addressData} from "./new-elements";
 
 
 interface Options {
@@ -28,29 +25,30 @@ interface Options {
 }
 
 
-
-console.log('jeden');
-
 	form.addEventListener('submit', function (e) {
-		console.log('dwa');
 		e.preventDefault();
+
 		const selectedServices = Array.from(document.querySelectorAll('#services option:checked')).map(
 			option => option.getAttribute('value') as string
 		);
+
+
+		console.log(addressData);
+		console.log('jeden');
+
 		const data = {
-			name: nameInput.value,
+            name: nameInput.value,
 			surname: surnameInput.value,
 			email: emailInput.value,
 			number: numberInput.value,
-			companyName: companyNameInput.value,
 			services: selectedServices,
-			street: streetInput.value,
-			home: homeInput.value,
-			city: cityInput.value,
-			zipCode: codeInput.value,
+			companyName: companyInput.value,
+			adress: addressData,
 			password: passwordInput.value,
 			repeatPassword: repeatInput.value,
 		};
+		console.log('dwa');
+
 		const options: Options = {
 			method: 'POST',
 			body: JSON.stringify(data),
@@ -58,9 +56,13 @@ console.log('jeden');
 				'Content-Type': 'application/json',
 			},
 		};
+		console.log('trzy');
+
 		fetch('http://srv17.mikr.us:20193/reservo/professions', options)
 			.then(response => response.json())
 			.then(data => console.log(data))
 			.catch((error: Error) => console.log(error));
-	});
+		console.log('cztery');
+
+		});
 
