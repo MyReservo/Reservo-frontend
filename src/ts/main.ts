@@ -10,22 +10,10 @@ import {
 	}
  from './new-elements';
 import {clearAllErrors} from "./clear-errors";
-import './api-data';
 
+import  './api-data';
+import {customerInput,checkCompanyInput,nameInput,surnameInput,numberInput,emailInput,passwordInput,repeatInput} from './constatns-elements';
 
-
-
-export const customerInput = document.querySelector('#user') as HTMLInputElement;
-export const checkCompanyInput = document.querySelector('#company') as HTMLInputElement;
-console.log('jedenn');
-export const nameInput = document.querySelector('#name') as HTMLInputElement;
- export const surnameInput = document.querySelector('#surname') as HTMLInputElement;
-
- export const numberInput = document.querySelector('#phone') as HTMLInputElement;
-export const emailInput = document.querySelector('#email') as HTMLInputElement;
-
-export const passwordInput = document.querySelector('#password') as HTMLInputElement;
-export const repeatInput = document.querySelector('#repeat') as HTMLInputElement;
 
 
 export const termsInput = document.querySelector('#terms') as HTMLInputElement;
@@ -80,6 +68,7 @@ companyNamelabel.innerText = 'Nazwa firmy';
 const companyInput = document.createElement('input');
 companyInput.className = 'input';
 companyInput.id = 'company-name';
+companyInput.name = "company-name";
 companyInput.type = 'text';
 
 const servicesLabel = document.createElement('label');
@@ -97,6 +86,7 @@ const services = [
 
 const select = document.createElement('select');
 select.id = 'services';
+select.name = 'services';
 select.className = 'input';
 
 services.forEach(service => {
@@ -136,15 +126,14 @@ export const removeError = (input: HTMLInputElement) => {
 	toggleError(input, false);
 };
 
-const addInputs = () => {
 
+
+const addInputs = () => {
 	if (checkCompanyInput.checked) {
-		basicInfoData.append(companyNamelabel, companyInput);
+		basicInfoData.append(companyNamelabel,companyInput);
 		basicInfoData2.append(servicesLabel, select);
-		basicInfoCompany.append(basicInfoData, basicInfoData2);
-		
-		basicInfo.append(basicInfoCompany, companyAdress);
-		
+		basicInfoCompany.append( basicInfoData,basicInfoData2);
+		basicInfo.append(basicInfoCompany, companyAdress);	
 		clearAllErrors(adressFields, nameInput,surnameInput,numberInput,emailInput,passwordInput,repeatInput,companyInput,select,termsBox,termsError);
 	} else if (customerInput.checked) {
 		basicInfoCompany.remove();
@@ -190,7 +179,7 @@ const inputsValidation = (e: Event) => {
 
 
 checkCompanyInput.addEventListener('change', addInputs);
-customerInput.addEventListener('change', addInputs);
+// customerInput.addEventListener('change', addInputs);
 
 
 	termsInput.addEventListener('change', function () {

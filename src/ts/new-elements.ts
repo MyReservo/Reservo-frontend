@@ -1,10 +1,10 @@
 
 
 export const adressFields = [
-	{ id: 'street', placeholder: 'Ulica' },
-	{ id: 'home', placeholder: 'Nr.domu' },
-	{ id: 'city', placeholder: 'Miasto' },
-	{ id: 'code', placeholder: 'Kod pocztowy' },
+	{ id: 'street', placeholder: 'Ulica', name: "street"},
+	{ id: 'home', placeholder: 'Nr.domu',name: 'home' },
+	{ id: 'city', placeholder: 'Miasto',name: 'city'},
+	{ id: 'code', placeholder: 'Kod pocztowy',name: 'code'},
 ];
 
 export const companyAdress = document.createElement('div');
@@ -36,6 +36,7 @@ export const dataInputsCreator = (
 
 		adressInput.className = 'input';
 		adressInput.type = 'text';
+		adressInput.name = field.name;
 		adressInput.id = field.id;
 		adressInput.placeholder = field.placeholder;
 
@@ -73,9 +74,7 @@ export const dataInputsCreator = (
 			adressInput.addEventListener('input', inputsEvents);
 		}
 	});
-
 };
 
 
-companyAdress.appendChild(companyAdressTitle);
-companyAdress.appendChild(companyAdressPlace);
+companyAdress.append(companyAdressTitle,companyAdressPlace);

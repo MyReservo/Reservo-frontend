@@ -22,7 +22,6 @@ export const clearAllErrors = (
 const adressInputsArr = [streetInput,cityInput,homeInput,codeInput];
 
 
-    console.log('działam');
 	nameInput.classList.remove('red-input');
 	nameInput.classList.remove('red-placeholder');
 	nameInput.removeAttribute('placeholder');
@@ -54,10 +53,7 @@ const adressInputsArr = [streetInput,cityInput,homeInput,codeInput];
 	}
 
 	adressInputsArr.forEach((input, index) => {
-
-		console.log(streetInput.placeholder);
 		if (input.classList.contains('red-input')) {
-			console.log('ok usuwam błędy ');
 			input.classList.remove('red-input');
 			input.classList.remove('red-placeholder');
          input.placeholder = adressFields[index].placeholder;
