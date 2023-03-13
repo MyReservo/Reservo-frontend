@@ -5,24 +5,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ReservoApp</title>
-  <script type="module" crossorigin src="/Reservo-frontend/assets/index-5b39ae3f.js"></script>
-  <link rel="stylesheet" href="/Reservo-frontend/assets/index-af656d22.css">
+  <script type="module" crossorigin src="/Reservo-frontend/assets/index-01ac724c.js"></script>
+  <link rel="stylesheet" href="/Reservo-frontend/assets/index-bfab30c3.css">
 </head>
 
 <body>
     <div class="wrapper">
-        <form class="form-box">
+        <form action="http://srv17.mikr.us:20193/reservo/professions" method="POST" id="form">
             <h1>REJESTRACJA</h1>
             <div class="user-company">
                 <div class="user-company-user">
-                    <input id="user" type="checkbox" class="special-input" checked>
+                    <input id="user" name="user" type="checkbox" class="special-input" checked>
                     <label for="user">
                         użytkownik
                     </label>
                 </div>
 
                 <div class="user-company-company">
-                    <input id="company" type="checkbox" class="special-input">
+                    <input id="company" name="company" type="checkbox" class="special-input">
                     <label for="company">
                         firma
                     </label>
@@ -35,22 +35,22 @@
                 <div class="basic-info-names">
                     <div class="basic-info-data">
                         <label for="name">Imię</label>
-                        <input id="name" type="text" class="input">
+                        <input id="name" name="name" type="text" class="input">
                     </div>
                     <div class="basic-info-data">
                         <label for="surname">Nazwisko</label>
-                        <input id="surname" type="text" class="input">
+                        <input id="surname" name="surname" type="text" class="input">
                     </div>
                 </div>
 
                 <div class="basic-info-contact">
                     <div class="basic-info-data"> <label for="phone">Numer telefonu</label>
-                        <input id="phone" type="text" class="input">
+                        <input id="phone" name="phone" type="text" class="input">
                     </div>
 
                     <div class="basic-info-data">
                          <label for="email">E-mail</label>
-                        <input id="email" type="email" class="input">
+                        <input id="email" name="email" type="email" class="input">
                     </div>
                 </div>
             </div>
@@ -59,12 +59,12 @@
 
                 <div class="password-box-password">
                     <label for="password">Hasło</label>
-                    <input id="password" type="password" class="input">
+                    <input id="password" name="password" type="password" class="input">
                 </div>
 
                 <div class="password-box-password">
                     <label for="repeat">Powtórz hasło</label>
-                    <input id="repeat" type="password" class="input">
+                    <input id="repeat" name="repeat" type="password" class="input">
                 </div>
 
             </div>
@@ -77,12 +77,73 @@
             </div>
 
 
-            <button class="register">REJESTRUJ</button>
+ 
+        <button type="submit" id="register">REJESTRUJ</button>
+
 
         </form>
     </div>
 
     
+    <!-- <script src="./src/ts/api-data.ts"></script> -->
 </body>
-
 </html>
+
+<!-- <script>
+console.log('jestem');
+const form = document.getElementById('form');
+    if (form) {
+	form.addEventListener('submit', function (e) {
+		console.log('trzy');
+		e.preventDefault();
+
+		// const companyNameInput = document.querySelector('#company-name');
+		// // const servicesInput = document.querySelector('#services');
+		// const streetInput = document.querySelector('#street');
+		// const homeInput = document.querySelector('#home') ;
+		// const cityInput = document.querySelector('#city') ;
+		// const codeInput = document.querySelector('#code') ;
+
+		// const tutorService = document.querySelector('#tutor') as HTMLOptionElement;
+		// const barberService = document.querySelector('#barber') as HTMLOptionElement;
+		// const mechanicService = document.querySelector('#mechanic') as HTMLOptionElement;
+
+		// const selectedServices = Array.from(document.querySelectorAll('#services option:checked')).map(
+		// 	option => option.getAttribute('value')
+		// );
+
+		// const data = {
+		// 	name: nameInput.value,
+		// 	surname: surnameInput.value,
+		// 	email: emailInput.value,
+		// 	number: numberInput.value,
+		// 	companyName: companyNameInput.value,
+		// 	services: selectedServices,
+		// 	street: streetInput.value,
+		// 	home: homeInput.value,
+		// 	city: cityInput.value,
+		// 	zipCode: codeInput.value,
+		// 	password: passwordInput.value,
+		// 	repeatPassword: repeatInput.value,
+		// };
+
+		// const options = {
+		// 	method: 'POST',
+		// 	body: JSON.stringify(data),
+		// 	headers: {
+		// 		'Content-Type': 'application/json',
+		// 	},
+		// };
+
+        const payload = new FormData(form);
+
+        console.log([...payload]);
+
+		// fetch('http://srv17.mikr.us:20193/reservo/professions', options)
+		// 	.then(response => response.json())
+		// 	.then(data => console.log(data))
+		// 	.catch((error) => console.log(error));
+	});
+} 
+
+</script> -->
