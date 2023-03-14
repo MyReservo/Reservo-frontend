@@ -1,8 +1,4 @@
 
-
-
-
-console.log('zeroo');
 export const companyNamelabel = document.createElement('label');
 companyNamelabel.htmlFor = 'company-name';
 companyNamelabel.innerText = 'Nazwa firmy';

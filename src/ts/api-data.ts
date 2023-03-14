@@ -16,13 +16,14 @@ import {
 import {addressData} from "./new-elements";
 
 
-interface Options {
-	method: 'POST';
-	body: string;
-	headers: {
-		'Content-Type': 'application/json';
-	};
-}
+// interface Options {
+// 	method: 'GET';
+// 	mode: RequestMode | undefined;
+// 	// body: string;
+// 	headers: {
+// 		'Content-Type': 'application/json';
+// 	};
+// }
 
 
 	form.addEventListener('submit', function (e) {
@@ -32,9 +33,6 @@ interface Options {
 			option => option.getAttribute('value') as string
 		);
 
-
-		console.log(addressData);
-		console.log('jeden');
 
 		const data = {
             name: nameInput.value,
@@ -47,22 +45,44 @@ interface Options {
 			password: passwordInput.value,
 			repeatPassword: repeatInput.value,
 		};
-		console.log('dwa');
 
-		const options: Options = {
-			method: 'POST',
-			body: JSON.stringify(data),
-			headers: {
-				'Content-Type': 'application/json',
-			},
-		};
-		console.log('trzy');
+// 		const options: Options = {
+// 			method: 'GET',
+// 			mode: 'no-cors',
+// 			// body: JSON.stringify(data),
+// 			headers: {
+// 				'Content-Type': 'application/json',
+// 			},
+// 		};
 
-		fetch('http://srv17.mikr.us:20193/reservo/professions', options)
-			.then(response => response.json())
-			.then(data => console.log(data))
-			.catch((error: Error) => console.log(error));
-		console.log('cztery');
+// 		const queryParams = new URLSearchParams(data);
+// fetch(`http://srv17.mikr.us:20193/reservo/professions?${queryParams}`)
+
+// 			.then((response) => response.text())
+// 			.then((data) => console.log(data))
+// 			.catch((error: Error) => console.log(error));
+
+const query = new URLSearchParams();
+// query.set('name', nameInput.value);
+// query.set('surname', surnameInput.value);
+// query.set('email', emailInput.value);
+// query.set('number', numberInput.value);
+query.set('services', selectedServices.join(','));
+// query.set('companyName', companyInput.value);
+// query.set('adress', JSON.stringify(addressData));
+// query.set('password', passwordInput.value);
+// query.set('repeatPassword', repeatInput.value);
+// console.log(query);
+const options: RequestInit = {
+	method: 'GET',
+	mode: 'cors',
+};
+
+const url = `http://srv17.mikr.us:20193/reservo/professions?${query.toString()}`;
+fetch(url, options)
+	.then((response) => response.text())
+	.then((data) => console.log(data))
+	.catch((error: Error) => console.log(error));
 
 		});
 
