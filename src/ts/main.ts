@@ -6,18 +6,27 @@ import './api-data';
 import {
 	customerInput,
 	checkCompanyInput,
-	nameInput,surnameInput,
-	numberInput,emailInput,
-	passwordInput,repeatInput,
-	companyNamelabel,companyInput,
-	select,servicesLabel,services,
-	termsInput,termsBox,
+	nameInput,
+	surnameInput,
+	numberInput,
+	emailInput,
+	passwordInput,
+	repeatInput,
+	companyNamelabel,
+	companyInput,
+	select,
+	servicesLabel,
+	services,
+	termsInput,
+	termsBox,
 	registerBtn,
-	basicInfo,basicInfoCompany,basicInfoData,basicInfoData2,
-	termsError,checkboxesArr
+	basicInfo,
+	basicInfoCompany,
+	basicInfoData,
+	basicInfoData2,
+	termsError,
+	checkboxesArr,
 } from './constants-elements';
-
-
 
 const termsCheckboxCheck = () => {
 	if (!termsInput.checked) {
@@ -126,26 +135,42 @@ const inputsValidation = () => {
 };
 
 
-checkCompanyInput.addEventListener('change', addInputs);
-customerInput.addEventListener('change', addInputs);
-
-termsInput.addEventListener('change', function () {
-	if (termsBox.contains(termsError)) {
-		termsBox.removeChild(termsError);
+const handleEvent = (e: Event) => {
+	const target = e.target as HTMLElement;
+	
+	if (e.type === 'input') {
+		if (target.matches('#name, #surname, #number, #email, #company-name, #password, #repeat, #phone')) {
+			if (target instanceof HTMLInputElement) {
+				removeError(target);
+			}
+		}
+		if (target.matches('#services')) {
+			console.log('jest services2');
+			inputsEvents(e);
+		}
+	} else if (e.type === 'change') {
+		console.log('jest typ change');
+		if (target.matches('#company, #user')) {
+			addInputs();
+		}
+		if (target.matches('#terms')) {
+			console.log('jest terms');
+			if (termsBox.contains(termsError)) {
+				termsBox.removeChild(termsError);
+			}
+		}
+	} else if (e.type === 'keypress') {
+		if (target.matches('#phone')) {
+			const keyEvent = e as KeyboardEvent;
+			if (isNaN(parseInt(keyEvent.key))) {
+				e.preventDefault();
+			}
+		}
 	}
-});
+};
 
-nameInput.addEventListener('input', () => removeError(nameInput));
-surnameInput.addEventListener('input', () => removeError(surnameInput));
-numberInput.addEventListener('input', () => removeError(numberInput));
-numberInput.addEventListener('keypress', function (e) {
-	if (isNaN(parseInt(e.key))) {
-		e.preventDefault();
-	}
-});
-emailInput.addEventListener('input', () => removeError(emailInput));
-companyInput.addEventListener('input', () => removeError(companyInput));
-select.addEventListener('input', inputsEvents);
-passwordInput.addEventListener('input', () => removeError(passwordInput));
-repeatInput.addEventListener('input', () => removeError(repeatInput));
+document.addEventListener('input', handleEvent);
+document.addEventListener('change', handleEvent);
+document.addEventListener('keypress', handleEvent);
 registerBtn.addEventListener('click', inputsValidation);
+
