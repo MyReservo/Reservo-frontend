@@ -2,31 +2,22 @@ import '../sass/main.scss';
 import './new-elements';
 import { dataInputsCreator, companyAdress, adressFields } from './new-elements';
 import { clearAllErrors } from './clear-all-errors';
-
 import './api-data';
 import {
 	customerInput,
 	checkCompanyInput,
-	nameInput,
-	surnameInput,
-	numberInput,
-	emailInput,
-	passwordInput,
-	repeatInput,
-	companyNamelabel,
-	companyInput,
-	select,
+	nameInput,surnameInput,
+	numberInput,emailInput,
+	passwordInput,repeatInput,
+	companyNamelabel,companyInput,
+	select,servicesLabel,services,
+	termsInput,termsBox,
+	registerBtn,
+	basicInfo,basicInfoCompany,basicInfoData,basicInfoData2,
+	termsError,checkboxesArr
 } from './constants-elements';
 
-export const termsInput = document.querySelector('#terms') as HTMLInputElement;
-const termsBox = document.querySelector('.register-terms') as HTMLElement;
 
-export const registerBtn = document.querySelector('#register') as HTMLButtonElement;
-
-const basicInfo = document.querySelector('.basic-info') as HTMLElement;
-
-const termsError = document.createElement('p');
-termsError.classList.add('terms-error');
 
 const termsCheckboxCheck = () => {
 	if (!termsInput.checked) {
@@ -34,8 +25,6 @@ const termsCheckboxCheck = () => {
 		termsBox.appendChild(termsError);
 	}
 };
-
-const checkboxesArr = [customerInput, checkCompanyInput];
 
 function handleCheckboxClick(this: HTMLInputElement) {
 	checkboxesArr.forEach(checkbox => {
@@ -53,34 +42,11 @@ checkboxesArr.forEach(checkbox => {
 	});
 });
 
-const basicInfoCompany = document.createElement('div');
-basicInfoCompany.className = 'basic-info-company';
-
-const basicInfoData = document.createElement('div');
-basicInfoData.className = 'basic-info-data';
-
-const basicInfoData2 = document.createElement('div');
-basicInfoData2.className = 'basic-info-data';
-
-// console.log('zero');
-
-const servicesLabel = document.createElement('label');
-servicesLabel.htmlFor = 'services';
-servicesLabel.innerText = 'Świadczone usługi';
-
-const services = [
-	{ value: 'default', label: 'Wybierz usługę', id: 'default' },
-	{ value: 'TUTOR', label: 'Korepetycje', id: 'tutor' },
-	{ value: 'BARBER', label: 'Fryzjer', id: 'barber' },
-	{ value: 'MECHANIC', label: 'Mechanik', id: 'mechanic' },
-];
-
 services.forEach(service => {
 	const option = document.createElement('option');
 	option.value = service.value;
 	option.innerText = service.label;
 	option.id = service.id;
-	// console.log(option.id);
 	select.appendChild(option);
 	if (option.value === 'default') {
 		option.disabled = true;
@@ -108,6 +74,7 @@ export const toggleError = (input: HTMLInputElement, isError: boolean, placehold
 		input.classList.remove('red-placeholder');
 	}
 };
+
 export const removeError = (input: HTMLInputElement) => {
 	toggleError(input, false);
 };
@@ -128,7 +95,6 @@ const addInputs = () => {
 dataInputsCreator(registerBtn, toggleError, removeError, inputsEvents);
 
 const inputsValidation = () => {
-	// e.preventDefault();
 	const regExPhone: RegExp = /^(?:\(?\?)?(?:[-\.\(\)\s]*(\d)){9}\)?$/;
 	const regExEmail: RegExp =
 		/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/;
@@ -159,46 +125,6 @@ const inputsValidation = () => {
 	termsCheckboxCheck();
 };
 
-// passwordInput.addEventListener('onchange', function () {
-// 	if (passwordInput.value.length < 8) {
-// 		toggleError(passwordInput, true, 'Hasło musi zawierać min. 8 znaków');
-// 	}
-// })
-
-// registerBtn.addEventListener('click', function (e) {
-// 	// e.preventDefault();
-// 	const regExPhone: RegExp = /^(?:\(?\?)?(?:[-\.\(\)\s]*(\d)){9}\)?$/;
-// 	const regExEmail: RegExp =
-// 		/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/;
-
-// 	console.log('kliknieto!');
-
-// 	if (nameInput.value === '') {
-// 		toggleError(nameInput, true, 'Podaj imię');
-// 	}
-// 	if (surnameInput.value === '') {
-// 		toggleError(surnameInput, true, 'Podaj nazwisko');
-// 	}
-// 	if (!regExPhone.test(numberInput.value)) {
-// 		toggleError(numberInput, true, 'Podaj numer telefonu');
-// 	}
-// 	if (!regExEmail.test(emailInput.value)) {
-// 		toggleError(emailInput, true, 'Podaj adres e-mail');
-// 	}
-// 	if (passwordInput.value.length < 8) {
-// 		toggleError(passwordInput, true, 'Hasło musi zawierać min. 8 znaków');
-// 	}
-// 	if (repeatInput.value !== passwordInput.value) {
-// 		toggleError(repeatInput, true, 'Hasła muszą być takie same');
-// 	}
-// 	if (companyInput.value === '') {
-// 		toggleError(companyInput, true, 'Podaj nazwę firmy');
-// 	}
-// 	if (select.value === 'default') {
-// 		select.classList.add('red-input');
-// 	}
-// 	termsCheckboxCheck();
-// });
 
 checkCompanyInput.addEventListener('change', addInputs);
 customerInput.addEventListener('change', addInputs);

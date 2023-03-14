@@ -3,17 +3,17 @@ import {
 	// customerInput,
 	// checkCompanyInput,
 	// termsInput,
-	nameInput,
-	surnameInput,
-	numberInput,
-	emailInput,
-	passwordInput,
-	repeatInput,
+	// nameInput,
+	// surnameInput,
+	// numberInput,
+	// emailInput,
+	// passwordInput,
+	// repeatInput,
 	form,
-	companyInput,
+	// companyInput,
 } from './constants-elements';
 
-import { addressData } from './new-elements';
+// import { addressData } from './new-elements';
 
 // interface Options {
 // 	method: 'GET';
@@ -31,17 +31,17 @@ form.addEventListener('submit', function (e) {
 		option => option.getAttribute('value') as string
 	);
 
-	const data = {
-		name: nameInput.value,
-		surname: surnameInput.value,
-		email: emailInput.value,
-		number: numberInput.value,
-		services: selectedServices,
-		companyName: companyInput.value,
-		adress: addressData,
-		password: passwordInput.value,
-		repeatPassword: repeatInput.value,
-	};
+	// const data = {
+	// 	name: nameInput.value,
+	// 	surname: surnameInput.value,
+	// 	email: emailInput.value,
+	// 	number: numberInput.value,
+	// 	services: selectedServices,
+	// 	companyName: companyInput.value,
+	// 	adress: addressData,
+	// 	password: passwordInput.value,
+	// 	repeatPassword: repeatInput.value,
+	// };
 
 	// 		const options: Options = {
 	// 			method: 'GET',
