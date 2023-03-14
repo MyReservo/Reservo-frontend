@@ -18,7 +18,6 @@ const companyAdressPlace = document.createElement('div');
 companyAdressPlace.className = 'company-adress-place';
 
 
-
 interface AdressData {
 	[key: string]: any;
 }
@@ -38,7 +37,6 @@ export const dataInputsCreator = (
 
 	
 	adressFields.forEach(field => {
-
 		const adressDiv = document.createElement('div');
 		adressDiv.className = 'company-adress-data';
 		const  adressInput = document.createElement('input');
@@ -84,8 +82,6 @@ export const dataInputsCreator = (
 		});
 		adressDiv.appendChild(adressInput);
 		companyAdressPlace.appendChild(adressDiv);
-
-
 
 		if (adressInput.id === 'home' || adressInput.id === 'code') {
 			adressInput.addEventListener('input', inputsEvents);

@@ -1,20 +1,22 @@
 import '../sass/main.scss';
 import './new-elements';
-import {   
-	dataInputsCreator,
-	companyAdress,
-	adressFields,
-	// companyNamelabel,
-	// companyInput,
-	// servicesLabel,
-	}
- from './new-elements';
-import {clearAllErrors} from "./clear-errors";
+import { dataInputsCreator, companyAdress, adressFields } from './new-elements';
+import { clearAllErrors } from './clear-all-errors';
 
-import  './api-data';
-import {customerInput,checkCompanyInput,nameInput,surnameInput,numberInput,emailInput,passwordInput,repeatInput,companyNamelabel,companyInput} from './constatns-elements';
-
-
+import './api-data';
+import {
+	customerInput,
+	checkCompanyInput,
+	nameInput,
+	surnameInput,
+	numberInput,
+	emailInput,
+	passwordInput,
+	repeatInput,
+	companyNamelabel,
+	companyInput,
+	select,
+} from './constants-elements';
 
 export const termsInput = document.querySelector('#terms') as HTMLInputElement;
 const termsBox = document.querySelector('.register-terms') as HTMLElement;
@@ -60,26 +62,18 @@ basicInfoData.className = 'basic-info-data';
 const basicInfoData2 = document.createElement('div');
 basicInfoData2.className = 'basic-info-data';
 
-
 // console.log('zero');
 
 const servicesLabel = document.createElement('label');
 servicesLabel.htmlFor = 'services';
 servicesLabel.innerText = 'Świadczone usługi';
 
-
 const services = [
-	{ value: 'default', label: 'Wybierz usługę', id:"default"},
-	{ value: 'TUTOR', label: 'Korepetycje', id:'tutor'},
-	{ value: 'BARBER', label: 'Fryzjer', id:'barber'},
-	{ value: 'MECHANIC', label: 'Mechanik', id:'mechanic'},
+	{ value: 'default', label: 'Wybierz usługę', id: 'default' },
+	{ value: 'TUTOR', label: 'Korepetycje', id: 'tutor' },
+	{ value: 'BARBER', label: 'Fryzjer', id: 'barber' },
+	{ value: 'MECHANIC', label: 'Mechanik', id: 'mechanic' },
 ];
-
-
-const select = document.createElement('select');
-select.id = 'services';
-select.name = 'services';
-select.className = 'input';
 
 services.forEach(service => {
 	const option = document.createElement('option');
@@ -88,7 +82,7 @@ services.forEach(service => {
 	option.id = service.id;
 	// console.log(option.id);
 	select.appendChild(option);
-	if(option.value === 'default'){
+	if (option.value === 'default') {
 		option.disabled = true;
 	}
 });
@@ -118,24 +112,20 @@ export const removeError = (input: HTMLInputElement) => {
 	toggleError(input, false);
 };
 
-
-
 const addInputs = () => {
 	if (checkCompanyInput.checked) {
-		basicInfoData.append(companyNamelabel,companyInput);
+		basicInfoData.append(companyNamelabel, companyInput);
 		basicInfoData2.append(servicesLabel, select);
-		basicInfoCompany.append( basicInfoData,basicInfoData2);
-		basicInfo.append(basicInfoCompany, companyAdress);	
-		clearAllErrors(adressFields, nameInput,surnameInput,numberInput,emailInput,passwordInput,repeatInput,companyInput,select,termsBox,termsError);
+		basicInfoCompany.append(basicInfoData, basicInfoData2);
+		basicInfo.append(basicInfoCompany, companyAdress);
+		clearAllErrors(adressFields, termsBox, termsError);
 	} else if (customerInput.checked) {
 		basicInfoCompany.remove();
 		companyAdress.remove();
 	}
 };
 
-
-dataInputsCreator(registerBtn,toggleError,removeError,inputsEvents);
-
+dataInputsCreator(registerBtn, toggleError, removeError, inputsEvents);
 
 const inputsValidation = () => {
 	// e.preventDefault();
@@ -169,14 +159,11 @@ const inputsValidation = () => {
 	termsCheckboxCheck();
 };
 
-
-
 // passwordInput.addEventListener('onchange', function () {
 // 	if (passwordInput.value.length < 8) {
 // 		toggleError(passwordInput, true, 'Hasło musi zawierać min. 8 znaków');
 // 	}
 // })
-
 
 // registerBtn.addEventListener('click', function (e) {
 // 	// e.preventDefault();
@@ -213,19 +200,14 @@ const inputsValidation = () => {
 // 	termsCheckboxCheck();
 // });
 
-
-
-
 checkCompanyInput.addEventListener('change', addInputs);
-// customerInput.addEventListener('change', addInputs);
+customerInput.addEventListener('change', addInputs);
 
-
-	termsInput.addEventListener('change', function () {
-		if (termsBox.contains(termsError)){
-			termsBox.removeChild(termsError);
-		}
-	});
-
+termsInput.addEventListener('change', function () {
+	if (termsBox.contains(termsError)) {
+		termsBox.removeChild(termsError);
+	}
+});
 
 nameInput.addEventListener('input', () => removeError(nameInput));
 surnameInput.addEventListener('input', () => removeError(surnameInput));
@@ -241,6 +223,3 @@ select.addEventListener('input', inputsEvents);
 passwordInput.addEventListener('input', () => removeError(passwordInput));
 repeatInput.addEventListener('input', () => removeError(repeatInput));
 registerBtn.addEventListener('click', inputsValidation);
-
-
-
