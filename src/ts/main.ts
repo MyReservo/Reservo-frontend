@@ -149,7 +149,6 @@ const handleEvent = (e: Event) => {
 			inputsEvents(e);
 		}
 	} else if (e.type === 'change') {
-		console.log('jest typ change');
 		if (target.matches('#company, #user')) {
 			addInputs();
 		}

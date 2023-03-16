@@ -82,6 +82,6 @@ form.addEventListener('submit', function (e) {
 		.catch((error: Error) => console.log(error));
 });
 
-fetch('http://srv17.mikr.us:20193/reservo/professions')
-	.then(res => res.json())
-	.then(data => console.log(data));
+// fetch('http://srv17.mikr.us:20193/reservo/professions')
+// 	.then(res => res.json())
+// 	.then(data => console.log(data));
