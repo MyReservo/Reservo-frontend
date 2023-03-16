@@ -1,3 +1,6 @@
+
+@use 'colors' as *;
+
 .wrapper {
 	margin: 100px auto 100px;
 	width: 45%;
@@ -23,6 +26,36 @@
 	height: 15px;
 	margin-right: .8em;
 
+}
+
+.info {
+	position: absolute;
+	right: 2em;
+	background-color: transparent;
+	border: none;
+	img{
+		width: 20px;
+	}
+}
+
+.info::before{
+	position: absolute;
+	content: "Hasło powinno zawierać conajmniej 8 znaków.";
+	bottom: 20px;
+	left: 20px;
+	width: 170px;
+	height: 60px;
+	padding: .5em;
+	border-radius: 7px;
+	background-color: rgb(148, 148, 148);
+	box-shadow: 1px 1px 1px 0px rgba(24, 58, 63, 0.35);
+	background-color: $buttonColor;
+	background-color:#3aa1fcec;
+	display: none;
+}
+
+.info:hover::before{
+	display: block;
 }
 
 

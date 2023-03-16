@@ -87,6 +87,7 @@ flex-wrap: wrap;
 .password-box {
 	display: flex;
 	&-password {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		width: 50%;
