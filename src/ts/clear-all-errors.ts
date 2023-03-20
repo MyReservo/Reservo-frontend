@@ -1,4 +1,4 @@
-import { inputsArr } from './constants-elements';
+import { inputsArr } from './main';
 
 export const clearAllErrors = (
 	adressFields: { id: string; placeholder: string }[],

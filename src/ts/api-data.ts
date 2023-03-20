@@ -1,17 +1,24 @@
-import {
-	// registerBtn,
-	// customerInput,
-	// checkCompanyInput,
-	// termsInput,
-	// nameInput,
-	// surnameInput,
-	// numberInput,
-	// emailInput,
-	// passwordInput,
-	// repeatInput,
-	form,
-	// companyInput,
-} from './constants-elements';
+// import {
+// 	// registerBtn,
+// 	// customerInput,
+// 	// checkCompanyInput,
+// 	// termsInput,
+// 	// nameInput,
+// 	// surnameInput,
+// 	// numberInput,
+// 	// emailInput,
+// 	// passwordInput,
+// 	// repeatInput,
+// 	form,
+// 	// companyInput,
+// } from './constants-elements';
+export{}
+
+//  const streetInput = document.querySelector('#street') as HTMLInputElement;
+//  const homeInput = document.querySelector('#home') as HTMLInputElement;
+//  const cityInput = document.querySelector('#city') as HTMLInputElement;
+//  const codeInput = document.querySelector('#code') as HTMLInputElement;
+ const form = document.getElementById('form') as HTMLFormElement;
 
 // import { addressData } from './new-elements';
 
