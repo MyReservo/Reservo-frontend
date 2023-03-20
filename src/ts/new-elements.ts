@@ -1,5 +1,4 @@
 
-
 export const adressFields = [
 	{ id: 'street', placeholder: 'Ulica', name: "street"},
 	{ id: 'home', placeholder: 'Nr.domu',name: 'home' },

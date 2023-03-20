@@ -1,26 +1,27 @@
+
 import '../sass/main.scss';
-import './new-elements';
 import { dataInputsCreator, companyAdress, adressFields } from './new-elements';
-import { clearAllErrors } from './clear-all-errors';
+import './calendar';
 import './api-data';
 
+console.log('jeden');
+console.log('dwa');
 
  const customerInput = document.querySelector('#user') as HTMLInputElement;
  const checkCompanyInput = document.querySelector('#company') as HTMLInputElement;
 
- const nameInput = document.querySelector('#name') as HTMLInputElement;
- const surnameInput = document.querySelector('#surname') as HTMLInputElement;
+ export const nameInput = document.querySelector('#name') as HTMLInputElement;
+ export const surnameInput = document.querySelector('#surname') as HTMLInputElement;
 
- const numberInput = document.querySelector('#phone') as HTMLInputElement;
- const emailInput = document.querySelector('#email') as HTMLInputElement;
+ export const numberInput = document.querySelector('#phone') as HTMLInputElement;
+ export const emailInput = document.querySelector('#email') as HTMLInputElement;
 
- const passwordInput = document.querySelector('#password') as HTMLInputElement;
- const repeatInput = document.querySelector('#repeat') as HTMLInputElement;
+ export const passwordInput = document.querySelector('#password') as HTMLInputElement;
+ export const repeatInput = document.querySelector('#repeat') as HTMLInputElement;
 
- const registerBtn = document.querySelector('#register') as HTMLButtonElement;
+ export const registerBtn = document.querySelector('#register') as HTMLButtonElement;
 
-
- const termsInput = document.querySelector('#terms') as HTMLInputElement;
+ export const termsInput = document.querySelector('#terms') as HTMLInputElement;
  const termsBox = document.querySelector('.register-terms') as HTMLElement;
  const termsError = document.createElement('p');
  termsError.classList.add('terms-error');
@@ -56,7 +57,7 @@ checkboxesArr.forEach(checkbox => {
 	{ value: 'BARBER', label: 'Fryzjer', id: 'barber' },
 	{ value: 'MECHANIC', label: 'Mechanik', id: 'mechanic' },
 ];
- const select = document.createElement('select');
+ export const select = document.createElement('select');
 select.id = 'services';
 select.name = 'services';
 select.className = 'input';
@@ -200,7 +201,44 @@ const handleEvent = (e: Event) => {
 	}
 };
 
-export const inputsArr = [nameInput,surnameInput,numberInput,emailInput,passwordInput,repeatInput,companyInput,select];
+
+const inputsArr = [nameInput,surnameInput,numberInput,emailInput,passwordInput,repeatInput,companyInput,select];
+
+ const streetInput = document.querySelector('#street') as HTMLInputElement;
+ const cityInput = document.querySelector('#city') as HTMLInputElement;
+ const homeInput = document.querySelector('#home') as HTMLInputElement;
+ const codeInput = document.querySelector('#code') as HTMLInputElement;
+ let adressInputsArr = [streetInput, cityInput, homeInput, codeInput];
+
+ const clearAllErrors = (
+	adressFields: { id: string; placeholder: string }[],
+	termsBox: HTMLElement,
+	termsError: HTMLParagraphElement
+) => {
+
+    adressInputsArr = [streetInput, cityInput, homeInput, codeInput];
+
+	adressInputsArr.forEach((input, index) => {
+		if (input.classList.contains('red-input')) {
+			input.classList.remove('red-input');
+			input.classList.remove('red-placeholder');
+			input.placeholder = adressFields[index].placeholder;
+		}
+	});
+
+	inputsArr.forEach(input => {
+		input.classList.remove('red-input');
+		input.classList.remove('red-placeholder');
+		input.removeAttribute('placeholder');
+	});
+
+	if (termsBox.contains(termsError)) {
+		termsBox.removeChild(termsError);
+	}
+};
+
+
+
 
 document.addEventListener('input', handleEvent);
 document.addEventListener('change', handleEvent);
