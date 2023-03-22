@@ -139,6 +139,8 @@ const addClickEvents = () => {
     });
 };
 
+
+
 const handleClick = (event:Event) => {
     const td = event.target as HTMLElement;
     const pickedDay = Number(td.textContent);
@@ -158,24 +160,27 @@ const handleClick = (event:Event) => {
 
 const calendar = () => {
     
-   
-
+    
+    
     const exitIcon = document.querySelector('.fa-times');
     exitIcon?.addEventListener('click', () => {
         hoursContainer!.style.display = "none";
     });
-
+    console.log('jeden');
+    
     const monthAndYear = document.querySelector('#calendar-top') as HTMLElement;
-    monthAndYear.innerText = monthArr[date.getMonth()] + " " + date.getFullYear();
-
+    console.log(monthAndYear.textContent);
+    monthAndYear.textContent = monthArr[date.getMonth()] + " " + date.getFullYear();
+    console.log(monthAndYear.textContent);
+    
     const firstDay = new Date(date.getFullYear(),date.getMonth(),1 )
     const lastDay = new Date(date.getFullYear(),date.getMonth() + 1, 0 )
-
+    
     let day = 1
-
-   for (let i = 0; i < allTd.length; i++) {
+    
+    for (let i = 0; i < allTd.length; i++) {
         allTd[i].textContent = i.toString();
-
+        
         if (i <firstDay.getDay() -1) {
             allTd[i].innerHTML = '';
         } else if (day <= lastDay.getDate()) {
@@ -186,9 +191,12 @@ const calendar = () => {
         } 
     }
     addClickEvents();
-
+    
 
 };
+
+
+
 
 const prevMonth = () => {
     date.setMonth(date.getMonth() - 1);

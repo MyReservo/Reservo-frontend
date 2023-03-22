@@ -92,8 +92,10 @@ body{
 
 @media (max-width: 1200px) {
 
-.wrapper{
-	width: 60%;
+body{
+	.wrapper{
+		width: 60%;
+	}
 }
 
 }

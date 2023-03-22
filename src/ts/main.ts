@@ -1,11 +1,8 @@
 
 import '../sass/main.scss';
-import { dataInputsCreator, companyAdress, adressFields } from './new-elements';
-import './calendar';
+import { dataInputsCreator, companyAdress } from './new-elements';
+// import './calendar';
 import './api-data';
-
-console.log('jeden');
-console.log('dwa');
 
  const customerInput = document.querySelector('#user') as HTMLInputElement;
  const checkCompanyInput = document.querySelector('#company') as HTMLInputElement;
@@ -20,6 +17,7 @@ console.log('dwa');
  export const repeatInput = document.querySelector('#repeat') as HTMLInputElement;
 
  export const registerBtn = document.querySelector('#register') as HTMLButtonElement;
+ 
 
  export const termsInput = document.querySelector('#terms') as HTMLInputElement;
  const termsBox = document.querySelector('.register-terms') as HTMLElement;
@@ -83,15 +81,26 @@ export const inputsEvents = (event: Event) => {
 	}
 };
 
+
 export const toggleError = (input: HTMLInputElement, isError: boolean, placeholderText?: string) => {
 	if (isError) {
+		console.log('działam');
 		input.setAttribute('placeholder', placeholderText ?? 'Musisz podać jakąś wartość');
 		input.classList.add('red-input');
 		input.classList.add('red-placeholder');
-	} else {
+		
+	}
+	else if (input.id === "street" || input.id === "home" || input.id === "code" || input.id === "city") {
+		input.setAttribute('placeholder', placeholderText ?? "Musisz podać wartość")
+		input.classList.remove('red-input');
+		input.classList.remove('red-placeholder');
+	}
+
+	else {
 		input.removeAttribute('placeholder');
 		input.classList.remove('red-input');
 		input.classList.remove('red-placeholder');
+
 	}
 };
 
@@ -121,22 +130,8 @@ companyInput.type = 'text';
 servicesLabel.htmlFor = 'services';
 servicesLabel.innerText = 'Świadczone usługi';
 
-const addInputs = () => {
-	if (checkCompanyInput.checked) {
-		basicInfoData.append(companyNamelabel, companyInput);
-		basicInfoData2.append(servicesLabel, select);
-		basicInfoCompany.append(basicInfoData, basicInfoData2);
-		basicInfo.append(basicInfoCompany, companyAdress);
-		clearAllErrors(adressFields, termsBox, termsError);
-	} else if (customerInput.checked) {
-		basicInfoCompany.remove();
-		companyAdress.remove();
-	}
-};
-
-dataInputsCreator(registerBtn, toggleError, removeError, inputsEvents);
-
 const inputsValidation = () => {
+	// e.preventDefault();
 	const regExPhone: RegExp = /^(?:\(?\?)?(?:[-\.\(\)\s]*(\d)){9}\)?$/;
 	const regExEmail: RegExp =
 		/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/;
@@ -168,11 +163,84 @@ const inputsValidation = () => {
 };
 
 
+
+
+
+
+
+
+dataInputsCreator(registerBtn, toggleError, inputsEvents,checkCompanyInput);
+const inputsArr = [nameInput,surnameInput,numberInput,emailInput,passwordInput,repeatInput,companyInput,select];
+
+// let adressInputsArr = [streetInput, cityInput, homeInput, codeInput];
+
+const clearAllErrors = (
+	// adressFields: { id: string; placeholder: string }[],
+	termsBox: HTMLElement,
+	termsError: HTMLParagraphElement,
+	// adressInput:HTMLInputElement,
+	// cityInput: HTMLInputElement,
+	// homeInput: HTMLInputElement,
+	// codeInput: HTMLInputElement
+	) => {
+
+		// adressInputsArr = [streetInput, cityInput, homeInput, codeInput];
+
+// if(adressInput.className = 'red-input'){
+// 	console.log('im in');
+// 	adressInput.classList.remove('red-input');
+
+// }
+
+
+		// adressInputsArr.forEach((input, index) => {
+		// 	console.log('jestem');
+		// 	const currentInput = input;
+		// 	console.log(currentInput);
+		// 	if (currentInput.className === 'red-input') {
+		// 		console.log('ok usuwam błedy');
+		// 		currentInput.classList.remove('red-input');
+		// 		currentInput.classList.remove('red-placeholder');
+		// 		currentInput.placeholder = adressFields[index].placeholder;
+		// 	}
+		// });
+	
+		inputsArr.forEach(input => {
+			input.classList.remove('red-input');
+			input.classList.remove('red-placeholder');
+			input.removeAttribute('placeholder');
+		});
+	
+		if (termsBox.contains(termsError)) {
+			termsBox.removeChild(termsError);
+		}
+	};
+
+
+	const addInputs = () => {
+		if (checkCompanyInput.checked) {
+			
+			basicInfoData.append(companyNamelabel, companyInput);
+			basicInfoData2.append(servicesLabel, select);
+			basicInfoCompany.append(basicInfoData, basicInfoData2);
+			basicInfo.append(basicInfoCompany, companyAdress);
+			// checkCompanyInput.addEventListener('change', addInputs);
+
+			clearAllErrors( termsBox, termsError);
+			
+		} else if (customerInput.checked) {
+			basicInfoCompany.remove();
+			companyAdress.remove();
+		}
+	};
+
+
+
 const handleEvent = (e: Event) => {
 	const target = e.target as HTMLElement;
 	
 	if (e.type === 'input') {
-		if (target.matches('#name, #surname, #number, #email, #company-name, #password, #repeat, #phone')) {
+		if (target.matches('#name, #surname, #number, #email, #company-name, #password, #repeat, #phone, #city,#code,#home,#street')) {
 			if (target instanceof HTMLInputElement) {
 				removeError(target);
 			}
@@ -185,7 +253,7 @@ const handleEvent = (e: Event) => {
 		if (target.matches('#company, #user')) {
 			addInputs();
 		}
-		if (target.matches('#terms')) {
+		else if (target.matches('#terms')) {
 			console.log('jest terms');
 			if (termsBox.contains(termsError)) {
 				termsBox.removeChild(termsError);
@@ -202,46 +270,11 @@ const handleEvent = (e: Event) => {
 };
 
 
-const inputsArr = [nameInput,surnameInput,numberInput,emailInput,passwordInput,repeatInput,companyInput,select];
-
- const streetInput = document.querySelector('#street') as HTMLInputElement;
- const cityInput = document.querySelector('#city') as HTMLInputElement;
- const homeInput = document.querySelector('#home') as HTMLInputElement;
- const codeInput = document.querySelector('#code') as HTMLInputElement;
- let adressInputsArr = [streetInput, cityInput, homeInput, codeInput];
-
- const clearAllErrors = (
-	adressFields: { id: string; placeholder: string }[],
-	termsBox: HTMLElement,
-	termsError: HTMLParagraphElement
-) => {
-
-    adressInputsArr = [streetInput, cityInput, homeInput, codeInput];
-
-	adressInputsArr.forEach((input, index) => {
-		if (input.classList.contains('red-input')) {
-			input.classList.remove('red-input');
-			input.classList.remove('red-placeholder');
-			input.placeholder = adressFields[index].placeholder;
-		}
-	});
-
-	inputsArr.forEach(input => {
-		input.classList.remove('red-input');
-		input.classList.remove('red-placeholder');
-		input.removeAttribute('placeholder');
-	});
-
-	if (termsBox.contains(termsError)) {
-		termsBox.removeChild(termsError);
-	}
-};
-
-
-
-
 document.addEventListener('input', handleEvent);
 document.addEventListener('change', handleEvent);
 document.addEventListener('keypress', handleEvent);
 registerBtn.addEventListener('click', inputsValidation);
+
+
+  
 

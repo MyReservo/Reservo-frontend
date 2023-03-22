@@ -17,43 +17,30 @@ const companyAdressPlace = document.createElement('div');
 companyAdressPlace.className = 'company-adress-place';
 
 
-interface AdressData {
-	[key: string]: any;
-}
-
-export let addressData: AdressData
-
-
 export const dataInputsCreator = (
 	registerBtn: HTMLButtonElement,
 	toggleError: (input: HTMLInputElement, isError: boolean, placeholderText?: string) => void,
-	removeError: (input: HTMLInputElement) => void,
-	inputsEvents: (event: Event) => void
+	inputsEvents: (event: Event) => void,
+	checkCompanyInput:HTMLInputElement
 ) => {
-
-
-	  addressData = {};
-
 	
 	adressFields.forEach(field => {
 		const adressDiv = document.createElement('div');
 		adressDiv.className = 'company-adress-data';
-		const  adressInput = document.createElement('input');
+		let adressInput = document.createElement('input');
 
 		adressInput.className = 'input';
 		adressInput.type = 'text';
 		adressInput.name = field.name;
 		adressInput.id = field.id;
+		
 		adressInput.placeholder = field.placeholder;
 
-		addressData[field.name] = {}
-
-		adressInput.addEventListener('input', (event) => {
-			const input = event.target as HTMLInputElement;
-			addressData[field.name] = adressInput.value;
-			removeError(input);
-		});
-		
+			checkCompanyInput.addEventListener('change', () => {
+				if(checkCompanyInput.checked){
+				toggleError(adressInput,false,field.placeholder);
+			}
+		})
 
 		registerBtn.addEventListener('click', () => {
 			let placeholderText = '';
@@ -75,9 +62,11 @@ export const dataInputsCreator = (
 			}
 			if (adressInput.value === '') {
 				toggleError(adressInput, true, placeholderText);
+
 			} else {
 				toggleError(adressInput, false);
 			}
+
 		});
 		adressDiv.appendChild(adressInput);
 		companyAdressPlace.appendChild(adressDiv);
@@ -87,6 +76,5 @@ export const dataInputsCreator = (
 		}
 	});
 };
-
 
 companyAdress.append(companyAdressTitle,companyAdressPlace);
