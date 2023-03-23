@@ -3,7 +3,7 @@
 @use 'reset' as *;
 @use 'animations' as *;
 @use 'btn' as *;
-@use 'calendar' as *;
+@use '_calendar' as *;
 
 body {
 	display: flex;
