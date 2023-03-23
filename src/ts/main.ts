@@ -84,7 +84,6 @@ export const inputsEvents = (event: Event) => {
 
 export const toggleError = (input: HTMLInputElement, isError: boolean, placeholderText?: string) => {
 	if (isError) {
-		console.log('działam');
 		input.setAttribute('placeholder', placeholderText ?? 'Musisz podać jakąś wartość');
 		input.classList.add('red-input');
 		input.classList.add('red-placeholder');

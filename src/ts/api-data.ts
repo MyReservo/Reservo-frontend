@@ -26,8 +26,8 @@ export{}
 //  const passwordInput = document.querySelector('#password') as HTMLInputElement;
 //  const repeatInput = document.querySelector('#repeat') as HTMLInputElement;
 //  const registerBtn = document.querySelector('#register') as HTMLButtonElement;
- const select = document.createElement('select');
- const companyInput = document.createElement('input');
+//  const select = document.createElement('select');
+//  const companyInput = document.createElement('input');
 
 //  const termsInput = document.querySelector('#terms') as HTMLInputElement;
 // console.log('dwa');
@@ -55,7 +55,7 @@ export{}
 // 		 // Przejdź do strony calendar.html
 // 		 window.location.href = "calendar.html";
 // 	 } else {
-// 		 alert("Proszę w")
+// 		 alert("")
 // 	 }
 // })
 
