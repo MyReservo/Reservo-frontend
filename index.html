@@ -5,13 +5,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ReservoApp</title>
-  <script type="module" crossorigin src="/Reservo-frontend/assets/index-a3ed6c01.js"></script>
-  <link rel="stylesheet" href="/Reservo-frontend/assets/index-bfab30c3.css">
+  <script type="module" crossorigin src="/Reservo-frontend/assets/index-5dfa4a09.js"></script>
+  <link rel="stylesheet" href="/Reservo-frontend/assets/index-855caf34.css">
 </head>
 
 <body>
+    <nav>
+        <ul>
+            <li><a href="calendar.html">Kalendarz</a></li>
+           
+        </ul>
+    </nav>
     <div class="wrapper">
-        <form action="http://srv17.mikr.us:20193/reservo/professions" method="POST" id="form">
+        <form  id="form">
             <h1>REJESTRACJA</h1>
             <div class="user-company">
                 <div class="user-company-user">
@@ -59,6 +65,7 @@
 
                 <div class="password-box-password">
                     <label for="password">Hasło</label>
+                    <button class="info" id="one"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEZSURBVHgBvZWBUYQwEEV/GAugBOggVHApwQ4uHWgHpgTtQEuwA+zgOlg7uOtg3T12POfEIyDhzXxgGMJjIWQdbsDMtezuJTtJkNQW5WDpnXNvmIveXJIkR86D9Po5gsYGLYF0/JTAz3j6v9Dx/lYF/xX8FDVjEuJ1IR4mDioTJNk1mCCEAJlJ6LoOGTSSBz24sxP7nFExRrRtC+89MnmUAl60ishl2evr2uU+llairyulhBkElWTXvpBNJHWF8pwlJxRmC8lBJT3KcpZ8oCy9s/WFcGlGa/Ip/1VbyUa/yTPK8Pp9xEMnJF4X+qXkLfqJicp2xquKiJdBPNXjr2RPnC872vWjM9RlyCKGduBxWUxPlt7ybrN0lC/hQ2KoKlbfbQAAAABJRU5ErkJggg==" alt="info icon"></button>
                     <input id="password" name="password" type="password" class="input">
                 </div>
 
@@ -85,7 +92,8 @@
     </div>
 
     
-    <!-- <script src="./src/ts/api-data.ts"></script> -->
+    <!-- <script type="module" defer src="./src/ts/calendar.ts"></script> -->
+
 </body>
 </html>
 
