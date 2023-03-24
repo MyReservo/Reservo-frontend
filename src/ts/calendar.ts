@@ -1,7 +1,6 @@
 export{}
 
 
-
 let date = new Date();
 const monthArr = new Array('Styczeń', 'Luty','Marzec', 'Kwiecień','Maj', 'Czerwiec', 'Lipiec', 'Sierpień', 'Wrzesień', 'Październik', 'Listopad', 'Grudzień');
 
@@ -15,19 +14,14 @@ const addClickEvents = () => {
 };
 
 
-
 const handleClick = (event:Event) => {
     const td = event.target as HTMLElement;
     const pickedDay = Number(td.textContent);
 
-    
     const today = new Date();
     const pickedDate = new Date(date.getFullYear(), date.getMonth(), pickedDay);
-    console.log(today.getHours(), today.getMinutes());
-    console.log(pickedDate.getDate());
-    console.log(today.getDate());
 
-    if (td.textContent !== '' && pickedDate.getDate() == today.getDate() ) {
+    if (td.textContent !== '' && pickedDate.getDate() == today.getDate() || pickedDate > today ) {
         hoursContainer!.style.display = 'block';
     } else if  (pickedDate < today && td.textContent !== "") {
         alert('Ten dzień już minął!');
