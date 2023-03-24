@@ -5,20 +5,25 @@
 
 .calendar-bg {
 	font-family: 'Lato', sans-serif;
-	height: 100vh;
 	// background-image: linear-gradient(276deg,#5bd6c3,#66ccda , #4b87cc, #2b6cb8d3);
 
-	background-image: linear-gradient(276deg, #7ed3c6, #81c8d1, #719bcc, #578fced3);
+	// background-image: linear-gradient(276deg, #7ed3c6, #81c8d1, #719bcc, #578fced3);
+	background-image: linear-gradient(183deg, #7ec9d3, #63a0cd, #719bcc, rgba(87, 143, 206, 0.8274509804));
+}
+html {
+	height: 100%;
 }
 
 #calendar {
+	position: relative;
 	box-shadow: 2px 2px 2px 2px rgba(63, 136, 170, 0.37);
 }
 
 .wrapper-calendar {
-	margin: 100px auto;
-	width: 95%;
+	margin: 80px auto;
+	width: 90%;
 	// max-width: 980px;
+	justify-content: center;
 	display: flex;
 	align-items: center;
 }
@@ -33,6 +38,17 @@
 	color: #f3f3f3;
 }
 
+.pick-day-box {
+	text-align: center;
+	padding: 1em;
+	font-size: 2rem;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	// border: 1px solid black;
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+}
 table {
 	font-size: 1.5rem;
 }
@@ -40,8 +56,9 @@ table {
 td {
 	border: 1px solid rgba(5, 5, 5, 0.986);
 	text-align: center;
-	width: 90px;
-	height: 60px;
+	width: 85px;
+	height: 55px;
+	background-color: #40b0f278;
 	background-color: #40b0f278;
 	// background-color: #ffffff9d;
 }
@@ -52,7 +69,7 @@ tbody td {
 #send {
 	margin: 1.3em 0.5em;
 	padding: 0.6em;
-	background-color: $buttonColor;
+	background-color: #4e85fb;
 }
 
 #calendar-top {
@@ -76,9 +93,11 @@ tbody td {
 	position: relative;
 	flex-direction: column;
 	align-items: center;
+	align-self: flex-start;
 	text-align: center;
 	padding: 0.6em;
 	margin-left: 2em;
+	margin-top: 4.5em;
 	width: 400px;
 	border-radius: 8px;
 	border: 1px solid black;
@@ -131,4 +150,105 @@ tbody td {
 	height: 100%;
 	background-color: #3333339f;
 	z-index: -1;
+}
+
+@media (max-width: 1200px) {
+	.wrapper-calendar {
+		width: 95%;
+	}
+	#send {
+		width: 50%;
+	}
+}
+
+@media (max-width: 768px) {
+	.wrapper-calendar {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.calendar-container{
+		margin-top: 1em;
+		.pick-day-box{
+			h4{
+				font-size: 2.5rem;
+			}
+		}
+	}
+
+	#calendar {
+		td {
+			height: 65px;
+			width: 90px;
+			font-size: 2rem;
+		}
+	}
+	.pick-profession-box {
+		h3 {
+			font-size: 2.3rem;
+		}
+		select {
+			font-size: 2rem;
+			text-align: center;
+		}
+		align-self: center;
+		margin: 0em;
+		margin-bottom: 6em;
+		.location-title {
+			font-size: 2rem;
+			margin-bottom: 1em;
+		}
+
+		.home-local-box {
+			label {
+				font-size: 2rem;
+				margin: 0.5em;
+			}
+			input {
+				margin-left: 0;
+				margin-top: 0.5em;
+				width: 35px;
+				height: 25px;
+			}
+		}
+
+		.pick-profession-box__client-adress {
+			margin-top: 2em;
+			label{
+				font-size: 2rem;
+			}
+			input{
+				font-size: 2rem;
+			}
+		}
+
+		.pick-profession-box__company-adress {
+			font-size: 2.5rem;
+
+			h4{
+				font-size: 2.7rem;
+			}
+			p{
+				margin: .6em;
+			}
+		}
+	}
+	.hours-container {
+		align-self: center;
+		margin-top: 3em;
+		width: 500px;
+		h3 {
+			font-size: 2rem;
+			margin-bottom: 1em;
+		}
+		button {
+			font-size: 1.6rem;
+			padding: 0.7em;
+		}
+
+		#send {
+			padding: 1.2em;
+			font-size: 1.6rem;
+		}
+	}
 }

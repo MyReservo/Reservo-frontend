@@ -5,8 +5,11 @@
 }
 
 .pick-profession-box {
-	margin: 3em;
+	// margin: 3em;
+	margin-top: 6.5em;
+	margin-right: 3em;
 	padding: 1em;
+	align-self: flex-start;
 	text-align: center;
 	border-radius: 8px;
 	border: 1px solid black;
@@ -64,4 +67,28 @@
 			}
 		}
 	
+}
+
+
+@media(max-width: 1200px) {
+
+	.home-local-box{
+		display: flex;
+		flex-direction: column;
+
+		.home-local-box__home-box{
+			justify-content: center;
+			input{
+				margin-bottom: 1em;
+			}
+		}
+		.home-local-box__local-box{
+			justify-content: center;
+			margin-left: 0;
+			input{
+				margin-bottom: 0;
+			}
+		}
+	}
+
 }

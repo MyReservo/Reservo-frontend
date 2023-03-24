@@ -19,16 +19,19 @@
     <h1 class="calendar-title">Reservo <i class="fas fa-pencil-alt"></i></h1>
   </div>
 
+
   <div class="wrapper-calendar">
     <div class="pick-profession-box">
 
       <h3 class="pick-profession-box__title ">Wybierz jedną z dostępnych usług</h3>
+
       <select name="calendar-services" id="calendar-services" class="input">
         <option value="default" id="default" selected disabled>Wybierz usługę</option>
         <option value="TUTOR" id="tutor">Korepetycje</option>
         <option value="BARBER" id="barber">Fryzjer</option>
         <option value="MECHANIC" id="mechanic">Mechanik</option>
       </select>
+
       <div class="horizontal-line"></div>
       <h4 class="location-title">Gdzie chcesz się umówić?</h4>
       <div class="home-local-box">
@@ -59,13 +62,16 @@
 
         <div class="pick-profession-box__company-adress">
           <h4 class="pick-profession-box__company-adress--title">Adres lokalu:</h4>
-          <p>Ulica:</p>
-          <p>Nr.lokalu:</p>
-          <p>Miasto:</p>
-          <p>Kod pocztowy:</p>
+          <p id="company-street"></p>
+          <p id="company-home-number"></p>
+          <p id="company-city"></p>
+          <p id="company-code"></p>
         </div>
-  
+    </div>
 
+  <div class="calendar-container">
+    <div class="pick-day-box">
+      <h4>Wybierz dzień Twojej wizyty</h4>
     </div>
     <table id="calendar">
       <thead>
@@ -143,6 +149,7 @@
       </tbody>
     </table>
 
+  </div>
     <div class="hours-container">
       <i class="fas fa-times"></i>
       <h3>Wybierz godzinę</h3>
