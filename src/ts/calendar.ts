@@ -98,7 +98,12 @@ hourBtns.forEach(btn => {
 		}
 	});
 });
-calendar();
+
+
+
+
+
+
 
 const customerHomeCheckbox = document.querySelector('#client-home') as HTMLInputElement;
 const companyLocalCheckbox = document.querySelector('#local') as HTMLInputElement;
@@ -167,5 +172,15 @@ calendarSelect.addEventListener('change', () => {
 	}
 });
 
-customerHomeCheckbox.addEventListener('change', calendarCheckboxCheck);
-companyLocalCheckbox.addEventListener('change', calendarCheckboxCheck);
+
+
+document.addEventListener("DOMContentLoaded", function() {
+	nextMonth()
+	prevMonth()
+	calendar();
+	customerHomeCheckbox.addEventListener('change', calendarCheckboxCheck);
+	companyLocalCheckbox.addEventListener('change', calendarCheckboxCheck);
+ });
+ 
+
+
