@@ -96,9 +96,47 @@ hourBtns.forEach(btn => {
         }
     })
 })
-
-
 calendar()
 
 
+const customerHomeCheckbox = document.querySelector('#client-home') as HTMLInputElement;
+const companyLocalCheckbox = document.querySelector('#local') as HTMLInputElement;
 
+const clientAdressBox = document.querySelector('.pick-profession-box__client-adress') as HTMLDivElement;
+const companyAdressBox = document.querySelector('.pick-profession-box__company-adress') as HTMLDivElement;
+const clientStreetInput = document.querySelector('#client-street') as HTMLInputElement;;
+const clientHouseInput = document.querySelector('#client-house') as HTMLInputElement;;
+const clientCityInput = document.querySelector('#client-city') as HTMLInputElement;;
+
+
+const calendarCheckboxCheck = () => {
+    if(customerHomeCheckbox.checked){
+        clientAdressBox!.style.display = "flex";
+        companyAdressBox.style.display = "none";
+    }else if (companyLocalCheckbox.checked){
+        companyAdressBox.style.display = "block";
+        clientAdressBox!.style.display = "none";
+    }
+}
+
+customerHomeCheckbox.addEventListener('change',calendarCheckboxCheck );
+companyLocalCheckbox.addEventListener('change',calendarCheckboxCheck );
+
+
+const calendarcheckboxesArr = [customerHomeCheckbox, companyLocalCheckbox];
+
+function handleCheckboxClick(this: HTMLInputElement) {
+	calendarcheckboxesArr.forEach(checkbox => {
+		if (checkbox !== this) {
+			checkbox.checked = false;
+		} else {
+			checkbox.checked = true;
+		}
+	});
+}
+
+calendarcheckboxesArr.forEach(checkbox => {
+	checkbox.addEventListener('click', function () {
+		handleCheckboxClick.call(this);
+	});
+});

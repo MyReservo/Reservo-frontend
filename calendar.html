@@ -18,8 +18,55 @@
     <div class="shadow"></div>
     <h1 class="calendar-title">Reservo <i class="fas fa-pencil-alt"></i></h1>
   </div>
- 
+
   <div class="wrapper-calendar">
+    <div class="pick-profession-box">
+
+      <h3 class="pick-profession-box__title ">Wybierz jedną z dostępnych usług</h3>
+      <select name="calendar-services" id="calendar-services" class="input">
+        <option value="default" id="default" selected disabled>Wybierz usługę</option>
+        <option value="TUTOR" id="tutor">Korepetycje</option>
+        <option value="BARBER" id="barber">Fryzjer</option>
+        <option value="MECHANIC" id="mechanic">Mechanik</option>
+      </select>
+      <div class="horizontal-line"></div>
+      <h4 class="location-title">Gdzie chcesz się umówić?</h4>
+      <div class="home-local-box">
+
+        <div class="home-local-box__home-box">
+          <label for="client-home">U mnie w domu</label>
+          <input type="checkbox" id="client-home" name="home">
+        </div>
+
+        <div class="home-local-box__local-box">
+          <label for="local">W lokalu</label>
+          <input type="checkbox" id="local" name="local">
+        </div>
+
+      </div>
+
+    
+        <div class="pick-profession-box__client-adress">
+          <label for="client-street">Ulica</label>
+          <input type="text" name="client-street" class="input" id="client-street">
+
+          <label for="client-street">Nr.domu</label>
+          <input type="text" name="client-house" class="input" id="client-house">
+
+          <label for="client-street">Miasto</label>
+          <input type="text" name="client-city" class="input" id="client-city">
+        </div>
+
+        <div class="pick-profession-box__company-adress">
+          <h4 class="pick-profession-box__company-adress--title">Adres lokalu:</h4>
+          <p>Ulica:</p>
+          <p>Nr.lokalu:</p>
+          <p>Miasto:</p>
+          <p>Kod pocztowy:</p>
+        </div>
+  
+
+    </div>
     <table id="calendar">
       <thead>
         <tr>
@@ -37,7 +84,7 @@
         </tr>
         </tr>
       </thead>
-  
+
       <tbody>
         <tr>
           <td></td>

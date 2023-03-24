@@ -1,0 +1,67 @@
+
+.location-title {
+	margin: -.8em 0em 1.7em;
+	font-size: 1.5rem;
+}
+
+.pick-profession-box {
+	margin: 3em;
+	padding: 1em;
+	text-align: center;
+	border-radius: 8px;
+	border: 1px solid black;
+	&__title {
+		margin: 0.8em 0.5em;
+		text-align: center;
+		font-size: 2rem;
+	}
+
+	.home-local-box {
+		display: flex;
+		justify-content: space-evenly;
+		label {
+			font-size: 1.4rem;
+		}
+
+		input {
+			margin-left: 0.4em;
+			margin-bottom: 2em;
+			width: 15px;
+			height: 15px;
+			cursor: pointer;
+		}
+
+		&__home-box {
+			display: flex;
+		}
+
+		&__local-box {
+			display: flex;
+			margin-left: -3em;
+		}
+	}
+
+		&__client-adress{
+			display: flex;
+			flex-direction: column;
+            display: none;
+			label{
+				font-size: 1.3rem;
+			}
+		}
+
+		&__company-adress{
+			margin: 1em;
+			padding: 1em;
+			background-color: #ffffff4d;
+			font-size: 1.7rem;
+			border: 1px solid black;
+			border-radius: 8px ;
+            display: none;
+			&--title{
+				margin-bottom: .7em;
+				font-size: 1.7rem;
+			}
+		}
+	
+}
