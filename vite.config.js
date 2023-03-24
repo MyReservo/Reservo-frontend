@@ -12,7 +12,7 @@ export default defineConfig({
     // }),
   ],
   optimizeDeps: {
-    include: ['main.ts', 'new-elements.ts', 'calendar.ts']
+    include: ['main.ts', 'new-elements.ts', 'calendar.ts', 'calendar.html']
   },
 //   build: {
 //     css: {
