@@ -15,10 +15,14 @@
 <body class="calendar-bg">
 
   <div class="shadow-box">
-    <div class="user-box"><i class="fas fa-user"></i><p class="user-name">Nazwa użytkownika</p></div>
+    <div class="user-box"><i class="fas fa-user"></i>
+      <p class="user-name">Nazwa użytkownika</p>
+    </div>
     <div class="shadow"></div>
     <h1 class="panel-title">Reservo <i class="fas fa-pencil-alt"></i></h1>
-    <div class="log-out-box"><p id="log-out"><i class="fas fa-sign-out-alt"></i>Wyloguj</p></div>
+    <div class="log-out-box">
+      <p id="log-out"><i class="fas fa-sign-out-alt"></i>Wyloguj</p>
+    </div>
   </div>
 
 
@@ -33,6 +37,24 @@
         <option value="BARBER" id="barber">Fryzjer</option>
         <option value="MECHANIC" id="mechanic">Mechanik</option>
       </select>
+
+      <select name="calendar-city" id="calendar-city" class="input">
+        <option value="default" id="default" selected disabled>Wybierz miasto</option>
+        <option value="wroclaw" id="wroclaw">Wrocław</option>
+        <option value="warsaw" id="warsaw">Warszawa</option>
+        <option value="cracow" id="cracow">Kraków</option>
+      </select>
+      <div class="horizontal-line"></div>
+
+      <div class="service-provider">
+        <h4>Dostepni <span class="service-provider__title">Fryzjerzy</span></h4>
+
+
+       <!-- <div class="service-provider__name"> <p>p.Katarzyna wiek:30</p> <input type="checkbox" id="kasia-barber" class="service-provider-checkbox"></div>
+       
+       <div class="service-provider__name"> <p>p.Katarzyna wiek:30</p> <input type="checkbox" id="kasia-barber" class="service-provider-checkbox"></div>  -->
+
+      </div>
 
       <div class="horizontal-line"></div>
       <h4 class="location-title">Gdzie chcesz się umówić?</h4>
@@ -50,108 +72,108 @@
 
       </div>
 
-    
-        <div class="pick-profession-box__client-adress">
-          <label for="client-street">Ulica</label>
-          <input type="text" name="client-street" class="input" id="client-street">
 
-          <label for="client-street">Nr.domu</label>
-          <input type="text" name="client-house" class="input" id="client-house">
+      <div class="pick-profession-box__client-adress">
+        <label for="client-street">Ulica</label>
+        <input type="text" name="client-street" class="input" id="client-street">
 
-          <label for="client-street">Miasto</label>
-          <input type="text" name="client-city" class="input" id="client-city">
-        </div>
+        <label for="client-street">Nr.domu</label>
+        <input type="text" name="client-house" class="input" id="client-house">
 
-        <div class="pick-profession-box__company-adress">
-          <h4 class="pick-profession-box__company-adress--title">Adres lokalu:</h4>
-          <p id="company-street"></p>
-          <p id="company-home-number"></p>
-          <p id="company-city"></p>
-          <p id="company-code"></p>
-        </div>
+        <label for="client-street">Miasto</label>
+        <input type="text" name="client-city" class="input" id="client-city">
+      </div>
+
+      <div class="pick-profession-box__company-adress">
+        <h4 class="pick-profession-box__company-adress--title">Adres lokalu:</h4>
+        <p id="company-street"></p>
+        <p id="company-home-number"></p>
+        <p id="company-city"></p>
+        <p id="company-code"></p>
+      </div>
     </div>
 
-  <div class="calendar-container">
-    <div class="pick-day-box">
-      <h4>Wybierz dzień Twojej wizyty</h4>
+    <div class="calendar-container">
+      <div class="pick-day-box">
+        <h4>Wybierz dzień Twojej wizyty</h4>
+      </div>
+      <table id="calendar">
+        <thead>
+          <tr>
+            <td><button id="prev"><i class="fas fa-chevron-left"></i></button></td>
+            <td id="calendar-top" colspan="5">Miesiąc</td>
+            <td><button id="next"><i class="fas fa-chevron-right"></i></button></td>
+          <tr>
+            <td>Pon</td>
+            <td>Wt</td>
+            <td>Śro</td>
+            <td>Czw</td>
+            <td>Pt</td>
+            <td>Sob</td>
+            <td>Nie</td>
+          </tr>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
-    <table id="calendar">
-      <thead>
-        <tr>
-          <td><button id="prev"><i class="fas fa-chevron-left"></i></button></td>
-          <td id="calendar-top" colspan="5">Miesiąc</td>
-          <td><button id="next"><i class="fas fa-chevron-right"></i></button></td>
-        <tr>
-          <td>Pon</td>
-          <td>Wt</td>
-          <td>Śro</td>
-          <td>Czw</td>
-          <td>Pt</td>
-          <td>Sob</td>
-          <td>Nie</td>
-        </tr>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-
-  </div>
     <div class="hours-container">
       <i class="fas fa-times"></i>
       <h3>Wybierz godzinę</h3>

@@ -6,6 +6,10 @@
 @use 'calendar' as *;
 @use 'company-panel' as *;
 
+html{
+	height: auto;
+}
+
 body {
 	display: flex;
 	align-items: center;
