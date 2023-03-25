@@ -137,11 +137,7 @@ function handleCheckboxClick(this: HTMLInputElement) {
 const calendarSelect = document.querySelector('#calendar-services') as HTMLSelectElement;
 
 
-calendarcheckboxesArr.forEach(checkbox => {
-	checkbox.addEventListener('click', function () {
-		handleCheckboxClick.call(this);
-	});
-});
+
 
 const companyStreet = document.querySelector('#company-street') as HTMLParagraphElement;
 const companyHomeNumber = document.querySelector('#company-home-number') as HTMLParagraphElement;
@@ -178,6 +174,11 @@ document.addEventListener("DOMContentLoaded", function() {
 	nextMonth()
 	prevMonth()
 	calendar();
+	calendarcheckboxesArr.forEach(checkbox => {
+		checkbox.addEventListener('click', function () {
+			handleCheckboxClick.call(this);
+		});
+	});
 	customerHomeCheckbox.addEventListener('change', calendarCheckboxCheck);
 	companyLocalCheckbox.addEventListener('change', calendarCheckboxCheck);
  });
