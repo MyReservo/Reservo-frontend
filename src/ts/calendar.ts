@@ -86,18 +86,20 @@ document.querySelector('#next')?.addEventListener('click', nextMonth);
 
 const hourBtns: NodeListOf<Element> = document.querySelectorAll('.hour-btn');
 
-hourBtns.forEach(btn => {
-	btn.addEventListener('click', () => {
-		if (btn.classList.contains('active')) {
-			btn.classList.remove('active');
-		} else {
-			hourBtns.forEach(btn => {
+const activeClassToggler = () => {
+	hourBtns.forEach(btn => {
+		btn.addEventListener('click', () => {
+			if (btn.classList.contains('active')) {
 				btn.classList.remove('active');
-			});
-			btn.classList.add('active');
-		}
+			} else {
+				hourBtns.forEach(btn => {
+					btn.classList.remove('active');
+				});
+				btn.classList.add('active');
+			}
+		});
 	});
-});
+}
 
 
 
@@ -124,20 +126,19 @@ const calendarCheckboxCheck = () => {
 
 const calendarcheckboxesArr = [customerHomeCheckbox, companyLocalCheckbox];
 
-function handleCheckboxClick(this: HTMLInputElement) {
-	calendarcheckboxesArr.forEach(checkbox => {
-		if (checkbox !== this) {
-			checkbox.checked = false;
-		} else {
-			checkbox.checked = true;
-		}
-	});
-}
+
+	function handleCheckboxClick(this: HTMLInputElement) {
+		calendarcheckboxesArr.forEach(checkbox => {
+			if (checkbox !== this) {
+				checkbox.checked = false;
+			} else {
+				checkbox.checked = true;
+			}
+		});
+	}
+
 
 const calendarSelect = document.querySelector('#calendar-services') as HTMLSelectElement;
-
-
-
 
 const companyStreet = document.querySelector('#company-street') as HTMLParagraphElement;
 const companyHomeNumber = document.querySelector('#company-home-number') as HTMLParagraphElement;
@@ -145,28 +146,27 @@ const companyCity = document.querySelector('#company-city') as HTMLParagraphElem
 const companyCode = document.querySelector('#company-code') as HTMLParagraphElement;
 
 
-calendarSelect.addEventListener('change', () => {
-	const selectedOption = calendarSelect.options[calendarSelect.selectedIndex];
-	if (selectedOption.value === 'TUTOR') {
-		console.log('1');
-		companyStreet.textContent = 'Ulica: Skarbowców';
-		companyHomeNumber.textContent = 'Nr.domu: 11/6';
-		companyCity.textContent = 'Miasto: Wrocław';
-		companyCode.textContent = 'Kod pocztowy: 51-002';
-	} else if (selectedOption.value === 'BARBER') {
-		console.log('2');
-		companyStreet.textContent = 'Ulica: Sezamkowa';
-		companyHomeNumber.textContent = 'Nr.domu: 2';
-		companyCity.textContent = 'Miasto: Wrocław';
-		companyCode.textContent = 'Kod pocztowy: 60-013';
-	} else if (selectedOption.value === 'MECHANIC') {
-		console.log('3');
-		companyStreet.textContent = 'Ulica: Niepodległości';
-		companyHomeNumber.textContent = 'Nr.domu: 150/23';
-		companyCity.textContent = 'Miasto: Wrocław';
-		companyCode.textContent = 'Kod pocztowy: 72-113';
-	}
-});
+const companyAdressesCreator = () => {
+	calendarSelect.addEventListener('change', () => {
+		const selectedOption = calendarSelect.options[calendarSelect.selectedIndex];
+		if (selectedOption.value === 'TUTOR') {
+			companyStreet.textContent = 'Ulica: Skarbowców';
+			companyHomeNumber.textContent = 'Nr.domu: 11/6';
+			companyCity.textContent = 'Miasto: Wrocław';
+			companyCode.textContent = 'Kod pocztowy: 51-002';
+		} else if (selectedOption.value === 'BARBER') {
+			companyStreet.textContent = 'Ulica: Sezamkowa';
+			companyHomeNumber.textContent = 'Nr.domu: 2';
+			companyCity.textContent = 'Miasto: Wrocław';
+			companyCode.textContent = 'Kod pocztowy: 60-013';
+		} else if (selectedOption.value === 'MECHANIC') {
+			companyStreet.textContent = 'Ulica: Niepodległości';
+			companyHomeNumber.textContent = 'Nr.domu: 150/23';
+			companyCity.textContent = 'Miasto: Wrocław';
+			companyCode.textContent = 'Kod pocztowy: 72-113';
+		}
+	});
+}
 
 
 
@@ -174,6 +174,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	nextMonth()
 	prevMonth()
 	calendar();
+	companyAdressesCreator()
+	activeClassToggler()
 	calendarcheckboxesArr.forEach(checkbox => {
 		checkbox.addEventListener('click', function () {
 			handleCheckboxClick.call(this);
