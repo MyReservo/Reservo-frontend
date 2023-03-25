@@ -5,9 +5,6 @@
 
 .calendar-bg {
 	font-family: 'Lato', sans-serif;
-	// background-image: linear-gradient(276deg,#5bd6c3,#66ccda , #4b87cc, #2b6cb8d3);
-
-	// background-image: linear-gradient(276deg, #7ed3c6, #81c8d1, #719bcc, #578fced3);
 	background-image: linear-gradient(183deg, #7ec9d3, #63a0cd, #719bcc, rgba(87, 143, 206, 0.8274509804));
 }
 html {
@@ -22,21 +19,11 @@ html {
 .wrapper-calendar {
 	margin: 80px auto;
 	width: 90%;
-	// max-width: 980px;
 	justify-content: center;
 	display: flex;
 	align-items: center;
 }
 
-.calendar-title {
-	text-align: center;
-	// margin-top: 0.5em;
-	padding: 0.5em;
-	font-size: 5rem;
-	font-style: italic;
-	letter-spacing: 0.1em;
-	color: #f3f3f3;
-}
 
 .pick-day-box {
 	text-align: center;
@@ -140,17 +127,7 @@ tbody td {
 	background-color: #d2d2d3;
 }
 
-.shadow-box {
-	position: relative;
-}
-.shadow {
-	position: absolute;
-	// margin-top: -30px;
-	width: 100%;
-	height: 100%;
-	background-color: #3333339f;
-	z-index: -1;
-}
+
 
 @media (max-width: 1200px) {
 	.wrapper-calendar {
