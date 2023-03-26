@@ -162,40 +162,114 @@ const companyAdressesCreator = () => {
 
 
 
-const serviceProviderBox = document.querySelector('.service-provider')
-const serviceProviderTitle = document.createElement('h4');
-const serviceProviderName = document.createElement('div');
-serviceProviderName.className = "service-provider__name";
-const serviceProviderText = document.createElement('p');
-const serviceProviderCheckbox = document.createElement('input');
-serviceProviderCheckbox.type = "checkbox";
-serviceProviderCheckbox.id = "kasia-barber";
-serviceProviderCheckbox.className = "service-provider";
-console.log(serviceProviderCheckbox);
 
-const serviceProviderCreator = () => {
-	console.log('wchodzę');
-	servicesSelect.addEventListener('change', () => {
-		if (servicesSelect.value === 'TUTOR') {
-			servicesCitySelect.addEventListener('change', () => {
-				if (servicesCitySelect.value === 'wroclaw') {
-					console.log('działam:)');
-					serviceProviderText.textContent = 'p.Katatzyna wiek:35';
-					serviceProviderName.append(serviceProviderText, serviceProviderCheckbox);
-					serviceProviderBox!.append(serviceProviderName, serviceProviderTitle);
 
-				}
-			});
-		}
-	});
-};
 
-// if(servicesSelect.value === "TUTOR" && servicesCitySelect.value === "wroclaw"){
-// 	console.log('działam:)');
-// 	serviceProviderText.textContent = "p.Katatzyna wiek:35"
-// 	serviceProviderName.append(serviceProviderText,serviceProviderCheckbox);
-// 	serviceProviderBox.append(serviceProviderName,serviceProviderTitle);
-// }
+
+
+
+
+
+const serviceProviderBox = document.querySelector('.service-provider') as HTMLDivElement;
+const serviceProviderSpan = document.querySelector('.service-provider__title') as HTMLHeadingElement;
+
+const calendarServicesProviderObjectArr = [
+    { id: 'kasia-tutor', name: 'Katarzyna', age: 26, city: 'Wrocław', profession: 'TUTOR' },
+    { id: 'michał-tutor', name: 'Michał', age: 30, city: 'Kraków', profession: 'TUTOR' },
+    { id: 'grzegorz-tutor', name: 'Grzegorz', age: 35, city: 'Warszawa', profession: 'TUTOR' },
+]
+
+const createServiceProviderElement = (name:string, age:number) => {
+    const serviceProviderName = document.createElement('div');
+    serviceProviderName.className = "service-provider__name";
+    const serviceProviderText = document.createElement('p');
+    serviceProviderText.textContent = name +  ' wiek:' + `${ age}`;
+    const serviceProviderCheckbox = document.createElement('input');
+    serviceProviderCheckbox.type = "checkbox";
+    serviceProviderCheckbox.id = `${name}-tutor`;
+    serviceProviderCheckbox.className = "service-provider";
+    serviceProviderName.append(serviceProviderText, serviceProviderCheckbox);
+    serviceProviderBox.append(serviceProviderName);
+}
+
+const updateServiceProviders = () => {
+    const selectedProfession = servicesSelect.value;
+    const selectedCity = servicesCitySelect.value;
+    if (selectedProfession === 'TUTOR') {
+        serviceProviderSpan.textContent = "Korepetytorzy:";
+		// serviceProviderBox.innerHTML = ''; 
+		calendarServicesProviderObjectArr.forEach(provider => {
+			if(selectedCity === "wroclaw" && provider.city === "Wrocław" ){
+				createServiceProviderElement(provider.name, provider.age)
+			}
+			if(selectedCity == "warsaw" && provider.city === "Warszawa"){
+				createServiceProviderElement(provider.name, provider.age)
+			}
+			if(selectedCity == "cracow" && provider.city === "Kraków"){
+				createServiceProviderElement(provider.name, provider.age)
+			}
+		})
+		
+
+
+    } 
+
+}
+
+servicesSelect.addEventListener('change', updateServiceProviders);
+servicesCitySelect.addEventListener('change', updateServiceProviders);
+
+
+
+
+
+
+
+
+
+// const serviceProviderBox = document.querySelector('.service-provider')
+// const serviceProviderSpan = document.querySelector('.service-provider__title');
+
+// const serviceProviderName = document.createElement('div');
+// serviceProviderName.className = "service-provider__name";
+
+// const serviceProviderText = document.createElement('p');
+
+// const serviceProviderCheckbox = document.createElement('input');
+// serviceProviderCheckbox.type = "checkbox";
+// serviceProviderCheckbox.id = "kasia-tutor";
+// serviceProviderCheckbox.className = "service-provider";
+// console.log(serviceProviderCheckbox);
+
+
+// const calendarServicesProviderObjectArr = [
+	
+// {id: 'kasia-tutor'},
+// {id: 'michał-tutor'},
+// {id: 'grzegorz-tutor'},
+
+
+// ]
+
+
+// const serviceProviderCreator = () => {
+// 	console.log('wchodzę');
+// 	servicesSelect.addEventListener('change', () => {
+// 		if (servicesSelect.value === 'TUTOR') {
+// 			serviceProviderSpan!.textContent = "Korepetytorzy:"
+// 			servicesCitySelect.addEventListener('change', () => {
+// 				if (servicesCitySelect.value === 'wroclaw') {
+// 					console.log('działam:)');
+// 					serviceProviderText.textContent = 'p.Katatzyna wiek:35';
+// 					serviceProviderName.append(serviceProviderText, serviceProviderCheckbox);
+// 					serviceProviderBox!.append(serviceProviderName);
+
+// 				}
+// 			});
+// 		}
+// 	});
+// };
+
 
 document.addEventListener('DOMContentLoaded', function () {
 	nextMonth();
@@ -208,7 +282,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			handleCheckboxClick.call(this);
 		});
 	});
-	serviceProviderCreator()
+	// serviceProviderCreator()
 	customerHomeCheckbox.addEventListener('change', calendarCheckboxCheck);
 	companyLocalCheckbox.addEventListener('change', calendarCheckboxCheck);
 });
