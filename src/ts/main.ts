@@ -2,10 +2,12 @@
 import '../sass/main.scss';
 import { dataInputsCreator, companyAdress } from './new-elements';
 // import './calendar';
-import './api-data';
+// import './api-data';
+console.log('jeden');
 
  const customerInput = document.querySelector('#user') as HTMLInputElement;
- const checkCompanyInput = document.querySelector('#company') as HTMLInputElement;
+
+ export const checkCompanyInput = document.querySelector('#company') as HTMLInputElement;
 
  export const nameInput = document.querySelector('#name') as HTMLInputElement;
  export const surnameInput = document.querySelector('#surname') as HTMLInputElement;
@@ -43,11 +45,13 @@ function handleCheckboxClick(this: HTMLInputElement) {
 	});
 }
 
+handleCheckboxClick.call(checkboxesArr[0]);
 checkboxesArr.forEach(checkbox => {
 	checkbox.addEventListener('click', function () {
 		handleCheckboxClick.call(this);
 	});
 });
+
 
  const services = [
     { value: 'default', label: 'Wybierz usługę', id: 'default' },
@@ -168,22 +172,17 @@ const inputsValidation = () => {
 
 
 
-dataInputsCreator(registerBtn, toggleError, inputsEvents,checkCompanyInput);
 const inputsArr = [nameInput,surnameInput,numberInput,emailInput,passwordInput,repeatInput,companyInput,select];
 
-// let adressInputsArr = [streetInput, cityInput, homeInput, codeInput];
+
 
 const clearAllErrors = (
 	// adressFields: { id: string; placeholder: string }[],
 	termsBox: HTMLElement,
 	termsError: HTMLParagraphElement,
-	// adressInput:HTMLInputElement,
-	// cityInput: HTMLInputElement,
-	// homeInput: HTMLInputElement,
-	// codeInput: HTMLInputElement
 	) => {
 
-		// adressInputsArr = [streetInput, cityInput, homeInput, codeInput];
+	
 
 // if(adressInput.className = 'red-input'){
 // 	console.log('im in');
@@ -234,18 +233,28 @@ const clearAllErrors = (
 	};
 
 
-
-const handleEvent = (e: Event) => {
-	const target = e.target as HTMLElement;
+console.log('dwa');
 	
-	if (e.type === 'input') {
-		if (target.matches('#name, #surname, #number, #email, #company-name, #password, #repeat, #phone, #city,#code,#home,#street')) {
+	export const handleCityInput = (cityInputValue:string) => {
+		console.log(cityInputValue);
+	  };
+
+
+	  
+	  const handleEvent = (e: Event) => {
+		  const target = e.target as HTMLElement;
+		  
+		  if (e.type === 'input') {
+			  if (target.matches('#name, #surname, #number, #email, #company-name, #password, #repeat, #phone, #city,#code,#home,#street')) {
+				  const cityInput:HTMLInputElement| null = document.querySelector('#city');
+				  const cityInputValue = cityInput!.value
+				  handleCityInput(cityInputValue);
+				  
 			if (target instanceof HTMLInputElement) {
 				removeError(target);
 			}
 		}
 		if (target.matches('#services')) {
-			console.log('jest services2');
 			inputsEvents(e);
 		}
 	} else if (e.type === 'change') {
@@ -269,10 +278,33 @@ const handleEvent = (e: Event) => {
 };
 
 
-document.addEventListener('input', handleEvent);
-document.addEventListener('change', handleEvent);
-document.addEventListener('keypress', handleEvent);
-registerBtn.addEventListener('click', inputsValidation);
+
+
+
+
+	// function handleCheckboxClick(this: HTMLInputElement) {
+	// 	checkboxesArr.forEach(checkbox => {
+	// 		if (checkbox !== this) {
+	// 			checkbox.checked = false;
+	// 		} else {
+	// 			checkbox.checked = true;
+	// 		}
+	// 	});
+	// }
+
+
+document.addEventListener('DOMContentLoaded' , function() {
+
+	
+	dataInputsCreator(registerBtn, toggleError, inputsEvents,checkCompanyInput);
+	document.addEventListener('input', handleEvent);
+	document.addEventListener('change', handleEvent);
+	document.addEventListener('keypress', handleEvent);
+	registerBtn.addEventListener('click', inputsValidation);
+
+})
+
+
 
 
   

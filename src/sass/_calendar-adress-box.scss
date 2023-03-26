@@ -1,11 +1,11 @@
 
-.location-title {
-	margin: -.8em 0em 1.7em;
+.location-title,.available-providers {
 	font-size: 1.5rem;
+	margin: 1em;
 }
 
+
 .pick-profession-box {
-	// margin: 3em;
 	margin-top: 6.5em;
 	margin-right: 3em;
 	padding: 1em;
@@ -13,16 +13,17 @@
 	text-align: center;
 	border-radius: 8px;
 	border: 1px dotted black;
+
+	.horizontal-line{
+		margin-bottom: 0;
+	}
 	&__title {
 		margin: 0.8em 0.5em;
 		text-align: center;
 		font-size: 2rem;
 	}
 
-	h4{
-		margin-top: -2em;
-		font-size: 1.4rem;
-	}
+
 
 	.service-provider{
 		// margin-top: -2em;

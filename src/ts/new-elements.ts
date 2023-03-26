@@ -1,3 +1,4 @@
+// import{registerBtn, toggleError, inputsEvents} from "./main"
 
 export const adressFields = [
 	{ id: 'street', placeholder: 'Ulica', name: "street"},
@@ -42,7 +43,8 @@ export const dataInputsCreator = (
 			}
 		})
 
-		registerBtn.addEventListener('click', () => {
+		registerBtn.addEventListener('click', (e) => {
+			e.preventDefault()
 			let placeholderText = '';
 			switch (adressInput.id) {
 				case 'street':
@@ -78,3 +80,11 @@ export const dataInputsCreator = (
 };
 
 companyAdress.append(companyAdressTitle,companyAdressPlace);
+
+
+
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+// 	dataInputsCreator(registerBtn, toggleError, inputsEvents, checkCompanyInput);
+// })
