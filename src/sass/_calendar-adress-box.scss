@@ -19,9 +19,13 @@
 		font-size: 2rem;
 	}
 
+	h4{
+		margin-top: -2em;
+		font-size: 1.4rem;
+	}
 
 	.service-provider{
-		margin-top: -2em;
+		// margin-top: -2em;
 		font-size: 1.5rem;
 		&__name{
 			display: flex;

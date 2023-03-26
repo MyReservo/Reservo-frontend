@@ -174,9 +174,27 @@ const serviceProviderBox = document.querySelector('.service-provider') as HTMLDi
 const serviceProviderSpan = document.querySelector('.service-provider__title') as HTMLHeadingElement;
 
 const calendarServicesProviderObjectArr = [
-    { id: 'kasia-tutor', name: 'Katarzyna', age: 26, city: 'Wrocław', profession: 'TUTOR' },
-    { id: 'michał-tutor', name: 'Michał', age: 30, city: 'Kraków', profession: 'TUTOR' },
-    { id: 'grzegorz-tutor', name: 'Grzegorz', age: 35, city: 'Warszawa', profession: 'TUTOR' },
+    { id: 'kasia-tutor', name: 'Katarzyna', age: 26, city: 'Wrocław'},
+    { id: 'pawel-tutor', name: 'Paweł', age: 31, city: 'Wrocław' },
+    { id: 'barbara-tutor', name: 'Barbara', age: 40, city: 'Wrocław'},
+    { id: 'michał-tutor', name: 'Michał', age: 30, city: 'Kraków'},
+    { id: 'grzegorz-tutor', name: 'Grzegorz', age: 45, city: 'Warszawa'},
+    { id: 'paulina-tutor', name: 'Paulina', age: 25, city: 'Warszawa'},
+
+	{ id: 'ania-barber', name: 'Joanna', age: 23, city: 'Wrocław'},
+    { id: 'piotr-barber', name: 'Piotr', age: 29, city: 'Kraków'},
+    { id: 'zbigniew-barber', name: 'Zbigniew', age: 50, city: 'Kraków'},
+    { id: 'andrzej-barber', name: 'Andrzej', age: 40, city: 'Warszawa'},
+    { id: 'henryk-barber', name: 'Henryk', age: 27, city: 'Warszawa'},
+
+	{ id: 'stanislaw-mechanic', name: 'Stanisław', age: 23, city: 'Wrocław'},
+	{ id: 'artur-mechanic', name: 'Artur', age: 33, city: 'Wrocław'},
+    { id: 'piotr-mechanic', name: 'Piotr', age: 39, city: 'Kraków'},
+    { id: 'andrzej-mechanic', name: 'Andrzej', age: 50, city: 'Kraków'},
+    { id: 'kajetan-mechanic', name: 'Kajetan', age: 40, city: 'Warszawa'},
+    { id: 'wlodzimierz-mechanic', name: 'Włodzimierz', age: 47, city: 'Warszawa'},
+
+
 ]
 
 const createServiceProviderElement = (name:string, age:number) => {
@@ -193,25 +211,62 @@ const createServiceProviderElement = (name:string, age:number) => {
 }
 
 const updateServiceProviders = () => {
+	serviceProviderBox.innerHTML = ''; 
     const selectedProfession = servicesSelect.value;
     const selectedCity = servicesCitySelect.value;
+
     if (selectedProfession === 'TUTOR') {
-        serviceProviderSpan.textContent = "Korepetytorzy:";
-		// serviceProviderBox.innerHTML = ''; 
+		serviceProviderSpan.textContent = "korepetytorzy:";
+
 		calendarServicesProviderObjectArr.forEach(provider => {
-			if(selectedCity === "wroclaw" && provider.city === "Wrocław" ){
+			const tutorService = provider.id.includes('tutor')
+
+			if(selectedCity === "wroclaw" && provider.city === "Wrocław" && tutorService ){
 				createServiceProviderElement(provider.name, provider.age)
 			}
-			if(selectedCity == "warsaw" && provider.city === "Warszawa"){
+			if(selectedCity == "warsaw" && provider.city === "Warszawa" && tutorService){
 				createServiceProviderElement(provider.name, provider.age)
 			}
-			if(selectedCity == "cracow" && provider.city === "Kraków"){
+			if(selectedCity == "cracow" && provider.city === "Kraków" && tutorService){
 				createServiceProviderElement(provider.name, provider.age)
 			}
 		})
-		
+    } 
 
+    if (selectedProfession === 'BARBER') {
+		serviceProviderSpan.textContent = "barberzy:";
 
+		calendarServicesProviderObjectArr.forEach(provider => {
+			const tutorService = provider.id.includes('barber')
+
+			if(selectedCity === "wroclaw" && provider.city === "Wrocław" && tutorService ){
+				createServiceProviderElement(provider.name, provider.age)
+			}
+			if(selectedCity == "warsaw" && provider.city === "Warszawa" && tutorService){
+				createServiceProviderElement(provider.name, provider.age)
+			}
+			if(selectedCity == "cracow" && provider.city === "Kraków" && tutorService){
+				createServiceProviderElement(provider.name, provider.age)
+			}
+		})
+    } 
+
+    if (selectedProfession === 'MECHANIC') {
+		serviceProviderSpan.textContent = "mechanicy:";
+
+		calendarServicesProviderObjectArr.forEach(provider => {
+			const tutorService = provider.id.includes('mechanic')
+
+			if(selectedCity === "wroclaw" && provider.city === "Wrocław" && tutorService ){
+				createServiceProviderElement(provider.name, provider.age)
+			}
+			if(selectedCity == "warsaw" && provider.city === "Warszawa" && tutorService){
+				createServiceProviderElement(provider.name, provider.age)
+			}
+			if(selectedCity == "cracow" && provider.city === "Kraków" && tutorService){
+				createServiceProviderElement(provider.name, provider.age)
+			}
+		})
     } 
 
 }
