@@ -3,9 +3,12 @@ import '../sass/main.scss';
 import { dataInputsCreator, companyAdress } from './new-elements';
 // import './calendar';
 // import './api-data';
+// import {handleCityInput} from './calendar'
+
 console.log('jeden');
 
- const customerInput = document.querySelector('#user') as HTMLInputElement;
+ export const customerInput = document.querySelector('#user') as HTMLInputElement;
+ console.log(customerInput);
 
  export const checkCompanyInput = document.querySelector('#company') as HTMLInputElement;
 
@@ -20,7 +23,6 @@ console.log('jeden');
 
  export const registerBtn = document.querySelector('#register') as HTMLButtonElement;
  
-
  export const termsInput = document.querySelector('#terms') as HTMLInputElement;
  const termsBox = document.querySelector('.register-terms') as HTMLElement;
  const termsError = document.createElement('p');
@@ -32,25 +34,6 @@ console.log('jeden');
 		termsBox.appendChild(termsError);
 	}
 };
-
- const checkboxesArr = [customerInput, checkCompanyInput];
-
-function handleCheckboxClick(this: HTMLInputElement) {
-	checkboxesArr.forEach(checkbox => {
-		if (checkbox !== this) {
-			checkbox.checked = false;
-		} else {
-			checkbox.checked = true;
-		}
-	});
-}
-
-handleCheckboxClick.call(checkboxesArr[0]);
-checkboxesArr.forEach(checkbox => {
-	checkbox.addEventListener('click', function () {
-		handleCheckboxClick.call(this);
-	});
-});
 
 
  const services = [
@@ -88,6 +71,7 @@ export const inputsEvents = (event: Event) => {
 
 export const toggleError = (input: HTMLInputElement, isError: boolean, placeholderText?: string) => {
 	if (isError) {
+		// console.log(input);
 		input.setAttribute('placeholder', placeholderText ?? 'Musisz podać jakąś wartość');
 		input.classList.add('red-input');
 		input.classList.add('red-placeholder');
@@ -168,10 +152,6 @@ const inputsValidation = () => {
 
 
 
-
-
-
-
 const inputsArr = [nameInput,surnameInput,numberInput,emailInput,passwordInput,repeatInput,companyInput,select];
 
 
@@ -182,26 +162,6 @@ const clearAllErrors = (
 	termsError: HTMLParagraphElement,
 	) => {
 
-	
-
-// if(adressInput.className = 'red-input'){
-// 	console.log('im in');
-// 	adressInput.classList.remove('red-input');
-
-// }
-
-
-		// adressInputsArr.forEach((input, index) => {
-		// 	console.log('jestem');
-		// 	const currentInput = input;
-		// 	console.log(currentInput);
-		// 	if (currentInput.className === 'red-input') {
-		// 		console.log('ok usuwam błedy');
-		// 		currentInput.classList.remove('red-input');
-		// 		currentInput.classList.remove('red-placeholder');
-		// 		currentInput.placeholder = adressFields[index].placeholder;
-		// 	}
-		// });
 	
 		inputsArr.forEach(input => {
 			input.classList.remove('red-input');
@@ -240,15 +200,15 @@ console.log('dwa');
 	  };
 
 
-	  
+	export type cityInputValue = string;
+	
+
+
 	  const handleEvent = (e: Event) => {
 		  const target = e.target as HTMLElement;
 		  
 		  if (e.type === 'input') {
 			  if (target.matches('#name, #surname, #number, #email, #company-name, #password, #repeat, #phone, #city,#code,#home,#street')) {
-				  const cityInput:HTMLInputElement| null = document.querySelector('#city');
-				  const cityInputValue = cityInput!.value
-				  handleCityInput(cityInputValue);
 				  
 			if (target instanceof HTMLInputElement) {
 				removeError(target);
@@ -278,29 +238,57 @@ console.log('dwa');
 };
 
 
+const inputs = dataInputsCreator(registerBtn!, toggleError,inputsEvents,checkCompanyInput)
 
 
+export const streetInput = inputs[0]
+export const homeInput = inputs[1]
+export const cityInput = inputs[2]
+export const codeInput = inputs[3]
 
 
-	// function handleCheckboxClick(this: HTMLInputElement) {
-	// 	checkboxesArr.forEach(checkbox => {
-	// 		if (checkbox !== this) {
-	// 			checkbox.checked = false;
-	// 		} else {
-	// 			checkbox.checked = true;
-	// 		}
-	// 	});
-	// }
+if(registerBtn !== null){
 
-
-document.addEventListener('DOMContentLoaded' , function() {
-
+	registerBtn.addEventListener('click', () => {
+		console.log('działam:DD');
+			localStorage.setItem('companyStreet', streetInput.value);
+			localStorage.setItem('companyHome', homeInput.value);
+			localStorage.setItem('companyCity', cityInput.value);
+			localStorage.setItem('companyCode', codeInput.value);
 	
-	dataInputsCreator(registerBtn, toggleError, inputsEvents,checkCompanyInput);
+			localStorage.getItem(streetInput.value);
+		})
+}
+	
+	document.addEventListener('DOMContentLoaded' , function() {
 	document.addEventListener('input', handleEvent);
 	document.addEventListener('change', handleEvent);
 	document.addEventListener('keypress', handleEvent);
-	registerBtn.addEventListener('click', inputsValidation);
+
+
+	if(registerBtn !== null) {
+		registerBtn.addEventListener('click', inputsValidation);
+	}
+
+	const checkboxesArr = [customerInput, checkCompanyInput];
+
+if (checkboxesArr !== null){
+	function handleCheckboxClick(selectedIndex: number, checkboxes: HTMLInputElement[]) {
+		console.log(checkboxes);
+	   checkboxes.forEach((checkbox, index) => {
+		console.log(checkbox);
+		   checkbox.checked = (index === selectedIndex);
+	   });
+	}
+	handleCheckboxClick(0, checkboxesArr);
+	checkboxesArr.forEach((checkbox, index) => {
+		checkbox.addEventListener('click', function () {
+		  handleCheckboxClick(index, checkboxesArr);
+		});
+	  });
+}
+
+
 
 })
 
