@@ -103,6 +103,7 @@ tbody td {
 	}
 
 	button {
+		display: grid;
 		width: 32%;
 		margin: 0.7em;
 		padding: 0.3em;
@@ -115,6 +116,16 @@ tbody td {
 
 	button:hover {
 		transform: scale(1.2);
+	}
+
+	&__info{
+
+		margin: 1em;
+		&-span{
+			text-decoration: underline;
+			font-weight: bold;
+		}
+
 	}
 }
 

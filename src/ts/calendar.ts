@@ -24,7 +24,9 @@ export const monthArr = new Array(
 	'Grudzień'
 );
 
+
 const hoursContainer: HTMLElement | null = document.querySelector('.hours-container');
+const hoursBoxInfo = document.querySelector('.hours-container__info-span') as HTMLSpanElement;
 export const allTd: NodeListOf<Element> = document.querySelectorAll('tbody td');
 
 const addClickEvents = () => {
@@ -39,14 +41,18 @@ const handleClick = (event: Event) => {
 
 	const today = new Date();
 	const pickedDate = new Date(date.getFullYear(), date.getMonth(), pickedDay);
+	console.log(pickedDate);
 
 	if ((td.textContent !== '' && pickedDate.getDate() == today.getDate()) || pickedDate > today) {
 		hoursContainer!.style.display = 'flex';
+		hoursBoxInfo.textContent = pickedDate.getDate() + " " + monthArr[date.getMonth()]
 	} else if (pickedDate < today && td.textContent !== '') {
 		alert('Ten dzień już minął!');
 		return;
 	}
+
 };
+
 
 export const calendar = () => {
 	const exitIcon = document.querySelector('.fa-times');
@@ -218,7 +224,7 @@ const updateServiceProviders = () => {
 };
 
 const userName = document.querySelector('.user-name') as HTMLParagraphElement;
-console.log(userName);
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
