@@ -8,9 +8,10 @@ import { dataInputsCreator, companyAdress } from './new-elements';
 console.log('jeden');
 
  export const customerInput = document.querySelector('#user') as HTMLInputElement;
- console.log(customerInput);
-
  export const checkCompanyInput = document.querySelector('#company') as HTMLInputElement;
+
+
+
 
  export const nameInput = document.querySelector('#name') as HTMLInputElement;
  export const surnameInput = document.querySelector('#surname') as HTMLInputElement;
@@ -256,7 +257,6 @@ if(registerBtn !== null){
 			localStorage.setItem('companyCity', cityInput.value);
 			localStorage.setItem('companyCode', codeInput.value);
 	
-			localStorage.getItem(streetInput.value);
 		})
 }
 	
@@ -270,26 +270,25 @@ if(registerBtn !== null){
 		registerBtn.addEventListener('click', inputsValidation);
 	}
 
-	const checkboxesArr = [customerInput, checkCompanyInput];
+	console.log('whatever');
 
-if (checkboxesArr !== null){
-	function handleCheckboxClick(selectedIndex: number, checkboxes: HTMLInputElement[]) {
-		console.log(checkboxes);
-	   checkboxes.forEach((checkbox, index) => {
-		console.log(checkbox);
-		   checkbox.checked = (index === selectedIndex);
-	   });
+	if (customerInput !== null && checkCompanyInput !== null){
+		const checkboxesArr = [customerInput, checkCompanyInput];
+
+		if (checkboxesArr !== null){
+			function handleCheckboxClick(selectedIndex: number, checkboxes: HTMLInputElement[]) {
+			   checkboxes.forEach((checkbox, index) => {;
+				   checkbox.checked = (index === selectedIndex);
+			   });
+			}
+			handleCheckboxClick(0, checkboxesArr);
+			checkboxesArr.forEach((checkbox, index) => {
+				checkbox.addEventListener('click', function () {
+				  handleCheckboxClick(index, checkboxesArr);
+				});
+			  });
+		}
 	}
-	handleCheckboxClick(0, checkboxesArr);
-	checkboxesArr.forEach((checkbox, index) => {
-		checkbox.addEventListener('click', function () {
-		  handleCheckboxClick(index, checkboxesArr);
-		});
-	  });
-}
-
-
-
 })
 
 

@@ -1,7 +1,4 @@
 export {};
-import { streetInput } from './main';
-
-
 
 // import {removeError,checkCompanyInput} from "./main";
 // import {handleCityInput} from './new-elements';
@@ -10,6 +7,7 @@ import { streetInput } from './main';
 
 const companyLocalCheckbox = document.querySelector('#local') as HTMLInputElement;
 const companyAdressBox = document.querySelector('.pick-profession-box__company-adress') as HTMLDivElement;
+
 const companyStreet = document.querySelector('#company-street') as HTMLParagraphElement;
 const companyHomeNumber = document.querySelector('#company-home-number') as HTMLParagraphElement;
 const companyCity = document.querySelector('#company-city') as HTMLParagraphElement;
@@ -17,10 +15,31 @@ const companyCode = document.querySelector('#company-code') as HTMLParagraphElem
 
 
 
-localStorage.getItem(streetInput.value);
+localStorage.getItem('companyStreet');
+localStorage.getItem("companyHome");
+localStorage.getItem("companyCity");
+localStorage.getItem("companyCode");
+console.log(localStorage.getItem('companyStreet'));
+console.log(localStorage.getItem("companyHome"));
+console.log(localStorage.getItem("companyCity"));
+console.log(localStorage.getItem("companyCode"));
+
+// console.log(localStorage.getItem('companyStreet'));
 
 
-console.log('cztery');
+companyStreet.textContent = "Ulica: " + localStorage.getItem('companyStreet');
+companyAdressBox.appendChild(companyStreet);
+
+companyHomeNumber.textContent = "Nr.Domu: " + localStorage.getItem('companyHome');
+companyAdressBox.appendChild(companyHomeNumber);
+
+companyCity.textContent = "Miasto: " + localStorage.getItem('companyCity');
+companyAdressBox.appendChild(companyCity);
+
+companyCode.textContent = "Kod pocztowy: " + localStorage.getItem('companyCode');
+companyAdressBox.appendChild(companyCode);
+
+
 
 let date = new Date();
 const monthArr = new Array(
@@ -297,7 +316,6 @@ const updateServiceProviders = () => {
 	}
 };
 
-console.log('dwaa');
 nextMonth();
 prevMonth();
 calendar();
