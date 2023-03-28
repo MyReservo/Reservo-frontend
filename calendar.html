@@ -10,8 +10,8 @@
   
 
 
-  <script type="module" crossorigin src="/Reservo-frontend/calendar.d5502ac7.js"></script>
-  <link rel="stylesheet" href="/Reservo-frontend/calendar.1c8e2ddc.css">
+  <script type="module" crossorigin src="/Reservo-frontend/calendar.fdbc1d9b.js"></script>
+  <link rel="stylesheet" href="/Reservo-frontend/calendar.660ccb7f.css">
 </head>
 
 <body class="calendar-bg">
@@ -23,7 +23,7 @@
     <div class="shadow"></div>
     <h1 class="panel-title">Reservo <i class="fas fa-pencil-alt"></i></h1>
     <div class="log-out-box">
-      <p id="log-out"><i class="fas fa-sign-out-alt"></i>Wyloguj</p>
+      <a href="./index.html"><p id="log-out"><i class="fas fa-sign-out-alt"></i>Wyloguj</p></a>
     </div>
   </div>
 
@@ -50,12 +50,6 @@
 
       <h4 class="available-providers">Dostepni <span class="service-provider__title">...</span></h4>
       <div class="service-provider">
-
-
-       <!-- <div class="service-provider__name"> <p>p.Katarzyna wiek:30</p> <input type="checkbox" id="kasia-barber" class="service-provider-checkbox"></div>
-       
-       <div class="service-provider__name"> <p>p.Katarzyna wiek:30</p> <input type="checkbox" id="kasia-barber" class="service-provider-checkbox"></div>  -->
-
       </div>
 
       <div class="horizontal-line"></div>
@@ -176,18 +170,20 @@
       </table>
 
     </div>
-    <div class="hours-container">
-      <i class="fas fa-times"></i>
-      <h3>Wybierz godzinę</h3>
-      <button class="hour-btn">9:00</button>
-      <button class="hour-btn">10:00</button>
-      <button class="hour-btn">11:00</button>
-      <button class="hour-btn">12:00</button>
-      <button class="hour-btn">13:00</button>
-      <button class="hour-btn">14:00</button>
-      <button type='submit' id="send">UMÓW SIĘ</button>
-    </div>
-
+    
+  </div>
+  <div class="hours-container">
+    <i class="fas fa-times"></i>
+    <p class="hours-container__info">Umawiasz się na <span class="hours-container__info-span
+      ">...</span></p>
+    <h3>Wybierz godzinę</h3>
+    <button class="hour-btn">9:00</button>
+    <button class="hour-btn">10:00</button>
+    <button class="hour-btn">11:00</button>
+    <button class="hour-btn">12:00</button>
+    <button class="hour-btn">13:00</button>
+    <button class="hour-btn">14:00</button>
+    <button type='submit' id="send">UMÓW SIĘ</button>
   </div>
 
 	
