@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d3231c159b.js" crossorigin="anonymous"></script>
+    <title>Company-panel</title>
+    
+  <script type="module" crossorigin src="/Reservo-frontend/companyPanel.ad38e19f.js"></script>
+  <link rel="modulepreload" crossorigin href="/Reservo-frontend/calendar.4e54541a.js">
+  <link rel="stylesheet" href="/Reservo-frontend/calendar.1c8e2ddc.css">
+  <link rel="stylesheet" href="/Reservo-frontend/company-panel.6a6b3ad8.css">
+</head>
+
+<body>
+    <div class="shadow-box">
+        <div class="shadow"></div>
+        <div class="user-box"><i class="fas fa-user"></i>
+            <p class="user-name">Nazwa użytkownika</p>
+        </div>
+        <h1 class="panel-title">Reservo <i class="fas fa-pencil-alt"></i></h1>
+        <div class="log-out-box">
+            <p id="log-out"><i class="fas fa-sign-out-alt"></i>Wyloguj</p>
+        </div>
+    </div>
+
+<!-- <div class="wrapper-calendar"> -->
+    <div class="your-profession">
+        <p class="your-profession__title">Twoja profesja to <span id="proffesion-name">Mechanik</span></p>
+    </div>
+
+    <div class="calendar-container">
+        <div class="pick-day-box">
+          <h4>Sprawdź termin wykonania Twojej usługi </h4>
+        </div>
+        <table id="calendar">
+          <thead>
+            <tr>
+              <td><button id="prev"><i class="fas fa-chevron-left"></i></button></td>
+              <td id="calendar-top" colspan="5">Miesiąc</td>
+              <td><button id="next"><i class="fas fa-chevron-right"></i></button></td>
+            <tr>
+              <td>Pon</td>
+              <td>Wt</td>
+              <td>Śro</td>
+              <td>Czw</td>
+              <td>Pt</td>
+              <td>Sob</td>
+              <td>Nie</td>
+            </tr>
+            </tr>
+          </thead>
+    
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+    
+      </div>
+
+    <div class="your-visits">
+        <h2>Umówione wizyty:</h2>
+        <div class="visit">
+            <div class="visit__customers-name"><p>Imię klienta: <span id="customers-name">Marek</span></p></div>
+            <div class="visit__adress">
+                <p>Adres wizyty:</p>
+                <p id="visit__adress-street">Ulica: Niepodległości</p>
+                <p id="visit__adress-home-number">Nr.domu: 150/23</p>
+                <p id="visit__adress-city">Miasto: Wrocław</p>
+                <p id="visit__adress-code">Kod pocztowy: 72-113</p>
+            </div>
+            <div class="visit__date">
+                <p class="visit__date-exact"> Sat Mar 25 2023 <span id="visit__date-hour">17:00</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+  <!-- <script type="module" defer src="./src/ts/calendar.ts"></script> -->
+    
+</body>
+
+</html>
