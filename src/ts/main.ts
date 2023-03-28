@@ -14,6 +14,7 @@ console.log('jeden');
 
 
  export const nameInput = document.querySelector('#name') as HTMLInputElement;
+
  export const surnameInput = document.querySelector('#surname') as HTMLInputElement;
 
  export const numberInput = document.querySelector('#phone') as HTMLInputElement;
@@ -36,28 +37,44 @@ console.log('jeden');
 	}
 };
 
+const select = document.createElement('select');
 
- const services = [
-    { value: 'default', label: 'Wybierz usługę', id: 'default' },
-	{ value: 'TUTOR', label: 'Korepetycje', id: 'tutor' },
-	{ value: 'BARBER', label: 'Fryzjer', id: 'barber' },
-	{ value: 'MECHANIC', label: 'Mechanik', id: 'mechanic' },
-];
- export const select = document.createElement('select');
-select.id = 'services';
-select.name = 'services';
-select.className = 'input';
 
-services.forEach(service => {
-	const option = document.createElement('option');
-	option.value = service.value;
-	option.innerText = service.label;
-	option.id = service.id;
-	select.appendChild(option);
-	if (option.value === 'default') {
-		option.disabled = true;
-	}
-});
+const createRegisterSelect = () => {
+	
+	const services = [
+		{ value: 'default', label: 'Wybierz usługę', id: 'default' },
+		{ value: 'TUTOR', label: 'Korepetycje', id: 'tutor' },
+		{ value: 'BARBER', label: 'Fryzjer', id: 'barber' },
+		{ value: 'MECHANIC', label: 'Mechanik', id: 'mechanic' },
+	];
+	select.id = 'services';
+	select.name = 'services';
+	select.className = 'input';
+	
+	const selectElement = select
+	console.log(selectElement);
+
+	const options: HTMLOptionElement[] = [];
+	services.forEach(service => {
+		const option = document.createElement('option');
+		option.value = service.value;
+		option.innerText = service.label;
+		option.id = service.id;
+		select.appendChild(option);
+		if (option.value === 'default') {
+			option.disabled = true;
+		}
+		options.push(option);
+
+	});
+	
+	return [options,selectElement]
+}
+
+
+ 
+
 
 export const inputsEvents = (event: Event) => {
 	const input = event.target as HTMLInputElement;
@@ -194,11 +211,10 @@ const clearAllErrors = (
 	};
 
 
-console.log('dwa');
 	
-	export const handleCityInput = (cityInputValue:string) => {
-		console.log(cityInputValue);
-	  };
+	// export const handleCityInput = (cityInputValue:string) => {
+	// 	console.log(cityInputValue);
+	//   };
 
 
 	export type cityInputValue = string;
@@ -240,37 +256,43 @@ console.log('dwa');
 
 
 const inputs = dataInputsCreator(registerBtn!, toggleError,inputsEvents,checkCompanyInput)
+// const [options,selectElement] = createRegisterSelect();
 
 
-export const streetInput = inputs[0]
-export const homeInput = inputs[1]
-export const cityInput = inputs[2]
-export const codeInput = inputs[3]
+ const streetInput = inputs[0]
+ const homeInput = inputs[1]
+ const cityInput = inputs[2]
+ const codeInput = inputs[3]
+
 
 
 if(registerBtn !== null){
-
 	registerBtn.addEventListener('click', () => {
-		console.log('działam:DD');
-			localStorage.setItem('companyStreet', streetInput.value);
-			localStorage.setItem('companyHome', homeInput.value);
-			localStorage.setItem('companyCity', cityInput.value);
-			localStorage.setItem('companyCode', codeInput.value);
-	
-		})
+
+		localStorage.setItem('name', nameInput.value);
+
+			const selectElement= document.getElementById('services') as  HTMLSelectElement; 
+			const selectedOptionValue = selectElement.options[selectElement.selectedIndex].value;
+		localStorage.setItem('selectedOption', selectedOptionValue);
+
+		localStorage.setItem('companyStreet', streetInput.value);
+		localStorage.setItem('companyHome', homeInput.value);
+		localStorage.setItem('companyCity', cityInput.value);
+		localStorage.setItem('companyCode', codeInput.value);
+	})
 }
+
+
 	
 	document.addEventListener('DOMContentLoaded' , function() {
 	document.addEventListener('input', handleEvent);
 	document.addEventListener('change', handleEvent);
 	document.addEventListener('keypress', handleEvent);
-
+	createRegisterSelect()
 
 	if(registerBtn !== null) {
 		registerBtn.addEventListener('click', inputsValidation);
 	}
-
-	console.log('whatever');
 
 	if (customerInput !== null && checkCompanyInput !== null){
 		const checkboxesArr = [customerInput, checkCompanyInput];

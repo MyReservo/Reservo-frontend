@@ -10,7 +10,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: 'index.html',
-        calendar: 'calendar.html'
+        calendar: 'calendar.html',
+        companyPanel: 'company-panel.html' 
       },
       output: {
         manualChunks(id) {

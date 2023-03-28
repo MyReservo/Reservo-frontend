@@ -1,45 +1,13 @@
 export {};
 
-// import {removeError,checkCompanyInput} from "./main";
-// import {handleCityInput} from './new-elements';
-// import { adressInput } from "./new-elements";
-// import { dataInputsCreator } from "./new-elements";
-
 const companyLocalCheckbox = document.querySelector('#local') as HTMLInputElement;
 const companyAdressBox = document.querySelector('.pick-profession-box__company-adress') as HTMLDivElement;
 
 const companyStreet = document.querySelector('#company-street') as HTMLParagraphElement;
+console.log(companyStreet);
 const companyHomeNumber = document.querySelector('#company-home-number') as HTMLParagraphElement;
 const companyCity = document.querySelector('#company-city') as HTMLParagraphElement;
 const companyCode = document.querySelector('#company-code') as HTMLParagraphElement;
-
-
-
-localStorage.getItem('companyStreet');
-localStorage.getItem("companyHome");
-localStorage.getItem("companyCity");
-localStorage.getItem("companyCode");
-console.log(localStorage.getItem('companyStreet'));
-console.log(localStorage.getItem("companyHome"));
-console.log(localStorage.getItem("companyCity"));
-console.log(localStorage.getItem("companyCode"));
-
-// console.log(localStorage.getItem('companyStreet'));
-
-
-companyStreet.textContent = "Ulica: " + localStorage.getItem('companyStreet');
-companyAdressBox.appendChild(companyStreet);
-
-companyHomeNumber.textContent = "Nr.Domu: " + localStorage.getItem('companyHome');
-companyAdressBox.appendChild(companyHomeNumber);
-
-companyCity.textContent = "Miasto: " + localStorage.getItem('companyCity');
-companyAdressBox.appendChild(companyCity);
-
-companyCode.textContent = "Kod pocztowy: " + localStorage.getItem('companyCode');
-companyAdressBox.appendChild(companyCode);
-
-
 
 let date = new Date();
 const monthArr = new Array(
@@ -170,84 +138,18 @@ function handleCheckboxClick(this: HTMLInputElement) {
 const servicesSelect = document.querySelector('#calendar-services') as HTMLSelectElement;
 const servicesCitySelect = document.querySelector('#calendar-city') as HTMLSelectElement;
 
-const companyAdressesCreator = () => {
-	servicesSelect.addEventListener('change', () => {
-		const selectedService = servicesSelect.options[servicesSelect.selectedIndex];
-		if (selectedService.value === 'TUTOR') {
-			companyStreet.textContent = 'Ulica: ';
-			companyHomeNumber.textContent = 'Nr.domu: ';
-			companyCity.textContent = 'Miasto: ';
-			companyCode.textContent = 'Kod pocztowy: ';
-		} else if (selectedService.value === 'BARBER') {
-			companyStreet.textContent = 'Ulica: ';
-			companyHomeNumber.textContent = 'Nr.domu: ';
-			companyCity.textContent = 'Miasto: ';
-			companyCode.textContent = 'Kod pocztowy: ';
-		} else if (selectedService.value === 'MECHANIC') {
-			companyStreet.textContent = 'Ulica: ';
-			companyHomeNumber.textContent = 'Nr.domu: ';
-			companyCity.textContent = 'Miasto: ';
-			companyCode.textContent = 'Kod pocztowy: ';
-		}
-	});
-};
-
-// definicja tablicy przechowującej zarejestrowane firmy
-// const calendarServicesProviderObjectArr: {name:string, service:string, city:string}[]= [];
-
-// funkcja rejestracji dla firm
-// function registerProvider() {
-//   // pobierz wartości z formularza
-//   const name = document.getElementById('name').value;
-//   const service = document.getElementById('service').value;
-//   const city = document.getElementById('city').value;
-
-//   // stwórz nowy obiekt calendarServicesProviderObject na podstawie zebranych danych
-//   const provider = {
-//     name: name,
-//     service: service,
-//     city: city
-//   };
-
-//   // dodaj nowy obiekt do tablicy calendarServicesProviderObjectArr []
-//   calendarServicesProviderObjectArr.push(provider);
-
-//   // zresetuj wartości formularza po dodaniu nowego obiektu do tablicy
-//   document.getElementById('name').value = '';
-//   document.getElementById('service').value = '';
-//   document.getElementById('city').value = '';
-// }
-
 const serviceProviderBox = document.querySelector('.service-provider') as HTMLDivElement;
 const serviceProviderSpan = document.querySelector('.service-provider__title') as HTMLHeadingElement;
 
 const calendarServicesProviderObjectArr = [
-	{ id: 'kasia-tutor', name: 'Katarzyna', age: 26, city: 'Wrocław' },
-	{ id: 'pawel-tutor', name: 'Paweł', age: 31, city: 'Wrocław' },
-	{ id: 'barbara-tutor', name: 'Barbara', age: 40, city: 'Wrocław' },
-	{ id: 'michał-tutor', name: 'Michał', age: 30, city: 'Kraków' },
-	{ id: 'grzegorz-tutor', name: 'Grzegorz', age: 45, city: 'Warszawa' },
-	{ id: 'paulina-tutor', name: 'Paulina', age: 25, city: 'Warszawa' },
-
-	{ id: 'ania-barber', name: 'Joanna', age: 23, city: 'Wrocław' },
-	{ id: 'piotr-barber', name: 'Piotr', age: 29, city: 'Kraków' },
-	{ id: 'zbigniew-barber', name: 'Zbigniew', age: 50, city: 'Kraków' },
-	{ id: 'andrzej-barber', name: 'Andrzej', age: 40, city: 'Warszawa' },
-	{ id: 'henryk-barber', name: 'Henryk', age: 27, city: 'Warszawa' },
-
-	{ id: 'stanislaw-mechanic', name: 'Stanisław', age: 23, city: 'Wrocław' },
-	{ id: 'artur-mechanic', name: 'Artur', age: 33, city: 'Wrocław' },
-	{ id: 'piotr-mechanic', name: 'Piotr', age: 39, city: 'Kraków' },
-	{ id: 'andrzej-mechanic', name: 'Andrzej', age: 50, city: 'Kraków' },
-	{ id: 'kajetan-mechanic', name: 'Kajetan', age: 40, city: 'Warszawa' },
-	{ id: 'wlodzimierz-mechanic', name: 'Włodzimierz', age: 47, city: 'Warszawa' },
+	{ id: 'name-service', name: 'name', city: 'city' },
 ];
 
-const createServiceProviderElement = (name: string, age: number) => {
+const createServiceProviderElement = (name: string) => {
 	const serviceProviderName = document.createElement('div');
 	serviceProviderName.className = 'service-provider__name';
 	const serviceProviderText = document.createElement('p');
-	serviceProviderText.textContent = name + ' wiek:' + `${age}`;
+	serviceProviderText.textContent = name ;
 	const serviceProviderCheckbox = document.createElement('input');
 	serviceProviderCheckbox.type = 'checkbox';
 	serviceProviderCheckbox.id = `${name}-tutor`;
@@ -268,13 +170,13 @@ const updateServiceProviders = () => {
 			const tutorService = provider.id.includes('tutor');
 
 			if (selectedCity === 'wroclaw' && provider.city === 'Wrocław' && tutorService) {
-				createServiceProviderElement(provider.name, provider.age);
+				createServiceProviderElement(provider.name);
 			}
 			if (selectedCity == 'warsaw' && provider.city === 'Warszawa' && tutorService) {
-				createServiceProviderElement(provider.name, provider.age);
+				createServiceProviderElement(provider.name);
 			}
 			if (selectedCity == 'cracow' && provider.city === 'Kraków' && tutorService) {
-				createServiceProviderElement(provider.name, provider.age);
+				createServiceProviderElement(provider.name);
 			}
 		});
 	}
@@ -286,13 +188,13 @@ const updateServiceProviders = () => {
 			const tutorService = provider.id.includes('barber');
 
 			if (selectedCity === 'wroclaw' && provider.city === 'Wrocław' && tutorService) {
-				createServiceProviderElement(provider.name, provider.age);
+				createServiceProviderElement(provider.name);
 			}
 			if (selectedCity == 'warsaw' && provider.city === 'Warszawa' && tutorService) {
-				createServiceProviderElement(provider.name, provider.age);
+				createServiceProviderElement(provider.name);
 			}
 			if (selectedCity == 'cracow' && provider.city === 'Kraków' && tutorService) {
-				createServiceProviderElement(provider.name, provider.age);
+				createServiceProviderElement(provider.name);
 			}
 		});
 	}
@@ -304,29 +206,68 @@ const updateServiceProviders = () => {
 			const tutorService = provider.id.includes('mechanic');
 
 			if (selectedCity === 'wroclaw' && provider.city === 'Wrocław' && tutorService) {
-				createServiceProviderElement(provider.name, provider.age);
+				createServiceProviderElement(provider.name);
 			}
 			if (selectedCity == 'warsaw' && provider.city === 'Warszawa' && tutorService) {
-				createServiceProviderElement(provider.name, provider.age);
+				createServiceProviderElement(provider.name);
 			}
 			if (selectedCity == 'cracow' && provider.city === 'Kraków' && tutorService) {
-				createServiceProviderElement(provider.name, provider.age);
+				createServiceProviderElement(provider.name);
 			}
 		});
 	}
 };
 
-nextMonth();
-prevMonth();
-calendar();
-companyAdressesCreator();
-activeClassToggler();
-checkboxesAdressArr.forEach(checkbox => {
-	checkbox.addEventListener('click', function () {
-		handleCheckboxClick.call(this);
+
+document.addEventListener('DOMContentLoaded', () => {
+	localStorage.getItem("name");
+
+	localStorage.getItem("selectedOption");
+	
+	localStorage.getItem('companyStreet');
+	localStorage.getItem("companyHome");
+	localStorage.getItem("companyCity");
+	localStorage.getItem("companyCode");
+
+
+	calendarServicesProviderObjectArr.forEach((obj) => {
+		const name = localStorage.getItem("name");
+		const city = localStorage.getItem("companyCity");
+		if (name !== null && city !== null) {
+		  obj.name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+		  obj.id = name.toLowerCase() + "-" + localStorage.getItem("selectedOption")?.toLowerCase();
+		  obj.city = city
+		} 
+	  });
+	  
+	
+	companyStreet.textContent = "Ulica: " + localStorage.getItem('companyStreet');
+	companyAdressBox.appendChild(companyStreet);
+	
+	companyHomeNumber.textContent = "Nr.Domu: " + localStorage.getItem('companyHome');
+	companyAdressBox.appendChild(companyHomeNumber);
+	
+	companyCity.textContent = "Miasto: " + localStorage.getItem('companyCity');
+	companyAdressBox.appendChild(companyCity);
+	
+	companyCode.textContent = "Kod pocztowy: " + localStorage.getItem('companyCode');
+	companyAdressBox.appendChild(companyCode);
+
+
+	nextMonth();
+	prevMonth();
+	calendar();
+	activeClassToggler();
+	checkboxesAdressArr.forEach(checkbox => {
+		checkbox.addEventListener('click', function () {
+			handleCheckboxClick.call(this);
+		});
 	});
-});
-servicesSelect.addEventListener('change', updateServiceProviders);
-servicesCitySelect.addEventListener('change', updateServiceProviders);
-customerHomeCheckbox.addEventListener('change', calendarCheckboxCheck);
-companyLocalCheckbox.addEventListener('change', calendarCheckboxCheck);
+	
+
+	servicesSelect.addEventListener('change', updateServiceProviders);
+	servicesCitySelect.addEventListener('change', updateServiceProviders);
+	customerHomeCheckbox.addEventListener('change', calendarCheckboxCheck);
+	companyLocalCheckbox.addEventListener('change', calendarCheckboxCheck);
+})
+
