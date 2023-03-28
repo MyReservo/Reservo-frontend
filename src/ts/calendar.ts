@@ -4,13 +4,12 @@ const companyLocalCheckbox = document.querySelector('#local') as HTMLInputElemen
 const companyAdressBox = document.querySelector('.pick-profession-box__company-adress') as HTMLDivElement;
 
 const companyStreet = document.querySelector('#company-street') as HTMLParagraphElement;
-console.log(companyStreet);
 const companyHomeNumber = document.querySelector('#company-home-number') as HTMLParagraphElement;
 const companyCity = document.querySelector('#company-city') as HTMLParagraphElement;
 const companyCode = document.querySelector('#company-code') as HTMLParagraphElement;
 
-let date = new Date();
-const monthArr = new Array(
+export let date = new Date();
+export const monthArr = new Array(
 	'Styczeń',
 	'Luty',
 	'Marzec',
@@ -26,7 +25,7 @@ const monthArr = new Array(
 );
 
 const hoursContainer: HTMLElement | null = document.querySelector('.hours-container');
-const allTd: NodeListOf<Element> = document.querySelectorAll('tbody td');
+export const allTd: NodeListOf<Element> = document.querySelectorAll('tbody td');
 
 const addClickEvents = () => {
 	allTd.forEach(td => {
@@ -42,14 +41,14 @@ const handleClick = (event: Event) => {
 	const pickedDate = new Date(date.getFullYear(), date.getMonth(), pickedDay);
 
 	if ((td.textContent !== '' && pickedDate.getDate() == today.getDate()) || pickedDate > today) {
-		hoursContainer!.style.display = 'block';
+		hoursContainer!.style.display = 'flex';
 	} else if (pickedDate < today && td.textContent !== '') {
 		alert('Ten dzień już minął!');
 		return;
 	}
 };
 
-const calendar = () => {
+export const calendar = () => {
 	const exitIcon = document.querySelector('.fa-times');
 	exitIcon?.addEventListener('click', () => {
 		hoursContainer!.style.display = 'none';
@@ -77,13 +76,13 @@ const calendar = () => {
 	addClickEvents();
 };
 
-const prevMonth = () => {
+export const prevMonth = () => {
 	date.setMonth(date.getMonth() - 1);
 	date.setDate(1);
 	calendar();
 };
 
-const nextMonth = () => {
+export const nextMonth = () => {
 	date.setMonth(date.getMonth() + 1);
 	date.setDate(1);
 	calendar();
@@ -218,12 +217,22 @@ const updateServiceProviders = () => {
 	}
 };
 
+const userName = document.querySelector('.user-name') as HTMLParagraphElement;
+console.log(userName);
+
 
 document.addEventListener('DOMContentLoaded', () => {
+
+	userName.textContent = localStorage.getItem('name');
+
 	localStorage.getItem("name");
 
+	console.log(localStorage.getItem('selectedOptionText'));
+
+
+
 	localStorage.getItem("selectedOption");
-	
+	console.log(localStorage.getItem("selectedOption"));
 	localStorage.getItem('companyStreet');
 	localStorage.getItem("companyHome");
 	localStorage.getItem("companyCity");

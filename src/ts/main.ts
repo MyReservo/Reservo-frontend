@@ -256,8 +256,6 @@ const clearAllErrors = (
 
 
 const inputs = dataInputsCreator(registerBtn!, toggleError,inputsEvents,checkCompanyInput)
-// const [options,selectElement] = createRegisterSelect();
-
 
  const streetInput = inputs[0]
  const homeInput = inputs[1]
@@ -265,21 +263,31 @@ const inputs = dataInputsCreator(registerBtn!, toggleError,inputsEvents,checkCom
  const codeInput = inputs[3]
 
 
+console.log('trzy');
 
-if(registerBtn !== null){
-	registerBtn.addEventListener('click', () => {
+ if(registerBtn !== null){
+	 registerBtn.addEventListener('click', () => {
+		console.log('kliknieto!');
+
+		 const selectElement= document.getElementById('services') as  HTMLSelectElement; 
+		 const selectedOptionValue = selectElement.options[selectElement.selectedIndex].value;
+
+		const selectedOptionText = selectElement.options[selectElement.selectedIndex].textContent;
+		
 
 		localStorage.setItem('name', nameInput.value);
-
-			const selectElement= document.getElementById('services') as  HTMLSelectElement; 
-			const selectedOptionValue = selectElement.options[selectElement.selectedIndex].value;
+	
 		localStorage.setItem('selectedOption', selectedOptionValue);
+		localStorage.setItem('selectedOptionText', selectedOptionText!);
+		localStorage.getItem('selectedOptionText');
+		console.log(localStorage.getItem('selectedOptionText'));
 
 		localStorage.setItem('companyStreet', streetInput.value);
 		localStorage.setItem('companyHome', homeInput.value);
 		localStorage.setItem('companyCity', cityInput.value);
 		localStorage.setItem('companyCode', codeInput.value);
 	})
+	
 }
 
 
@@ -288,7 +296,8 @@ if(registerBtn !== null){
 	document.addEventListener('input', handleEvent);
 	document.addEventListener('change', handleEvent);
 	document.addEventListener('keypress', handleEvent);
-	createRegisterSelect()
+	createRegisterSelect();
+ 
 
 	if(registerBtn !== null) {
 		registerBtn.addEventListener('click', inputsValidation);
@@ -311,8 +320,8 @@ if(registerBtn !== null){
 			  });
 		}
 	}
+	
 })
-
 
 
 

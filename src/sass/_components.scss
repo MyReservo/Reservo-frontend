@@ -15,11 +15,8 @@
 
 
 .panel-title {
-	// text-align: center;
-	// margin-top: 0.5em;
-display: flex;
-// justify-content: center;
-width: 90%;
+	display: flex;
+	width: 90%;
 	padding: 0.5em;
 	font-size: 5rem;
 	font-style: italic;
@@ -37,7 +34,7 @@ width: 90%;
 
 	.user-name{
 		letter-spacing: .06em;
-		// font-weight: bold;
+		font-size: 2.2rem;
 	}
 	.fa-user{
 		margin-right: .6em;
@@ -115,6 +112,12 @@ width: 90%;
 
 .info:hover::before{
 	display: block;
+}
+
+
+a{
+	text-decoration: none;
+	color: #f3f3f3;
 }
 
 
