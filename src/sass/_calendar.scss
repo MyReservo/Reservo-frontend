@@ -3,6 +3,11 @@
 @use 'components' as *;
 @use 'calendar-adress-box' as *;
 
+// html{
+// 	// height: -webkit-fill-available;
+// }
+
+
 .calendar-bg {
 	font-family: 'Lato', sans-serif;
 	background-image: linear-gradient(183deg, #7ec9d3, #63a0cd, #719bcc, rgba(87, 143, 206, 0.8274509804));
@@ -15,7 +20,7 @@
 }
 
 .wrapper-calendar {
-	margin: 80px auto;
+	margin:  50px auto;
 	width: 90%;
 	justify-content: center;
 	display: flex;
@@ -85,6 +90,7 @@ tbody td {
 	left: 50%;
 	transform: translate(-50%);
 	margin-bottom: 50px;
+	top: -30px;
 	flex-direction: column;
 	align-items: center;
 	padding: 0.6em;
@@ -95,6 +101,14 @@ tbody td {
 	border: 1px solid black;
 	font-size: 1.5rem;
 	display: none;
+
+	&__btn-box{
+		width: 75%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+
+	}
 	.active {
 		background-color: lime;
 	}
@@ -103,10 +117,10 @@ tbody td {
 	}
 
 	button {
-		display: grid;
-		width: 32%;
+		width: 43%;
 		margin: 0.7em;
 		padding: 0.3em;
+		justify-items: auto;
 		border-radius: 8px;
 		border: none;
 		background-color: #e8eaebd7;

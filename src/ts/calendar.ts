@@ -27,7 +27,7 @@ export const monthArr = new Array(
 
 const hoursContainer: HTMLElement | null = document.querySelector('.hours-container');
 const hoursBoxInfo = document.querySelector('.hours-container__info-span') as HTMLSpanElement;
-export const allTd: NodeListOf<Element> = document.querySelectorAll('tbody td');
+export const allTd: NodeListOf<HTMLTableDataCellElement> = document.querySelectorAll('tbody td');
 
 const addClickEvents = () => {
 	allTd.forEach(td => {
@@ -41,23 +41,29 @@ const handleClick = (event: Event) => {
 
 	const today = new Date();
 	const pickedDate = new Date(date.getFullYear(), date.getMonth(), pickedDay);
-	console.log(pickedDate);
 
 	if ((td.textContent !== '' && pickedDate.getDate() == today.getDate()) || pickedDate > today) {
-		hoursContainer!.style.display = 'flex';
 		hoursBoxInfo.textContent = pickedDate.getDate() + " " + monthArr[date.getMonth()]
+		hoursContainer!.style.display = 'flex';
+		allTd.forEach(td => {
+			td.style.backgroundColor = "";
+		});
+		td.style.backgroundColor = "#82f238e6";
+		calendar(td);
 	} else if (pickedDate < today && td.textContent !== '') {
 		alert('Ten dzień już minął!');
 		return;
 	}
-
+	
 };
 
 
-export const calendar = () => {
+export const calendar = (td:HTMLElement) => {
 	const exitIcon = document.querySelector('.fa-times');
 	exitIcon?.addEventListener('click', () => {
 		hoursContainer!.style.display = 'none';
+		td.style.backgroundColor = "";
+		console.log(td);
 	});
 	const monthAndYear = document.querySelector('#calendar-top') as HTMLElement;
 	monthAndYear.textContent = monthArr[date.getMonth()] + ' ' + date.getFullYear();
@@ -79,23 +85,35 @@ export const calendar = () => {
 			allTd[i].innerHTML = '';
 		}
 	}
-	addClickEvents();
 };
 
-export const prevMonth = () => {
+export const prevMonth = (td:HTMLElement) => {
 	date.setMonth(date.getMonth() - 1);
 	date.setDate(1);
-	calendar();
+	calendar(td);
 };
 
-export const nextMonth = () => {
+export const nextMonth = (td:HTMLElement) => {
 	date.setMonth(date.getMonth() + 1);
 	date.setDate(1);
-	calendar();
+	calendar(td);
 };
 
-document.querySelector('#prev')?.addEventListener('click', prevMonth);
-document.querySelector('#next')?.addEventListener('click', nextMonth);
+document.querySelector('#prev')?.addEventListener('click',() => {
+
+	const td = document.querySelector('td');
+	if (td) {
+	  prevMonth(td);
+	}
+} );
+
+document.querySelector('#next')?.addEventListener('click',() => {
+	const td = document.querySelector('td');
+	if (td) {
+	  nextMonth(td);
+	}
+} );
+
 
 const hourBtns: NodeListOf<Element> = document.querySelectorAll('.hour-btn');
 
@@ -228,6 +246,7 @@ const userName = document.querySelector('.user-name') as HTMLParagraphElement;
 
 
 document.addEventListener('DOMContentLoaded', () => {
+	const td = document.querySelectorAll('td')
 
 	userName.textContent = localStorage.getItem('name');
 
@@ -269,10 +288,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	companyAdressBox.appendChild(companyCode);
 
 
-	nextMonth();
-	prevMonth();
-	calendar();
+	nextMonth(td[0]);
+	prevMonth(td[0]);
+	calendar(td[0]);
 	activeClassToggler();
+	addClickEvents()
 	checkboxesAdressArr.forEach(checkbox => {
 		checkbox.addEventListener('click', function () {
 			handleCheckboxClick.call(this);
