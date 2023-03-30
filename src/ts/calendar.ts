@@ -8,6 +8,8 @@ const companyHomeNumber = document.querySelector('#company-home-number') as HTML
 const companyCity = document.querySelector('#company-city') as HTMLParagraphElement;
 const companyCode = document.querySelector('#company-code') as HTMLParagraphElement;
 
+
+
 export let date = new Date();
 export const monthArr = new Array(
 	'Styczeń',
@@ -32,19 +34,22 @@ export const allTd: NodeListOf<HTMLTableDataCellElement> = document.querySelecto
 const addClickEvents = () => {
 	allTd.forEach(td => {
 		td.addEventListener('click', handleClick);
+		
 	});
 };
 
 const handleClick = (event: Event) => {
 	const td = event.target as HTMLElement;
+	console.log(td);
 	const pickedDay = Number(td.textContent);
-
 	const today = new Date();
 	const pickedDate = new Date(date.getFullYear(), date.getMonth(), pickedDay);
 
 	if ((td.textContent !== '' && pickedDate.getDate() == today.getDate()) || pickedDate > today) {
-		hoursBoxInfo.textContent = pickedDate.getDate() + " " + monthArr[date.getMonth()]
-		hoursContainer!.style.display = 'flex';
+		if(hoursBoxInfo !==null){
+			hoursBoxInfo.textContent = pickedDate.getDate() + " " + monthArr[date.getMonth()]
+			hoursContainer!.style.display = 'flex';
+		}
 		allTd.forEach(td => {
 			td.style.backgroundColor = "";
 		});
@@ -53,8 +58,7 @@ const handleClick = (event: Event) => {
 	} else if (pickedDate < today && td.textContent !== '') {
 		alert('Ten dzień już minął!');
 		return;
-	}
-	
+	}	
 };
 
 
@@ -63,7 +67,9 @@ export const calendar = (td:HTMLElement) => {
 	exitIcon?.addEventListener('click', () => {
 		hoursContainer!.style.display = 'none';
 		td.style.backgroundColor = "";
-		console.log(td);
+		hourBtns.forEach(btn => {
+			btn.classList.remove('active');
+		})
 	});
 	const monthAndYear = document.querySelector('#calendar-top') as HTMLElement;
 	monthAndYear.textContent = monthArr[date.getMonth()] + ' ' + date.getFullYear();
@@ -132,9 +138,9 @@ const activeClassToggler = () => {
 	});
 };
 
-const customerHomeCheckbox = document.querySelector('#client-home') as HTMLInputElement;
 
-const clientAdressBox = document.querySelector('.pick-profession-box__client-adress') as HTMLDivElement;
+	const customerHomeCheckbox = document.querySelector('#client-home') as HTMLInputElement;
+	const clientAdressBox = document.querySelector('.pick-profession-box__client-adress') as HTMLDivElement;
 
 const calendarCheckboxCheck = () => {
 	if (customerHomeCheckbox.checked) {
@@ -146,7 +152,9 @@ const calendarCheckboxCheck = () => {
 	}
 };
 
+
 const checkboxesAdressArr = [customerHomeCheckbox, companyLocalCheckbox];
+
 
 function handleCheckboxClick(this: HTMLInputElement) {
 	checkboxesAdressArr.forEach(checkbox => {
@@ -242,7 +250,37 @@ const updateServiceProviders = () => {
 };
 
 const userName = document.querySelector('.user-name') as HTMLParagraphElement;
+const calendarSendBtn = document.querySelector('#send') as HTMLButtonElement;
 
+if(calendarSendBtn !== null) {
+	calendarSendBtn.addEventListener("click", () => {
+		// const hoursBoxInfo = document.querySelector('.hours-container__info-span') as HTMLSpanElement;
+		if (hoursBoxInfo instanceof HTMLSpanElement && hoursBoxInfo.textContent !== null) {
+			localStorage.setItem('serviceDay', hoursBoxInfo.textContent);
+		  }
+	
+
+	})
+}
+
+const localCheckbox = document.querySelector('#local') as HTMLInputElement;
+const homeCheckbox = document.querySelector('#client-home') as HTMLInputElement;
+
+const locationCheckboxArr = [localCheckbox,homeCheckbox];
+
+
+function checkOneCheckbox(event:Event) {
+	const targetCheckbox = event.target as HTMLInputElement;
+  
+	if (targetCheckbox.checked) {
+		console.log('zaznaczony input');
+	  locationCheckboxArr.forEach((checkbox) => {
+		if (checkbox !== targetCheckbox) {
+		  checkbox.checked = false;
+		}
+	  });
+	}
+  }
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -252,12 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	localStorage.getItem("name");
 
-	console.log(localStorage.getItem('selectedOptionText'));
-
-
-
 	localStorage.getItem("selectedOption");
-	console.log(localStorage.getItem("selectedOption"));
 	localStorage.getItem('companyStreet');
 	localStorage.getItem("companyHome");
 	localStorage.getItem("companyCity");
@@ -274,18 +307,22 @@ document.addEventListener('DOMContentLoaded', () => {
 		} 
 	  });
 	  
-	
-	companyStreet.textContent = "Ulica: " + localStorage.getItem('companyStreet');
-	companyAdressBox.appendChild(companyStreet);
-	
-	companyHomeNumber.textContent = "Nr.Domu: " + localStorage.getItem('companyHome');
-	companyAdressBox.appendChild(companyHomeNumber);
-	
-	companyCity.textContent = "Miasto: " + localStorage.getItem('companyCity');
-	companyAdressBox.appendChild(companyCity);
-	
-	companyCode.textContent = "Kod pocztowy: " + localStorage.getItem('companyCode');
-	companyAdressBox.appendChild(companyCode);
+	if(companyStreet !== null){
+		companyStreet.textContent = "Ulica: " + localStorage.getItem('companyStreet');
+		companyAdressBox.appendChild(companyStreet);
+	}
+	if(companyHomeNumber !== null){
+		companyHomeNumber.textContent = "Nr.Domu: " + localStorage.getItem('companyHome');
+		companyAdressBox.appendChild(companyHomeNumber);
+	}
+	if(companyCity){
+		companyCity.textContent = "Miasto: " + localStorage.getItem('companyCity');
+		companyAdressBox.appendChild(companyCity);
+	}
+	if(companyCode){
+		companyCode.textContent = "Kod pocztowy: " + localStorage.getItem('companyCode');
+		companyAdressBox.appendChild(companyCode);
+	}
 
 
 	nextMonth(td[0]);
@@ -293,16 +330,25 @@ document.addEventListener('DOMContentLoaded', () => {
 	calendar(td[0]);
 	activeClassToggler();
 	addClickEvents()
-	checkboxesAdressArr.forEach(checkbox => {
-		checkbox.addEventListener('click', function () {
-			handleCheckboxClick.call(this);
-		});
-	});
-	
+	localCheckbox.addEventListener('click', checkOneCheckbox);
+	homeCheckbox.addEventListener('click', checkOneCheckbox);
 
+	if(checkboxesAdressArr !== null && customerHomeCheckbox !== null &&  companyLocalCheckbox ! == null){
+		checkboxesAdressArr.forEach(checkbox => {
+			console.log(checkboxesAdressArr);
+			console.log(checkbox);
+			checkbox.addEventListener('click', function () {
+				handleCheckboxClick.call(this);
+			});
+		});
+	}
+
+
+	if(servicesSelect !== null && servicesCitySelect !== null){
 	servicesSelect.addEventListener('change', updateServiceProviders);
 	servicesCitySelect.addEventListener('change', updateServiceProviders);
 	customerHomeCheckbox.addEventListener('change', calendarCheckboxCheck);
 	companyLocalCheckbox.addEventListener('change', calendarCheckboxCheck);
+}
 })
 

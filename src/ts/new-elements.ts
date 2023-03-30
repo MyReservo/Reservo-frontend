@@ -1,4 +1,5 @@
-// import{registerBtn, toggleError, inputsEvents} from "./main"
+// import{registerBtn, toggleError, inputsEvents,checkCompanyInput,
+// 	customerInput} from "./main"
 
 
 export const companyAdress = document.createElement('div');
@@ -12,8 +13,6 @@ const companyAdressPlace = document.createElement('div');
 companyAdressPlace.className = 'company-adress-place';
 
 
-
-
 export const adressFields = [
 	{ id: 'street', placeholder: 'Ulica', name: "street"},
 	{ id: 'home', placeholder: 'Nr.domu',name: 'home' },
@@ -24,14 +23,15 @@ export const dataInputsCreator = (
 	registerBtn: HTMLButtonElement,
 	toggleError: (input: HTMLInputElement, isError: boolean, placeholderText?: string) => void,
 	inputsEvents: (event: Event) => void,
-	checkCompanyInput:HTMLInputElement | null
-) : HTMLInputElement[] => {
+	checkCompanyInput:HTMLInputElement | null,
+	// customerInput:HTMLInputElement
+) : { inputs: HTMLInputElement[], adressInput?: HTMLInputElement } => {
 
 	const inputs: HTMLInputElement[] = [];
 
 	adressFields.forEach(field => {
 		const adressDiv = document.createElement('div');
-		const adressInput = document.createElement('input');
+		let adressInput = document.createElement('input');
 
 		adressDiv.className = 'company-adress-data';
 		adressInput.className = 'input';
@@ -39,60 +39,80 @@ export const dataInputsCreator = (
 		adressInput.name = field.name;
 		adressInput.id = field.id;
 		adressInput.placeholder = field.placeholder;
-		
-		if(checkCompanyInput !== null){
-			checkCompanyInput!.addEventListener('change', () => {
-					if(checkCompanyInput!.checked){
-					toggleError(adressInput,false,field.placeholder);
+
+		let checkCompanyInputChecked = true;
+
+			if (checkCompanyInput !== null) {
+
+				if(!checkCompanyInput.checked && checkCompanyInputChecked == true){
+					checkCompanyInputChecked = false
+					console.log('jesem');
+					checkCompanyInput.addEventListener('change', () => {
+							console.log('usuwam errory');
+							if (adressInput !== undefined) {
+								toggleError(adressInput, false, field.placeholder);
+							  }
+					});
 				}
-			})
-		}
 
+				if(!checkCompanyInput.checked && checkCompanyInputChecked == false){
 
-		if(registerBtn !== null){
+				checkCompanyInputChecked = true
+				console.log('zostawiam błędy');
+				toggleError(adressInput, true, field.placeholder);
+
+				}
+
+			}
+		
+			
 			registerBtn.addEventListener('click', (e) => {
 				e.preventDefault()
 				let placeholderText = '';
-				switch (adressInput.id) {
-					
-					case 'street':
-						placeholderText = 'Podaj nazwę ulicy';
-						break;
-					case 'home':
-						placeholderText = 'Podaj numer domu';
-						break;
-					case 'city':
-						placeholderText = 'Podaj nazwę miasta';
-						break;
-					case 'code':
-						placeholderText = 'Podaj kod pocztowy';
-						break;
-					default:
-						break;
+
+				if(adressInput !== undefined){
+					switch (adressInput.id) {
+						
+						case 'street':
+							placeholderText = 'Podaj nazwę ulicy';
+							break;
+						case 'home':
+							placeholderText = 'Podaj numer domu';
+							break;
+						case 'city':
+							placeholderText = 'Podaj nazwę miasta';
+							break;
+						case 'code':
+							placeholderText = 'Podaj kod pocztowy';
+							break;
+						default:
+							break;
+					}
 				}
-				if (adressInput.value === '') {
-					toggleError(adressInput, true, placeholderText);
-	
-				} else {
-					toggleError(adressInput, false);
+
+				if(adressInput !== undefined){
+
+					if (adressInput.value === '') {
+						toggleError(adressInput, true, placeholderText);
+						
+					} else {
+						console.log('wykonac2');
+						toggleError(adressInput, false);
+					}
 				}
 	
 			});
-		}
+		
 		adressDiv.appendChild(adressInput);
 		companyAdressPlace.appendChild(adressDiv);
 
 		if (adressInput.id === 'home' || adressInput.id === 'code') {
 			adressInput.addEventListener('input', inputsEvents);
 		}
+
 	inputs.push(adressInput)
 	});
-	return inputs
+	return { inputs };
 };
 
-// export {adressInput};
 companyAdress.append(companyAdressTitle,companyAdressPlace);
-
-// document.addEventListener('DOMContentLoaded', () => {
-// 	dataInputsCreator(registerBtn, toggleError, inputsEvents, checkCompanyInput);
-// })

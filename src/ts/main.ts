@@ -1,16 +1,11 @@
 
 import '../sass/main.scss';
 import { dataInputsCreator, companyAdress } from './new-elements';
-// import './calendar';
-// import './api-data';
-// import {handleCityInput} from './calendar'
 
-console.log('jeden');
+
 
  export const customerInput = document.querySelector('#user') as HTMLInputElement;
  export const checkCompanyInput = document.querySelector('#company') as HTMLInputElement;
-
-
 
 
  export const nameInput = document.querySelector('#name') as HTMLInputElement;
@@ -53,7 +48,6 @@ const createRegisterSelect = () => {
 	select.className = 'input';
 	
 	const selectElement = select
-	console.log(selectElement);
 
 	const options: HTMLOptionElement[] = [];
 	services.forEach(service => {
@@ -73,15 +67,15 @@ const createRegisterSelect = () => {
 }
 
 
- 
-
 
 export const inputsEvents = (event: Event) => {
 	const input = event.target as HTMLInputElement;
 	if (input instanceof HTMLSelectElement) {
+		console.log('usuwam błąd');	
 		input.classList.remove('red-input');
 	} else {
 		removeError(input);
+		console.log('a to??');
 		input.value = input.value.replace(/[^\d\W]/g, '');
 	}
 };
@@ -89,7 +83,6 @@ export const inputsEvents = (event: Event) => {
 
 export const toggleError = (input: HTMLInputElement, isError: boolean, placeholderText?: string) => {
 	if (isError) {
-		// console.log(input);
 		input.setAttribute('placeholder', placeholderText ?? 'Musisz podać jakąś wartość');
 		input.classList.add('red-input');
 		input.classList.add('red-placeholder');
@@ -102,6 +95,8 @@ export const toggleError = (input: HTMLInputElement, isError: boolean, placehold
 	}
 
 	else {
+		console.log('teraz ja sie wykonuje');
+		console.log('a ja nie');
 		input.removeAttribute('placeholder');
 		input.classList.remove('red-input');
 		input.classList.remove('red-placeholder');
@@ -173,53 +168,50 @@ const inputsValidation = () => {
 const inputsArr = [nameInput,surnameInput,numberInput,emailInput,passwordInput,repeatInput,companyInput,select];
 
 
-
 const clearAllErrors = (
 	// adressFields: { id: string; placeholder: string }[],
 	termsBox: HTMLElement,
 	termsError: HTMLParagraphElement,
 	) => {
-
-	
 		inputsArr.forEach(input => {
+			console.log('ok usuwam');
+			console.log(!checkCompanyInputChecked);
+			console.log(checkCompanyInput.checked);
 			input.classList.remove('red-input');
 			input.classList.remove('red-placeholder');
 			input.removeAttribute('placeholder');
 		});
-	
 		if (termsBox.contains(termsError)) {
 			termsBox.removeChild(termsError);
 		}
 	};
 
 
+	let checkCompanyInputChecked = false;
 	const addInputs = () => {
-		if (checkCompanyInput.checked) {
-			
-			basicInfoData.append(companyNamelabel, companyInput);
-			basicInfoData2.append(servicesLabel, select);
-			basicInfoCompany.append(basicInfoData, basicInfoData2);
-			basicInfo.append(basicInfoCompany, companyAdress);
-			// checkCompanyInput.addEventListener('change', addInputs);
+	console.log(checkCompanyInput.checked);
+	console.log(checkCompanyInputChecked);
 
-			clearAllErrors( termsBox, termsError);
-			
-		} else if (customerInput.checked) {
-			basicInfoCompany.remove();
-			companyAdress.remove();
-		}
-	};
+    if (checkCompanyInput.checked && checkCompanyInputChecked === false) {
+		checkCompanyInputChecked = true;
+        basicInfoData.append(companyNamelabel, companyInput);
+        basicInfoData2.append(servicesLabel, select);
+        basicInfoCompany.append(basicInfoData, basicInfoData2);
+        basicInfo.append(basicInfoCompany, companyAdress);
 
+        clearAllErrors(termsBox, termsError);
 
-	
-	// export const handleCityInput = (cityInputValue:string) => {
-	// 	console.log(cityInputValue);
-	//   };
+    } else if (customerInput.checked) {
+		checkCompanyInputChecked = false;
+        basicInfoCompany.remove();
+        companyAdress.remove();
+    }
+};
+
 
 
 	export type cityInputValue = string;
 	
-
 
 	  const handleEvent = (e: Event) => {
 		  const target = e.target as HTMLElement;
@@ -255,58 +247,55 @@ const clearAllErrors = (
 };
 
 
+
 const inputs = dataInputsCreator(registerBtn!, toggleError,inputsEvents,checkCompanyInput)
+console.log(inputs);
 
- const streetInput = inputs[0]
- const homeInput = inputs[1]
- const cityInput = inputs[2]
- const codeInput = inputs[3]
-
-
-console.log('trzy');
-
- if(registerBtn !== null){
-	 registerBtn.addEventListener('click', () => {
-		console.log('kliknieto!');
-
-		 const selectElement= document.getElementById('services') as  HTMLSelectElement; 
-		 const selectedOptionValue = selectElement.options[selectElement.selectedIndex].value;
-
-		const selectedOptionText = selectElement.options[selectElement.selectedIndex].textContent;
-		
-
-		localStorage.setItem('name', nameInput.value);
-	
-		localStorage.setItem('selectedOption', selectedOptionValue);
-		localStorage.setItem('selectedOptionText', selectedOptionText!);
-		localStorage.getItem('selectedOptionText');
-		console.log(localStorage.getItem('selectedOptionText'));
-
-		localStorage.setItem('companyStreet', streetInput.value);
-		localStorage.setItem('companyHome', homeInput.value);
-		localStorage.setItem('companyCity', cityInput.value);
-		localStorage.setItem('companyCode', codeInput.value);
-	})
-	
-}
+const streetInput = inputs.inputs[0];
+const homeInput = inputs.inputs[1];
+const cityInput = inputs.inputs[2];
+const codeInput = inputs.inputs[3];
 
 
-	
+
 	document.addEventListener('DOMContentLoaded' , function() {
 	document.addEventListener('input', handleEvent);
 	document.addEventListener('change', handleEvent);
 	document.addEventListener('keypress', handleEvent);
-	createRegisterSelect();
- 
 
-	if(registerBtn !== null) {
+	createRegisterSelect();
+	if(registerBtn !== null){
 		registerBtn.addEventListener('click', inputsValidation);
+		 registerBtn.addEventListener('click', () => {
+	
+			 const selectElement= document.getElementById('services') as  HTMLSelectElement; 
+	
+			 if(selectElement !== null){
+				 const selectedOptionValue = selectElement.options[selectElement.selectedIndex].value;
+				 localStorage.setItem('selectedOption', selectedOptionValue);
+				 const selectedOptionText = selectElement.options[selectElement.selectedIndex].textContent;
+				 localStorage.setItem('selectedOptionText', selectedOptionText!);
+			 }
+	
+			
+			localStorage.setItem('name', nameInput.value);
+			localStorage.getItem('selectedOptionText');
+
+			localStorage.setItem('companyStreet', streetInput.value);
+			localStorage.setItem('companyHome', homeInput.value);
+			localStorage.setItem('companyCity', cityInput.value);
+			localStorage.setItem('companyCode', codeInput.value);
+
+		})
+		
 	}
+
+
 
 	if (customerInput !== null && checkCompanyInput !== null){
 		const checkboxesArr = [customerInput, checkCompanyInput];
 
-		if (checkboxesArr !== null){
+		
 			function handleCheckboxClick(selectedIndex: number, checkboxes: HTMLInputElement[]) {
 			   checkboxes.forEach((checkbox, index) => {;
 				   checkbox.checked = (index === selectedIndex);
@@ -318,7 +307,7 @@ console.log('trzy');
 				  handleCheckboxClick(index, checkboxesArr);
 				});
 			  });
-		}
+		
 	}
 	
 })
