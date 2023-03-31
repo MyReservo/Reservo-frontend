@@ -13,9 +13,6 @@ const city = document.querySelector('#visit__adress-city') as HTMLParagraphEleme
 const code = document.querySelector('#visit__adress-code') as HTMLParagraphElement;
 
 
-
-console.log(userName);
-
  yourProfessionTitle.textContent = localStorage.getItem('selectedOptionText');
  userNameNav.textContent = localStorage.getItem('name');
 

@@ -40,7 +40,6 @@ const addClickEvents = () => {
 
 const handleClick = (event: Event) => {
 	const td = event.target as HTMLElement;
-	console.log(td);
 	const pickedDay = Number(td.textContent);
 	const today = new Date();
 	const pickedDate = new Date(date.getFullYear(), date.getMonth(), pickedDay);
@@ -273,7 +272,6 @@ function checkOneCheckbox(event:Event) {
 	const targetCheckbox = event.target as HTMLInputElement;
   
 	if (targetCheckbox.checked) {
-		console.log('zaznaczony input');
 	  locationCheckboxArr.forEach((checkbox) => {
 		if (checkbox !== targetCheckbox) {
 		  checkbox.checked = false;
@@ -342,8 +340,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	if(checkboxesAdressArr !== null && customerHomeCheckbox !== null &&  companyLocalCheckbox ! == null){
 		checkboxesAdressArr.forEach(checkbox => {
-			console.log(checkboxesAdressArr);
-			console.log(checkbox);
 			checkbox.addEventListener('click', function () {
 				handleCheckboxClick.call(this);
 			});

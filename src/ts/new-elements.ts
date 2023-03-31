@@ -89,7 +89,6 @@ export const dataInputsCreator = (
 						toggleError(adressInput, true, placeholderText);
 						
 					} else {
-						console.log('wykonac2');
 						toggleError(adressInput, false);
 					}
 				}

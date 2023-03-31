@@ -72,11 +72,11 @@ const createRegisterSelect = () => {
 export const inputsEvents = (event: Event) => {
 	const input = event.target as HTMLInputElement;
 	if (input instanceof HTMLSelectElement) {
-		console.log('usuwam błąd');	
+
 		input.classList.remove('red-input');
 	} else {
 		removeError(input);
-		console.log('a to??');
+
 		input.value = input.value.replace(/[^\d\W]/g, '');
 	}
 };
@@ -96,8 +96,6 @@ export const toggleError = (input: HTMLInputElement, isError: boolean, placehold
 	}
 
 	else {
-		console.log('teraz ja sie wykonuje');
-		console.log('a ja nie');
 		input.removeAttribute('placeholder');
 		input.classList.remove('red-input');
 		input.classList.remove('red-placeholder');
@@ -231,7 +229,6 @@ const clearAllErrors = (
 			addInputs();
 		}
 		else if (target.matches('#terms')) {
-			console.log('jest terms');
 			if (termsBox.contains(termsError)) {
 				termsBox.removeChild(termsError);
 			}
@@ -255,7 +252,7 @@ const homeInput = inputs.inputs[1];
 const cityInput = inputs.inputs[2];
 const codeInput = inputs.inputs[3];
 
-console.log(inputs);
+
 
 
 	document.addEventListener('DOMContentLoaded' , function() {
@@ -295,7 +292,9 @@ console.log(inputs);
 		termsInput.checked) {
 		window.location.assign('./company-panel.html');
 		}
-		inputsArr.splice(5,6);
+		console.log(inputsArr);
+		inputsArr.splice(6,6);
+		console.log(inputsArr);
 		if (customerInput.checked && inputsArr.every(input => !input.classList.contains('red-input') ) &&  termsInput.checked) {
 		  window.location.assign('./calendar.html');
 		}
