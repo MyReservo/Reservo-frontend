@@ -330,8 +330,15 @@ document.addEventListener('DOMContentLoaded', () => {
 	calendar(td[0]);
 	activeClassToggler();
 	addClickEvents()
-	localCheckbox.addEventListener('click', checkOneCheckbox);
-	homeCheckbox.addEventListener('click', checkOneCheckbox);
+
+	if (localCheckbox !== null) {
+		localCheckbox.addEventListener('click', checkOneCheckbox);
+	}
+
+	if (homeCheckbox !== null) {
+		homeCheckbox.addEventListener('click', checkOneCheckbox);
+	}
+
 
 	if(checkboxesAdressArr !== null && customerHomeCheckbox !== null &&  companyLocalCheckbox ! == null){
 		checkboxesAdressArr.forEach(checkbox => {

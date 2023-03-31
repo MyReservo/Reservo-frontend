@@ -8,12 +8,6 @@
 </head>
 
 <body class="register-body">
-    <nav>
-        <ul>
-            <li><a href="./calendar.html">Kalendarz dla klientów</a></li>          
-            <li><a href="./company-panel.html">Panel dla firm</a></li>          
-        </ul>
-    </nav>
     <div class="wrapper">
         <form  id="form">
             <h1>REJESTRACJA</h1>
@@ -39,22 +33,22 @@
                 <div class="basic-info-names">
                     <div class="basic-info-data">
                         <label for="name">Imię</label>
-                        <input id="name" name="name" type="text" class="input">
+                        <input id="name" name="name" type="text" class="input" required>
                     </div>
                     <div class="basic-info-data">
                         <label for="surname">Nazwisko</label>
-                        <input id="surname" name="surname" type="text" class="input">
+                        <input id="surname" name="surname" type="text" class="input" required>
                     </div>
                 </div>
 
                 <div class="basic-info-contact">
                     <div class="basic-info-data"> <label for="phone">Numer telefonu</label>
-                        <input id="phone" name="phone" type="text" class="input">
+                        <input id="phone" name="phone" type="text" class="input" required>
                     </div>
 
                     <div class="basic-info-data">
                          <label for="email">E-mail</label>
-                        <input id="email" name="email" type="email" class="input">
+                        <input id="email" name="email" type="email" class="input" required>
                     </div>
                 </div>
             </div>
@@ -64,12 +58,12 @@
                 <div class="password-box-password">
                     <label for="password">Hasło</label>
                     <button class="info" id="one"><img src="./src/img/Group 1.png" alt="info icon"></button>
-                    <input id="password" name="password" type="password" class="input">
+                    <input id="password" name="password" type="password" class="input" required>
                 </div>
 
                 <div class="password-box-password">
                     <label for="repeat">Powtórz hasło</label>
-                    <input id="repeat" name="repeat" type="password" class="input">
+                    <input id="repeat" name="repeat" type="password" class="input" required>
                 </div>
 
             </div>

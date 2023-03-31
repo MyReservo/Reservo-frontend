@@ -39,32 +39,25 @@ export const dataInputsCreator = (
 		adressInput.name = field.name;
 		adressInput.id = field.id;
 		adressInput.placeholder = field.placeholder;
+		adressInput.setAttribute('required', "");
 
-		let checkCompanyInputChecked = true;
+		let checkCompanyInputChecked = false;
 
-			if (checkCompanyInput !== null) {
-
-				if(!checkCompanyInput.checked && checkCompanyInputChecked == true){
-					checkCompanyInputChecked = false
-					console.log('jesem');
-					checkCompanyInput.addEventListener('change', () => {
-							console.log('usuwam errory');
+		if (checkCompanyInput !== null) { 
+			checkCompanyInput.addEventListener('change', () => { 
+		
+					if(checkCompanyInput.checked && checkCompanyInputChecked == false){
+						checkCompanyInputChecked = true
 							if (adressInput !== undefined) {
 								toggleError(adressInput, false, field.placeholder);
-							  }
-					});
-				}
+							}
+						
+					} else if (checkCompanyInput.checked  && checkCompanyInputChecked == true){			
+					}
+			})
 
-				if(!checkCompanyInput.checked && checkCompanyInputChecked == false){
+		}
 
-				checkCompanyInputChecked = true
-				console.log('zostawiam błędy');
-				toggleError(adressInput, true, field.placeholder);
-
-				}
-
-			}
-		
 			
 			registerBtn.addEventListener('click', (e) => {
 				e.preventDefault()
@@ -112,7 +105,9 @@ export const dataInputsCreator = (
 
 	inputs.push(adressInput)
 	});
+
 	return { inputs };
 };
+
 
 companyAdress.append(companyAdressTitle,companyAdressPlace);

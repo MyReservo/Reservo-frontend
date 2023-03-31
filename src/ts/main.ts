@@ -35,6 +35,7 @@ import { dataInputsCreator, companyAdress } from './new-elements';
 const select = document.createElement('select');
 
 
+
 const createRegisterSelect = () => {
 	
 	const services = [
@@ -126,6 +127,7 @@ companyInput.id = 'company-name';
 companyInput.name = "company-name";
 companyInput.type = 'text';
 
+
  const servicesLabel = document.createElement('label');
 servicesLabel.htmlFor = 'services';
 servicesLabel.innerText = 'Świadczone usługi';
@@ -168,15 +170,15 @@ const inputsValidation = () => {
 const inputsArr = [nameInput,surnameInput,numberInput,emailInput,passwordInput,repeatInput,companyInput,select];
 
 
+
+
+
 const clearAllErrors = (
 	// adressFields: { id: string; placeholder: string }[],
 	termsBox: HTMLElement,
 	termsError: HTMLParagraphElement,
 	) => {
 		inputsArr.forEach(input => {
-			console.log('ok usuwam');
-			console.log(!checkCompanyInputChecked);
-			console.log(checkCompanyInput.checked);
 			input.classList.remove('red-input');
 			input.classList.remove('red-placeholder');
 			input.removeAttribute('placeholder');
@@ -189,8 +191,6 @@ const clearAllErrors = (
 
 	let checkCompanyInputChecked = false;
 	const addInputs = () => {
-	console.log(checkCompanyInput.checked);
-	console.log(checkCompanyInputChecked);
 
     if (checkCompanyInput.checked && checkCompanyInputChecked === false) {
 		checkCompanyInputChecked = true;
@@ -249,13 +249,13 @@ const clearAllErrors = (
 
 
 const inputs = dataInputsCreator(registerBtn!, toggleError,inputsEvents,checkCompanyInput)
-console.log(inputs);
 
 const streetInput = inputs.inputs[0];
 const homeInput = inputs.inputs[1];
 const cityInput = inputs.inputs[2];
 const codeInput = inputs.inputs[3];
 
+console.log(inputs);
 
 
 	document.addEventListener('DOMContentLoaded' , function() {
@@ -276,21 +276,32 @@ const codeInput = inputs.inputs[3];
 				 const selectedOptionText = selectElement.options[selectElement.selectedIndex].textContent;
 				 localStorage.setItem('selectedOptionText', selectedOptionText!);
 			 }
-	
-			
 			localStorage.setItem('name', nameInput.value);
 			localStorage.getItem('selectedOptionText');
-
 			localStorage.setItem('companyStreet', streetInput.value);
 			localStorage.setItem('companyHome', homeInput.value);
 			localStorage.setItem('companyCity', cityInput.value);
 			localStorage.setItem('companyCode', codeInput.value);
-
-		})
-		
+		})	
 	}
 
 
+	
+	function checkInputsAndRedirect() {
+		inputsArr.push(streetInput,homeInput,cityInput,codeInput);
+		if (checkCompanyInput.checked && inputsArr.every(input => !input.classList.contains('red-input')) &&
+		!companyInput.classList.contains('red-input') &&
+		!select.classList.contains('red-input') &&
+		termsInput.checked) {
+		window.location.assign('./company-panel.html');
+		}
+		inputsArr.splice(5,6);
+		if (customerInput.checked && inputsArr.every(input => !input.classList.contains('red-input') ) &&  termsInput.checked) {
+		  window.location.assign('./calendar.html');
+		}
+	  }	 
+	  registerBtn.addEventListener('click', checkInputsAndRedirect);
+	  
 
 	if (customerInput !== null && checkCompanyInput !== null){
 		const checkboxesArr = [customerInput, checkCompanyInput];
