@@ -5,19 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ReservoApp</title>
-  <script type="module" crossorigin src="/Reservo-frontend/main.e5ff34ca.js"></script>
-  <link rel="modulepreload" crossorigin href="/Reservo-frontend/calendar.80f70b29.js">
+  <script type="module" crossorigin src="/Reservo-frontend/main.cc2e878b.js"></script>
+  <link rel="modulepreload" crossorigin href="/Reservo-frontend/calendar.5f976316.js">
   <link rel="stylesheet" href="/Reservo-frontend/calendar.345b6e19.css">
   <link rel="stylesheet" href="/Reservo-frontend/index.35b90f42.css">
 </head>
 
 <body class="register-body">
-    <nav>
-        <ul>
-            <li><a href="./calendar.html">Kalendarz dla klientów</a></li>          
-            <li><a href="./company-panel.html">Panel dla firm</a></li>          
-        </ul>
-    </nav>
     <div class="wrapper">
         <form  id="form">
             <h1>REJESTRACJA</h1>
@@ -43,22 +37,22 @@
                 <div class="basic-info-names">
                     <div class="basic-info-data">
                         <label for="name">Imię</label>
-                        <input id="name" name="name" type="text" class="input">
+                        <input id="name" name="name" type="text" class="input" required>
                     </div>
                     <div class="basic-info-data">
                         <label for="surname">Nazwisko</label>
-                        <input id="surname" name="surname" type="text" class="input">
+                        <input id="surname" name="surname" type="text" class="input" required>
                     </div>
                 </div>
 
                 <div class="basic-info-contact">
                     <div class="basic-info-data"> <label for="phone">Numer telefonu</label>
-                        <input id="phone" name="phone" type="text" class="input">
+                        <input id="phone" name="phone" type="text" class="input" required>
                     </div>
 
                     <div class="basic-info-data">
                          <label for="email">E-mail</label>
-                        <input id="email" name="email" type="email" class="input">
+                        <input id="email" name="email" type="email" class="input" required>
                     </div>
                 </div>
             </div>
@@ -68,12 +62,12 @@
                 <div class="password-box-password">
                     <label for="password">Hasło</label>
                     <button class="info" id="one"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEZSURBVHgBvZWBUYQwEEV/GAugBOggVHApwQ4uHWgHpgTtQEuwA+zgOlg7uOtg3T12POfEIyDhzXxgGMJjIWQdbsDMtezuJTtJkNQW5WDpnXNvmIveXJIkR86D9Po5gsYGLYF0/JTAz3j6v9Dx/lYF/xX8FDVjEuJ1IR4mDioTJNk1mCCEAJlJ6LoOGTSSBz24sxP7nFExRrRtC+89MnmUAl60ishl2evr2uU+llairyulhBkElWTXvpBNJHWF8pwlJxRmC8lBJT3KcpZ8oCy9s/WFcGlGa/Ip/1VbyUa/yTPK8Pp9xEMnJF4X+qXkLfqJicp2xquKiJdBPNXjr2RPnC872vWjM9RlyCKGduBxWUxPlt7ybrN0lC/hQ2KoKlbfbQAAAABJRU5ErkJggg==" alt="info icon"></button>
-                    <input id="password" name="password" type="password" class="input">
+                    <input id="password" name="password" type="password" class="input" required>
                 </div>
 
                 <div class="password-box-password">
                     <label for="repeat">Powtórz hasło</label>
-                    <input id="repeat" name="repeat" type="password" class="input">
+                    <input id="repeat" name="repeat" type="password" class="input" required>
                 </div>
 
             </div>
