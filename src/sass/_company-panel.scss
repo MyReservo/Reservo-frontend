@@ -1,18 +1,8 @@
 @use 'reset' as *;
 @use 'colors' as *;
 @use 'components' as *;
-@use 'calendar' as *;
+@use "calendar-styles" as *;
 
-
-html {
-	font-size: 62.5%;
-}
-
-body {
-	background-image: linear-gradient(183deg, #7ec9d3, #63a0cd, #719bcc, rgba(87, 143, 206, 0.8274509804));
-	font-family: 'Lato', sans-serif;
-	font-size: 1.6rem;
-}
 
 .your-profession,
 .your-visits {
@@ -55,8 +45,6 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
-	// margin: auto;
 }
 
 
