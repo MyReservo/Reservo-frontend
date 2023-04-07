@@ -6,10 +6,10 @@
 
 
 
-// html, body {
-// 	font-size: 62.5%;
-//     height: 100%;
-//   }
+html, body {
+	font-size: 62.5%;
+    height: 100%;
+  }
 
 
 .wrapper-calendar {
@@ -204,4 +204,16 @@
 			font-size: 1.6rem;
 		}
 	}
+}
+
+
+@media (max-width: 576px){
+
+.user-box{
+	margin-left: 0;
+}
+
+.hours-container{
+	margin-left: 0;
+}
 }
