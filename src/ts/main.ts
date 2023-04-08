@@ -166,18 +166,20 @@ const inputsValidation = () => {
 
 
 
-const inputsArr = [nameInput,surnameInput,numberInput,emailInput,passwordInput,repeatInput,companyInput,select];
 
 
-
-
+// console.log(inputsArr);
+const inputsArr = [nameInput,surnameInput,numberInput,emailInput,passwordInput,repeatInput,select,companyInput];
 
 const clearAllErrors = (
 	// adressFields: { id: string; placeholder: string }[],
+	// inputsArr: (HTMLInputElement | HTMLSelectElement)[],
 	termsBox: HTMLElement,
 	termsError: HTMLParagraphElement,
+	// inputsArr: (HTMLInputElement | HTMLSelectElement)[]
 	) => {
 		inputsArr.forEach(input => {
+
 			input.classList.remove('red-input');
 			input.classList.remove('red-placeholder');
 			input.removeAttribute('placeholder');
@@ -255,7 +257,6 @@ const codeInput = inputs.inputs[3];
 
 
 
-
 	document.addEventListener('DOMContentLoaded' , function() {
 	document.addEventListener('input', handleEvent);
 	document.addEventListener('change', handleEvent);
@@ -284,17 +285,18 @@ const codeInput = inputs.inputs[3];
 	}
 
 
+	const adressInputsArr = [streetInput,homeInput,cityInput,codeInput];
+	const allInputsArr = inputsArr.concat(adressInputsArr);
+
 	
 	function checkInputsAndRedirect() {
-		inputsArr.push(streetInput,homeInput,cityInput,codeInput);
-		if (checkCompanyInput.checked && inputsArr.every(input => !input.classList.contains('red-input')) &&
-		!companyInput.classList.contains('red-input') &&
-		!select.classList.contains('red-input') &&
-		termsInput.checked) {
-		window.location.assign('./company-panel.html');
+		console.log('działam');
+		if (checkCompanyInput.checked && allInputsArr.every(input => !input.classList.contains('red-input')) &&!companyInput.classList.contains('red-input') &&!select.classList.contains('red-input') &&termsInput.checked) {
+			window.location.assign('./company-panel.html');
 		}
-		inputsArr.splice(6,6);
-		if (customerInput.checked && inputsArr.every(input => !input.classList.contains('red-input') ) &&  termsInput.checked) {
+
+		const newInputsArr = inputsArr.slice(0,6);
+		if (customerInput.checked && newInputsArr.every(input => !input.classList.contains('red-input')) && termsInput.checked) {
 		  window.location.assign('./calendar.html');
 		}
 	  }	 
@@ -304,7 +306,6 @@ const codeInput = inputs.inputs[3];
 	if (customerInput !== null && checkCompanyInput !== null){
 		const checkboxesArr = [customerInput, checkCompanyInput];
 
-		
 			function handleCheckboxClick(selectedIndex: number, checkboxes: HTMLInputElement[]) {
 			   checkboxes.forEach((checkbox, index) => {;
 				   checkbox.checked = (index === selectedIndex);
@@ -316,9 +317,7 @@ const codeInput = inputs.inputs[3];
 				  handleCheckboxClick(index, checkboxesArr);
 				});
 			  });
-		
 	}
-	
 })
 
 
