@@ -1,0 +1,132 @@
+@use 'colors' as *;
+@use 'btn' as *;
+@use "main" as *;
+
+.login-body{
+    display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	background-size: 300% 300%;
+	background-image: $aquablue;
+	font-family: 'Lato', sans-serif;
+	font-size: 1.6rem;
+	animation: AnimateBg 30s ease infinite;
+}
+h1{
+    margin-bottom: 1.5em;
+}
+
+#form{
+    justify-content: center;
+    align-items: center;
+    width: 690px;
+    font-size: 2.3rem;
+    padding: 2.6em;
+}
+.basic-info-data{
+    width: 80%;
+}
+.register{
+    &__text{
+        font-size: 1.8rem;
+        &--link{
+            cursor: pointer;
+            color: $loginLink;
+        }
+    }
+    a{
+        font-size: 1.8rem;
+    }
+}
+
+#register{
+    margin-top: 2.6em;
+    width: 45%;
+    font-size: 1.8rem;
+}
+
+.input{
+    padding: .9em;
+    
+}
+@media(max-width: 350px){
+html{
+    .login-body{
+        .wrapper{
+            #form{
+                width: 340px;
+            }
+    
+        }
+    }
+}
+}
+
+@media (max-width: 450px) {
+	html{
+        .login-body {
+           .wrapper{
+               #form {
+                //    width: 357px;
+                   width: 380px;
+                   font-size: 1.7rem;
+                   padding: 2.3em .7em 1.5em;
+                   label{
+                    font-size: 2.5rem;
+                   }
+                   .basic-info-data{
+                    width: 100%;
+                }
+                   input{
+                    font-size: 2rem;
+                    padding: .6em;
+                   }
+                   #register{
+                    width: 70%;
+                   }
+               }
+           }
+            
+        }
+    }
+
+}
+@media (max-width: 576px) {
+	html{
+        body {
+           .wrapper{
+
+               #form {
+                   width: 450px;
+               }
+           }
+            
+        }
+    }
+
+}
+
+@media (max-width: 768px) {
+    html{
+        body {
+        
+                #form {
+                    width: 567px;
+                }
+            
+        }
+    }
+}
+
+
+@media (max-width: 992px) {
+	
+        #form {
+            width: 640px;
+        }
+
+    
+    
+}

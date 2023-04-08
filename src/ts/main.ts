@@ -132,7 +132,6 @@ servicesLabel.htmlFor = 'services';
 servicesLabel.innerText = 'Świadczone usługi';
 
 const inputsValidation = () => {
-	// e.preventDefault();
 	const regExPhone: RegExp = /^(?:\(?\?)?(?:[-\.\(\)\s]*(\d)){9}\)?$/;
 	const regExEmail: RegExp =
 		/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/;
@@ -280,7 +279,7 @@ const codeInput = inputs.inputs[3];
 
 	
 	function checkInputsAndRedirect() {
-		console.log('działam');
+
 		if (checkCompanyInput.checked && allInputsArr.every(input => !input.classList.contains('red-input')) &&!companyInput.classList.contains('red-input') &&!select.classList.contains('red-input') &&termsInput.checked) {
 			window.location.assign('./company-panel.html');
 		}

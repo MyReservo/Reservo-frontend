@@ -115,24 +115,82 @@ a {
 	color: #f3f3f3;
 }
 
-@media (max-width: 576px) {
-	
-		body {
-			.wrapper {
-				// width: 100%;
-				#form {
-					width: 535px;
+@media(max-width: 350px){
+	html{
+		body{
+			.wrapper{
+				#form{
+					background-color: #fdfbfb5b;
+
+					#register{
+						background-color: rgb(58, 161, 252);
+						font-size: 1.8rem;
+					}
 				}
 			}
 		}
+	}
+	}
+
+
+@media (max-width: 450px) {
+	html{
+        body {
+           .wrapper{
+               #form {
+                   width: 380px;
+				   background-color: #fdfbfb65;
+                   label{
+
+                    font-size: 1.9rem;
+                   }
+
+                   input{
+                    font-size: 1.6rem;
+                   }
+                   #register{
+                    width: 80%;
+					margin-top: 2em;
+                   }
+				   
+					.basic-info-names,.basic-info-contact,.password-box{
+						display: flex;
+						flex-direction: column;
+					
+						
+					}
+					.basic-info-data{
+						width: 100%;
+					}
+					.password-box-password{
+						width: 100%;
+					}
+               }
+           }
+            
+        }
+    }
+
+}
+
+@media (max-width: 576px) {
+	
+	html{
+		body {
+			.wrapper {
+				form {
+					width: 460px;
+				}
+			}
+		}
+	}
 	
 }
 
 @media (max-width: 768px) {
 	body {
 		.wrapper {
-			// width: 90%;
-			#form {
+			form {
 				width: 567px;
 			}
 		}
@@ -142,24 +200,17 @@ a {
 @media (max-width: 992px) {
 	
 		.wrapper {
-			// 	width: 75%;
-			// }
-			#form {
-				// width: 100%;
+			form {
 				width: 700px;
-				// transform: translate(10%);
 			}
 		}
 	
 }
 
 @media (max-width: 1200px) {
-	body {
-		// .wrapper{
-		// 	width: 60%;
-		// }
-		#form {
-			width: 820px
-		}
+	body{
+		form {
+		width: 820px
+	}
 	}
 }
