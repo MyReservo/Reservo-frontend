@@ -40,22 +40,21 @@ export const dataInputsCreator = (
 		adressInput.id = field.id;
 		adressInput.placeholder = field.placeholder;
 		adressInput.setAttribute('required', "");
-
+		
 		let checkCompanyInputChecked = false;
-
+		
 		if (checkCompanyInput !== null) { 
 			checkCompanyInput.addEventListener('change', () => { 
-		
 					if(checkCompanyInput.checked && checkCompanyInputChecked == false){
-						checkCompanyInputChecked = true
+						adressInput.classList.remove('red-input');
+						adressInput.classList.remove('red-placeholder');
+						adressInput.removeAttribute('placeholder');
 							if (adressInput !== undefined) {
 								toggleError(adressInput, false, field.placeholder);
 							}
-						
 					} else if (checkCompanyInput.checked  && checkCompanyInputChecked == true){			
 					}
 			})
-
 		}
 
 			
@@ -93,21 +92,22 @@ export const dataInputsCreator = (
 				if(!/^\d{2}-\d{3}$/.test(adressInput.value) && adressInput.id === "code"){
 					toggleError(adressInput, true, 'Podaj kod pocztowy');
 				}
+
 			});
+			
+			
+			adressDiv.appendChild(adressInput);
+			companyAdressPlace.appendChild(adressDiv);
+			if (adressInput.id === 'home' || adressInput.id === 'code') {
+				adressInput.addEventListener('input', inputsEvents);
+			}
+			
+			
+			inputs.push(adressInput)
+		});
 		
-		
-		adressDiv.appendChild(adressInput);
-		companyAdressPlace.appendChild(adressDiv);
-
-		if (adressInput.id === 'home' || adressInput.id === 'code') {
-			adressInput.addEventListener('input', inputsEvents);
-		}
-
-	inputs.push(adressInput)
-	});
-
-	return { inputs };
-};
-
+		return { inputs };
+	};
+	
 
 companyAdress.append(companyAdressTitle,companyAdressPlace);

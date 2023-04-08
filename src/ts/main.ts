@@ -165,21 +165,13 @@ const inputsValidation = () => {
 
 
 
-
-
-
-// console.log(inputsArr);
 const inputsArr = [nameInput,surnameInput,numberInput,emailInput,passwordInput,repeatInput,select,companyInput];
 
 const clearAllErrors = (
-	// adressFields: { id: string; placeholder: string }[],
-	// inputsArr: (HTMLInputElement | HTMLSelectElement)[],
 	termsBox: HTMLElement,
 	termsError: HTMLParagraphElement,
-	// inputsArr: (HTMLInputElement | HTMLSelectElement)[]
 	) => {
 		inputsArr.forEach(input => {
-
 			input.classList.remove('red-input');
 			input.classList.remove('red-placeholder');
 			input.removeAttribute('placeholder');
@@ -199,21 +191,19 @@ const clearAllErrors = (
         basicInfoData2.append(servicesLabel, select);
         basicInfoCompany.append(basicInfoData, basicInfoData2);
         basicInfo.append(basicInfoCompany, companyAdress);
-
         clearAllErrors(termsBox, termsError);
 
     } else if (customerInput.checked) {
 		checkCompanyInputChecked = false;
         basicInfoCompany.remove();
         companyAdress.remove();
+		clearAllErrors(termsBox, termsError);
     }
 };
 
 
-
 	export type cityInputValue = string;
 	
-
 	  const handleEvent = (e: Event) => {
 		  const target = e.target as HTMLElement;
 		  
