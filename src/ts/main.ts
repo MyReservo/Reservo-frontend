@@ -72,11 +72,12 @@ const createRegisterSelect = () => {
 export const inputsEvents = (event: Event) => {
 	const input = event.target as HTMLInputElement;
 	if (input instanceof HTMLSelectElement) {
-
 		input.classList.remove('red-input');
+	} else if (!/^\d{2}-\d{3}$/.test(input.value)) {
+		removeError(input);
+		input.value = input.value.replace(/[^\d-]/g, "");
 	} else {
 		removeError(input);
-
 		input.value = input.value.replace(/[^\d\W]/g, '');
 	}
 };
@@ -264,7 +265,7 @@ const codeInput = inputs.inputs[3];
 	if(registerBtn !== null){
 		registerBtn.addEventListener('click', inputsValidation);
 		 registerBtn.addEventListener('click', () => {
-	
+			
 			 const selectElement= document.getElementById('services') as  HTMLSelectElement; 
 	
 			 if(selectElement !== null){
@@ -292,9 +293,7 @@ const codeInput = inputs.inputs[3];
 		termsInput.checked) {
 		window.location.assign('./company-panel.html');
 		}
-		console.log(inputsArr);
 		inputsArr.splice(6,6);
-		console.log(inputsArr);
 		if (customerInput.checked && inputsArr.every(input => !input.classList.contains('red-input') ) &&  termsInput.checked) {
 		  window.location.assign('./calendar.html');
 		}

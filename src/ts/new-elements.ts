@@ -84,16 +84,17 @@ export const dataInputsCreator = (
 				}
 
 				if(adressInput !== undefined){
-
 					if (adressInput.value === '') {
 						toggleError(adressInput, true, placeholderText);
-						
 					} else {
 						toggleError(adressInput, false);
 					}
 				}
-	
+				if(!/^\d{2}-\d{3}$/.test(adressInput.value) && adressInput.id === "code"){
+					toggleError(adressInput, true, 'Podaj kod pocztowy');
+				}
 			});
+		
 		
 		adressDiv.appendChild(adressInput);
 		companyAdressPlace.appendChild(adressDiv);
