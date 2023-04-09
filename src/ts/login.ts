@@ -1,3 +1,4 @@
+export {}
 
 const emailLoginInput = document.querySelector('#email-login') as HTMLInputElement;
 console.log(emailLoginInput);
