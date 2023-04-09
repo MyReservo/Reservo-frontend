@@ -115,11 +115,13 @@ a {
 	color: #f3f3f3;
 }
 
+
 @media(max-width: 350px){
 	html{
 		body{
 			.wrapper{
 				#form{
+
 					background-color: #fdfbfb5b;
 
 					#register{
@@ -135,11 +137,19 @@ a {
 
 @media (max-width: 450px) {
 	html{
+		min-width: 100vw;
         body {
+			min-width: 100vw;
            .wrapper{
                #form {
-                   width: 380px;
-				   background-color: #fdfbfb65;
+                //    width: 320px;
+				   padding-top: 1.1em;
+				   background-color: #fdfbfba7;
+
+				   h1{
+					letter-spacing: normal;
+					margin-top: .4em;
+				   }
                    label{
 
                     font-size: 1.9rem;
@@ -151,10 +161,11 @@ a {
                    #register{
                     width: 80%;
 					margin-top: 2em;
+					font-size: 1.7rem;
                    }
 				   
 					.basic-info-names,.basic-info-contact,.password-box{
-						display: flex;
+						// display: flex;
 						flex-direction: column;
 					
 						
@@ -173,44 +184,46 @@ a {
 
 }
 
-@media (max-width: 576px) {
+// @media (max-width: 576px) {
 	
-	html{
-		body {
-			.wrapper {
-				form {
-					width: 460px;
-				}
-			}
-		}
-	}
+// 	html{
+// 		body {
+// 			.wrapper {
+// 				form {
+// 					// width: 460px;
+// 				}
+// 			}
+// 		}
+// 	}
 	
-}
+// }
 
-@media (max-width: 768px) {
-	body {
-		.wrapper {
-			form {
-				width: 567px;
-			}
-		}
-	}
-}
+// @media (max-width: 768px) {
+// 	body {
+// 		.wrapper {
+// 			form {
+// 				// width: 567px;
 
-@media (max-width: 992px) {
-	
-		.wrapper {
-			form {
-				width: 700px;
-			}
-		}
-	
-}
+// 			}
+// 		}
+// 	}
+// }
 
-@media (max-width: 1200px) {
-	body{
-		form {
-		width: 820px
-	}
-	}
-}
+// @media (max-width: 992px) {
+	
+// 		.wrapper {
+// 			form {
+// 				// width: 700px;
+// 			}
+// 		}
+	
+// }
+
+// @media (max-width: 1200px) {
+// 	body{
+// 		form {
+// 		// min-width: 720px
+// 		// width: 120%;
+// 	}
+// 	}
+// }
