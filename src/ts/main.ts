@@ -3,7 +3,6 @@ import '../sass/main.scss';
 import { dataInputsCreator, companyAdress } from './new-elements';
 
 
-
  export const customerInput = document.querySelector('#user') as HTMLInputElement;
  export const checkCompanyInput = document.querySelector('#company') as HTMLInputElement;
 
@@ -147,9 +146,11 @@ const inputsValidation = () => {
 	if (!regExEmail.test(emailInput.value)) {
 		toggleError(emailInput, true, 'Podaj adres e-mail');
 	}
+	
 	if (passwordInput.value.length < 8) {
 		toggleError(passwordInput, true, 'Hasło musi zawierać min. 8 znaków');
 	}
+
 	if (repeatInput.value !== passwordInput.value) {
 		toggleError(repeatInput, true, 'Hasła muszą być takie same');
 	}
@@ -255,7 +256,7 @@ const codeInput = inputs.inputs[3];
 	if(registerBtn !== null){
 		registerBtn.addEventListener('click', inputsValidation);
 		 registerBtn.addEventListener('click', () => {
-			
+			console.log(emailInput.value);
 			 const selectElement= document.getElementById('services') as  HTMLSelectElement; 
 	
 			 if(selectElement !== null){
@@ -270,8 +271,11 @@ const codeInput = inputs.inputs[3];
 			localStorage.setItem('companyHome', homeInput.value);
 			localStorage.setItem('companyCity', cityInput.value);
 			localStorage.setItem('companyCode', codeInput.value);
+
+			localStorage.setItem('registerPassword', passwordInput.value);
 		})	
 	}
+
 
 
 	const adressInputsArr = [streetInput,homeInput,cityInput,codeInput];
