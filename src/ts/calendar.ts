@@ -1,360 +1,143 @@
-export {};
+const daysTag = document.querySelector(".days");
+const currentDate = document.querySelector(".current-date");
+const prevNextIcon = document.querySelectorAll(".icons span");
+// getting new date, current year and month
+let date = new Date(),
+currYear = date.getFullYear(),
+currMonth = date.getMonth();
+// storing full name of all months in array
+const months = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec",
+              "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
+const renderCalendar = () => {
+    let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(), // getting first day of month
+    lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), // getting last date of month
+    lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(), // getting last day of month
+    lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate(); // getting last date of previous month
+    let liTag = "";
+    for (let i = firstDayofMonth; i > 0; i--) { // creating li of previous month last days
+        liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+    }
+    for (let i = 1; i <= lastDateofMonth; i++) { // creating li of all days of current month
+        // adding active class to li if the current day, month, and year matched
+        let isToday = i === date.getDate() && currMonth === new Date().getMonth() 
+                     && currYear === new Date().getFullYear() ? "active" : "";
+        liTag += `<li class="${isToday}">${i}</li>`;
+    }
+    for (let i = lastDayofMonth; i < 6; i++) { // creating li of next month first days
+        liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`
+    }
+    currentDate!.textContent = `${months[currMonth]} ${currYear}`; 
+    daysTag!.innerHTML = liTag;
+}
+renderCalendar();
 
-const companyLocalCheckbox = document.querySelector('#local') as HTMLInputElement;
-const companyAdressBox = document.querySelector('.pick-profession-box__company-adress') as HTMLDivElement;
 
-const companyStreet = document.querySelector('#company-street') as HTMLParagraphElement;
-const companyHomeNumber = document.querySelector('#company-home-number') as HTMLParagraphElement;
-const companyCity = document.querySelector('#company-city') as HTMLParagraphElement;
-const companyCode = document.querySelector('#company-code') as HTMLParagraphElement;
 
-export let date = new Date();
-// export const monthArr = new Array(
-// 	'Styczeń',
-// 	'Luty',
-// 	'Marzec',
-// 	'Kwiecień',
-// 	'Maj',
-// 	'Czerwiec',
-// 	'Lipiec',
-// 	'Sierpień',
-// 	'Wrzesień',
-// 	'Październik',
-// 	'Listopad',
-// 	'Grudzień'
-// );
+const dayAcitveClassToggler = () => {
+    const allLi = document.querySelectorAll('.days li');
+
+    allLi.forEach(li => {
+		li.addEventListener('click', () => {
+
+            allLi.forEach(li => {
+                li.classList.remove('active2');
+        });
+
+            if(li.className === 'inactive' || li.className === 'active'){
+                console.log('wbijam');
+                 li.classList.remove('active2');
+             } else{
+                console.log('dodaje klase');
+                 li.classList.add('active2');
+               }
+
+
+		});
+	});
+}
+
+
+prevNextIcon.forEach(icon => {
+    icon.addEventListener("click", () => { 
+        currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+        if(currMonth < 0 || currMonth > 11) { // if current month is less than 0 or greater than 11
+            // creating a new date of current year & month and pass it as date value
+            date = new Date(currYear, currMonth, new Date().getDate());
+            currYear = date.getFullYear(); // updating current year with new date year
+            currMonth = date.getMonth(); // updating current month with new date month
+        } else {
+            date = new Date(); // pass the current date as date value
+        }
+        renderCalendar(); // calling renderCalendar function
+        dayAcitveClassToggler()
+        console.log('włączam clickevents');
+        addClickEvents()
+    });
+});
+
+dayAcitveClassToggler()
+
 
 const hoursContainer: HTMLElement | null = document.querySelector('.hours-container');
 const hoursBoxInfo = document.querySelector('.hours-container__info-span') as HTMLSpanElement;
-export const allTd: NodeListOf<HTMLTableDataCellElement> = document.querySelectorAll('tbody td');
-
-// const addClickEvents = () => {
-// 	allTd.forEach(td => {
-// 		td.addEventListener('click', handleClick);
-
-// 	});
-// };
-
-
-
-// export const calendar = (td:HTMLElement) => {
-// 	const exitIcon = document.querySelector('.fa-times');
-// 	exitIcon?.addEventListener('click', () => {
-// 		hoursContainer!.style.display = 'none';
-// 		td.style.backgroundColor = "";
-// 		hourBtns.forEach(btn => {
-// 			btn.classList.remove('active');
-// 		})
-// 	});
-// 	const monthAndYear = document.querySelector('#calendar-top') as HTMLElement;
-// 	monthAndYear.textContent = monthArr[date.getMonth()] + ' ' + date.getFullYear();
-
-// 	const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
-// 	const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-
-// 	let day = 1;
-
-// 	for (let i = 0; i < allTd.length; i++) {
-// 		allTd[i].textContent = i.toString();
-
-// 		if (i < firstDay.getDay() - 1) {
-// 			allTd[i].innerHTML = '';
-// 		} else if (day <= lastDay.getDate()) {
-// 			allTd[i].innerHTML = day.toString();
-// 			day++;
-// 		} else {
-// 			allTd[i].innerHTML = '';
-// 		}
-// 	}
-// };
-
-// export const prevMonth = (td:HTMLElement) => {
-// 	date.setMonth(date.getMonth() - 1);
-// 	date.setDate(1);
-// 	calendar(td);
-// };
-
-// export const nextMonth = (td:HTMLElement) => {
-// 	date.setMonth(date.getMonth() + 1);
-// 	date.setDate(1);
-// 	calendar(td);
-// };
-
-// document.querySelector('#prev')?.addEventListener('click',() => {
-
-// 	const td = document.querySelector('td');
-// 	if (td) {
-// 	  prevMonth(td);
-// 	}
-// } );
-
-// document.querySelector('#next')?.addEventListener('click',() => {
-// 	const td = document.querySelector('td');
-// 	if (td) {
-// 	  nextMonth(td);
-// 	}
-// } );
-
 const hourBtns: NodeListOf<Element> = document.querySelectorAll('.hour-btn');
 
-const activeClassButtonToggler = () => {
-	hourBtns.forEach(btn => {
-		btn.addEventListener('click', () => {
-			if (btn.classList.contains('active')) {
-				btn.classList.remove('active');
-			} else {
-				hourBtns.forEach(btn => {
-					btn.classList.remove('active');
-				});
-				btn.classList.add('active');
-			}
-		});
-	});
-};
-
-const customerHomeCheckbox = document.querySelector('#client-home') as HTMLInputElement;
-const clientAdressBox = document.querySelector('.pick-profession-box__client-adress') as HTMLDivElement;
-
-const calendarCheckboxCheck = () => {
-	if (customerHomeCheckbox.checked) {
-		clientAdressBox!.style.display = 'flex';
-		companyAdressBox.style.display = 'none';
-	} else if (companyLocalCheckbox.checked) {
-		companyAdressBox.style.display = 'block';
-		clientAdressBox!.style.display = 'none';
-	}
-};
-
-const checkboxesAdressArr = [customerHomeCheckbox, companyLocalCheckbox];
-
-function handleCheckboxClick(this: HTMLInputElement) {
-	checkboxesAdressArr.forEach(checkbox => {
-		if (checkbox !== this) {
-			checkbox.checked = false;
-		} else {
-			checkbox.checked = true;
+const handleClick = (e:Event) => {
+	const li = e.target as HTMLElement;
+	const pickedDay = Number(li.textContent);
+	const today = new Date();
+	const pickedDate = new Date(date.getFullYear(), date.getMonth(), pickedDay);
+    console.log(pickedDate);
+    console.log(pickedDay);
+	if ((li.textContent !== '' && pickedDate.getDate() == today.getDate()) || pickedDate > today) {
+		if(hoursBoxInfo !== null){
+			hoursBoxInfo.textContent = pickedDate.getDate() + " " + months[date.getMonth()]
+			hoursContainer!.style.display = 'flex';
 		}
-	});
-}
 
-const servicesSelect = document.querySelector('#calendar-services') as HTMLSelectElement;
-const servicesCitySelect = document.querySelector('#calendar-city') as HTMLSelectElement;
-
-const serviceProviderBox = document.querySelector('.service-provider') as HTMLDivElement;
-const serviceProviderSpan = document.querySelector('.service-provider__title') as HTMLHeadingElement;
-
-const calendarServicesProviderObjectArr = [{ id: 'name-service', name: 'name', city: 'city' }];
-
-const createServiceProviderElement = (name: string) => {
-	const serviceProviderName = document.createElement('div');
-	serviceProviderName.className = 'service-provider__name';
-	const serviceProviderText = document.createElement('p');
-	serviceProviderText.textContent = name;
-	const serviceProviderCheckbox = document.createElement('input');
-	serviceProviderCheckbox.type = 'checkbox';
-	serviceProviderCheckbox.id = `${name}-tutor`;
-	serviceProviderCheckbox.className = 'service-provider';
-	serviceProviderName.append(serviceProviderText, serviceProviderCheckbox);
-	serviceProviderBox.append(serviceProviderName);
-};
-
-const updateServiceProviders = () => {
-	serviceProviderBox.innerHTML = '';
-	const selectedProfession = servicesSelect.value;
-	const selectedCity = servicesCitySelect.value;
-
-	if (selectedProfession === 'TUTOR') {
-		serviceProviderSpan.textContent = 'korepetytorzy:';
-
-		calendarServicesProviderObjectArr.forEach(provider => {
-			const tutorService = provider.id.includes('tutor');
-
-			if (selectedCity === 'wroclaw' && provider.city === 'Wrocław' && tutorService) {
-				createServiceProviderElement(provider.name);
-			}
-			if (selectedCity == 'warsaw' && provider.city === 'Warszawa' && tutorService) {
-				createServiceProviderElement(provider.name);
-			}
-			if (selectedCity == 'cracow' && provider.city === 'Kraków' && tutorService) {
-				createServiceProviderElement(provider.name);
-			}
-		});
-	}
-
-	if (selectedProfession === 'BARBER') {
-		serviceProviderSpan.textContent = 'fryzjerzy:';
-
-		calendarServicesProviderObjectArr.forEach(provider => {
-			const tutorService = provider.id.includes('barber');
-
-			if (selectedCity === 'wroclaw' && provider.city === 'Wrocław' && tutorService) {
-				createServiceProviderElement(provider.name);
-			}
-			if (selectedCity == 'warsaw' && provider.city === 'Warszawa' && tutorService) {
-				createServiceProviderElement(provider.name);
-			}
-			if (selectedCity == 'cracow' && provider.city === 'Kraków' && tutorService) {
-				createServiceProviderElement(provider.name);
-			}
-		});
-	}
-
-	if (selectedProfession === 'MECHANIC') {
-		serviceProviderSpan.textContent = 'mechanicy:';
-
-		calendarServicesProviderObjectArr.forEach(provider => {
-			const tutorService = provider.id.includes('mechanic');
-
-			if (selectedCity === 'wroclaw' && provider.city === 'Wrocław' && tutorService) {
-				createServiceProviderElement(provider.name);
-			}
-			if (selectedCity == 'warsaw' && provider.city === 'Warszawa' && tutorService) {
-				createServiceProviderElement(provider.name);
-			}
-			if (selectedCity == 'cracow' && provider.city === 'Kraków' && tutorService) {
-				createServiceProviderElement(provider.name);
-			}
-		});
+	} else if (pickedDate < today ) {
+		alert('Ten dzień już minął!');
+        li.classList.remove('active2');
+		return;
 	}
 };
 
-const userName = document.querySelector('.user-name') as HTMLParagraphElement;
-const calendarSendBtn = document.querySelector('#send') as HTMLButtonElement;
 
-if (calendarSendBtn !== null) {
-	calendarSendBtn.addEventListener('click', () => {
-		// const hoursBoxInfo = document.querySelector('.hours-container__info-span') as HTMLSpanElement;
-		if (hoursBoxInfo instanceof HTMLSpanElement && hoursBoxInfo.textContent !== null) {
-			localStorage.setItem('serviceDay', hoursBoxInfo.textContent);
-		}
-	});
-}
-
-const localCheckbox = document.querySelector('#local') as HTMLInputElement;
-const homeCheckbox = document.querySelector('#client-home') as HTMLInputElement;
-
-const locationCheckboxArr = [localCheckbox, homeCheckbox];
-
-function checkOneCheckbox(event: Event) {
-	const targetCheckbox = event.target as HTMLInputElement;
-
-	if (targetCheckbox.checked) {
-		locationCheckboxArr.forEach(checkbox => {
-			if (checkbox !== targetCheckbox) {
-				checkbox.checked = false;
-			}
-		});
-	}
-}
-
-// const currentYear = new Date().getFullYear();
-// const weekdayName = document.querySelectorAll('#calendar-days span');
-// weekdayName[0].textContent = 'Poniedziałek';
-// weekdayName[1].textContent = 'Wtorek';
-// weekdayName[2].textContent = 'Środa';
-// weekdayName[3].textContent = 'Czwartek';
-// weekdayName[4].textContent = 'Piątek';
-// weekdayName[5].textContent = 'Sobota';
-// weekdayName[6].textContent = 'Niedziela';
-
-export const monthArr = [
-	{ pl: 'Styczeń', en: 'January' },
-	{ pl: 'Luty', en: 'February' },
-	{ pl: 'Marzec', en: 'March' },
-	{ pl: 'Kwiecień', en: 'April' },
-	{ pl: 'Maj', en: 'May' },
-	{ pl: 'Czerwiec', en: 'June' },
-	{ pl: 'Lipiec', en: 'July' },
-	{ pl: 'Sierpień', en: 'August' },
-	{ pl: 'Wrzesień', en: 'Septemper' },
-	{ pl: 'Październik', en: 'October' },
-	{ pl: 'Listopad', en: 'November' },
-	{ pl: 'Grudzień', en: 'December' },
-];
-
-
-
-
-
-
-
-// const prevMonth = document.querySelector('#previous-month');
-// const nextMonth = document.querySelector('#next-month');
-
-// prevMonth!.addEventListener('click', test);
-// nextMonth!.addEventListener('click', test);
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-	// const td = document.querySelectorAll('td')
-
-
-	userName.textContent = localStorage.getItem('name');
-
-	localStorage.getItem('name');
-
-	localStorage.getItem('selectedOption');
-	localStorage.getItem('companyStreet');
-	localStorage.getItem('companyHome');
-	localStorage.getItem('companyCity');
-	localStorage.getItem('companyCode');
-
-	calendarServicesProviderObjectArr.forEach(obj => {
-		const name = localStorage.getItem('name');
-		const city = localStorage.getItem('companyCity');
-		if (name !== null && city !== null) {
-			obj.name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
-			obj.id = name.toLowerCase() + '-' + localStorage.getItem('selectedOption')?.toLowerCase();
-			obj.city = city;
-		}
+	const exitIcon = document.querySelector('.fa-times');
+	exitIcon?.addEventListener('click', () => {
+		hoursContainer!.style.display = 'none';
+        const allLi = document.querySelectorAll('.days li');
+        allLi.forEach(li => {
+            li.classList.remove('active2');
+        })
+		hourBtns.forEach(btn => {
+			btn.classList.remove('active-hour-btn');
+		})
 	});
 
-	if (companyStreet !== null) {
-		companyStreet.textContent = 'Ulica: ' + localStorage.getItem('companyStreet');
-		companyAdressBox.appendChild(companyStreet);
-	}
-	if (companyHomeNumber !== null) {
-		companyHomeNumber.textContent = 'Nr.Domu: ' + localStorage.getItem('companyHome');
-		companyAdressBox.appendChild(companyHomeNumber);
-	}
-	if (companyCity) {
-		companyCity.textContent = 'Miasto: ' + localStorage.getItem('companyCity');
-		companyAdressBox.appendChild(companyCity);
-	}
-	if (companyCode) {
-		companyCode.textContent = 'Kod pocztowy: ' + localStorage.getItem('companyCode');
-		companyAdressBox.appendChild(companyCode);
-	}
+    const activeClassButtonToggler = () => {
+        hourBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (btn.classList.contains('active-hour-btn')) {
+                    btn.classList.remove('active-hour-btn');
+                } else {
+                    hourBtns.forEach(btn => {
+                        btn.classList.remove('active-hour-btn');
+                    });
+                    btn.classList.add('active-hour-btn');
+                }
+            });
+        });
+    };
+    
+activeClassButtonToggler()
 
-	// nextMonth(td[0]);
-	// prevMonth(td[0]);
-	// calendar(td[0]);
-	activeClassButtonToggler();
-	// changeMonthName()
-	// addClickEvents()
+const addClickEvents = () => {
+    const allLi = document.querySelectorAll('.days li');
+	allLi.forEach(li => {
+		li.addEventListener('click', handleClick);
 
-	if (localCheckbox !== null) {
-		localCheckbox.addEventListener('click', checkOneCheckbox);
-	}
+	});
+};
 
-	if (homeCheckbox !== null) {
-		homeCheckbox.addEventListener('click', checkOneCheckbox);
-	}
-
-	if (checkboxesAdressArr !== null && customerHomeCheckbox !== null && companyLocalCheckbox! == null) {
-		checkboxesAdressArr.forEach(checkbox => {
-			checkbox.addEventListener('click', function () {
-				handleCheckboxClick.call(this);
-			});
-		});
-	}
-
-	if (servicesSelect !== null && servicesCitySelect !== null) {
-		servicesSelect.addEventListener('change', updateServiceProviders);
-		servicesCitySelect.addEventListener('change', updateServiceProviders);
-		customerHomeCheckbox.addEventListener('change', calendarCheckboxCheck);
-		companyLocalCheckbox.addEventListener('change', calendarCheckboxCheck);
-	}
-});
+addClickEvents()

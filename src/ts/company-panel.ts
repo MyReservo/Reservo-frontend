@@ -1,6 +1,6 @@
 
 export{}
-import {prevMonth,nextMonth} from "./calendar";
+import {prevMonth,nextMonth} from "./customer-panel";
 
 
 const yourProfessionTitle = document.querySelector('#profession-name') as HTMLSpanElement;
