@@ -2,7 +2,8 @@
 @use 'colors' as *;
 @use 'components' as *;
 @use 'calendar-adress-box' as *;
-@use "calendar-styles" as *;
+// @use "calendar-styles" as *;
+@use "may-calendar2" as *;
 
 
 
@@ -11,12 +12,17 @@ html, body {
     min-height: 100vh;
   }
 
+  .customer-panel-body{
+	font-family: 'Lato', sans-serif;
+	background-color: #ebebebd8;
+	background-color: #fff;
+}
 
-.wrapper-calendar {
+.wrapper-customer-panel {
 	margin:  50px auto;
-	width: 90%;
+	width: 70%;
 	justify-content: center;
-	display: flex;
+	// display: flex;
 	align-items: center;
 }
 
@@ -102,20 +108,22 @@ html, body {
 	}
 }
 
-
+.pick-profession-box{
+	margin-bottom: 4em;
+}
 
 
 @media (max-width: 1200px) {
-	.wrapper-calendar {
-		width: 95%;
-	}
+	// .wrapper-customer-panel {
+	// 	width: 95%;
+	// }
 	#send {
 		width: 50%;
 	}
 }
 
 @media (max-width: 768px) {
-	.wrapper-calendar {
+	.wrapper-customer-panel {
 		display: flex;
 		flex-direction: column;
 	}

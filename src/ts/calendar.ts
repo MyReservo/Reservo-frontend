@@ -8,121 +8,96 @@ const companyHomeNumber = document.querySelector('#company-home-number') as HTML
 const companyCity = document.querySelector('#company-city') as HTMLParagraphElement;
 const companyCode = document.querySelector('#company-code') as HTMLParagraphElement;
 
-
-
 export let date = new Date();
-export const monthArr = new Array(
-	'Styczeń',
-	'Luty',
-	'Marzec',
-	'Kwiecień',
-	'Maj',
-	'Czerwiec',
-	'Lipiec',
-	'Sierpień',
-	'Wrzesień',
-	'Październik',
-	'Listopad',
-	'Grudzień'
-);
-
+// export const monthArr = new Array(
+// 	'Styczeń',
+// 	'Luty',
+// 	'Marzec',
+// 	'Kwiecień',
+// 	'Maj',
+// 	'Czerwiec',
+// 	'Lipiec',
+// 	'Sierpień',
+// 	'Wrzesień',
+// 	'Październik',
+// 	'Listopad',
+// 	'Grudzień'
+// );
 
 const hoursContainer: HTMLElement | null = document.querySelector('.hours-container');
 const hoursBoxInfo = document.querySelector('.hours-container__info-span') as HTMLSpanElement;
 export const allTd: NodeListOf<HTMLTableDataCellElement> = document.querySelectorAll('tbody td');
 
-const addClickEvents = () => {
-	allTd.forEach(td => {
-		td.addEventListener('click', handleClick);
-		
-	});
-};
+// const addClickEvents = () => {
+// 	allTd.forEach(td => {
+// 		td.addEventListener('click', handleClick);
 
-const handleClick = (event: Event) => {
-	const td = event.target as HTMLElement;
-	const pickedDay = Number(td.textContent);
-	const today = new Date();
-	const pickedDate = new Date(date.getFullYear(), date.getMonth(), pickedDay);
-
-	if ((td.textContent !== '' && pickedDate.getDate() == today.getDate()) || pickedDate > today) {
-		if(hoursBoxInfo !==null){
-			hoursBoxInfo.textContent = pickedDate.getDate() + " " + monthArr[date.getMonth()]
-			hoursContainer!.style.display = 'flex';
-		}
-		allTd.forEach(td => {
-			td.style.backgroundColor = "";
-		});
-		td.style.backgroundColor = "#82f238e6";
-		calendar(td);
-	} else if (pickedDate < today && td.textContent !== '') {
-		alert('Ten dzień już minął!');
-		return;
-	}	
-};
+// 	});
+// };
 
 
-export const calendar = (td:HTMLElement) => {
-	const exitIcon = document.querySelector('.fa-times');
-	exitIcon?.addEventListener('click', () => {
-		hoursContainer!.style.display = 'none';
-		td.style.backgroundColor = "";
-		hourBtns.forEach(btn => {
-			btn.classList.remove('active');
-		})
-	});
-	const monthAndYear = document.querySelector('#calendar-top') as HTMLElement;
-	monthAndYear.textContent = monthArr[date.getMonth()] + ' ' + date.getFullYear();
 
-	const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
-	const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+// export const calendar = (td:HTMLElement) => {
+// 	const exitIcon = document.querySelector('.fa-times');
+// 	exitIcon?.addEventListener('click', () => {
+// 		hoursContainer!.style.display = 'none';
+// 		td.style.backgroundColor = "";
+// 		hourBtns.forEach(btn => {
+// 			btn.classList.remove('active');
+// 		})
+// 	});
+// 	const monthAndYear = document.querySelector('#calendar-top') as HTMLElement;
+// 	monthAndYear.textContent = monthArr[date.getMonth()] + ' ' + date.getFullYear();
 
-	let day = 1;
+// 	const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+// 	const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
-	for (let i = 0; i < allTd.length; i++) {
-		allTd[i].textContent = i.toString();
+// 	let day = 1;
 
-		if (i < firstDay.getDay() - 1) {
-			allTd[i].innerHTML = '';
-		} else if (day <= lastDay.getDate()) {
-			allTd[i].innerHTML = day.toString();
-			day++;
-		} else {
-			allTd[i].innerHTML = '';
-		}
-	}
-};
+// 	for (let i = 0; i < allTd.length; i++) {
+// 		allTd[i].textContent = i.toString();
 
-export const prevMonth = (td:HTMLElement) => {
-	date.setMonth(date.getMonth() - 1);
-	date.setDate(1);
-	calendar(td);
-};
+// 		if (i < firstDay.getDay() - 1) {
+// 			allTd[i].innerHTML = '';
+// 		} else if (day <= lastDay.getDate()) {
+// 			allTd[i].innerHTML = day.toString();
+// 			day++;
+// 		} else {
+// 			allTd[i].innerHTML = '';
+// 		}
+// 	}
+// };
 
-export const nextMonth = (td:HTMLElement) => {
-	date.setMonth(date.getMonth() + 1);
-	date.setDate(1);
-	calendar(td);
-};
+// export const prevMonth = (td:HTMLElement) => {
+// 	date.setMonth(date.getMonth() - 1);
+// 	date.setDate(1);
+// 	calendar(td);
+// };
 
-document.querySelector('#prev')?.addEventListener('click',() => {
+// export const nextMonth = (td:HTMLElement) => {
+// 	date.setMonth(date.getMonth() + 1);
+// 	date.setDate(1);
+// 	calendar(td);
+// };
 
-	const td = document.querySelector('td');
-	if (td) {
-	  prevMonth(td);
-	}
-} );
+// document.querySelector('#prev')?.addEventListener('click',() => {
 
-document.querySelector('#next')?.addEventListener('click',() => {
-	const td = document.querySelector('td');
-	if (td) {
-	  nextMonth(td);
-	}
-} );
+// 	const td = document.querySelector('td');
+// 	if (td) {
+// 	  prevMonth(td);
+// 	}
+// } );
 
+// document.querySelector('#next')?.addEventListener('click',() => {
+// 	const td = document.querySelector('td');
+// 	if (td) {
+// 	  nextMonth(td);
+// 	}
+// } );
 
 const hourBtns: NodeListOf<Element> = document.querySelectorAll('.hour-btn');
 
-const activeClassToggler = () => {
+const activeClassButtonToggler = () => {
 	hourBtns.forEach(btn => {
 		btn.addEventListener('click', () => {
 			if (btn.classList.contains('active')) {
@@ -137,9 +112,8 @@ const activeClassToggler = () => {
 	});
 };
 
-
-	const customerHomeCheckbox = document.querySelector('#client-home') as HTMLInputElement;
-	const clientAdressBox = document.querySelector('.pick-profession-box__client-adress') as HTMLDivElement;
+const customerHomeCheckbox = document.querySelector('#client-home') as HTMLInputElement;
+const clientAdressBox = document.querySelector('.pick-profession-box__client-adress') as HTMLDivElement;
 
 const calendarCheckboxCheck = () => {
 	if (customerHomeCheckbox.checked) {
@@ -151,9 +125,7 @@ const calendarCheckboxCheck = () => {
 	}
 };
 
-
 const checkboxesAdressArr = [customerHomeCheckbox, companyLocalCheckbox];
-
 
 function handleCheckboxClick(this: HTMLInputElement) {
 	checkboxesAdressArr.forEach(checkbox => {
@@ -171,15 +143,13 @@ const servicesCitySelect = document.querySelector('#calendar-city') as HTMLSelec
 const serviceProviderBox = document.querySelector('.service-provider') as HTMLDivElement;
 const serviceProviderSpan = document.querySelector('.service-provider__title') as HTMLHeadingElement;
 
-const calendarServicesProviderObjectArr = [
-	{ id: 'name-service', name: 'name', city: 'city' },
-];
+const calendarServicesProviderObjectArr = [{ id: 'name-service', name: 'name', city: 'city' }];
 
 const createServiceProviderElement = (name: string) => {
 	const serviceProviderName = document.createElement('div');
 	serviceProviderName.className = 'service-provider__name';
 	const serviceProviderText = document.createElement('p');
-	serviceProviderText.textContent = name ;
+	serviceProviderText.textContent = name;
 	const serviceProviderCheckbox = document.createElement('input');
 	serviceProviderCheckbox.type = 'checkbox';
 	serviceProviderCheckbox.id = `${name}-tutor`;
@@ -251,83 +221,119 @@ const updateServiceProviders = () => {
 const userName = document.querySelector('.user-name') as HTMLParagraphElement;
 const calendarSendBtn = document.querySelector('#send') as HTMLButtonElement;
 
-if(calendarSendBtn !== null) {
-	calendarSendBtn.addEventListener("click", () => {
+if (calendarSendBtn !== null) {
+	calendarSendBtn.addEventListener('click', () => {
 		// const hoursBoxInfo = document.querySelector('.hours-container__info-span') as HTMLSpanElement;
 		if (hoursBoxInfo instanceof HTMLSpanElement && hoursBoxInfo.textContent !== null) {
 			localStorage.setItem('serviceDay', hoursBoxInfo.textContent);
-		  }
-	
-
-	})
+		}
+	});
 }
 
 const localCheckbox = document.querySelector('#local') as HTMLInputElement;
 const homeCheckbox = document.querySelector('#client-home') as HTMLInputElement;
 
-const locationCheckboxArr = [localCheckbox,homeCheckbox];
+const locationCheckboxArr = [localCheckbox, homeCheckbox];
 
-
-function checkOneCheckbox(event:Event) {
+function checkOneCheckbox(event: Event) {
 	const targetCheckbox = event.target as HTMLInputElement;
-  
+
 	if (targetCheckbox.checked) {
-	  locationCheckboxArr.forEach((checkbox) => {
-		if (checkbox !== targetCheckbox) {
-		  checkbox.checked = false;
-		}
-	  });
+		locationCheckboxArr.forEach(checkbox => {
+			if (checkbox !== targetCheckbox) {
+				checkbox.checked = false;
+			}
+		});
 	}
-  }
+}
+
+// const currentYear = new Date().getFullYear();
+// const weekdayName = document.querySelectorAll('#calendar-days span');
+// weekdayName[0].textContent = 'Poniedziałek';
+// weekdayName[1].textContent = 'Wtorek';
+// weekdayName[2].textContent = 'Środa';
+// weekdayName[3].textContent = 'Czwartek';
+// weekdayName[4].textContent = 'Piątek';
+// weekdayName[5].textContent = 'Sobota';
+// weekdayName[6].textContent = 'Niedziela';
+
+export const monthArr = [
+	{ pl: 'Styczeń', en: 'January' },
+	{ pl: 'Luty', en: 'February' },
+	{ pl: 'Marzec', en: 'March' },
+	{ pl: 'Kwiecień', en: 'April' },
+	{ pl: 'Maj', en: 'May' },
+	{ pl: 'Czerwiec', en: 'June' },
+	{ pl: 'Lipiec', en: 'July' },
+	{ pl: 'Sierpień', en: 'August' },
+	{ pl: 'Wrzesień', en: 'Septemper' },
+	{ pl: 'Październik', en: 'October' },
+	{ pl: 'Listopad', en: 'November' },
+	{ pl: 'Grudzień', en: 'December' },
+];
+
+
+
+
+
+
+
+// const prevMonth = document.querySelector('#previous-month');
+// const nextMonth = document.querySelector('#next-month');
+
+// prevMonth!.addEventListener('click', test);
+// nextMonth!.addEventListener('click', test);
+
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
-	const td = document.querySelectorAll('td')
+	// const td = document.querySelectorAll('td')
+
 
 	userName.textContent = localStorage.getItem('name');
 
-	localStorage.getItem("name");
+	localStorage.getItem('name');
 
-	localStorage.getItem("selectedOption");
+	localStorage.getItem('selectedOption');
 	localStorage.getItem('companyStreet');
-	localStorage.getItem("companyHome");
-	localStorage.getItem("companyCity");
-	localStorage.getItem("companyCode");
+	localStorage.getItem('companyHome');
+	localStorage.getItem('companyCity');
+	localStorage.getItem('companyCode');
 
-
-	calendarServicesProviderObjectArr.forEach((obj) => {
-		const name = localStorage.getItem("name");
-		const city = localStorage.getItem("companyCity");
+	calendarServicesProviderObjectArr.forEach(obj => {
+		const name = localStorage.getItem('name');
+		const city = localStorage.getItem('companyCity');
 		if (name !== null && city !== null) {
-		  obj.name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
-		  obj.id = name.toLowerCase() + "-" + localStorage.getItem("selectedOption")?.toLowerCase();
-		  obj.city = city
-		} 
-	  });
-	  
-	if(companyStreet !== null){
-		companyStreet.textContent = "Ulica: " + localStorage.getItem('companyStreet');
+			obj.name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+			obj.id = name.toLowerCase() + '-' + localStorage.getItem('selectedOption')?.toLowerCase();
+			obj.city = city;
+		}
+	});
+
+	if (companyStreet !== null) {
+		companyStreet.textContent = 'Ulica: ' + localStorage.getItem('companyStreet');
 		companyAdressBox.appendChild(companyStreet);
 	}
-	if(companyHomeNumber !== null){
-		companyHomeNumber.textContent = "Nr.Domu: " + localStorage.getItem('companyHome');
+	if (companyHomeNumber !== null) {
+		companyHomeNumber.textContent = 'Nr.Domu: ' + localStorage.getItem('companyHome');
 		companyAdressBox.appendChild(companyHomeNumber);
 	}
-	if(companyCity){
-		companyCity.textContent = "Miasto: " + localStorage.getItem('companyCity');
+	if (companyCity) {
+		companyCity.textContent = 'Miasto: ' + localStorage.getItem('companyCity');
 		companyAdressBox.appendChild(companyCity);
 	}
-	if(companyCode){
-		companyCode.textContent = "Kod pocztowy: " + localStorage.getItem('companyCode');
+	if (companyCode) {
+		companyCode.textContent = 'Kod pocztowy: ' + localStorage.getItem('companyCode');
 		companyAdressBox.appendChild(companyCode);
 	}
 
-
-	nextMonth(td[0]);
-	prevMonth(td[0]);
-	calendar(td[0]);
-	activeClassToggler();
-	addClickEvents()
+	// nextMonth(td[0]);
+	// prevMonth(td[0]);
+	// calendar(td[0]);
+	activeClassButtonToggler();
+	// changeMonthName()
+	// addClickEvents()
 
 	if (localCheckbox !== null) {
 		localCheckbox.addEventListener('click', checkOneCheckbox);
@@ -337,8 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		homeCheckbox.addEventListener('click', checkOneCheckbox);
 	}
 
-
-	if(checkboxesAdressArr !== null && customerHomeCheckbox !== null &&  companyLocalCheckbox ! == null){
+	if (checkboxesAdressArr !== null && customerHomeCheckbox !== null && companyLocalCheckbox! == null) {
 		checkboxesAdressArr.forEach(checkbox => {
 			checkbox.addEventListener('click', function () {
 				handleCheckboxClick.call(this);
@@ -346,12 +351,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
-
-	if(servicesSelect !== null && servicesCitySelect !== null){
-	servicesSelect.addEventListener('change', updateServiceProviders);
-	servicesCitySelect.addEventListener('change', updateServiceProviders);
-	customerHomeCheckbox.addEventListener('change', calendarCheckboxCheck);
-	companyLocalCheckbox.addEventListener('change', calendarCheckboxCheck);
-}
-})
-
+	if (servicesSelect !== null && servicesCitySelect !== null) {
+		servicesSelect.addEventListener('change', updateServiceProviders);
+		servicesCitySelect.addEventListener('change', updateServiceProviders);
+		customerHomeCheckbox.addEventListener('change', calendarCheckboxCheck);
+		companyLocalCheckbox.addEventListener('change', calendarCheckboxCheck);
+	}
+});

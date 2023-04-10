@@ -18,6 +18,7 @@
     "vite-tsconfig-paths": "^4.0.5"
   },
   "dependencies": {
+    "calendarpickerjs": "^1.4.0",
     "gh-pages": "^5.0.0"
   }
 }
