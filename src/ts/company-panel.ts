@@ -1,6 +1,6 @@
 
 export{}
-import {prevMonth,nextMonth} from "./customer-panel";
+// import {prevMonth,nextMonth} from "./customer-panel";
 
 
 const yourProfessionTitle = document.querySelector('#profession-name') as HTMLSpanElement;
@@ -42,20 +42,20 @@ const code = document.querySelector('#visit__adress-code') as HTMLParagraphEleme
 document.querySelector('#prev')?.addEventListener('click',() => {
 	const td = document.querySelector('td');
 	if (td) {
-	  prevMonth(td);
+	//   prevMonth(td);
 	}
 } );
 
 document.querySelector('#next')?.addEventListener('click',() => {
 	const td = document.querySelector('td');
 	if (td) {
-	  nextMonth(td);
+	//   nextMonth(td);
 	}
 } );
 
 document.addEventListener('DOMContentLoaded', () => {
-	const td = document.querySelectorAll('td')
-	prevMonth(td[0])
-	nextMonth(td[0])
+	// const td = document.querySelectorAll('td')
+	// prevMonth(td[0])
+	// nextMonth(td[0])
 
 })

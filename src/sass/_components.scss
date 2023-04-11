@@ -119,7 +119,7 @@ a {
 @media(max-width: 350px){
 	html{
 		.register-body{
-			.wrapper{
+			.wrapper-register{
 				#form{
 					// padding: 1.5em;
 					background-color: #fdfbfb5b;
@@ -156,7 +156,7 @@ a {
         .register-body {
 			display: block;
 			min-width: 100vw;
-           .wrapper{
+           .wrapper-register{
                #form {
 				   background-color: #fdfbfba7;
 					padding: 1.5em;
@@ -234,47 +234,3 @@ a {
     }
 
 }
-
-// @media (max-width: 576px) {
-	
-// 	html{
-// 		body {
-// 			.wrapper {
-// 				form {
-// 					// width: 460px;
-// 				}
-// 			}
-// 		}
-// 	}
-	
-// }
-
-// @media (max-width: 768px) {
-// 	body {
-// 		.wrapper {
-// 			form {
-// 				// width: 567px;
-
-// 			}
-// 		}
-// 	}
-// }
-
-// @media (max-width: 992px) {
-	
-// 		.wrapper {
-// 			form {
-// 				// width: 700px;
-// 			}
-// 		}
-	
-// }
-
-// @media (max-width: 1200px) {
-// 	body{
-// 		form {
-// 		// min-width: 720px
-// 		// width: 120%;
-// 	}
-// 	}
-// }

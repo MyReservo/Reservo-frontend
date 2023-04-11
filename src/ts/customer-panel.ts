@@ -74,6 +74,7 @@ const customerHomeCheckbox = document.querySelector('#client-home') as HTMLInput
 const clientAdressBox = document.querySelector('.pick-profession-box__client-adress') as HTMLDivElement;
 
 const calendarCheckboxCheck = () => {
+	console.log('odpalam');
 	if (customerHomeCheckbox.checked) {
 		clientAdressBox!.style.display = 'flex';
 		companyAdressBox.style.display = 'none';
@@ -289,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	// nextMonth(td[0]);
 	// prevMonth(td[0]);
 	// calendar(td[0]);
-	activeClassButtonToggler();
+	// activeClassButtonToggler();
 	// changeMonthName()
 	// addClickEvents()
 
