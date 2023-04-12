@@ -1,8 +1,13 @@
-@use 'colors' as *;
-@use '../sass/components/components' as *;
-@use 'reset' as *;
-@use 'animations' as *;
-@use 'components/btn' as *;
+@use '../sass/utils/animations' as *;
+@use '../sass/utils/colors' as *;
+@use '../sass/utils/reset' as *;
+
+@use '../sass/components/btn' as *;
+@use '../sass/components/calendar' as *;
+@use '../sass/components/inputs' as *;
+@use '../sass/components/lines' as *;
+@use '../sass/components/nav-elements' as *;
+
 @use './pages/customer-panel' as *;
-@use '../sass/pages/company-panel' as *;
-@use 'register' as *;
+@use './pages/company-panel' as *;
+@use './pages/register' as *;

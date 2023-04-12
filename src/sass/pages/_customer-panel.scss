@@ -1,20 +1,18 @@
-@use '../reset' as *;
-@use '../colors' as *;
-@use '../components/components' as *;
+@use '../utils/reset' as *;
+@use '../utils/colors' as *;
+@use '../components/nav-elements' as *;
+@use "../components/inputs" as *;
 // @use 'calendar-adress-box' as *;
-@use "../components/calendar" as *;
-
-
+@use '../components/calendar' as *;
 
 .wrapper-customer-panel {
 	display: flex;
 	flex-direction: column;
-	margin:  50px auto;
+	margin: 50px auto;
 	width: 80%;
 	justify-content: center;
 	align-items: center;
 }
-
 
 #send {
 	margin: 1.3em 0.5em;
@@ -34,7 +32,8 @@
 	font-size: 4.5rem;
 }
 
-#calendar-services, #calendar-city{
+#calendar-services,
+#calendar-city {
 	width: 40%;
 	cursor: pointer;
 }
@@ -57,12 +56,11 @@
 	font-size: 1.5rem;
 	display: none;
 
-	&__btn-box{
+	&__btn-box {
 		width: 75%;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-
 	}
 	.active-hour-btn {
 		background-color: lime;
@@ -87,19 +85,14 @@
 		transform: scale(1.2);
 	}
 
-	&__info{
-
+	&__info {
 		margin: 1em;
-		&-span{
+		&-span {
 			text-decoration: underline;
 			font-weight: bold;
 		}
-
 	}
 }
-
-
-
 
 .pick-profession-box {
 	display: flex;
@@ -110,24 +103,23 @@
 	border-radius: 8px;
 	background-color: $calendarTitleBgc;
 	border: 1px dotted black;
-	box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
 
-
-	&__pick-profession{
+	&__pick-profession {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-
 	}
-	&__select-box{
+	&__select-box {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		// margin-top: 3em;
 	}
 
-	.horizontal-line{
+	.horizontal-line {
 		margin-bottom: 0;
+		display: none;
 	}
 	&__title {
 		margin: 0.8em 0.5em;
@@ -135,41 +127,38 @@
 		font-size: 2.3rem;
 	}
 
-
-
-	&__service-provider{
+	&__service-provider {
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
 		font-size: 1.5rem;
 		padding: 1em;
 
-			input{
-				cursor: pointer;
-			}
-			
-			.service-provider{
-				display: flex;
-				flex-wrap: wrap;
-				p{
-					margin: 1em;
-					font-size: 2rem;
-				}
-			}
-		}
-		&__available-providers {
-			font-size: 2.3rem;
+		input {
+			cursor: pointer;
 		}
 
-	.service-location{
-		&__title{
-			padding: .7em;
+		.service-provider {
+			display: flex;
+			flex-wrap: wrap;
+			p {
+				margin: 1em;
+				font-size: 2rem;
+			}
+		}
+	}
+	&__available-providers {
+		font-size: 2.3rem;
+	}
+
+	.service-location {
+		&__title {
+			padding: 0.7em;
 			font-size: 2.3rem;
 		}
 	}
 
-
-	.service-location__box{
+	.service-location__box {
 		display: flex;
 		flex-direction: column;
 		margin-top: 1em;
@@ -183,74 +172,64 @@
 			height: 15px;
 			cursor: pointer;
 		}
-
 	}
 
-		&__client-adress{
-			display: flex;
-			flex-direction: column;
-			margin-top: 2em;
-            display: none;
-			label{
-				font-size: 1.3rem;
-			}
+	&__client-adress {
+		display: flex;
+		flex-direction: column;
+		margin-top: 2em;
+		display: none;
+		label {
+			font-size: 1.3rem;
 		}
+	}
 
-		&__company-adress{
-			margin: 1em;
-			padding: 1em;
-			background-color: #ffffff4d;
+	&__company-adress {
+		margin: 1em;
+		padding: 1em;
+		background-color: #ffffff4d;
+		font-size: 1.7rem;
+		border: 1px solid black;
+		border-radius: 8px;
+		display: none;
+		&--title {
+			// margin-top: 2.3em;
+			margin-bottom: 0.7em;
 			font-size: 1.7rem;
-			border: 1px solid black;
-			border-radius: 8px ;
-            display: none;
-			&--title{
-				// margin-top: 2.3em;
-				margin-bottom: .7em;
-				font-size: 1.7rem;
-			}
-			p{
-				margin-bottom: .3em;
-			}
 		}
-	
+		p {
+			margin-bottom: 0.3em;
+		}
+	}
 }
 
+@media (max-width: 1200px) {
+	.wrapper-customer-panel {
+		width: 90%;
+	}
 
-@media(max-width: 1200px) {
-
-
-.wrapper-customer-panel{
-	width: 90%;
-} 
-
-	.home-local-box{
+	.home-local-box {
 		display: flex;
 		flex-direction: column;
 
-		.home-local-box__home-box{
+		.home-local-box__home-box {
 			justify-content: center;
-			input{
+			input {
 				margin-bottom: 1em;
 			}
 		}
-		.home-local-box__local-box{
+		.home-local-box__local-box {
 			justify-content: center;
 			margin-left: 0;
 			margin-bottom: 1.3em;
-			input{
+			input {
 				margin-bottom: 0;
 			}
 		}
 	}
-
 }
 
-
-
-
 @media (max-width: 1200px) {
-
 	#send {
 		width: 50%;
 	}
@@ -262,10 +241,10 @@
 		flex-direction: column;
 	}
 
-	.calendar-container{
+	.calendar-container {
 		margin-top: 1em;
-		.pick-day-box{
-			h4{
+		.pick-day-box {
+			h4 {
 				font-size: 2.5rem;
 			}
 		}
@@ -289,9 +268,8 @@
 			font-size: 2rem;
 			text-align: center;
 		}
-		
-		.service-location{
-			
+
+		.service-location {
 			&__title {
 				font-size: 2rem;
 				margin-bottom: 1em;
@@ -313,10 +291,10 @@
 
 		.pick-profession-box__client-adress {
 			margin-top: 2em;
-			label{
+			label {
 				font-size: 2rem;
 			}
-			input{
+			input {
 				font-size: 2rem;
 			}
 		}
@@ -324,11 +302,11 @@
 		.pick-profession-box__company-adress {
 			font-size: 2.5rem;
 
-			h4{
+			h4 {
 				font-size: 2.7rem;
 			}
-			p{
-				margin: .6em;
+			p {
+				margin: 0.6em;
 			}
 		}
 	}
@@ -352,14 +330,12 @@
 	}
 }
 
+@media (max-width: 576px) {
+	.user-nav-box {
+		margin-left: 0;
+	}
 
-@media (max-width: 576px){
-
-.user-box{
-	margin-left: 0;
-}
-
-.hours-container{
-	margin-left: 0;
-}
+	.hours-container {
+		margin-left: 0;
+	}
 }

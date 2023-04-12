@@ -1,6 +1,6 @@
-@use '../reset' as *;
-@use '../colors' as *;
-@use '../components/components' as *;
+@use '../utils/reset' as *;
+@use '../utils/colors' as *;
+@use "../components/nav-elements" as *;
 
 
 .your-profession,
@@ -59,7 +59,7 @@
     .calendar-container{
         width: 75%;
     }
-    .user-box{
+    .user-nav-box{
         font-size: 1.6rem;
         width: 50%;
     }
@@ -99,7 +99,7 @@
 }
 
 @media(max-width: 576px) {
-    .user-box{
+    .user-nav-box{
         font-size: 1rem;
         width: 20%;
     }
