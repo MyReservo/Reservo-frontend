@@ -1,13 +1,9 @@
-$color_1: #878787;
-$color_2: #333;
-$color_3: #aaa;
-$color_4: #fff;
-$font-family_1: 'Poppins', sans-serif;
+@use '../colors' as *;
 
 .wrapper-calendar {
-    width: 50%;
-    transform: translate(50%);
-    max-width: 600px;
+    // width: 50%;
+    // transform: translate(50%);
+    // max-width: 600px;
 	background: #fff;
 	border-radius: 10px;
 	box-shadow: 0 15px 40px rgba(0,0,0,0.12);
@@ -19,53 +15,37 @@ $font-family_1: 'Poppins', sans-serif;
         margin-left: 2.5em;
         .current-date{
             font-size: 2.3rem;
+			text-shadow: 1px 1px 10px  rgba(168, 156, 156, 0.377);
         }
         .icons{
             span{
                 font-size: 3.5rem;
                 margin-left: .5em;
+				cursor: pointer;
+				color: $calendarPrevNext;
+				border-radius: 50%;
+				&:hover {
+					background: $noActiveBgc;
+				}
             }
         }
 	}
 
-	.pick-day-box{
+	.calendar-title{
 		font-size: 2rem;
 		text-align: center;
-		margin-top: 3em;
-		background-color: rgba(65, 105, 225, 0.781);
+		background-color: $calendarTitleBgc;
 		border-top-left-radius: 8px;
 		border-top-right-radius: 8px;
 		h4{
 			padding: 1em;
-			color: #fffdfd;
-			text-shadow: 1px 2px  black;
+			color: $calendarTitle;
+			text-shadow: 1px 2px 5px  black;
 		}
 	}
 }
-header {
-	.icons {
-		display: flex;
-		span {
-			height: 38px;
-			width: 38px;
-			margin: 0 1px;
-			cursor: pointer;
-			color: $color_1;
-			text-align: center;
-			line-height: 38px;
-			font-size: 1.9rem;
-			user-select: none;
-			border-radius: 50%;
-			&:hover {
-				background: #f2f2f2;
-			}
-		}
-	}
-	.current-date {
-		font-size: 1.45rem;
-		font-weight: 500;
-	}
-}
+
+
 .icons {
 	span {
 		&:last-child {
@@ -75,7 +55,6 @@ header {
 }
 .calendar {
 	padding: 20px;
-    // font-size: 2rem;
 	ul {
 		display: flex;
 		flex-wrap: wrap;
@@ -92,7 +71,6 @@ header {
 		}
 	}
 	li {
-		color: $color_2;
 		width: calc(100% / 7);
 		font-size: 1.07rem;
 	}
@@ -106,12 +84,13 @@ header {
 }
 .days {
 	li.inactive {
-		color: $color_3;
+		color: $inactiveDay;
 	}
 	li.active {
-		color: $color_4;
+		color: $activeDayFont;
 		&::before {
-			background: #9B59B6;
+			background: $activeDayBgc;
+			
 		}
 	}
 	li {
@@ -131,16 +110,16 @@ header {
 		}
 		&:not(.active) {
 			&:hover::before {
-					background: #f2f2f2;
+					background: $noActiveBgc;
 				
 			}
 		}
         &.active2::before {
-            background-color: lime; 
+            background-color: $checkedDay; 
         }
         &.active2:hover::before{
             
-            background-color: rgb(53, 127, 53); 
+            background-color: $hoverCheckedDay; 
           }
         }
 
