@@ -22,9 +22,6 @@ if (userNameNav) {
 
 }
 
-
-
-
    localStorage.getItem('serviceDay')
    localStorage.getItem("selectedOption");
    localStorage.getItem('companyStreet');
@@ -32,12 +29,21 @@ if (userNameNav) {
    localStorage.getItem("companyCity");
    localStorage.getItem("companyCode");
 
-
-	   userName.textContent =  "Imię klienta: " + localStorage.getItem('name');
-	   street.textContent =   localStorage.getItem('companyStreet');
-	   house.textContent =   localStorage.getItem('companyHome');
-	   city.textContent =   localStorage.getItem('companyCity');
-	   code.textContent =   localStorage.getItem('companyCode');
+if (userName) {
+	userName.textContent =  "Imię klienta: " + localStorage.getItem('name');
+}
+if(street){
+	street.textContent =   localStorage.getItem('companyStreet');
+}
+if(house){
+	house.textContent =   localStorage.getItem('companyHome');
+}
+if(city){
+	city.textContent =   localStorage.getItem('companyCity');
+}
+if(code){
+	code.textContent =   localStorage.getItem('companyCode');
+}
    
 
 
