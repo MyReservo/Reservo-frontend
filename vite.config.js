@@ -10,7 +10,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: 'index.html',
-        calendar: 'calendar.html',
+        customerPanel: 'customer-panel.html',
         companyPanel: 'company-panel.html' 
       },
       output: {
