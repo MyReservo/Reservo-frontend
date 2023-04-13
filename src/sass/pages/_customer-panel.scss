@@ -3,34 +3,246 @@
 @use '../components/nav-elements' as *;
 @use '../components/inputs' as *;
 @use '../components/calendar' as *;
+@use '../components/btn' as *;
+
 
 .wrapper-customer-panel {
 	display: flex;
 	flex-direction: column;
+
 	margin: 50px auto;
 	width: 80%;
 	justify-content: center;
 	align-items: center;
 }
 
+.nav-shadow-box {
+	.panel-title {
+		font-size: 3.5rem;
+		img {
+			position: relative;
+			width: 40px;
+			bottom: 0.2em;
+			margin-top: 0.2em;
+		}
+	}
+	&__user-box{
+		a{
+			align-items: center;
+		}
+	}
+}
+
 .header {
 	.hero-img {
 		display: flex;
+		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		position: relative;
 		min-height: 100vh;
 		background-position: 15%;
 		background-size: cover;
-		background-image: url('../../img/city-medium.jpg');
-		background-image: url('../../img/city-large.jpg');
 		background-image: url('../../img/city-original-size.jpg');
 		.header-shadow {
 			position: absolute;
 			width: 100%;
 			height: 100%;
-			background-color: #2a7bbe5e;
+			// background-color: #0a2439a3;
+			background-color: #133c5e94;
 			z-index: 1;
+		}
+	}
+	&__title {
+		margin-bottom: 5em;
+		color: #fff;
+		z-index: 5;
+		h1{
+			font-size: 4rem;
+			letter-spacing: .1em;
+			text-shadow: 1px 2px  5px black;
+			// span{
+			// 	background-color: #0e4fdb;
+			// 	border-radius: 15px;
+			// 	padding: .1em;
+				
+			// }
+
+		}
+		p {
+			text-align: center;
+			// margin-left: .6em;
+			text-shadow: 1px 2px  3px black;
+			font-size: 2.3rem;
+			margin-top: 2em;
+			letter-spacing: .07em;
+		}
+		.reservo {
+			font-style: italic;
+			font-size: 6.5rem;
+			text-align: center;
+		}
+	}
+}
+
+.pick-profession-box {
+	position: relative;
+	display: flex;
+	padding: 1em;
+	width: 50%;
+	max-width: 750px;
+	text-align: center;
+	align-items: center;
+	border-radius: 20px;
+	border-radius: 35px;
+	// background-color: rgba(65, 105, 225, 0.877);
+	// background-color: rgba(0, 0, 0, 0.247);
+	background-color: #10151860;
+	background-color: #10151860;
+	background-color: #1015188a;
+
+	box-shadow: 0 20px 30px rgba(0, 0, 0, 0.12);
+	z-index: 5;
+	.submit-btn{
+		height: auto;
+		background-color: royalblue;
+		// font-size: 1.7rem;
+		letter-spacing: .2em;
+		color: #ffffffda;
+	}
+
+	.submit-btn:hover {
+		transform: scale(1.1);
+	}
+
+	&__select-services {
+		// display: flex;
+		// flex-direction: column;
+		// align-items: center;
+		width: 50%;
+	}
+	&__select-city {
+		width: 50%;
+		// display: flex;
+		// justify-content: center;
+		// align-items: center;
+		// margin-top: 3em;
+	}
+
+	.input {
+		// width: 70%;
+		margin: 0;
+		font-size: 1.8rem;
+	}
+
+	.horizontal-line {
+		margin-bottom: 0;
+		display: none;
+	}
+	&__title {
+		// margin: 0em 0.5em;
+		// text-align: center;
+		color: #ffffffd0;
+		margin-bottom: 0.6em;
+		font-size: 2.3rem;
+	}
+
+
+	// &__available-providers {
+	// 	font-size: 2.3rem;
+	// }
+
+	.service-location {
+		&__title {
+			padding: 0.7em;
+			font-size: 2.3rem;
+		}
+	}
+
+	.service-location__box {
+		display: flex;
+		flex-direction: column;
+		margin-top: 1em;
+		justify-content: space-evenly;
+		font-size: 2rem;
+
+		input {
+			margin-left: 0.4em;
+			margin-bottom: 2em;
+			width: 15px;
+			height: 15px;
+			cursor: pointer;
+		}
+	}
+
+	&__client-adress {
+		display: flex;
+		flex-direction: column;
+		margin-top: 2em;
+		display: none;
+		label {
+			font-size: 1.3rem;
+		}
+	}
+
+	&__company-adress {
+		margin: 1em;
+		padding: 1em;
+		background-color: #ffffff4d;
+		font-size: 1.7rem;
+		border: 1px solid black;
+		border-radius: 8px;
+		display: none;
+		&--title {
+			// margin-top: 2.3em;
+			margin-bottom: 0.7em;
+			font-size: 1.7rem;
+		}
+		p {
+			margin-bottom: 0.3em;
+		}
+	}
+}
+
+.available-service-providers{
+	// width: 50%;
+background-color: rgb(228, 228, 228);
+background-color: tomato;
+margin-bottom: 2.5em;
+border-radius: 10px;
+h4{
+	background-color: royalblue;
+	padding: 1em;
+}
+	&__title{
+		font-size: 2.5rem;
+	}
+}
+
+.available-service-providers-box {
+	display: flex;
+	flex-direction: column;
+	// flex-wrap: wrap;
+	font-size: 2.5rem;
+	padding: 1em;
+	margin-bottom: 1.5em;
+
+	// background-color: royalblue;
+
+	// &__title-box{
+	// 	// background-color: #fff;
+	// }
+
+	input {
+		cursor: pointer;
+	}
+
+	.service-provider {
+		display: flex;
+		flex-wrap: wrap;
+		p {
+			margin: 1em;
+			font-size: 2rem;
 		}
 	}
 }
@@ -49,13 +261,10 @@
 	z-index: 5;
 	cursor: pointer;
 }
-.fa-pencil-alt {
-	font-size: 4.5rem;
-}
 
 #calendar-services,
 #calendar-city {
-	width: 40%;
+	// width: 40%;
 	cursor: pointer;
 }
 
@@ -111,123 +320,6 @@
 		&-span {
 			text-decoration: underline;
 			font-weight: bold;
-		}
-	}
-}
-
-.pick-profession-box {
-	position: relative;
-	display: flex;
-	padding: 1em;
-	width: 50%;
-	max-width: 750px;
-	text-align: center;
-	border-radius: 8px;
-	background-color:rgba(65, 105, 225, 0.877) ;
-	border: 1px dotted black;
-	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-	z-index: 5;
-
-	&__select-services {
-		// display: flex;
-		// flex-direction: column;
-		// align-items: center;
-		width: 50%;
-	}
-	&__select-city {
-		width: 50%;
-		// display: flex;
-		// justify-content: center;
-		// align-items: center;
-		// margin-top: 3em;
-	}
-
-	.input{
-		width: 100%;
-	}
-
-	.horizontal-line {
-		margin-bottom: 0;
-		display: none;
-	}
-	&__title {
-		margin: 0.8em 0.5em;
-		text-align: center;
-		font-size: 2.3rem;
-	}
-
-	&__service-provider {
-		display: flex;
-		flex-direction: column;
-		flex-wrap: wrap;
-		font-size: 1.5rem;
-		padding: 1em;
-
-		input {
-			cursor: pointer;
-		}
-
-		.service-provider {
-			display: flex;
-			flex-wrap: wrap;
-			p {
-				margin: 1em;
-				font-size: 2rem;
-			}
-		}
-	}
-	&__available-providers {
-		font-size: 2.3rem;
-	}
-
-	.service-location {
-		&__title {
-			padding: 0.7em;
-			font-size: 2.3rem;
-		}
-	}
-
-	.service-location__box {
-		display: flex;
-		flex-direction: column;
-		margin-top: 1em;
-		justify-content: space-evenly;
-		font-size: 2rem;
-
-		input {
-			margin-left: 0.4em;
-			margin-bottom: 2em;
-			width: 15px;
-			height: 15px;
-			cursor: pointer;
-		}
-	}
-
-	&__client-adress {
-		display: flex;
-		flex-direction: column;
-		margin-top: 2em;
-		display: none;
-		label {
-			font-size: 1.3rem;
-		}
-	}
-
-	&__company-adress {
-		margin: 1em;
-		padding: 1em;
-		background-color: #ffffff4d;
-		font-size: 1.7rem;
-		border: 1px solid black;
-		border-radius: 8px;
-		display: none;
-		&--title {
-			// margin-top: 2.3em;
-			margin-bottom: 0.7em;
-			font-size: 1.7rem;
-		}
-		p {
-			margin-bottom: 0.3em;
 		}
 	}
 }

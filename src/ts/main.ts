@@ -290,7 +290,7 @@ const codeInput = inputs.inputs[3];
 
 		const newInputsArr = inputsArr.slice(0,6);
 		if (customerInput.checked && newInputsArr.every(input => !input.classList.contains('red-input')) && termsInput.checked) {
-		  window.location.assign('./calendar.html');
+		  window.location.assign('./customer-panel.html');
 		}
 	  }	 
 	  registerBtn.addEventListener('click', checkInputsAndRedirect);
