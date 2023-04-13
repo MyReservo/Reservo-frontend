@@ -5,7 +5,6 @@
 @use '../components/calendar' as *;
 @use '../components/btn' as *;
 
-
 .wrapper-customer-panel {
 	display: flex;
 	flex-direction: column;
@@ -26,8 +25,8 @@
 			margin-top: 0.2em;
 		}
 	}
-	&__user-box{
-		a{
+	&__user-box {
+		a {
 			align-items: center;
 		}
 	}
@@ -48,7 +47,6 @@
 			position: absolute;
 			width: 100%;
 			height: 100%;
-			// background-color: #0a2439a3;
 			background-color: #133c5e94;
 			z-index: 1;
 		}
@@ -57,25 +55,17 @@
 		margin-bottom: 5em;
 		color: #fff;
 		z-index: 5;
-		h1{
+		h1 {
 			font-size: 4rem;
-			letter-spacing: .1em;
-			text-shadow: 1px 2px  5px black;
-			// span{
-			// 	background-color: #0e4fdb;
-			// 	border-radius: 15px;
-			// 	padding: .1em;
-				
-			// }
-
+			letter-spacing: 0.1em;
+			text-shadow: 1px 2px 5px black;
 		}
 		p {
 			text-align: center;
-			// margin-left: .6em;
-			text-shadow: 1px 2px  3px black;
+			text-shadow: 1px 2px 3px black;
 			font-size: 2.3rem;
 			margin-top: 2em;
-			letter-spacing: .07em;
+			letter-spacing: 0.07em;
 		}
 		.reservo {
 			font-style: italic;
@@ -95,19 +85,14 @@
 	align-items: center;
 	border-radius: 20px;
 	border-radius: 35px;
-	// background-color: rgba(65, 105, 225, 0.877);
-	// background-color: rgba(0, 0, 0, 0.247);
-	background-color: #10151860;
-	background-color: #10151860;
 	background-color: #1015188a;
 
 	box-shadow: 0 20px 30px rgba(0, 0, 0, 0.12);
 	z-index: 5;
-	.submit-btn{
+	.submit-btn {
 		height: auto;
 		background-color: royalblue;
-		// font-size: 1.7rem;
-		letter-spacing: .2em;
+		letter-spacing: 0.2em;
 		color: #ffffffda;
 	}
 
@@ -115,22 +100,11 @@
 		transform: scale(1.1);
 	}
 
-	&__select-services {
-		// display: flex;
-		// flex-direction: column;
-		// align-items: center;
+	&__select-services,&__select-city {
 		width: 50%;
-	}
-	&__select-city {
-		width: 50%;
-		// display: flex;
-		// justify-content: center;
-		// align-items: center;
-		// margin-top: 3em;
 	}
 
 	.input {
-		// width: 70%;
 		margin: 0;
 		font-size: 1.8rem;
 	}
@@ -140,17 +114,11 @@
 		display: none;
 	}
 	&__title {
-		// margin: 0em 0.5em;
-		// text-align: center;
 		color: #ffffffd0;
 		margin-bottom: 0.6em;
 		font-size: 2.3rem;
 	}
 
-
-	// &__available-providers {
-	// 	font-size: 2.3rem;
-	// }
 
 	.service-location {
 		&__title {
@@ -194,7 +162,6 @@
 		border-radius: 8px;
 		display: none;
 		&--title {
-			// margin-top: 2.3em;
 			margin-bottom: 0.7em;
 			font-size: 1.7rem;
 		}
@@ -204,34 +171,36 @@
 	}
 }
 
-.available-service-providers{
-	// width: 50%;
-background-color: rgb(228, 228, 228);
-background-color: tomato;
-margin-bottom: 2.5em;
-border-radius: 10px;
-h4{
-	background-color: royalblue;
-	padding: 1em;
-}
-	&__title{
+.available-service-providers {
+	width: 50%;
+	text-align: center;
+	background-color: rgb(228, 228, 228);
+	background-color: #fff;
+	margin-bottom: 2.5em;
+	border-radius: 10px;
+	box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+
+	overflow: hidden;
+	h4 {
+		background-color: #6b8ae8;
+		padding: 1em;
+	}
+	&__title {
 		font-size: 2.5rem;
+	}
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
 	}
 }
 
-.available-service-providers-box {
-	display: flex;
-	flex-direction: column;
-	// flex-wrap: wrap;
+.available-service-providers__box {
+
 	font-size: 2.5rem;
 	padding: 1em;
 	margin-bottom: 1.5em;
 
-	// background-color: royalblue;
-
-	// &__title-box{
-	// 	// background-color: #fff;
-	// }
 
 	input {
 		cursor: pointer;

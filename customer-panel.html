@@ -12,23 +12,19 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <title>Customer panel</title>
   <link rel="stylesheet" href="./src/sass/pages/_customer-panel.scss">
-
-
 </head>
 
 <body class="customer-panel-body">
 
-
   <nav class="nav-shadow-box">
-
     <div class="nav-shadow"></div>
     <a href="./customer-panel.html">
-      <!-- <h1 class="panel-title">Reservo <i class="fas fa-pencil-alt"></i></h1> -->
       <p class="panel-title">Reservo <img src="./src/img/pencil.png" alt="pencil icon"></p>
     </a>
 
-
     <div class="nav-shadow-box__user-box">
+    
+      <a href="#reservations"><i class="far fa-sticky-note"></i>Moje rezerwacje</a>
       <div class="nav-shadow-box__user">
         <i class="fas fa-user"></i>
         <p class="user-name">Nazwa użytkownika</p>
@@ -41,8 +37,6 @@
       </a>
 
     </div>
-
-
   </nav>
 
   <header class="header">
@@ -112,11 +106,14 @@
     <div class="available-service-providers">
       <h4 class="available-service-providers__title">Dostepne osoby<span></span></h4>
 
-      <div class="available-service-providers-box">
+      <div class="available-service-providers__box">
 
         <div class="available-service-providers__list">
-          <p>Andrzej</p>
-          <input type="checkbox">
+          <div class="service-provider">
+            <p>Andrzej</p>
+            <input type="checkbox">
+          </div>
+
 
         </div>
       </div>
@@ -210,6 +207,9 @@
     </div>
     <button type='submit' id="send">UMÓW SIĘ</button>
   </div>
+
+
+  <div class="my-reservations" id="reservations">123</div>
 
   <!-- <script src="./src/js/calendar.js"></script> -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
