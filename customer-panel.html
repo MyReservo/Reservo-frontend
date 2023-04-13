@@ -15,33 +15,43 @@
 </head>
 
 <body class="customer-panel-body">
-  <div class="shadow-box">
+
+
+  <nav class="nav-shadow-box">
     <div class="user-nav-box"><i class="fas fa-user"></i>
       <p class="user-name">Nazwa użytkownika</p>
     </div>
-    <div class="shadow"></div>
+    <div class="nav-shadow"></div>
     <h1 class="panel-title">Reservo <i class="fas fa-pencil-alt"></i></h1>
     <div class="log-out-box">
       <a href="./index.html">
         <p id="log-out"><i class="fas fa-sign-out-alt"></i>Wyloguj</p>
       </a>
     </div>
-  </div>
+  </nav>
 
-  <div class="wrapper-customer-panel">
-    <div class="pick-profession-box">
-      <div class="pick-profession-box__pick-profession">
+  <header class="header">
 
-        <h3 class="pick-profession-box__title ">Wybierz jedną z dostępnych usług</h3>
+    <div class="hero-img">
+      <div class="header-shadow"></div>
 
-        <div class="pick-profession-box__select-box">
-
+      <div class="pick-profession-box">
+        
+        <div class="pick-profession-box__select-services">
+          
+          <h3 class="pick-profession-box__title ">Wybierz usługę</h3>
+          
           <select name="calendar-services" id="calendar-services" class="input">
             <option value="default" id="default" selected disabled>Wybierz usługę</option>
             <option value="TUTOR" id="tutor">Korepetycje</option>
             <option value="BARBER" id="barber">Fryzjer</option>
             <option value="MECHANIC" id="mechanic">Mechanik</option>
           </select>
+        </div>
+
+        <div class="pick-profession-box__select-city">
+
+          <h3 class="pick-profession-box__title ">Wybierz lokalizację</h3>
 
           <select name="calendar-city" id="calendar-city" class="input">
             <option value="default" id="default" selected disabled>Wybierz miasto</option>
@@ -49,15 +59,26 @@
             <option value="warsaw" id="warsaw">Warszawa</option>
             <option value="cracow" id="cracow">Kraków</option>
           </select>
+
         </div>
+
 
       </div>
 
+  </header>
 
-      <div class="horizontal-line"></div>
-      <div class="vertical-line"></div>
 
-     <div class="pick-profession-box__service-provider">
+
+
+  <div class="wrapper-customer-panel">
+
+
+
+
+    <!-- <div class="horizontal-line"></div>
+      <div class="vertical-line"></div> -->
+
+    <!-- <div class="pick-profession-box__service-provider">
         <h4 class="pick-profession-box__available-providers">Dostepni <span class="service-provider__title">...</span></h4>
         <div class="service-provider">
         <p>Andrzej</p>
@@ -85,58 +106,58 @@
           </div>
   
         </div>
-      </div>
+      </div> -->
 
 
 
-      <div class="pick-profession-box__client-adress">
-        <label for="client-street">Ulica</label>
-        <input type="text" name="client-street" class="input" id="client-street">
+    <div class="pick-profession-box__client-adress">
+      <label for="client-street">Ulica</label>
+      <input type="text" name="client-street" class="input" id="client-street">
 
-        <label for="client-street">Nr.domu</label>
-        <input type="text" name="client-house" class="input" id="client-house">
+      <label for="client-street">Nr.domu</label>
+      <input type="text" name="client-house" class="input" id="client-house">
 
-        <label for="client-street">Miasto</label>
-        <input type="text" name="client-city" class="input" id="client-city">
-      </div>
-
-      <div class="pick-profession-box__company-adress">
-        
-        <h4 class="pick-profession-box__company-adress--title">Adres lokalu:</h4>
-        <p id="company-street"></p>
-        <p id="company-home-number"></p>
-        <p id="company-city"></p>
-        <p id="company-code"></p>
-      </div>
+      <label for="client-street">Miasto</label>
+      <input type="text" name="client-city" class="input" id="client-city">
     </div>
 
+    <div class="pick-profession-box__company-adress">
 
-    <div class="wrapper-calendar">
-
-      <div class="calendar-title">
-        <h4>Wybierz dzień Twojej wizyty</h4>
-      </div>
-
-      <header>
-        <p class="current-date"></p>
-        <div class="icons">
-          <span id="prev" class="material-symbols-rounded">chevron_left</span>
-          <span id="next" class="material-symbols-rounded">chevron_right</span>
-        </div>
-      </header>
-      <div class="calendar">
-        <ul class="weeks">
-          <li>Nie</li>
-          <li>Pon</li>
-          <li>Wt</li>
-          <li>Śr</li>
-          <li>Czw</li>
-          <li>Pt</li>
-          <li>Sob</li>
-        </ul>
-        <ul class="days"></ul>
-      </div>
+      <h4 class="pick-profession-box__company-adress--title">Adres lokalu:</h4>
+      <p id="company-street"></p>
+      <p id="company-home-number"></p>
+      <p id="company-city"></p>
+      <p id="company-code"></p>
     </div>
+  </div>
+
+
+  <div class="wrapper-calendar">
+
+    <div class="calendar-title">
+      <h4>Wybierz dzień Twojej wizyty</h4>
+    </div>
+
+    <header>
+      <p class="current-date"></p>
+      <div class="icons">
+        <span id="prev" class="material-symbols-rounded">chevron_left</span>
+        <span id="next" class="material-symbols-rounded">chevron_right</span>
+      </div>
+    </header>
+    <div class="calendar">
+      <ul class="weeks">
+        <li>Nie</li>
+        <li>Pon</li>
+        <li>Wt</li>
+        <li>Śr</li>
+        <li>Czw</li>
+        <li>Pt</li>
+        <li>Sob</li>
+      </ul>
+      <ul class="days"></ul>
+    </div>
+  </div>
 
 
 

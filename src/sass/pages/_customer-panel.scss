@@ -1,8 +1,7 @@
 @use '../utils/reset' as *;
 @use '../utils/colors' as *;
 @use '../components/nav-elements' as *;
-@use "../components/inputs" as *;
-// @use 'calendar-adress-box' as *;
+@use '../components/inputs' as *;
 @use '../components/calendar' as *;
 
 .wrapper-customer-panel {
@@ -12,6 +11,28 @@
 	width: 80%;
 	justify-content: center;
 	align-items: center;
+}
+
+.header {
+	.hero-img {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		min-height: 100vh;
+		background-position: 15%;
+		background-size: cover;
+		background-image: url('../../img/city-medium.jpg');
+		background-image: url('../../img/city-large.jpg');
+		background-image: url('../../img/city-original-size.jpg');
+		.header-shadow {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-color: #2a7bbe5e;
+			z-index: 1;
+		}
+	}
 }
 
 #send {
@@ -95,26 +116,34 @@
 }
 
 .pick-profession-box {
+	position: relative;
 	display: flex;
-	margin-top: 6.5em;
-	margin-bottom: 4em;
 	padding: 1em;
+	width: 50%;
+	max-width: 750px;
 	text-align: center;
 	border-radius: 8px;
-	background-color: $calendarTitleBgc;
+	background-color:rgba(65, 105, 225, 0.877) ;
 	border: 1px dotted black;
 	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+	z-index: 5;
 
-	&__pick-profession {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+	&__select-services {
+		// display: flex;
+		// flex-direction: column;
+		// align-items: center;
+		width: 50%;
 	}
-	&__select-box {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+	&__select-city {
+		width: 50%;
+		// display: flex;
+		// justify-content: center;
+		// align-items: center;
 		// margin-top: 3em;
+	}
+
+	.input{
+		width: 100%;
 	}
 
 	.horizontal-line {

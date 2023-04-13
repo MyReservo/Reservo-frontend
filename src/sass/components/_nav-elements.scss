@@ -1,10 +1,12 @@
-.shadow-box {
-	position: relative;
+.nav-shadow-box {
+	position: fixed;
+	width: 100%;
 	display: flex;
 	justify-content: center;
 	justify-content: start;
+	z-index: 10;
 }
-.shadow {
+.nav-shadow {
 	position: absolute;
 	width: 100%;
 	height: 100%;
