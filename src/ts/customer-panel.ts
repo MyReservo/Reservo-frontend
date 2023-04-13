@@ -182,7 +182,7 @@ const calendarSendBtn = document.querySelector('#send') as HTMLButtonElement;
 
 if (calendarSendBtn !== null) {
 	calendarSendBtn.addEventListener('click', () => {
-		// const hoursBoxInfo = document.querySelector('.hours-container__info-span') as HTMLSpanElement;
+		const hoursBoxInfo = document.querySelector('.hours-container__info-span') as HTMLSpanElement;
 		if (hoursBoxInfo instanceof HTMLSpanElement && hoursBoxInfo.textContent !== null) {
 			localStorage.setItem('serviceDay', hoursBoxInfo.textContent);
 		}
