@@ -41,7 +41,7 @@
 		z-index: 5;
 
 		h1 {
-			font-family: 'DynaPuff', cursive;
+			// font-family: 'DynaPuff', cursive;
 			font-weight: normal;
 			font-size: 6rem;
 			letter-spacing: 0.1em;
@@ -55,7 +55,7 @@
 			letter-spacing: 0.07em;
 		}
 		.reservo {
-			font-family: 'DynaPuff', cursive;
+			// font-family: 'DynaPuff', cursive;
 			font-weight: normal;
 			width: 80%;
 			margin: 0 auto;
@@ -455,14 +455,7 @@
 }
 
 @media (max-width: 380px) {
-	#burger-btn {
-		margin-top: 1.3em;
-		margin-left: 0em;
-		margin-right: 0.5em;
-		span {
-			height: 5px;
-		}
-	}
+
 
 	.header {
 		.hero-img {
