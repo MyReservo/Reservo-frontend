@@ -36,6 +36,16 @@
 		margin: 0em 2em 0em 1em ;
 		align-items: center;
 	}
+	.panel-title {
+		font-size: 3.5rem;
+		img {
+			position: relative;
+			width: 38px;
+			height: 39px;
+			bottom: 0.28em;
+			margin: 0.2em;
+		}
+	}
 }
 .nav-shadow {
 	position: absolute;
@@ -47,6 +57,7 @@
 .panel-title {
 	display: flex;
 	// width: 90%;
+	font-weight: bold;
 	padding: 0.5em;
 	font-size: 5rem;
 	font-style: italic;
@@ -59,5 +70,8 @@
 a {
 	text-decoration: none;
 	color: #f3f3f3;
+}
+a:hover{
+	color: #fff;
 }
 

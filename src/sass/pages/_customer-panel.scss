@@ -1,3 +1,4 @@
+@use '../utils/animations' as *;
 @use '../utils/reset' as *;
 @use '../utils/colors' as *;
 @use '../components/nav-elements' as *;
@@ -15,22 +16,6 @@
 	align-items: center;
 }
 
-.nav-shadow-box {
-	.panel-title {
-		font-size: 3.5rem;
-		img {
-			position: relative;
-			width: 40px;
-			bottom: 0.2em;
-			margin-top: 0.2em;
-		}
-	}
-	&__user-box {
-		a {
-			align-items: center;
-		}
-	}
-}
 
 .header {
 	.hero-img {
@@ -68,30 +53,41 @@
 			letter-spacing: 0.07em;
 		}
 		.reservo {
-			font-style: italic;
-			font-size: 6.5rem;
 			text-align: center;
+			font-size: 6.5rem;
+			margin-top:.3em;
+			font-style: italic;
+			animation: h1-slide-left 1s;
 		}
+	}
+
+	&__text{
+		animation: header-text-slide-right 1s  ;
 	}
 }
 
 .pick-profession-box {
 	position: relative;
 	display: flex;
-	padding: 1em;
+	align-items: center;
+	justify-content: space-between;
 	width: 50%;
 	max-width: 750px;
+	padding: 1em;
 	text-align: center;
-	align-items: center;
-	border-radius: 20px;
-	border-radius: 35px;
+	border-radius: 10px;
 	background-color: #1015188a;
-
 	box-shadow: 0 20px 30px rgba(0, 0, 0, 0.12);
 	z-index: 5;
+	animation: header-div-slide-top 1.5s 0.5s both;
+	
 	.submit-btn {
 		height: auto;
+		width: auto;
+		width: 100%;
+		font-size: 1.8rem;
 		background-color: royalblue;
+		padding: .6em;
 		letter-spacing: 0.2em;
 		color: #ffffffda;
 	}
@@ -99,9 +95,9 @@
 	.submit-btn:hover {
 		transform: scale(1.1);
 	}
-
-	&__select-services,&__select-city {
-		width: 50%;
+ 
+	&__btn{
+		width: 25%;
 	}
 
 	.input {
