@@ -5,11 +5,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <script src="https://kit.fontawesome.com/d3231c159b.js" crossorigin="anonymous"></script>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   <link rel="shortcut icon" type="image/x-icon" href="./src/img/favicon.ico">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <title>Customer panel</title>
   <link rel="stylesheet" href="./src/sass/pages/_customer-panel.scss">
 </head>
@@ -66,6 +69,7 @@
           </div>
           <div class="reservo">
             <span>Reservo</span>
+            <span class="underline"></span>
           </div>
         </h1>
         <div>
@@ -78,33 +82,33 @@
 
       <div class="pick-profession-box">
 
-        <div class="pick-profession-box__select-services">
-          <!-- 
-          <h3 class="pick-profession-box__title ">Wybierz usługę</h3> -->
-
-          <select name="calendar-services" id="calendar-services" class="input">
-            <option value="default" id="default" selected disabled>Wybierz usługę</option>
-            <option value="TUTOR" id="tutor">Korepetycje</option>
-            <option value="BARBER" id="barber">Fryzjer</option>
-            <option value="MECHANIC" id="mechanic">Mechanik</option>
-          </select>
-        </div>
-
-        <div class="pick-profession-box__select-city">
-
-          <!-- <h3 class="pick-profession-box__title ">Wybierz lokalizację</h3> -->
-
-          <select name="calendar-city" id="calendar-city" class="input">
-            <option value="default" id="default" selected disabled>Wybierz miasto</option>
-            <option value="wroclaw" id="wroclaw">Wrocław</option>
-            <option value="warsaw" id="warsaw">Warszawa</option>
-            <option value="cracow" id="cracow">Kraków</option>
-          </select>
-
-        </div>
+        <!-- <div class="pick-profession-box__select-box"> -->
+          <div class="pick-profession-box__select-services">
+            <!-- <h3 class="pick-profession-box__title ">Wybierz usługę</h3> -->
+            <select name="calendar-services" id="calendar-services" class="input">
+              <option value="default" id="default" selected disabled>Wybierz usługę</option>
+              <option value="TUTOR" id="tutor">Korepetycje</option>
+              <option value="BARBER" id="barber">Fryzjer</option>
+              <option value="MECHANIC" id="mechanic">Mechanik</option>
+            </select>
+          </div>
+  
+          <div class="pick-profession-box__select-city">
+            <!-- <h3 class="pick-profession-box__title ">Wybierz lokalizację</h3> -->
+            <select name="calendar-city" id="calendar-city" class="input">
+              <option value="default" id="default" selected disabled>Wybierz miasto</option>
+              <option value="wroclaw" id="wroclaw">Wrocław</option>
+              <option value="warsaw" id="warsaw">Warszawa</option>
+              <option value="cracow" id="cracow">Kraków</option>
+            </select>
+          </div>
+      
+       
 
         <div class="pick-profession-box__btn">
-         <a href="#available-service-providers"> <button class="submit-btn" href="#available-service-providers">Szukaj</button></a>
+         <a href="#available-service-providers"> 
+          <button class="submit-btn" href="#available-service-providers">Szukaj</button>
+        </a>
         </div>
       </div>
 
@@ -112,11 +116,11 @@
 
 
 
+<!-- <section>
 
+
+</section> -->
   <div class="wrapper-customer-panel">
-
-
-
 
     <div class="horizontal-line"></div>
     <div class="vertical-line"></div>
@@ -171,15 +175,16 @@
       <input type="text" name="client-city" class="input" id="client-city">
     </div> -->
 
-    <!-- <div class="pick-profession-box__company-adress">
+     <!-- <div class="pick-profession-box__company-adress">
 
       <h4 class="pick-profession-box__company-adress--title">Adres lokalu:</h4>
       <p id="company-street"></p>
       <p id="company-home-number"></p>
       <p id="company-city"></p>
       <p id="company-code"></p>
-    </div>
-  </div> -->
+    </div> -->
+
+ </div> 
 
 
     <div class="wrapper-calendar">
