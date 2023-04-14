@@ -22,6 +22,20 @@
       <p class="panel-title">Reservo 
         <img src="./src/img/pencil.png" alt="pencil icon"></p>
     </a>
+    
+    <!-- `<div class="burger-btn">
+      <div class="burger-btn__line line-one"></div>
+      <div class="burger-btn__line line-two"></div>
+      <div class="burger-btn__line line-three"></div>
+    </div> -->
+
+    <div id="burger-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- <i class="fas fa-bars"></i> -->
 
     <div class="nav-shadow-box__user-box">
     
@@ -108,19 +122,20 @@
     <div class="vertical-line"></div>
 
     <div class="available-service-providers" id="available-service-providers">
-      <h4 class="available-service-providers__title">Dostepne osoby<span></span></h4>
+      <h4 class="available-service-providers__title">Wybierz dostępną osobę<span></span></h4>
 
       <div class="available-service-providers__box">
 
         <div class="available-service-providers__list">
+
           <div class="service-provider">
             <p>Andrzej</p>
             <input type="checkbox">
           </div>
 
-
         </div>
       </div>
+      <button class="submit-btn">OK</button>
     </div>
     <!-- <div class="horizontal-line"></div>
       <div class="vertical-line"></div> -->
@@ -170,7 +185,7 @@
     <div class="wrapper-calendar">
 
       <div class="calendar-title">
-        <h4>Wybierz dzień Twojej wizyty</h4>
+        <h4>Wybierz dzień wizyty</h4>
       </div>
 
       <header>
@@ -197,7 +212,7 @@
 
 
   </div>
-  <div class="hours-container">
+  <div class="hours-container" id="hours-container">
     <i class="fas fa-times"></i>
     <p class="hours-container__info">Umawiasz się na <span class="hours-container__info-span">...</span></p>
     <h3>Wybierz godzinę</h3>
@@ -220,6 +235,7 @@
   <script>
     AOS.init();
   </script>
+<script src="./src/ts/nav-elements.ts"></script>
   <script type="module" defer src="./src/ts/calendar.ts"></script>
   <script type="module" defer src="./src/ts/customer-panel.ts"></script>
 </body>

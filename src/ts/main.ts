@@ -1,5 +1,6 @@
 
 import '../sass/main.scss';
+import "./nav-elements";
 import { dataInputsCreator, companyAdress } from './new-elements';
 
 

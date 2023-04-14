@@ -40,6 +40,7 @@
 		margin-bottom: 5em;
 		color: #fff;
 		z-index: 5;
+		
 		h1 {
 			font-size: 4rem;
 			letter-spacing: 0.1em;
@@ -135,7 +136,6 @@
 			margin-bottom: 2em;
 			width: 15px;
 			height: 15px;
-			cursor: pointer;
 		}
 	}
 
@@ -170,16 +170,16 @@
 .available-service-providers {
 	width: 50%;
 	text-align: center;
-	background-color: rgb(228, 228, 228);
 	background-color: #fff;
-	margin-bottom: 2.5em;
+	margin-bottom: 5.5em;
 	border-radius: 10px;
 	box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-
 	overflow: hidden;
 	h4 {
 		background-color: #6b8ae8;
+		color: #fffdfd;
 		padding: 1em;
+		text-shadow: 1px 2px 5px black;
 	}
 	&__title {
 		font-size: 2.5rem;
@@ -188,29 +188,34 @@
 	&__list {
 		display: flex;
 		flex-wrap: wrap;
-	}
-}
-
-.available-service-providers__box {
-
-	font-size: 2.5rem;
-	padding: 1em;
-	margin-bottom: 1.5em;
-
-
-	input {
-		cursor: pointer;
+		justify-content: center;
 	}
 
-	.service-provider {
-		display: flex;
-		flex-wrap: wrap;
-		p {
-			margin: 1em;
-			font-size: 2rem;
+	&__box{
+		font-size: 2.5rem;
+		padding: 1em;
+		margin-bottom: 1em;
+	}
+	
+		.service-provider {
+			display: flex;
+			flex-wrap: wrap;
+			p {
+				margin: 1em;
+				font-size: 2rem;
+			}
 		}
-	}
+
+		.submit-btn{
+			width: 30%;
+			max-width: 230px;
+			font-size: 1.2em;
+			color: #fffdfd;
+		text-shadow: 1px 1px 2px black;
+
+		}
 }
+
 
 #send {
 	margin: 1.3em 0.5em;
@@ -229,7 +234,6 @@
 
 #calendar-services,
 #calendar-city {
-	// width: 40%;
 	cursor: pointer;
 }
 
@@ -316,15 +320,32 @@
 }
 
 @media (max-width: 1200px) {
-	#send {
-		width: 50%;
+	.pick-profession-box{
+		width: 60%;
 	}
 }
 
+
+@media (max-width: 992px){
+	.pick-profession-box{
+		width: 75%;
+	}
+}
+
+
+
 @media (max-width: 768px) {
+
 	.wrapper-customer-panel {
 		display: flex;
 		flex-direction: column;
+	}
+
+
+	.header{
+		.header__title{
+		margin-top: 5.5em;
+		}
 	}
 
 	.calendar-container {

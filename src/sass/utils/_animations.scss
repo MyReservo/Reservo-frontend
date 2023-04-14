@@ -62,3 +62,19 @@
 	}
 
   }
+
+
+  #burger-btn.open span:nth-child(1) {
+	top: 18px;
+	transform: rotate(135deg);
+  }
+  
+  #burger-btn.open span:nth-child(2) {
+	opacity: 0;
+	left: 60px;
+  }
+  
+  #burger-btn.open span:nth-child(3) {
+	top: 18px;
+	transform: rotate(-135deg);
+  }
