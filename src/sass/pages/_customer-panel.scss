@@ -320,9 +320,22 @@
 }
 
 @media (max-width: 1200px) {
-	.pick-profession-box {
-		width: 60%;
-	}
+
+
+		.header__btn{
+			.submit-btn{
+				width: 45%;
+			}
+		}
+	
+
+			.header__title{
+				.reservo{
+					font-size: 7rem;
+				}
+			}
+		
+
 	.home-local-box {
 		display: flex;
 		flex-direction: column;
@@ -345,16 +358,18 @@
 }
 
 @media (max-width: 992px) {
-	.header {
-		h1 {
-			font-size: 5rem;
-		}
-		.reservo {
-			font-size: 8rem;
-		}
+	.nav-shadow-box__user-box{
+		font-size: 2rem;
 	}
+
 	.pick-profession-box {
-		width: 75%;
+		width: 77%;
+	}
+	.header__btn{
+		width: 77%;
+		.submit-btn{
+			width: 40%;
+		}
 	}
 }
 
@@ -372,20 +387,6 @@
 		}
 	}
 
-	.pick-profession-box {
-		flex-wrap: wrap;
-		width: 72%;
-		padding: 1.8em 1.8em 0em 1.8em;
-		justify-content: space-around;
-
-		.pick-profession-box__btn {
-			margin-top: 1.5em;
-			position: relative;
-			width: 50%;
-			// left: 50%;
-			// transform: translate(-50%);
-		}
-	}
 
 	.hours-container {
 		align-self: center;
@@ -411,8 +412,14 @@
 	.header {
 		.hero-img {
 			.pick-profession-box {
-				width: 90%;
-				// padding: 0;
+				width: 91%;
+				padding: 1.5em;
+			}
+		}
+		.header__btn{
+			width: 91%;
+			.submit-btn{
+				width: 45%;
 			}
 		}
 
@@ -446,13 +453,23 @@
 	.header {
 		.hero-img {
 			.pick-profession-box {
-				width: 100%;
+				width: 95%;
+				padding: 1em;
 				// margin-top: 4.5em;
 				// align-items: baseline;
-				box-shadow: 0px 10px 150px 50px rgba(16, 21, 24, 0.822);
+				// box-shadow: 0px 10px 150px 50px rgba(16, 21, 24, 0.822);
 				.input {
-					font-size: 1.6rem;
+					font-size: 1.5rem;
 				}
+			}
+		}
+		.header__btn{
+			width: 95%;
+			.submit-btn{
+				width: 50%;
+				// padding: 1em;
+				font-size: 1.5rem;
+				height: 45px;
 			}
 		}
 
@@ -468,16 +485,17 @@
 @media (max-width: 380px) {
 	.header {
 		.hero-img {
-			justify-content: space-around;
+			// justify-content: space-around;
 			.header__title {
 				margin-top: 10em;
 			}
 			.pick-profession-box {
 				position: relative;
-				bottom: 10px;
-				padding: 0;
-				margin-bottom: 5em;
-				align-items: baseline;
+				
+				.input{
+					font-size: 1.3rem;
+				}
+	
 			}
 		}
 
@@ -489,6 +507,12 @@
 		}
 		.underline {
 			height: 7px;
+		}
+
+		.header__btn{
+		border: 1px solid black;
+		border: 1px solid $secondary;
+
 		}
 	}
 }
