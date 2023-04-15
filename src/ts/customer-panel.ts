@@ -1,7 +1,7 @@
 export {};
 
 const companyLocalCheckbox = document.querySelector('#local') as HTMLInputElement;
-const companyAdressBox = document.querySelector('.pick-profession-box__company-adress') as HTMLDivElement;
+const companyAdressBox = document.querySelector('.company-adress') as HTMLDivElement;
 
 const companyStreet = document.querySelector('#company-street') as HTMLParagraphElement;
 const companyHomeNumber = document.querySelector('#company-home-number') as HTMLParagraphElement;
@@ -71,7 +71,7 @@ export const allTd: NodeListOf<HTMLTableDataCellElement> = document.querySelecto
 
 
 const customerHomeCheckbox = document.querySelector('#client-home') as HTMLInputElement;
-const clientAdressBox = document.querySelector('.pick-profession-box__client-adress') as HTMLDivElement;
+const clientAdressBox = document.querySelector('.client-adress') as HTMLDivElement;
 
 const calendarCheckboxCheck = () => {
 	console.log('odpalam');
@@ -249,8 +249,10 @@ export const monthArr = [
 document.addEventListener('DOMContentLoaded', () => {
 	// const td = document.querySelectorAll('td')
 
-
+if(userName){
 	userName.textContent = localStorage.getItem('name');
+
+}
 
 	localStorage.getItem('name');
 
