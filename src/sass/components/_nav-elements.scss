@@ -1,17 +1,14 @@
 .nav-shadow-box {
-	// position: absolute;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	padding: 0.6em;
-	z-index: 10;
-	// box-shadow: inset 0px 85px 15px rgba(35, 75, 136, 0.322);
+	z-index: 5;
 	box-shadow: inset 0px 85px 30px rgba(35, 75, 136, 0.322);
 
 	&__user-box {
 		display: flex;
 		align-items: center;
-		// margin-left: 4em;
 		font-size: 2.3rem;
 		color: #f3f3f3d3;
 
@@ -41,7 +38,6 @@
 		align-items: center;
 	}
 	.panel-title {
-		// font-family: 'DynaPuff', cursive;
 		font-weight: normal;
 		align-items: center;
 		font-size: 3.5rem;
@@ -83,9 +79,54 @@ a:hover {
 	color: #fff;
 }
 
+
+.mobile-nav{
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100vh;
+	width: 100%;
+	transform: translateX(100%);
+	background-color: rgba(71, 212, 255, 0.966);
+	z-index: 5;
+	transition: .3s;
+	animation: nav-slide-right 1s ;
+}
+
+.nav-shadow-box__user-box-side-nav{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 60%;
+	justify-content: center;
+	font-size: 3rem;
+	color: #f3f3f3;
+	margin-top: 5em;
+	ul{
+		display: flex;
+		flex-direction: column;
+		// justify-content: space-around;
+		align-items: center;
+		list-style: none;
+		li{
+			margin: 2em;
+			i{
+				margin-right: .7em;
+			}
+		}
+	}
+}
+
+
+
 @media (max-width: 992px) {
+	.nav-shadow-box{
+		.panel-title{
+			font-size: 2.2rem;
+		}
+	}
 	.nav-shadow-box__user-box {
-		font-size: 2.1rem;
+		font-size: 1.8rem;
 	}
 }
 
@@ -93,6 +134,7 @@ a:hover {
 	.nav-shadow-box {
 		#burger-btn {
 			display: block;
+			z-index: 100000;
 		}
 		.fa-bars {
 			display: block;
@@ -121,7 +163,7 @@ a:hover {
 		.panel-title {
 			font-size: 2.5rem;
 		}
-		#burger-btn {
+		#btn-mobile{
 			span {
 				width: 80%;
 			}
@@ -133,7 +175,7 @@ a:hover {
 	.nav-shadow-box {
 		padding: 0;
 
-		#burger-btn {
+		#btn-mobile {
 			margin-top: 1.3em;
 			margin-left: 0em;
 			margin-right: 0.7em;

@@ -7,6 +7,7 @@
 @use '../components/calendar' as *;
 @use '../components/btn' as *;
 
+
 .wrapper-customer-panel {
 	display: flex;
 	flex-direction: column;
@@ -30,7 +31,7 @@
 
 	&__title {
 		display: flex;
-		margin-bottom: 10em;
+		margin-bottom: 5em;
 		color: #fff;
 		z-index: 5;
 		justify-items: flex-start;
@@ -185,9 +186,19 @@
 
 	.service-location {
 		// display: none;
+		// display: flex;
+		// flex-direction: column;
+		// justify-content: center;
+		// align-items: center;
 		background-color: #fff;
 		border-radius: 10px;
 		overflow: hidden;
+
+		&__container {
+			position: relative;
+			height: 100%;
+			text-align: center;
+		}
 
 		&__box {
 			display: flex;
@@ -195,6 +206,7 @@
 			align-items: center;
 			margin-top: 1em;
 			font-size: 2rem;
+			height: 100%;
 			input {
 				margin-left: 0.4em;
 				margin-bottom: 2em;
@@ -353,10 +365,7 @@
 }
 
 @media (max-width: 992px) {
-	.nav-shadow-box__user-box {
-		font-size: 2rem;
-	}
-
+	
 	.pick-profession-box {
 		width: 77%;
 	}
@@ -377,6 +386,16 @@
 	.header {
 		.hero-img {
 			background-image: url('../../img/city-medium.jpg');
+
+			.hero-img{
+
+				.nav-shadow-box{
+					#burger-btn{
+						position: fixed;
+						
+					}
+				}
+			}
 		}
 
 		h1 {
@@ -444,9 +463,8 @@
 	}
 
 	.header-mobile-container {
-		// width: 100%;
 		z-index: 1;
-		margin-bottom: 3em;
+		margin-bottom: 9em;
 	}
 
 	#header-mobile {
@@ -495,21 +513,16 @@
 
 @media (max-width: 380px) {
 	.header-mobile-container {
-		margin-bottom: 2em;
+		margin-bottom: 4em;
 	}
 	#header-mobile {
 		.hero-img-mobile {
-			// justify-content: center;
 			.header__title {
-				// margin-top: 1em;
 				margin-bottom: 3em;
 			}
-			.pick-profession-box {
-				// position: relative;
 
-				.input {
-					font-size: 1.3rem;
-				}
+			.input {
+				font-size: 1.3rem;
 			}
 		}
 
