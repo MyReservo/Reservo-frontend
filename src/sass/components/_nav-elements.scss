@@ -61,7 +61,6 @@
 
 .panel-title {
 	display: flex;
-	// width: 90%;
 	font-weight: bold;
 	padding: 0.5em;
 	font-size: 5rem;
@@ -79,15 +78,14 @@ a:hover {
 	color: #fff;
 }
 
-
 .mobile-nav{
-	position: absolute;
+	position: fixed;
 	top: 0;
 	right: 0;
 	height: 100vh;
 	width: 100%;
 	transform: translateX(100%);
-	background-color: rgba(71, 212, 255, 0.966);
+	background-color: rgb(62, 191, 230);
 	z-index: 5;
 	transition: .3s;
 	animation: nav-slide-right 1s ;
@@ -105,24 +103,30 @@ a:hover {
 	ul{
 		display: flex;
 		flex-direction: column;
-		// justify-content: space-around;
 		align-items: center;
 		list-style: none;
 		li{
 			margin: 2em;
+			transition:  1s ;
+			transform: translateX(100%);
+
 			i{
 				margin-right: .7em;
 			}
 		}
+		li:nth-child(2){
+			transition: 1s .1s;
+		}
+		li:nth-child(3){
+			transition: 1s .2s;
+		}
 	}
 }
-
-
 
 @media (max-width: 992px) {
 	.nav-shadow-box{
 		.panel-title{
-			font-size: 2.2rem;
+			font-size: 2.3rem;
 		}
 	}
 	.nav-shadow-box__user-box {
@@ -131,6 +135,19 @@ a:hover {
 }
 
 @media (max-width: 768px) {
+		.nav-shadow-box__user-box-side-nav{
+			ul{
+				height: 100%;
+				display: flex;
+				justify-content: space-evenly;
+				align-items: center;
+
+				li{
+					font-size: 3rem;
+					margin: 0em;
+				}
+			}
+		}
 	.nav-shadow-box {
 		#burger-btn {
 			display: block;
@@ -152,14 +169,14 @@ a:hover {
 }
 
 @media (max-width: 480px) {
-	
-	.nav-shadow-box {
-		padding: 0;
-		a {
-			display: flex;
-			justify-content: center;
-			align-items: center;
+	.nav-shadow-box__user-box-side-nav{
+		ul{
+			li{
+				font-size: 2.7rem;
+			}
 		}
+	}
+	.nav-shadow-box {
 		.panel-title {
 			font-size: 2.5rem;
 		}
@@ -172,22 +189,26 @@ a:hover {
 }
 
 @media (max-width: 380px) {
-	.nav-shadow-box {
-		padding: 0;
+	.mobile-nav{
+		.nav-shadow-box__user-box-side-nav{
+			ul{
+				height: 100%;
+				display: flex;
+				justify-content: space-evenly;
+				align-items: center;
 
-		#btn-mobile {
-			margin-top: 1.3em;
-			margin-left: 0em;
-			margin-right: 0.7em;
-			padding: 1.7em;
-			span {
-				height: 5px;
+				li{
+					font-size: 2.5rem;
+					margin: 0em;
+				}
 			}
 		}
 
+	}
+
+	.nav-shadow-box {
 		a {
 			margin-top: 1em;
-			display: block;
 		}
 		.panel-title {
 			font-size: 2.2rem;

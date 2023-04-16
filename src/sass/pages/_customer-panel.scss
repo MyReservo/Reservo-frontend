@@ -7,7 +7,6 @@
 @use '../components/calendar' as *;
 @use '../components/btn' as *;
 
-
 .wrapper-customer-panel {
 	display: flex;
 	flex-direction: column;
@@ -24,8 +23,11 @@
 	.hero-img {
 		@include heroCustomerImg;
 		background-image: url('../../img/city-original-size.jpg');
+		#burger-btn {
+			display: none;
+		}
 		.header-shadow {
-			@include headerCustomerShadow;
+			@include customerShadow;
 		}
 	}
 
@@ -76,6 +78,8 @@
 		border-bottom-right-radius: 10px;
 		background-color: #fff;
 		animation: header-btn-slide-top 1s 1s both;
+		box-shadow: 5px 7px 10px rgba(0, 0, 0, 0.392);
+
 		.submit-btn {
 			@include customerBtn;
 		}
@@ -140,16 +144,59 @@
 }
 
 .available-service-providers {
-	width: 45%;
-	max-width: 700px;
-	// width: 50%;
+	display: flex;
+	justify-content: space-evenly;
 	text-align: center;
-	background-color: #fff;
-	border-radius: 10px;
-	box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
 	overflow: hidden;
+	margin:  auto;
+	padding: 1em 2em;
+	width: 85;
+	max-width: 1300px;
+
 	&__title {
 		@include customerPickServiceBoxTitle;
+	}
+
+
+	&__text-box{
+		display: flex;
+		position: relative;
+		width: 50%;
+		// height: 400px;
+		margin: 2em;
+		overflow: hidden;
+		text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.356);
+		font-size: 2.2rem;
+		border-radius: 10px;
+		background-color: #fff;
+		background-image: url("../../img/christina-wocintechchat-com-LQ1t-8Ms5PY-unsplash\ \(1\).jpg");
+		background-size: cover;
+		background-position: center;
+		box-shadow: 6px 9px 10px rgba(0, 0, 0, 0.622);
+
+
+	}
+	&__box {
+		box-shadow: 6px 9px 10px rgba(0, 0, 0, 0.407);
+		margin: 2em;
+		width: 50%;
+		font-size: 2.2rem;
+		background-color: #ffffffe8;
+		border-radius: 10px;
+		overflow: hidden;
+	}
+
+	&__shadow{
+		@include customerShadow;
+		background-color: #1f2b3194;
+	}
+
+	&__text{
+		margin: auto;
+		padding: .5em;
+		color: #fff;
+		z-index: 10;
+
 	}
 
 	&__list {
@@ -158,11 +205,7 @@
 		justify-content: center;
 	}
 
-	&__box {
-		font-size: 2.5rem;
-		padding: 1em;
-		margin-bottom: 1em;
-	}
+
 
 	.service-provider {
 		display: flex;
@@ -179,18 +222,23 @@
 }
 
 .pick-person-and-location {
-	display: flex;
-	justify-content: space-evenly;
-	margin-bottom: 6.5em;
-	margin-top: 4em;
+	position: relative;
+	h3 {
+		font-size: 4rem;
+		text-align: center;
+		margin: 2em;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.356);
+	}
+
+
 
 	.service-location {
-		// display: none;
-		// display: flex;
-		// flex-direction: column;
-		// justify-content: center;
-		// align-items: center;
-		background-color: #fff;
+		width: 50%;
+		margin: auto;
+		text-align: center;
+		background-color: #ffffffea;
 		border-radius: 10px;
 		overflow: hidden;
 
@@ -365,7 +413,6 @@
 }
 
 @media (max-width: 992px) {
-	
 	.pick-profession-box {
 		width: 77%;
 	}
@@ -386,14 +433,12 @@
 	.header {
 		.hero-img {
 			background-image: url('../../img/city-medium.jpg');
-
-			.hero-img{
-
-				.nav-shadow-box{
-					#burger-btn{
-						position: fixed;
-						
-					}
+			#burger-btn {
+				display: block;
+				margin: 2em;
+				span {
+					width: 80%;
+					height: 5px;
 				}
 			}
 		}
@@ -427,8 +472,10 @@
 }
 
 @media (max-width: 576px) {
-	.header {
-		.hero-img {
+	.header,
+	.header-mobile {
+		.hero-img,
+		.hero-img-mobile {
 			.pick-profession-box {
 				width: 91%;
 				padding: 1.5em;
@@ -475,7 +522,7 @@
 			min-height: 100vh;
 			justify-content: space-between;
 			.header-shadow {
-				@include headerCustomerShadow;
+				@include customerShadow;
 			}
 			.pick-profession-box {
 				width: 100%;
@@ -486,6 +533,13 @@
 
 				.input {
 					font-size: 1.4rem;
+				}
+			}
+			#burger-btn {
+				margin: 2em;
+				span {
+					width: 80%;
+					height: 5px;
 				}
 			}
 		}
@@ -520,9 +574,16 @@
 			.header__title {
 				margin-bottom: 3em;
 			}
-
-			.input {
-				font-size: 1.3rem;
+			.pick-profession-box {
+				.input {
+					font-size: 1.3rem;
+				}
+			}
+			#burger-btn {
+				span {
+					width: 75%;
+					height: 4px;
+				}
 			}
 		}
 
