@@ -19,15 +19,12 @@
   <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP+dz/T/nc/0/53P9P8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP+Gv+//nc/0/53P9P8AAAD/Qa75/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhr/v/4a/7/8AAAD/HHXW/0Gu+f9Brvn/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFV5mP8AAAD/AAAA/yGI+f8cddb/Qa75/0Gu+f8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/JXLl/yVy5f8AAAD/IYj5/xx11v9Brvn/Qa75/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8lcuX/JXLl/wAAAP8hiPn/HHXW/0Gu+f9Brvn/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/yVy5f8lcuX/AAAA/yGI+f8cddb/Qa75/0Gu+f8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/JXLl/yVy5f8AAAD/IYj5/xx11v9Brvn/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8lcuX/JXLl/wAAAP8hiPn/AAAA/9bW1P8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/yVy5f8lcuX/AAAA/9bW1P8AAAD/6Ojm/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/8bGxv/o6Ob/6Ojm/wAAAP87O/L/Ozvy/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/3d3d/wAAAP87O/L/Ozvy/zs78v8YGGH/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8iIsb/Ozvy/zs78v87O/L/Dw88/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/IiLG/yIixv8iIsb/Ozvy/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/AAAA/wAAAOQAAAAAH/8AAAP/AAAB/wAAgP8AAIB/AACAPwAAwB8AAOAPAADwBwAA+AMAAPwBAAD+AAAA/wAAAP+AAAD/wAAA/+EAAA==">
   <title>Customer panel</title>
   
-  <script type="module" crossorigin src="/Reservo-frontend/customerPanel.cfe188ae.js"></script>
+  <script type="module" crossorigin src="/Reservo-frontend/customerPanel.61a08cf8.js"></script>
   <link rel="modulepreload" crossorigin href="/Reservo-frontend/companyPanel.7eb9e9f2.js">
-  <link rel="stylesheet" href="/Reservo-frontend/customer-panel.56bff12f.css">
+  <link rel="stylesheet" href="/Reservo-frontend/customer-panel.c68c984b.css">
 </head>
 
 <body class="customer-panel-body">
-
-
-
   <header class="header">
     <div class="hero-img">
       <div id="burger-btn">
@@ -184,26 +181,19 @@
       </div>
     </div>
   </header>
-
   <!-- ////////////////// -->
 
   <div class="mobile-nav" id="mobile-nav">
     <div class="nav-shadow-box__user-box-side-nav">
-    <ul>
-      <li>
-      <p class="user-name"><i class="fas fa-user"></i>Nazwa użytkownika</p>
-      </li>
-
-      
-      <li><a href="#reservations"><i class="far fa-sticky-note"></i>Moje rezerwacje</a></li>
-
-      <li><a href="./index.html">
-        <p id="log-out"><i class="fas fa-sign-out-alt"></i>Wyloguj</p>
-       </a></li>
-
-    </ul>
-   
-   
+      <ul>
+        <li>
+          <p class="user-name"><i class="fas fa-user"></i>Nazwa użytkownika</p>
+        </li>
+        <li><a href="#reservations"><i class="far fa-sticky-note"></i>Moje rezerwacje</a></li>
+        <li><a href="./index.html">
+            <p id="log-out"><i class="fas fa-sign-out-alt"></i>Wyloguj</p>
+          </a></li>
+      </ul>
     </div>
   </div>
 
@@ -211,52 +201,39 @@
     <!-- <div class="wrapper-customer-panel"> -->
     <div class="available-service-providers">
       <h4 class="available-service-providers__title">Wybierz dostępną osobę<span></span></h4>
-
       <div class="available-service-providers__box">
-
         <div class="available-service-providers__list">
-
           <div class="service-provider">
             <p>Andrzej</p>
             <input type="checkbox">
           </div>
-   
-
         </div>
       </div>
       <button class="submit-btn">OK</button>
     </div>
-
     <div class="service-location">
       <h4 class="service-location__title">Gdzie chcesz się umówić?</h4>
-<div class="service-location__container">
-  <div class="service-location__box">
-
-    <div class="service-location__box-home-box">
-      <label for="client-home">U mnie w domu</label>
-      <input type="checkbox" id="client-home" name="home">
+      <div class="service-location__container">
+        <div class="service-location__box">
+          <div class="service-location__box-home-box">
+            <label for="client-home">U mnie w domu</label>
+            <input type="checkbox" id="client-home" name="home">
+          </div>
+          <div class="service-location__box-local-box">
+            <label for="local">W lokalu</label>
+            <input type="checkbox" id="local" name="local">
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div class="service-location__box-local-box">
-      <label for="local">W lokalu</label>
-      <input type="checkbox" id="local" name="local">
-    </div>
-
-  </div>
-</div>
-    </div>
-
     <div class="client-adress">
       <label for="client-street">Ulica</label>
       <input type="text" name="client-street" class="input" id="client-street">
-
       <label for="client-street">Nr.domu</label>
       <input type="text" name="client-house" class="input" id="client-house">
-
       <label for="client-street">Miasto</label>
       <input type="text" name="client-city" class="input" id="client-city">
     </div>
-
     <div class="company-adress">
       <h4 class="pick-profession-box__company-adress--title">Adres lokalu:</h4>
       <p id="company-street"></p>
@@ -264,27 +241,18 @@
       <p id="company-city"></p>
       <p id="company-code"></p>
     </div>
-
   </section>
 
   <!-- <div class="horizontal-line"></div>
       <div class="vertical-line"></div> -->
 
-
-
-
-
-
-
-
-
-
+      <section class="calendar-section">
+        <div class="calendar-shadow"></div>
+<div class="calendar-box">
   <div class="wrapper-calendar">
-
     <div class="calendar-title">
       <h4>Wybierz dzień wizyty</h4>
     </div>
-
     <header>
       <p class="current-date"></p>
       <div class="icons">
@@ -305,24 +273,27 @@
       <ul class="days"></ul>
     </div>
   </div>
+</div>
+        
 
+      </section>
 
+</div>
 
+<div class="hours-container" id="hours-container">
+  <i class="fas fa-times"></i>
+  <p class="hours-container__info">Umawiasz się na <span class="hours-container__info-span">...</span></p>
+  <h3>Wybierz godzinę</h3>
+  <div class="hours-container__btn-box">
+    <button class="hour-btn">9:00</button>
+    <button class="hour-btn">10:00</button>
+    <button class="hour-btn">11:00</button>
+    <button class="hour-btn">12:00</button>
+    <button class="hour-btn">13:00</button>
+    <button class="hour-btn">14:00</button>
   </div>
-  <div class="hours-container" id="hours-container">
-    <i class="fas fa-times"></i>
-    <p class="hours-container__info">Umawiasz się na <span class="hours-container__info-span">...</span></p>
-    <h3>Wybierz godzinę</h3>
-    <div class="hours-container__btn-box">
-      <button class="hour-btn">9:00</button>
-      <button class="hour-btn">10:00</button>
-      <button class="hour-btn">11:00</button>
-      <button class="hour-btn">12:00</button>
-      <button class="hour-btn">13:00</button>
-      <button class="hour-btn">14:00</button>
-    </div>
-    <button type='submit' id="send">UMÓW SIĘ</button>
-  </div>
+  <button type='submit' id="send">UMÓW SIĘ</button>
+</div>
 
 
   <div class="my-reservations" id="reservations">123</div>
