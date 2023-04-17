@@ -101,7 +101,7 @@
 }
 
 
-@keyframes icon-rotate {
+@keyframes icon-rotate-right {
 	from {
 	  transform: rotate(0deg);
 	}
@@ -109,43 +109,50 @@
 	  transform: rotate(360deg);
 	}
   }
+@keyframes icon-rotate-left {
+	from {
+	  transform: rotate(0deg);
+	}
+	to {
+	  transform: rotate(-360deg);
+	}
+  }
 
 
-  .fa-wrench,.fa-cut,.fa-pencil-alt,.wrench-two,.cut-two,.fa-pencil-two{
+  .wrench,.cut,.pencil{
 	position: absolute;
-	// color: rgba(0, 0, 0, 0.215);
 	 color: #0000000e;
-	
+	opacity: 0.1;
 	z-index: -1;
   }
 
 
-.fa-wrench{
-	top: -50px;
-	left: 10px;
-	font-size: 18rem;
-	animation: icon-rotate 65s infinite linear;
+.wrench{
+	top: 9%;
+	left: 5%;
+	width: 20%;
+	animation: icon-rotate-right 120s infinite linear;
 
 }
-.wrench-two{
-	top: 600px;
-	left: 900px;
-	font-size: 18rem;
-	animation: icon-rotate 75s infinite linear;
+// .wrench-two{
+// 	top: 600px;
+// 	left: 900px;
+// 	font-size: 18rem;
+// 	animation: icon-rotate 75s infinite linear;
 
+// }
+
+.cut{
+	bottom: 20%;
+	left: 80%;
+	width: 10%;
+	animation: icon-rotate-left 60s infinite linear;
 }
 
-.fa-cut{
-	bottom: 20px;
-	left: 80px;
-	font-size: 10rem;
-	animation: icon-rotate 60s infinite linear;
-}
 
-
-.fa-pencil-alt{
-	top: -50px;
-	right: 70px;
-	font-size: 20rem;
-	animation: icon-rotate 115s infinite linear;
+.pencil{
+	top: 0%;
+	right: 10%;
+	width: 10%;
+	animation: icon-rotate-left 80s infinite linear;
 }
