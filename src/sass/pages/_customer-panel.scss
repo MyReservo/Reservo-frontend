@@ -28,6 +28,7 @@
 		}
 		.header-shadow {
 			@include customerShadow;
+			background-color: $headerBgc;
 		}
 	}
 
@@ -143,86 +144,9 @@
 	}
 }
 
-.available-service-providers {
-	display: flex;
-	justify-content: space-evenly;
-	text-align: center;
-	overflow: hidden;
-	margin:  auto;
-	padding: 1em 2em;
-	width: 85;
-	max-width: 1300px;
-
-	&__title {
-		@include customerPickServiceBoxTitle;
-	}
-
-
-	&__text-box{
-		display: flex;
-		position: relative;
-		width: 50%;
-		// height: 400px;
-		margin: 2em;
-		overflow: hidden;
-		text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.356);
-		font-size: 2.2rem;
-		border-radius: 10px;
-		background-color: #fff;
-		background-image: url("../../img/christina-wocintechchat-com-LQ1t-8Ms5PY-unsplash\ \(1\).jpg");
-		background-size: cover;
-		background-position: center;
-		box-shadow: 6px 9px 10px rgba(0, 0, 0, 0.622);
-
-
-	}
-	&__box {
-		box-shadow: 6px 9px 10px rgba(0, 0, 0, 0.407);
-		margin: 2em;
-		width: 50%;
-		font-size: 2.2rem;
-		background-color: #ffffffe8;
-		border-radius: 10px;
-		overflow: hidden;
-	}
-
-	&__shadow{
-		@include customerShadow;
-		background-color: #1f2b3194;
-	}
-
-	&__text{
-		margin: auto;
-		padding: .5em;
-		color: #fff;
-		z-index: 10;
-
-	}
-
-	&__list {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-	}
-
-
-
-	.service-provider {
-		display: flex;
-		flex-wrap: wrap;
-		p {
-			margin: 1em;
-			font-size: 2rem;
-		}
-	}
-
-	.submit-btn {
-		@include customerBtn;
-	}
-}
-
 .pick-person-and-location {
 	position: relative;
+
 	h3 {
 		font-size: 4rem;
 		text-align: center;
@@ -232,34 +156,104 @@
 		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.356);
 	}
 
+	.available-service-providers {
+		@include pickPersonAndLocationBoxes;
 
+		&__title {
+			@include customerPickServiceBoxTitle;
+		}
+
+		&__second-box {
+			@include pickPersonAndLocationSecondBox;
+			background-image: url('../../img/christina-wocintechchat-com-LQ1t-8Ms5PY-unsplash\ \(1\).jpg');
+		}
+		&__first-box, &__second-box {
+			margin: 2em;
+			width: 50%;
+			overflow: hidden;
+			background-color: #ffffffe8;
+			border-radius: 10px;
+			box-shadow: 6px 9px 10px rgba(0, 0, 0, 0.407);
+		}
+
+		&__shadow {
+			@include customerShadow;
+		}
+
+		&__text {
+			@include pickPersonAndLocationSecondBoxText;
+		}
+
+		&__list {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.service-provider {
+			display: flex;
+			flex-wrap: wrap;
+			p {
+				margin: 1em;
+				font-size: 2rem;
+			}
+		}
+
+		.submit-btn {
+			@include customerBtn;
+		}
+	}
 
 	.service-location {
-		width: 50%;
-		margin: auto;
-		text-align: center;
-		background-color: #ffffffea;
-		border-radius: 10px;
-		overflow: hidden;
+		@include pickPersonAndLocationBoxes;
+		min-height: 450px;
+
+		&__first-box,
+		&__second-box {
+			width: 50%;
+			margin: 2em;
+			overflow: hidden;
+			border-radius: 10px;
+			background-color: #fff;
+			box-shadow: 6px 9px 10px rgba(0, 0, 0, 0.407);
+		}
+
+		&__second-box {
+			@include pickPersonAndLocationSecondBox;
+			background-image: url(../../img/johnson-johnson-U6Q6zVDgmSs-unsplash.jpg);
+
+			&-shadow {
+				@include customerShadow;
+			}
+			&-text {
+				@include pickPersonAndLocationSecondBoxText;
+			}
+		}
 
 		&__container {
 			position: relative;
-			height: 100%;
+			height: 61%;
 			text-align: center;
 		}
 
 		&__box {
 			display: flex;
 			flex-direction: column;
+			justify-content: space-evenly;
 			align-items: center;
 			margin-top: 1em;
 			font-size: 2rem;
 			height: 100%;
+
 			input {
 				margin-left: 0.4em;
 				margin-bottom: 2em;
 				width: 15px;
 				height: 15px;
+			}
+
+			i {
+				margin-right: 0.3em;
 			}
 		}
 
