@@ -119,7 +119,7 @@
   }
 
 
-  .wrench,.cut,.pencil{
+  .wrench,.cut,.cut-two,.pencil{
 	position: absolute;
 	 color: #0000000e;
 	opacity: 0.1;
@@ -131,22 +131,22 @@
 	top: 9%;
 	left: 5%;
 	width: 20%;
-	animation: icon-rotate-right 120s infinite linear;
+	animation: icon-rotate-right 140s infinite linear;
 
 }
-// .wrench-two{
-// 	top: 600px;
-// 	left: 900px;
-// 	font-size: 18rem;
-// 	animation: icon-rotate 75s infinite linear;
-
-// }
 
 .cut{
 	bottom: 20%;
 	left: 80%;
+	width: 15%;
+	animation: icon-rotate-left 90s infinite linear;
+}
+
+.cut-two{
+	bottom: 10%;
+	left: 10%;
 	width: 10%;
-	animation: icon-rotate-left 60s infinite linear;
+	animation: icon-rotate-right 40s infinite linear;
 }
 
 

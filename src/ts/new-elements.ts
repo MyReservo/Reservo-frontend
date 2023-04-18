@@ -3,7 +3,7 @@
 
 
 export const companyAdress = document.createElement('div');
-companyAdress.className = 'company-adress';
+companyAdress.className = 'company-adress-login';
 
 const companyAdressTitle = document.createElement('h2');
 companyAdressTitle.className = 'company-adress-title';

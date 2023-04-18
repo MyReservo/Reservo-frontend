@@ -1,7 +1,7 @@
 export {};
 
 const companyLocalCheckbox = document.querySelector('#local') as HTMLInputElement;
-const companyAdressBox = document.querySelector('.company-adress') as HTMLDivElement;
+const companyAdress = document.querySelector('.company-adress') as HTMLDivElement;
 
 const companyStreet = document.querySelector('#company-street') as HTMLParagraphElement;
 const companyHomeNumber = document.querySelector('#company-home-number') as HTMLParagraphElement;
@@ -77,9 +77,9 @@ const calendarCheckboxCheck = () => {
 	console.log('odpalam');
 	if (customerHomeCheckbox.checked) {
 		clientAdressBox!.style.display = 'flex';
-		companyAdressBox.style.display = 'none';
+		companyAdress.style.display = 'none';
 	} else if (companyLocalCheckbox.checked) {
-		companyAdressBox.style.display = 'block';
+		companyAdress.style.display = 'block';
 		clientAdressBox!.style.display = 'none';
 	}
 };
@@ -232,11 +232,6 @@ export const monthArr = [
 ];
 
 
-
-
-
-
-
 // const prevMonth = document.querySelector('#previous-month');
 // const nextMonth = document.querySelector('#next-month');
 
@@ -272,29 +267,21 @@ if(userName){
 		}
 	});
 
+
+
+
 	if (companyStreet !== null) {
-		companyStreet.textContent = 'Ulica: ' + localStorage.getItem('companyStreet');
-		companyAdressBox.appendChild(companyStreet);
+		companyStreet.textContent = localStorage.getItem('companyStreet');
 	}
 	if (companyHomeNumber !== null) {
-		companyHomeNumber.textContent = 'Nr.Domu: ' + localStorage.getItem('companyHome');
-		companyAdressBox.appendChild(companyHomeNumber);
+		companyHomeNumber.textContent =   localStorage.getItem('companyHome');
 	}
 	if (companyCity) {
-		companyCity.textContent = 'Miasto: ' + localStorage.getItem('companyCity');
-		companyAdressBox.appendChild(companyCity);
+		companyCity.textContent =   localStorage.getItem('companyCity');
 	}
 	if (companyCode) {
-		companyCode.textContent = 'Kod pocztowy: ' + localStorage.getItem('companyCode');
-		companyAdressBox.appendChild(companyCode);
+		companyCode.textContent =  localStorage.getItem('companyCode');
 	}
-
-	// nextMonth(td[0]);
-	// prevMonth(td[0]);
-	// calendar(td[0]);
-	// activeClassButtonToggler();
-	// changeMonthName()
-	// addClickEvents()
 
 	if (localCheckbox !== null) {
 		localCheckbox.addEventListener('click', checkOneCheckbox);
