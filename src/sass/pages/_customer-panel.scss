@@ -412,6 +412,40 @@
 			}
 		}
 	}
+
+
+	.pick-person-and-location{
+
+		.service-location__container{
+			padding: 1.5em;
+		}
+		.available-service-providers{
+			padding: 0;
+
+			.available-service-providers__text{
+				font-size: 1.8rem;
+			}
+		}
+		.available-service-providers__second-box,.available-service-providers__first-box{
+	
+			width: 70%;
+	
+		}
+		
+		.service-location{
+			padding: 0;
+			min-height: auto;
+		}
+		.service-location__second-box,.service-location__first-box{
+			width: 70%;
+		}
+
+			.service-location__second-box-text{
+				font-size: 1.8rem;
+			}
+		
+
+	}
 }
 
 @media (max-width: 992px) {
@@ -423,6 +457,31 @@
 		width: 77%;
 		.submit-btn {
 			width: 40%;
+		}
+	}
+
+	.pick-person-and-location{
+.available-service-providers__title,.service-location__title{
+	font-size: 2rem;
+}
+		.available-service-providers__second-box,.available-service-providers__first-box,.service-location__second-box,.service-location__first-box{
+			margin: 1em;
+		}
+		.available-service-providers{
+			font-size: 1.6rem;
+		}
+
+		.available-service-providers{
+			.service-provider{
+				p{
+
+					font-size: 1.8rem;
+				}
+			}
+		}
+
+		.service-location__box{
+			font-size: 1.8rem;
 		}
 	}
 }
