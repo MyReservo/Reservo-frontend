@@ -19,9 +19,9 @@
   <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP+dz/T/nc/0/53P9P8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP+Gv+//nc/0/53P9P8AAAD/Qa75/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhr/v/4a/7/8AAAD/HHXW/0Gu+f9Brvn/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFV5mP8AAAD/AAAA/yGI+f8cddb/Qa75/0Gu+f8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/JXLl/yVy5f8AAAD/IYj5/xx11v9Brvn/Qa75/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8lcuX/JXLl/wAAAP8hiPn/HHXW/0Gu+f9Brvn/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/yVy5f8lcuX/AAAA/yGI+f8cddb/Qa75/0Gu+f8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/JXLl/yVy5f8AAAD/IYj5/xx11v9Brvn/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8lcuX/JXLl/wAAAP8hiPn/AAAA/9bW1P8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/yVy5f8lcuX/AAAA/9bW1P8AAAD/6Ojm/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/8bGxv/o6Ob/6Ojm/wAAAP87O/L/Ozvy/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/3d3d/wAAAP87O/L/Ozvy/zs78v8YGGH/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8iIsb/Ozvy/zs78v87O/L/Dw88/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/IiLG/yIixv8iIsb/Ozvy/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/AAAA/wAAAOQAAAAAH/8AAAP/AAAB/wAAgP8AAIB/AACAPwAAwB8AAOAPAADwBwAA+AMAAPwBAAD+AAAA/wAAAP+AAAD/wAAA/+EAAA==">
   <title>Customer panel</title>
   
-  <script type="module" crossorigin src="/Reservo-frontend/customerPanel.7a6efd67.js"></script>
+  <script type="module" crossorigin src="/Reservo-frontend/customerPanel.9ce059ce.js"></script>
   <link rel="modulepreload" crossorigin href="/Reservo-frontend/companyPanel.7eb9e9f2.js">
-  <link rel="stylesheet" href="/Reservo-frontend/customer-panel.8a2b6429.css">
+  <link rel="stylesheet" href="/Reservo-frontend/customer-panel.82438a99.css">
 </head>
 
 <body class="customer-panel-body">
@@ -202,10 +202,8 @@
     <h3>Twoja wizyta</h3>
 
     <img class="wrench" src="/Reservo-frontend/wrench-solid.73b2b8e2.svg" alt="wrench icon">
-
-
     <img class="cut" src="/Reservo-frontend/cut-solid.9abf30fe.svg" alt="scissors icon">
-    <!-- <i class="fas fa-pencil-alt"></i> -->
+    <img class="cut-two" src="/Reservo-frontend/cut-solid.9abf30fe.svg" alt="scissors icon">
     <img class="pencil" src="/Reservo-frontend/pencil-alt-solid.5419ad06.svg" alt="pencil icon">
 
     <div class="pick-person-and-location__box">
@@ -227,7 +225,6 @@
                 <p>Andrzej</p>
                 <input type="checkbox">
               </div>
-
             </div>
           </div>
           <button class="submit-btn">OK</button>
@@ -263,32 +260,31 @@
 
         <div class="service-location__second-box">
           <div class="service-location__second-box-shadow"></div>
-         <p class="service-location__second-box-text"> Decyzna odnośnie miejsca spotkania nalezy do Ciebie! </p></div>
+         <p class="service-location__second-box-text"> Wybierz miejsce, a następnie przejdź do kalenarza, aby wybrać datę spotkania. </p></div>
       </div>
-
-
     </div>
 
-
     <div class="client-adress">
+      <div class="client-adress__title">Podaj swój adres</div>
+     <div class="client-adress__body">
       <label for="client-street">Ulica</label>
       <input type="text" name="client-street" class="input" id="client-street">
       <label for="client-street">Nr.domu</label>
       <input type="text" name="client-house" class="input" id="client-house">
       <label for="client-street">Miasto</label>
       <input type="text" name="client-city" class="input" id="client-city">
+     </div>
     </div>
     <div class="company-adress">
-      <h4 class="pick-profession-box__company-adress--title">Adres lokalu:</h4>
-      <p id="company-street"></p>
-      <p id="company-home-number"></p>
-      <p id="company-city"></p>
-      <p id="company-code"></p>
+      <div class="client-adress__title">Adres lokalu</div>
+    <div class="company-adress__body">
+      <div class="company-adress__item"><span>Ulica: </span><span id="company-street"></span></div>
+      <div class="company-adress__item"><span>Nr.Domu: </span><span id="company-home-number"></span></div>
+      <div class="company-adress__item"><span>Miasto: </span><span id="company-city"></span></div>
+      <div class="company-adress__item"><span>Kod pocztowy: </span><span id="company-code"></span></div>
+    </div>
     </div>
   </section>
-
-  <!-- <div class="horizontal-line"></div>
-      <div class="vertical-line"></div> -->
 
   <section class="calendar-section">
     <div class="calendar-shadow"></div>
@@ -318,16 +314,13 @@
         </div>
       </div>
     </div>
-
-
   </section>
-
   </div>
 
   <div class="hours-container" id="hours-container">
     <i class="fas fa-times"></i>
-    <p class="hours-container__info">Umawiasz się na <span class="hours-container__info-span">...</span></p>
     <h3>Wybierz godzinę</h3>
+    <p class="hours-container__info">Umawiasz się na <span class="hours-container__info-span">...</span></p>
     <div class="hours-container__btn-box">
       <button class="hour-btn">9:00</button>
       <button class="hour-btn">10:00</button>
@@ -336,9 +329,8 @@
       <button class="hour-btn">13:00</button>
       <button class="hour-btn">14:00</button>
     </div>
-    <button type='submit' id="send">UMÓW SIĘ</button>
+    <button class="submit-btn" type='submit' id="send">UMÓW SIĘ</button>
   </div>
-
 
   <div class="my-reservations" id="reservations">123</div>
 
