@@ -86,73 +86,155 @@
 	transform: rotate(-135deg);
 }
 
-
-
-.nav--active{
+.nav--active {
 	transform: translateX(0%) !important;
 }
 
-.li--active{
+.li--active {
 	transform: translateX(0%) !important;
 }
 
-.body-overflow{
+.body-overflow {
 	overflow: hidden;
 }
 
-
 @keyframes icon-rotate-right {
 	from {
-	  transform: rotate(0deg);
+		transform: rotate(0deg);
 	}
 	to {
-	  transform: rotate(360deg);
+		transform: rotate(360deg);
 	}
-  }
+}
 @keyframes icon-rotate-left {
 	from {
-	  transform: rotate(0deg);
+		transform: rotate(0deg);
 	}
 	to {
-	  transform: rotate(-360deg);
+		transform: rotate(-360deg);
 	}
-  }
+}
 
-
-  .wrench,.cut,.cut-two,.pencil{
+.wrench,
+.cut,
+.cut-two,
+.pencil,.pencil-two {
 	position: absolute;
-	 color: #0000000e;
+	color: #0000000e;
 	opacity: 0.1;
 	z-index: -1;
-  }
+}
 
-
-.wrench{
+.wrench {
 	top: 9%;
 	left: 5%;
 	width: 20%;
 	animation: icon-rotate-right 140s infinite linear;
-
+}
+.wrench-two {
+	top: 50%;
+	left: 85%;
+	width: 10%;
+	animation: icon-rotate-right 100s infinite linear;
+}
+.wrench-three {
+	top: 79%;
+	left: 5%;
+	width: 10%;
+	animation: icon-rotate-right 110s infinite linear;
 }
 
-.cut{
-	bottom: 20%;
+.cut {
+	bottom: 80%;
 	left: 80%;
 	width: 15%;
 	animation: icon-rotate-left 90s infinite linear;
 }
 
-.cut-two{
-	bottom: 10%;
-	left: 10%;
+.cut-three {
+	bottom: 60%;
+	left: 85%;
+	width: 12%;
+	animation: icon-rotate-left 90s infinite linear;
+}
+
+.cut-two {
+	bottom: 0%;
+	left: 0%;
 	width: 10%;
 	animation: icon-rotate-right 40s infinite linear;
 }
 
-
-.pencil{
-	top: 0%;
-	right: 10%;
+.pencil {
+	bottom: -10%;
+	left: 70%;
 	width: 10%;
 	animation: icon-rotate-left 80s infinite linear;
+}
+
+.pencil-two {
+	top: 50%;
+	right: 90%;
+	width: 7%;
+	animation: icon-rotate-left 80s infinite linear;
+}
+.pencil-three {
+	top: 0%;
+	left: 0%;
+	width: 12%;
+	animation: icon-rotate-right 80s infinite linear;
+}
+
+@media (max-width: 480px) {
+	.wrench {
+		top: 0%;
+		left: 5%;
+		width: 20%;
+		animation: icon-rotate-right 140s infinite linear;
+	}
+	// .wrench-two {
+	// 	top: 105%;
+	// 	left: 25%;
+	// 	width: 10%;
+	// 	animation: icon-rotate-right 100s infinite linear;
+	// }
+
+	.cut {
+		top: 5%;
+		left: 80%;
+		width: 11%;
+		animation: icon-rotate-left 90s infinite linear;
+	}
+	.cut-two {
+		bottom: -5%;
+		left: 10%;
+		width: 17%;
+		animation: icon-rotate-left 90s infinite linear;
+	}
+
+	.cut-three {
+		top: -9%;
+		right: 5%;
+		width: 10%;
+		animation: icon-rotate-left 90s infinite linear;
+	}
+
+	.pencil {
+		bottom: 50%;
+		right: 10%;
+		width: 18%;
+		animation: icon-rotate-left 80s infinite linear;
+	}
+	.pencil-two {
+		top: 105%;
+		right: 15%;
+		width: 10%;
+		animation: icon-rotate-left 80s infinite linear;
+	}
+	.pencil-three {
+		top: 19%;
+		left: 10%;
+		width: 18%;
+		animation: icon-rotate-left 80s infinite linear;
+	}
 }
