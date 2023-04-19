@@ -1,7 +1,19 @@
 @use '../utils/reset' as *;
 @use '../utils/colors' as *;
 @use "../components/nav-elements" as *;
+@use "../components/btn" as *;
+@use "../utils/animations" as *;
+@use "../utils/mixins" as *;
 
+.hero-img{
+    background-image: url('../../img/city-large.jpg');
+	@include heroCustomerImg;
+}
+
+.company-header{
+    height: 80vh;
+    @include customerShadow;
+}
 
 .your-profession,
 .your-visits {

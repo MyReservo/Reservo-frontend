@@ -151,7 +151,7 @@
 	animation: icon-rotate-left 90s infinite linear;
 }
 
-.cut-three {
+.hours-cut {
 	bottom: 60%;
 	left: 85%;
 	width: 12%;
@@ -172,11 +172,15 @@
 	animation: icon-rotate-left 80s infinite linear;
 }
 
-.pencil-two {
-	top: 50%;
-	right: 90%;
-	width: 7%;
-	animation: icon-rotate-left 80s infinite linear;
+// .pencil-two {
+// 	top: 50%;
+// 	right: 90%;
+// 	width: 7%;
+// 	animation: icon-rotate-left 80s infinite linear;
+// }
+
+.hours-wrench,.hours-cut,.hours-pencil{
+	display: none;
 }
 
 @media (max-width: 480px) {

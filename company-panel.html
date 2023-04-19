@@ -11,23 +11,56 @@
   <link rel="stylesheet" href="./src/sass/pages/_company-panel.scss">
 </head>
 
-<body class="calendar-bg">
+<body class="company-panel-body">
 
 
-  <nav class="nav-shadow-box">
+    <div class="hero-img">
+      <nav class="nav-shadow-box">
 
-    <div class="nav-shadow"></div>
-    <h1 class="panel-title">Reservo <i class="fas fa-pencil-alt"></i></h1>
-    
-    <div class="user-nav-box"><i class="fas fa-user"></i>
-      <p class="user-name">Nazwa użytkownika</p>
+        <div class="nav-shadow"></div>
+        <h1 class="panel-title">Reservo<img src="./src/img/pencil.png" alt="pencil icon"></h1>
+
+        <div class="nav-shadow-box__user-box">
+
+          <a href="#reservations"><i class="far fa-sticky-note"></i>Moje rezerwacje</a>
+          <div class="nav-shadow-box__user">
+            <i class="fas fa-user"></i>
+            <p class="user-name">Nazwa użytkownika</p>
+          </div>
+
+          <a href="./index.html">
+            <i class="fas fa-sign-out-alt"> </i>
+            <p id="log-out"> Wyloguj</p>
+          </a>
+
+        </div>
+        <div id="burger-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+
+      <header class="company-header">
+
+      </header>
+      <!-- <div class="header-shadow"></div> -->
     </div>
-    <div class="log-out-box">
-      <a href="./index.html">
-        <p id="log-out"><i class="fas fa-sign-out-alt"></i>Wyloguj</p>
-      </a>
+    <div class="mobile-nav" id="mobile-nav">
+      <div class="nav-shadow-box__user-box-side-nav">
+        <ul>
+          <li>
+            <p class="user-name"><i class="fas fa-user"></i>Nazwa użytkownika</p>
+          </li>
+          <li><a href="#reservations"><i class="far fa-sticky-note"></i>Moje spotkania</a></li>
+          <li><a href="./index.html">
+              <p id="log-out"><i class="fas fa-sign-out-alt"></i>Wyloguj</p>
+            </a></li>
+        </ul>
+      </div>
     </div>
-  </nav>
+  
+  
 
   <div class="your-profession">
     <p class="your-profession__title">Twoja profesja to <span id="profession-name">Mechanik</span></p>
@@ -133,6 +166,7 @@
       </div>
     </div>
   </div>
+  <script type="module" defer src="./src/ts/nav-elements.ts"></script>
   <script type="module" src="./src/ts/company-panel.ts"></script>
 </body>
 

@@ -90,7 +90,10 @@ if(prevNextIcon){
 
 dayAcitveClassToggler()
 
-
+const scissorsIcon: HTMLElement | null = document.querySelector('.hours-cut');
+const wrenchIcon: HTMLElement | null = document.querySelector('.hours-wrench');
+const pencilIcon: HTMLElement | null = document.querySelector('.hours-pencil');
+const iconsArr = [scissorsIcon,wrenchIcon,pencilIcon];
 const hoursContainer: HTMLElement | null = document.querySelector('.hours-container');
 const hoursBoxInfo = document.querySelector('.hours-container__info-span') as HTMLSpanElement;
 const hourBtns: NodeListOf<Element> = document.querySelectorAll('.hour-btn');
@@ -100,12 +103,14 @@ const handleClick = (e:Event) => {
 	const pickedDay = Number(li.textContent);
 	const today = new Date();
 	const pickedDate = new Date(date.getFullYear(), date.getMonth(), pickedDay);
-    console.log(pickedDate);
-    console.log(pickedDay);
+
 	if ((li.textContent !== '' && pickedDate.getDate() == today.getDate()) || pickedDate > today) {
 		if(hoursBoxInfo !== null){
 			hoursBoxInfo.textContent = pickedDate.getDate() + " " + months[date.getMonth()]
 			hoursContainer!.style.display = 'flex';
+            iconsArr.forEach(icon => {
+                icon!.style.display = "block";
+            })            
 		}
 
 	} else if (pickedDate < today ) {
@@ -113,12 +118,16 @@ const handleClick = (e:Event) => {
         li.classList.remove('active2');
 		return;
 	}
+
 };
 
 
 	const exitIcon = document.querySelector('.fa-times');
 	exitIcon?.addEventListener('click', () => {
-		hoursContainer!.style.display = 'none';
+        hoursContainer!.style.display = 'none';
+        iconsArr.forEach(icon => {
+            icon!.style.display = "none";
+        })
         const allLi = document.querySelectorAll('.days li');
         allLi.forEach(li => {
             li.classList.remove('active2');

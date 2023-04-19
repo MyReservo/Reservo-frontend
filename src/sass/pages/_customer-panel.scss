@@ -24,9 +24,9 @@
 	.hero-img {
 		@include heroCustomerImg;
 		background-image: url('../../img/city-original-size.jpg');
-		#burger-btn {
-			display: none;
-		}
+		// #burger-btn {
+		// 	display: none;
+		// }
 		.header-shadow {
 			@include customerShadow;
 			background-color: $headerBgc;
@@ -151,10 +151,18 @@
 	h3 {
 		font-size: 4rem;
 		text-align: center;
-		margin: 2em;
+		margin: 2em 2em 0em ;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.356);
+	}
+	.pick-person-and-location-line{
+		margin-top: 0;
+		height: 8px;
+		width: 11%;
+		background-color: rgba(89, 187, 240, 0.9058823529);
+		border-radius: 13px
+
 	}
 
 	.available-service-providers {
@@ -704,13 +712,14 @@
 					font-size: 1.4rem;
 				}
 			}
-			#burger-btn {
-				margin: 2em;
-				span {
-					width: 80%;
-					height: 5px;
-				}
-			}
+			// #burger-btn {
+			// 	display: block;
+			// 	margin: 2em;
+			// 	span {
+			// 		width: 80%;
+			// 		height: 5px;
+			// 	}
+			// }
 		}
 		.header__title {
 			margin-bottom: 7em;

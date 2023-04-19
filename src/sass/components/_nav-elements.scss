@@ -1,3 +1,5 @@
+
+
 .nav-shadow-box {
 	width: 100%;
 	display: flex;
@@ -169,6 +171,14 @@ a:hover {
 }
 
 @media (max-width: 480px) {
+	#burger-btn {
+		display: block;
+		margin: 2em;
+		span {
+			width: 80%;
+			height: 5px;
+		}
+	}
 	.nav-shadow-box__user-box-side-nav{
 		ul{
 			li{
