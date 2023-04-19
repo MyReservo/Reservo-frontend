@@ -186,18 +186,14 @@
 }
 
 @media (max-width: 480px) {
+
 	.wrench {
-		top: 0%;
-		left: 5%;
-		width: 20%;
+		top: 23%;
+		left: 80%;
+		width: 7%;
 		animation: icon-rotate-right 140s infinite linear;
 	}
-	// .wrench-two {
-	// 	top: 105%;
-	// 	left: 25%;
-	// 	width: 10%;
-	// 	animation: icon-rotate-right 100s infinite linear;
-	// }
+
 
 	.cut {
 		top: 5%;
@@ -220,21 +216,16 @@
 	}
 
 	.pencil {
-		bottom: 50%;
+		bottom: -10%;
 		right: 10%;
-		width: 18%;
-		animation: icon-rotate-left 80s infinite linear;
+		width: 12%;
+		animation: icon-rotate-right 80s infinite linear;
 	}
 	.pencil-two {
-		top: 105%;
-		right: 15%;
-		width: 10%;
+		top: -7%;
+		left: 15%;
+		width: 6%;
 		animation: icon-rotate-left 80s infinite linear;
 	}
-	.pencil-three {
-		top: 19%;
-		left: 10%;
-		width: 18%;
-		animation: icon-rotate-left 80s infinite linear;
-	}
+
 }
