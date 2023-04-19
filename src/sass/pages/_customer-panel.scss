@@ -186,11 +186,14 @@
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
+			overflow: auto;
+			max-height: 150px;
 		}
 
 		.service-provider {
 			display: flex;
 			flex-wrap: wrap;
+			align-items: center;
 			p {
 				margin: 1em;
 				font-size: 2rem;
@@ -199,6 +202,7 @@
 
 		.submit-btn {
 			@include customerBtn;
+			width: 40%;
 		}
 	}
 
@@ -379,12 +383,6 @@
 		}
 	}
 
-	.header__btn {
-		.submit-btn {
-			width: 45%;
-		}
-	}
-
 	.header__title {
 		margin-bottom: 4em;
 
@@ -413,38 +411,34 @@
 		}
 	}
 
-
-	.pick-person-and-location{
-
-		.service-location__container{
+	.pick-person-and-location {
+		.service-location__container {
 			padding: 1.5em;
 		}
-		.available-service-providers{
+		.available-service-providers {
 			padding: 0;
 
-			.available-service-providers__text{
+			.available-service-providers__text {
 				font-size: 1.8rem;
 			}
 		}
-		.available-service-providers__second-box,.available-service-providers__first-box{
-	
+		.available-service-providers__second-box,
+		.available-service-providers__first-box {
 			width: 70%;
-	
 		}
-		
-		.service-location{
+
+		.service-location {
 			padding: 0;
 			min-height: auto;
 		}
-		.service-location__second-box,.service-location__first-box{
+		.service-location__second-box,
+		.service-location__first-box {
 			width: 70%;
 		}
 
-			.service-location__second-box-text{
-				font-size: 1.8rem;
-			}
-		
-
+		.service-location__second-box-text {
+			font-size: 1.8rem;
+		}
 	}
 }
 
@@ -460,28 +454,44 @@
 		}
 	}
 
-	.pick-person-and-location{
-.available-service-providers__title,.service-location__title{
-	font-size: 2rem;
-}
-		.available-service-providers__second-box,.available-service-providers__first-box,.service-location__second-box,.service-location__first-box{
+	.pick-person-and-location {
+		.available-service-providers__title,
+		.service-location__title {
+			font-size: 2rem;
+		}
+		.available-service-providers__second-box,
+		.available-service-providers__first-box,
+		.service-location__second-box,
+		.service-location__first-box {
 			margin: 1em;
 		}
-		.available-service-providers{
+		.available-service-providers {
 			font-size: 1.6rem;
 		}
 
-		.available-service-providers{
-			.service-provider{
-				p{
-
+		.available-service-providers {
+			.service-provider {
+				p {
 					font-size: 1.8rem;
 				}
 			}
 		}
 
-		.service-location__box{
+		.service-location__box {
 			font-size: 1.8rem;
+		}
+		.client-adress{
+			margin-top: 2em;
+			width: 55%;
+			label{
+				font-size: 1.8rem;
+			}
+		}
+		.client-adress__title, .company-adress__title{
+			font-size: 2rem;
+		}
+		.client-adress__body{
+			padding: 2.2em 2em 1em;
 		}
 	}
 }
@@ -509,6 +519,43 @@
 		}
 		.reservo {
 			font-size: 7rem;
+		}
+	}
+
+	.pick-person-and-location{
+
+		.available-service-providers__title,
+		.service-location__title {
+			font-size: 2.3rem;
+		}
+
+		.available-service-providers__second-box{
+			display: none;
+		}
+		.available-service-providers__first-box{
+			width: 65%;
+		}
+
+		.service-location{
+			min-height: 350px;
+			.service-location__box{
+				font-size: 2rem;
+			}
+			.service-location__second-box{
+				display: none;
+			}
+			.service-location__first-box{
+				width: 65%;
+			}
+		}
+
+		.client-adress,.company-adress{
+			width: 65%;
+		}
+
+
+		.client-adress__body{
+			padding: 2.2em 1em 1em;
 		}
 	}
 
@@ -556,6 +603,42 @@
 			font-size: 5.5rem;
 		}
 	}
+
+	.pick-person-and-location{
+		h3{
+			font-size: 3.3rem;
+		}
+
+		 .available-service-providers__list{
+			max-height: 140px;
+		 }
+
+
+		.available-service-providers__title,
+		.service-location__title {
+			font-size: 2rem;
+		}
+
+
+		.available-service-providers__first-box{
+			width: 75%;
+		}
+
+		.service-location{
+			.service-location__first-box{
+				width: 75%;
+			}
+		}
+
+		.client-adress,.company-adress{
+			width: 75%;
+		}
+		.company-adress__body{
+			padding: 2em 1em 1.5em;
+		}
+	}
+
+
 	.user-nav-box {
 		margin-left: 0;
 	}
@@ -584,6 +667,7 @@
 			justify-content: space-between;
 			.header-shadow {
 				@include customerShadow;
+				background-color: $headerBgc;
 			}
 			.pick-profession-box {
 				width: 100%;
@@ -624,6 +708,27 @@
 			font-size: 5rem;
 		}
 	}
+
+
+	.pick-person-and-location{
+		h3{
+			font-size: 2.9rem;
+		}
+
+		.available-service-providers__first-box{
+			width: 90%;
+		}
+
+		.service-location{
+			.service-location__first-box{
+				width: 90%;
+			}
+		}
+
+		.client-adress,.company-adress{
+			width: 90%
+		}
+	}
 }
 
 @media (max-width: 380px) {
@@ -662,4 +767,32 @@
 			width: 80%;
 		}
 	}
+
+
+	.pick-person-and-location{
+		h3{
+			font-size: 2.5rem;
+			margin: 3em 1em;
+		}
+		.service-location__container{
+			padding: .7em;
+		}
+		.service-location{	
+			.service-location__box{
+			   font-size: 1.8rem;
+		   }
+		} 
+
+		.company-adress__body, .client-adress__body{
+			font-size: 1.8rem;
+			padding: 1.5em .5em 1em;
+		}
+
+		.client-adress__body{
+			input{
+				margin: 0.7em 1em 2.5em 1em;
+			}
+		}
+		}
+
 }
