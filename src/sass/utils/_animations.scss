@@ -178,54 +178,9 @@
 	width: 7%;
 	animation: icon-rotate-left 80s infinite linear;
 }
-.pencil-three {
-	top: 0%;
-	left: 0%;
-	width: 12%;
-	animation: icon-rotate-right 80s infinite linear;
-}
 
 @media (max-width: 480px) {
-
-	.wrench {
-		top: 23%;
-		left: 80%;
-		width: 7%;
-		animation: icon-rotate-right 140s infinite linear;
+	.wrench,.cut,.cut-two,.cut-three,.pencil,.pencil-two {
+		display: none;
 	}
-
-
-	.cut {
-		top: 5%;
-		left: 80%;
-		width: 11%;
-		animation: icon-rotate-left 90s infinite linear;
-	}
-	.cut-two {
-		bottom: -5%;
-		left: 10%;
-		width: 17%;
-		animation: icon-rotate-left 90s infinite linear;
-	}
-
-	.cut-three {
-		top: -9%;
-		right: 5%;
-		width: 10%;
-		animation: icon-rotate-left 90s infinite linear;
-	}
-
-	.pencil {
-		bottom: -10%;
-		right: 10%;
-		width: 12%;
-		animation: icon-rotate-right 80s infinite linear;
-	}
-	.pencil-two {
-		top: -7%;
-		left: 15%;
-		width: 6%;
-		animation: icon-rotate-left 80s infinite linear;
-	}
-
 }
