@@ -285,6 +285,12 @@
 	}
 }
 
+.client-adress,.company-adress{
+	.submit-btn{
+		display: none;
+	}
+}
+
 .company-adress {
 	@include clientAressAndCompanyAdressBox;
 	max-width: 650px;
@@ -440,6 +446,9 @@
 			font-size: 1.8rem;
 		}
 	}
+	.hours-container{
+		width: 60%;
+	}
 }
 
 @media (max-width: 992px) {
@@ -488,12 +497,14 @@
 			}
 		}
 		.client-adress__title, .company-adress__title{
-			font-size: 2rem;
+			font-size: 2.3rem;
 		}
 		.client-adress__body{
 			padding: 2.2em 2em 1em;
 		}
 	}
+
+
 }
 
 @media (max-width: 768px) {
@@ -551,7 +562,11 @@
 
 		.client-adress,.company-adress{
 			width: 65%;
+			a{
+				width: 100%;
+			}
 			.submit-btn{
+				display: block;
 				@include customerBtn;
 				width: 45%;
 			}
@@ -566,9 +581,9 @@
 	.hours-container {
 		align-self: center;
 		margin-top: 3em;
-		width: 500px;
+		width: 75%;
 		h3 {
-			font-size: 2rem;
+			font-size: 2.3rem;
 			margin-bottom: 1em;
 		}
 		button {
@@ -642,13 +657,10 @@
 		}
 	}
 
-
-	.user-nav-box {
-		margin-left: 0;
-	}
-
-	.hours-container {
-		margin-left: 0;
+	.hours-container{
+		#send{
+			width: 45%;
+		}
 	}
 }
 
@@ -733,6 +745,15 @@
 			width: 90%
 		}
 	}
+	.hours-container{
+		width: 90%;
+		.hours-container__info{
+			margin: 2em 1em;
+		}
+		button{
+			margin: .5em;
+		}
+	}
 }
 
 @media (max-width: 380px) {
@@ -797,6 +818,20 @@
 				margin: 0.7em 1em 2.5em 1em;
 			}
 		}
+		}
+
+		.hours-container{
+			width: 95%;
+			.hours-container__info{
+				margin: 1.1em .6em;
+				font-size: 1.6rem;
+			}
+			button{
+				margin: .5em;
+			}
+			#send{
+				width: 55%;
+			}
 		}
 
 }
