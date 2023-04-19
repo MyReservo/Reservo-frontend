@@ -551,10 +551,14 @@
 
 		.client-adress,.company-adress{
 			width: 65%;
+			.submit-btn{
+				@include customerBtn;
+				width: 45%;
+			}
 		}
 
 
-		.client-adress__body{
+		.client-adress__body, .company-adress__body{
 			padding: 2.2em 1em 1em;
 		}
 	}
