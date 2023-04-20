@@ -172,19 +172,14 @@
 	animation: icon-rotate-left 80s infinite linear;
 }
 
-// .pencil-two {
-// 	top: 50%;
-// 	right: 90%;
-// 	width: 7%;
-// 	animation: icon-rotate-left 80s infinite linear;
-// }
-
 .hours-wrench,.hours-cut,.hours-pencil{
 	display: none;
 }
 
 @media (max-width: 480px) {
-	.wrench,.cut,.cut-two,.cut-three,.pencil,.pencil-two {
-		display: none;
-	}
+		.wrench,.cut,.cut-two,.cut-three,.pencil,.pencil-two {
+			display: none !important;
+		}	
 }
+
+
