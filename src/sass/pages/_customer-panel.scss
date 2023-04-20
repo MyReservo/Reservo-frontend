@@ -24,11 +24,9 @@
 	.hero-img {
 		@include heroCustomerImg;
 		background-image: url('../../img/city-original-size.jpg');
-		// #burger-btn {
-		// 	display: none;
-		// }
+
 		.header-shadow {
-			@include customerShadow;
+			@include headerShadow;
 			background-color: $headerBgc;
 		}
 	}
@@ -184,7 +182,7 @@
 		}
 
 		&__shadow {
-			@include customerShadow;
+			@include headerShadow;
 		}
 
 		&__text {
@@ -231,7 +229,7 @@
 			background-image: url(../../img/johnson-johnson-U6Q6zVDgmSs-unsplash.jpg);
 
 			&-shadow {
-				@include customerShadow;
+				@include headerShadow;
 			}
 			&-text {
 				@include pickPersonAndLocationSecondBoxText;
@@ -699,7 +697,7 @@
 			min-height: 100vh;
 			justify-content: space-between;
 			.header-shadow {
-				@include customerShadow;
+				@include headerShadow;
 				background-color: $headerBgc;
 			}
 			.pick-profession-box {

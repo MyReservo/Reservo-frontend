@@ -1,38 +1,103 @@
 @use '../utils/reset' as *;
 @use '../utils/colors' as *;
 @use "../components/nav-elements" as *;
+@use '../components/calendar' as *;
 @use "../components/btn" as *;
 @use "../utils/animations" as *;
 @use "../utils/mixins" as *;
 
 .hero-img{
-    background-image: url('../../img/city-large.jpg');
+    background-image: url('../../img/barber-large.jpg');
 	@include heroCustomerImg;
+    justify-content: center;
+    height: 100vh;
+
+    &__title{
+        z-index: 5;
+        font-size: 6.5rem;
+        color: #ffffffe3;
+        letter-spacing: 0.1em;
+        text-shadow: 3px 3px 10px black;
+        
+        &-text{
+            font-weight: normal;
+            animation: header-div-slide-top 1s;
+            margin-bottom: .5em;
+        }
+        span {
+            font-weight: bold;
+            font-style: italic;
+            font-size: 7.5rem;
+        }
+        .profession-name-box{
+            text-align: center;
+            animation: header-text-slide-right 1s 1s both;
+        }
+    }
+
+    .arrow {
+        position: absolute;
+        top: 85%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        z-index: 5;
+        cursor: pointer;
+        img{
+            display: block;
+            width: 100px;
+            height: 100px;
+        }
+    }
+    .arrow::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        animation: arrowAnimation 2.3s infinite;
+    }
+
 }
 
-.company-header{
+.nav-shadow-box{
+    position: absolute;
+    box-shadow: inset 0px 85px 30px rgba(18, 20, 23, 0.486);
+}
+.header-shadow{
     height: 80vh;
-    @include customerShadow;
+    @include headerShadow;
+    background-color: #1110108f;
 }
 
 .your-profession,
 .your-visits {
-	border: 1px dotted black;
 	width: 50%;
 	margin: 2em auto;
+    margin: auto;
 	padding: 1em;
 	text-align: center;
 }
 
-.your-profession {
-	font-size: 3rem;
-	span {
-		font-weight: bold;
-		text-decoration: underline;
-	}
+.calendar-section{
+    margin-top: 0;
+    background-image: none;
+
+    h2{
+        position: relative;
+        z-index: 1;
+        padding: 2em;
+        font-size: 3rem;
+        text-shadow: 1px 1px 5px black;
+        color: #fff;
+        text-align: center;
+    }
 }
 
 .your-visits {
+    border: 1px dotted black;
 	.visit {
 		display: flex;
 		justify-content: center;
@@ -81,6 +146,9 @@
 
 }
 @media(max-width: 768px) {
+    #burger-btn{
+        display: block;
+    }
     .panel-title{
         font-size: 3.5rem;
         .fa-pencil-alt{
