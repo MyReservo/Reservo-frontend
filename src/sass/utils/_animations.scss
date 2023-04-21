@@ -118,7 +118,7 @@
 .wrench,
 .cut,
 .cut-two,
-.pencil,.pencil-two {
+.pencil,.pencil-two,.comb,.clipper {
 	position: absolute;
 	color: #0000000e;
 	opacity: 0.1;
@@ -170,6 +170,20 @@
 	left: 70%;
 	width: 10%;
 	animation: icon-rotate-left 80s infinite linear;
+}
+
+.comb{
+	bottom: 30%;
+	left: 10%;
+	width: 10%;
+	animation: icon-rotate-left 80s infinite linear;
+}
+
+.clipper{
+	bottom: 10%;
+	right: 10%;
+	width: 10%;
+	animation: icon-rotate-right 60s infinite linear;
 }
 
 .hours-wrench,.hours-cut,.hours-pencil{

@@ -3,6 +3,7 @@
 @use "../components/nav-elements" as *;
 @use '../components/calendar' as *;
 @use "../components/btn" as *;
+@use "../components/lines" as *;
 @use "../utils/animations" as *;
 @use "../utils/mixins" as *;
 
@@ -44,8 +45,7 @@
         cursor: pointer;
         img{
             display: block;
-            width: 100px;
-            height: 100px;
+            width: 85px;
         }
     }
     .arrow::before {
@@ -89,10 +89,20 @@
         position: relative;
         z-index: 1;
         padding: 2em;
-        font-size: 3rem;
-        text-shadow: 1px 1px 5px black;
-        color: #fff;
+       padding-bottom: .3em;
+        font-size: 3.5rem;
+        font-size: 4rem;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.174);
         text-align: center;
+    }
+
+    .cut{
+        bottom: 60%;
+        left: 80%;
+        width: 9%;
+        animation: icon-rotate-left 100s infinite linear;
     }
 }
 
