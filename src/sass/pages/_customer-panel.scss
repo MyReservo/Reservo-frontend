@@ -26,7 +26,7 @@
 		background-image: url('../../img/city-original-size.jpg');
 
 		.header-shadow {
-			@include headerShadow;
+			@include shadow;
 			background-color: $headerBgc;
 		}
 	}
@@ -167,7 +167,7 @@
 		@include pickPersonAndLocationBoxes;
 
 		&__title {
-			@include customerPickServiceBoxTitle;
+			@include boxTitle;
 		}
 
 		&__second-box {
@@ -176,13 +176,13 @@
 		}
 		&__first-box,
 		&__second-box {
-			@include clientAressAndCompanyAdressBox;
+			@include sectionBox;
 			display: flex;
 			margin: 2em;
 		}
 
 		&__shadow {
-			@include headerShadow;
+			@include shadow;
 		}
 
 		&__text {
@@ -219,7 +219,7 @@
 
 		&__first-box,
 		&__second-box {
-			@include clientAressAndCompanyAdressBox;
+			@include sectionBox;
 			display: block;
 			margin: 2em;
 		}
@@ -229,7 +229,7 @@
 			background-image: url(../../img/johnson-johnson-U6Q6zVDgmSs-unsplash.jpg);
 
 			&-shadow {
-				@include headerShadow;
+				@include shadow;
 			}
 			&-text {
 				@include pickPersonAndLocationSecondBoxText;
@@ -264,17 +264,17 @@
 		}
 
 		&__title {
-			@include customerPickServiceBoxTitle;
+			@include boxTitle;
 		}
 	}
 }
 
 .client-adress {
-	@include clientAressAndCompanyAdressBox;
+	@include sectionBox;
 	max-width: 750px;
 
 	&__title {
-		@include customerPickServiceBoxTitle;
+		@include boxTitle;
 	}
 	&__body {
 		display: flex;
@@ -299,7 +299,7 @@
 }
 
 .company-adress {
-	@include clientAressAndCompanyAdressBox;
+	@include sectionBox;
 	max-width: 650px;
 	font-size: 2.2rem;
 
@@ -336,7 +336,7 @@
 }
 
 .hours-container {
-	@include clientAressAndCompanyAdressBox;
+	@include sectionBox;
 	position: relative;
 	align-items: center;
 	margin-top: 5em;
@@ -361,7 +361,7 @@
 		background-color: lime;
 	}
 	h3 {
-		@include customerPickServiceBoxTitle;
+		@include boxTitle;
 	}
 
 	button {
@@ -710,7 +710,7 @@
 			min-height: 100vh;
 			justify-content: end;
 			.header-shadow {
-				@include headerShadow;
+				@include shadow;
 				background-color: $headerBgc;
 			}
 			.pick-profession-box {

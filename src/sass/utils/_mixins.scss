@@ -13,7 +13,7 @@
 }
 
 
-@mixin customerPickServiceBoxTitle {
+@mixin boxTitle {
 
     width: 100%;
     padding: 1.2em;
@@ -27,7 +27,7 @@
 }
 
 @mixin heroCustomerImg {
-    display: flex;
+        display: flex;
 		flex-direction: column;
         justify-content: end;
 		align-items: center;
@@ -38,7 +38,7 @@
 }
 
 
-@mixin headerShadow {
+@mixin shadow {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -76,7 +76,7 @@
 }
 
 
-@mixin clientAressAndCompanyAdressBox{
+@mixin sectionBox{
 	flex-direction: column;
 	margin: auto;
 	display: none;

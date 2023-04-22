@@ -98,24 +98,60 @@
       <img src="./src/img/hair-clipper.png" class="clipper" alt="hair clipper icon">
     </section>
 
+<section class="your-visits-section">
+  <div class="your-visits-shadow"></div>
+<div class="your-visits-box">
   <div class="your-visits">
-    <h2>Szczegóły wizyty:</h2>
-    <div class="visit">
-      <div class="visit__customers-name">
-        <p>Imię klienta:</p> <span id="customers-name"></span>
+    <i class="fas fa-times"></i>
+    <h3 class="your-visits__title">Szczegóły spotkania</h3>
+    <div class="your-visits-visit-box">
+      <div class="your-visits-visit-box__customers-name">
+        <p>Imię klienta:</p> <span id="customers-name">Filip</span>
       </div>
-      <div class="visit__adress">
-        <p>Adres wizyty:</p>
-        <p id="visit__adress-street">Ulica: </p>
-        <p id="visit__adress-home-number">Nr.domu: </p>
-        <p id="visit__adress-city">Miasto: </p>
-        <p id="visit__adress-code">Kod pocztowy: </p>
+      <div class="your-visits-visit-box__adress">
+        <p class="your-visits__meeting-adress">Adres spotkania</p>
+        <p id="your-visits__street">Ulica: Wietrzna</p>
+        <p id="your-visits__home-number">Nr.domu: 30/1</p>
+        <p id="your-visits__city">Miasto: Warszawa</p>
       </div>
-      <div class="visit__date">
-        <p class="visit__date-exact"> <span id="visit__date-hour"></span></p>
+      <div class="your-visits-visit-box__date">
       </div>
     </div>
+    <h3  class="your-visits__date-exact">Termin: <span id="your-visits__date-hour">xxx</span></p></h3>
   </div>
+</div>
+</section>
+
+  <footer class="footer">
+    <div class="footer__container">
+      <p class="footer__name"><a href="./customer-panel.html">
+        Reservo
+      <img src="./src/img/pencil.png" alt="pencil icon">
+      </a>
+      </p>
+  <div class="horizontal-line"></div>
+      <div class="footer__cards">
+          <div class="footer__card">
+              <p class="footer__heading">O nas</p>
+              <p class="footer__text">Historia</p>
+              <p class="footer__text">Opinie</p>
+          </div>
+          <div class="footer__card">
+              <p class="footer__heading">Nasza firma</p>
+              <p class="footer__text">Praca</p>
+              <p class="footer__text">Zarząd</p>
+          </div>
+          <div class="footer__card">
+              <p class="footer__heading">Siedziba firmy</p>
+              <p class="footer__text">ul. Noworoczna 20/77</p>
+              <p class="footer__text">Warszawa 02-077</p>
+          </div>
+      </div>
+  </div>
+  <hr>
+  <p class="footer__company">&copy; 2023 Rerservo Group Company Ltd. </p>
+  </footer>
+
   <script type="module" defer src="./src/ts/nav-elements.ts"></script>
   <script type="module" defer src="./src/ts/calendar.ts"></script>
   <script type="module" src="./src/ts/company-panel.ts"></script>

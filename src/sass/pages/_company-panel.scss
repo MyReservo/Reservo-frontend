@@ -4,6 +4,7 @@
 @use '../components/calendar' as *;
 @use "../components/btn" as *;
 @use "../components/lines" as *;
+@use "../components/footer" as *;
 @use "../utils/animations" as *;
 @use "../utils/mixins" as *;
 
@@ -66,14 +67,19 @@
     position: absolute;
     box-shadow: inset 0px 85px 30px rgba(18, 20, 23, 0.486);
 }
+
+
+.mobile-nav{
+    background-color: rgb(65, 105, 225);
+}
+
 .header-shadow{
     height: 80vh;
-    @include headerShadow;
+    @include shadow;
     background-color: #1110108f;
 }
 
-.your-profession,
-.your-visits {
+.your-profession {
 	width: 50%;
 	margin: 2em auto;
     margin: auto;
@@ -104,54 +110,109 @@
         width: 9%;
         animation: icon-rotate-left 100s infinite linear;
     }
+
+    .horizontal-line{
+        background-color: rgba(65, 105, 225, 0.781);
+    }
+}
+
+
+.your-visits-section{
+    position: relative;
+    background-image: url("../../img/christina-wocintechchat-com-Q80LYxv_Tbs-unsplash.jpg");
+   @include heroCustomerImg;
+   background-attachment: fixed;
+   align-items: normal;
+   margin-top: 2em;
+   .your-visits-box{
+    padding: 5em;
+   }
+}
+.your-visits-shadow{
+    @include shadow;
 }
 
 .your-visits {
-    border: 1px dotted black;
-	.visit {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin-top: 1em;
-		#customers-name {
+    position: relative;
+    @include sectionBox;
+    background-color: #ffffffe9;
+    display: block;
+    max-width: 700px;
+    z-index: 10;
+
+    &__title {
+		@include boxTitle;
+        background-color: rgba(65, 105, 225, 0.781);
+	}
+    
+	.fa-times {
+		position: absolute;
+		top: 8px;
+		right: 12px;
+		font-size: 2rem;
+		padding: 0.5em;
+		color: #fff;
+		text-shadow: 1px 1px 3px black;
+		z-index: 5;
+		cursor: pointer;
+	}
+
+    .your-visits-visit-box{
+        font-size: 2rem;
+        padding: 2em;
+        padding-top: 1em;
+        span{
+            font-weight: bold;
+        }
+        p{
+            margin: 1em;
+        }
+
+        &__customers-name{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__adress{
+            margin: 0em 3em;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgb(20, 23, 27);
+
+            .your-visits__meeting-adress{
+                margin-bottom: .7em;
+                font-weight: bold;
+                padding: 1em;
+                margin: 0;
+                border-bottom: 1px solid rgb(20, 23, 27);
+            }
+        }
+    }
+
+
+    &__info {
+		margin: 2em;
+		font-size: 1.9rem;
+		&-span {
+			text-decoration: underline;
 			font-weight: bold;
 		}
 	}
-}
 
-.calendar-container {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin: auto;
-	width: 60%;
-}
-
-.pick-day-box {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-
-@media(min-width: 1200px) {
-
-    .calendar-container{
-        max-width: 850px;
+    &__date-exact{
+		@include boxTitle;
+        background-color: rgba(65, 105, 225, 0.781);
+        font-size: 2.2rem;
     }
-
 }
+
+
+
 @media(max-width: 992px) {
 
-    .calendar-container{
-        width: 75%;
-    }
-    .user-nav-box{
-        font-size: 1.6rem;
-        width: 50%;
-    }
-    .log-out-box{
-        width: 30%;
+    .hero-img__title{
+        font-size: 5rem;
     }
 
 }
@@ -159,51 +220,35 @@
     #burger-btn{
         display: block;
     }
-    .panel-title{
-        font-size: 3.5rem;
-        .fa-pencil-alt{
-            font-size: 3.2rem;
-        }
-    }
 
-    .calendar-container{
-        width: 85%;
-
-        #calendar{
-            td{
-                font-size:1.6rem;
-                height: 45px;
-            }
-        
+    .hero-img__title{
+        font-size: 4rem;
+        #profession-name{
+            font-size: 6rem;
         }
-        .pick-day-box{
-            h4{
-                font-size: 1.5rem;
-            }
-        }
-    }
-
-    .your-profession{
-        font-size: 2rem;
     }
 }
 
 @media(max-width: 576px) {
-    .user-nav-box{
-        font-size: 1rem;
-        width: 20%;
-    }
 
-    .panel-title{
-        font-size: 2.7rem;
-        width: 50%;
-        .fa-pencil-alt{
-            font-size: 2.7rem;
+    .hero-img__title{
+        font-size: 3.5rem;
+        #profession-name{
+            font-size: 6rem;
         }
     }
-
-    .log-out-box{
-        font-size: 1.5rem;
-    }
-
 }
+
+
+@media(max-width: 480px) {
+
+    .hero-img__title{
+        font-size: 3rem;
+        #profession-name{
+            font-size: 5rem;
+        }
+    }
+}
+
+
+
