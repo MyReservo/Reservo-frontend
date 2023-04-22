@@ -59,34 +59,87 @@ const graduationIcon = document.querySelector('.graduation') as HTMLElement;
 const pencilIcon = document.querySelector('.pencil-company') as HTMLElement;
 const tutorIcons = [bookIcon, graduationIcon, pencilIcon];
 
-if (localStorage.getItem('selectedOption') === 'BARBER') {
-	if (heroCompanyImg) {
-		heroCompanyImg.style.backgroundImage = "url('./src/img/barber-large.jpg')";
+if (localStorage.getItem('selectedOption') === 'TUTOR') {
+	if (window.matchMedia('(max-width:768px)').matches) {
+		if (heroCompanyImg) {
+			heroCompanyImg.style.backgroundImage = "url('../src/img/tutor-small.jpg')";
+		}
+	} else if (window.matchMedia('(min-width:769px)').matches) {
+		if (heroCompanyImg) {
+			heroCompanyImg.style.backgroundImage = "url('../src/img/tutor-medium.jpg')";
+		}
 	}
-	barberIcons.forEach(icon => {
-		if(icon){
+	tutorIcons.forEach(icon => {
+		if (icon) {
 			icon.style.display = 'block';
 		}
 	});
 }
 
-if (localStorage.getItem('selectedOption') === 'TUTOR') {
-	if (heroCompanyImg) {
-		heroCompanyImg.style.backgroundImage = "url('../src/img/tutor-big.jpg')";
-	}
-	tutorIcons.forEach(icon => {
-		if(icon){
-			icon.style.display = 'block';
-		}
-	});
-}
 if (localStorage.getItem('selectedOption') === 'MECHANIC') {
-	if (heroCompanyImg) {
-		heroCompanyImg.style.backgroundImage = "url('/src/img/mechanic-big.jpg')";
+	if (window.matchMedia('(max-width:768px)').matches) {
+		if (heroCompanyImg) {
+			heroCompanyImg.style.backgroundImage = "url('../src/img/mechanic-small.jpg')";
+		}
+	} else if (window.matchMedia('(min-width:769px)').matches) {
+		if (heroCompanyImg) {
+			heroCompanyImg.style.backgroundImage = "url('../src/img/mechanic-big.jpg')";
+		}
 	}
 	mechanicIcons.forEach(icon => {
-		if(icon){
+		if (icon) {
 			icon.style.display = 'block';
 		}
 	});
 }
+
+if (localStorage.getItem('selectedOption') === 'BARBER') {
+	if (window.matchMedia('(max-width:768px)').matches) {
+		heroCompanyImg.style.backgroundImage = "url('src/img/barber-small.jpg')";
+	} else if (window.matchMedia('(min-width:769px)').matches) {
+		heroCompanyImg.style.backgroundImage = "url('src/img/barber-medium.jpg')";
+	}
+
+	barberIcons.forEach(icon => {
+		if (icon) {
+			icon.style.display = 'block';
+		}
+	});
+}
+
+window.matchMedia('(max-width:768px)').addEventListener('change', () => {
+	if (localStorage.getItem('selectedOption') === 'BARBER') {
+		if (window.matchMedia('(max-width:768px)').matches) {
+			if (heroCompanyImg) {
+				heroCompanyImg.style.backgroundImage = "url('src/img/barber-small.jpg')";
+			}
+		} else {
+			if (heroCompanyImg) {
+				heroCompanyImg.style.backgroundImage = "url('src/img/barber-medium.jpg')";
+			}
+		}
+	}
+	if (localStorage.getItem('selectedOption') === 'MECHANIC') {
+		if (window.matchMedia('(max-width:768px)').matches) {
+			if (heroCompanyImg) {
+				heroCompanyImg.style.backgroundImage = "url('src/img/mechanic-small.jpg')";
+			}
+		} else {
+			if (heroCompanyImg) {
+				heroCompanyImg.style.backgroundImage = "url('src/img/mechanic-big.jpg')";
+			}
+		}
+	}
+
+	if (localStorage.getItem('selectedOption') === 'TUTOR') {
+		if (window.matchMedia('(max-width:768px)').matches) {
+			if (heroCompanyImg) {
+				heroCompanyImg.style.backgroundImage = "url('../src/img/tutor-small.jpg')";
+			}
+		} else {
+			if (heroCompanyImg) {
+				heroCompanyImg.style.backgroundImage = "url('../src/img/tutor-medium.jpg')";
+			}
+		}
+	}
+});
