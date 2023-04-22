@@ -12,8 +12,8 @@
   <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP+dz/T/nc/0/53P9P8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP+Gv+//nc/0/53P9P8AAAD/Qa75/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhr/v/4a/7/8AAAD/HHXW/0Gu+f9Brvn/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFV5mP8AAAD/AAAA/yGI+f8cddb/Qa75/0Gu+f8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/JXLl/yVy5f8AAAD/IYj5/xx11v9Brvn/Qa75/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8lcuX/JXLl/wAAAP8hiPn/HHXW/0Gu+f9Brvn/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/yVy5f8lcuX/AAAA/yGI+f8cddb/Qa75/0Gu+f8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/JXLl/yVy5f8AAAD/IYj5/xx11v9Brvn/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8lcuX/JXLl/wAAAP8hiPn/AAAA/9bW1P8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/yVy5f8lcuX/AAAA/9bW1P8AAAD/6Ojm/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/8bGxv/o6Ob/6Ojm/wAAAP87O/L/Ozvy/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/3d3d/wAAAP87O/L/Ozvy/zs78v8YGGH/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8iIsb/Ozvy/zs78v87O/L/Dw88/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/IiLG/yIixv8iIsb/Ozvy/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/AAAA/wAAAOQAAAAAH/8AAAP/AAAB/wAAgP8AAIB/AACAPwAAwB8AAOAPAADwBwAA+AMAAPwBAAD+AAAA/wAAAP+AAAD/wAAA/+EAAA==">
   <title>Company panel</title>
   
-  <script type="module" crossorigin src="/Reservo-frontend/companyPanel.a5ec0034.js"></script>
-  <link rel="stylesheet" href="/Reservo-frontend/company-panel.d4649540.css">
+  <script type="module" crossorigin src="/Reservo-frontend/companyPanel.92148736.js"></script>
+  <link rel="stylesheet" href="/Reservo-frontend/company-panel.c2fbf626.css">
 </head>
 
 <body class="company-panel-body">
@@ -100,24 +100,60 @@
       <img src="/Reservo-frontend/hair-clipper.fb4fe66c.png" class="clipper" alt="hair clipper icon">
     </section>
 
+<section class="your-visits-section">
+  <div class="your-visits-shadow"></div>
+<div class="your-visits-box">
   <div class="your-visits">
-    <h2>Szczegóły wizyty:</h2>
-    <div class="visit">
-      <div class="visit__customers-name">
-        <p>Imię klienta:</p> <span id="customers-name"></span>
+    <i class="fas fa-times"></i>
+    <h3 class="your-visits__title">Szczegóły spotkania</h3>
+    <div class="your-visits-visit-box">
+      <div class="your-visits-visit-box__customers-name">
+        <p>Imię klienta:</p> <span id="customers-name">Filip</span>
       </div>
-      <div class="visit__adress">
-        <p>Adres wizyty:</p>
-        <p id="visit__adress-street">Ulica: </p>
-        <p id="visit__adress-home-number">Nr.domu: </p>
-        <p id="visit__adress-city">Miasto: </p>
-        <p id="visit__adress-code">Kod pocztowy: </p>
+      <div class="your-visits-visit-box__adress">
+        <p class="your-visits__meeting-adress">Adres spotkania</p>
+        <p id="your-visits__street">Ulica: Wietrzna</p>
+        <p id="your-visits__home-number">Nr.domu: 30/1</p>
+        <p id="your-visits__city">Miasto: Warszawa</p>
       </div>
-      <div class="visit__date">
-        <p class="visit__date-exact"> <span id="visit__date-hour"></span></p>
+      <div class="your-visits-visit-box__date">
       </div>
     </div>
+    <h3  class="your-visits__date-exact">Termin: <span id="your-visits__date-hour">xxx</span></p></h3>
   </div>
+</div>
+</section>
+
+  <footer class="footer">
+    <div class="footer__container">
+      <p class="footer__name"><a href="./customer-panel.html">
+        Reservo
+      <img src="/Reservo-frontend/pencil.105da875.png" alt="pencil icon">
+      </a>
+      </p>
+  <div class="horizontal-line"></div>
+      <div class="footer__cards">
+          <div class="footer__card">
+              <p class="footer__heading">O nas</p>
+              <p class="footer__text">Historia</p>
+              <p class="footer__text">Opinie</p>
+          </div>
+          <div class="footer__card">
+              <p class="footer__heading">Nasza firma</p>
+              <p class="footer__text">Praca</p>
+              <p class="footer__text">Zarząd</p>
+          </div>
+          <div class="footer__card">
+              <p class="footer__heading">Siedziba firmy</p>
+              <p class="footer__text">ul. Noworoczna 20/77</p>
+              <p class="footer__text">Warszawa 02-077</p>
+          </div>
+      </div>
+  </div>
+  <hr>
+  <p class="footer__company">&copy; 2023 Rerservo Group Company Ltd. </p>
+  </footer>
+
   
   
   
