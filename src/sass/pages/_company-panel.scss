@@ -119,7 +119,7 @@
 
 .your-visits-section{
     position: relative;
-    background-image: url("../../img/christina-wocintechchat-com-Q80LYxv_Tbs-unsplash.jpg");
+    background-image: url("../../img/office-big.jpg");
    @include heroCustomerImg;
    background-attachment: fixed;
    align-items: normal;
@@ -215,18 +215,71 @@
         font-size: 5rem;
     }
 
+    .calendar-section{
+        h2{
+            font-size: 3rem;
+        }
+    }
+
+    .your-visits{
+        width: 80%;
+    }
+
 }
 @media(max-width: 768px) {
     #burger-btn{
         display: block;
     }
 
-    .hero-img__title{
-        font-size: 4rem;
-        #profession-name{
-            font-size: 6rem;
+
+    .hero-img{
+        .arrow{
+            top: 80%;
+        }
+
+        .hero-img__title{
+            font-size: 4rem;
+            margin-bottom: 2em;
+            #profession-name{
+                font-size: 6rem;
+            }
         }
     }
+
+    .calendar-section{
+        .horizontal-line{
+            margin-bottom: 0;
+        }
+    }
+
+   .wrapper-calendar{
+
+    .calendar-title{
+        h4{
+            font-size: 2rem;
+            padding: 1.2em;
+
+        }
+    }
+
+   }
+
+   .your-visits{
+    width: 85%;
+
+    .your-visits__title{
+        font-size: 2.2rem;
+    }
+
+    .your-visits__date-exact{
+        font-size: 2rem;
+    }
+
+    .your-visits-visit-box{
+        padding: 0;
+        padding-bottom: 1em;
+    }
+}
 }
 
 @media(max-width: 576px) {
@@ -237,18 +290,38 @@
             font-size: 6rem;
         }
     }
+
+.your-visits-section{
+    min-height: auto;
+    .your-visits-box{
+        padding-top: 7em;
+        padding-bottom: 7em;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+}
+    .your-visits{
+        width: 90%;
+    }
 }
 
-
-@media(max-width: 480px) {
-
-    .hero-img__title{
-        font-size: 3rem;
-        #profession-name{
-            font-size: 5rem;
+@media(max-width: 480px){
+    .wrapper-calendar{
+        .calendar-title{
+            h4{
+                font-size: 1.7rem;
+            }
+        }
+       }
+       .your-visits{
+        width: 95%;
+        .your-visits-visit-box__adress{
+            margin: .7em;
         }
     }
 }
+
 
 
 

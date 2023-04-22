@@ -172,7 +172,7 @@
 
 		&__second-box {
 			@include pickPersonAndLocationSecondBox;
-			background-image: url('../../img/christina-wocintechchat-com-LQ1t-8Ms5PY-unsplash\ \(1\).jpg');
+			background-image: url('../../img/meeting-big.jpg');
 		}
 		&__first-box,
 		&__second-box {
@@ -226,7 +226,7 @@
 
 		&__second-box {
 			@include pickPersonAndLocationSecondBox;
-			background-image: url(../../img/johnson-johnson-U6Q6zVDgmSs-unsplash.jpg);
+			background-image: url(../../img/house-small.jpg);
 
 			&-shadow {
 				@include shadow;
