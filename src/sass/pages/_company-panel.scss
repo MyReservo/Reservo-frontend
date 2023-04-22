@@ -9,9 +9,9 @@
 @use "../utils/mixins" as *;
 
 .hero-img{
-    // background-image: url('../../img/barber-large.jpg');
-    // background-image: url('../../img/tutor-big.jpg');
-    background-image: url('../../img/mechanic-big.jpg');
+    // // background-image: url('../../img/barber-large.jpg');
+    // // background-image: url('../../img/tutor-big.jpg');
+    // background-image: url('../../img/mechanic-big.jpg');
 	@include heroCustomerImg;
     justify-content: center;
     height: 100vh;
@@ -121,9 +121,11 @@
 
 .your-visits-section{
     position: relative;
-    background-image: url("../../img/office-big.jpg");
+    background-image: url("../../img/empty-office-medium.jpg");
+    background-image: url("../../img/office-medium.jpg");
    @include heroCustomerImg;
    background-attachment: fixed;
+   background-position: 15% 80%;
    align-items: normal;
    margin-top: 2em;
    .your-visits-box{
@@ -137,7 +139,7 @@
 .your-visits {
     position: relative;
     @include sectionBox;
-    background-color: #ffffffe9;
+    background-color: #ffffffbb;
     display: block;
     max-width: 700px;
     z-index: 10;
@@ -295,6 +297,7 @@
 
 .your-visits-section{
     min-height: auto;
+    background-position: 45% 40%;
     .your-visits-box{
         padding-top: 7em;
         padding-bottom: 7em;
