@@ -132,11 +132,14 @@
 .wrench,
 .cut,
 .cut-two,
-.pencil,.pencil-two,.comb,.clipper {
+.pencil,.pencil-two,.comb,.clipper,.screwdriver,.gear,.book,.graduation,.wrench-company,.scissors-company,.pencil-company {
 	position: absolute;
 	color: #0000000e;
 	opacity: 0.1;
 	z-index: -1;
+}
+.comb,.clipper,.screwdriver,.gear,.book,.graduation,.scissors-company,.wrench-company,.pencil-company{
+	display: none;
 }
 
 .wrench {
@@ -187,23 +190,68 @@
 }
 
 .comb{
-	bottom: 30%;
+	bottom: 10%;
 	left: 10%;
+	width: 10%;
+	animation: icon-rotate-left 100s infinite linear;
+}
+
+.clipper{
+	bottom: 20%;
+	right: 7%;
+	width: 14%;
+	animation: icon-rotate-right 90s infinite linear;
+}
+.scissors-company{
+	bottom: 72%;
+	left: 10%;
+	width: 10%;
+	animation: icon-rotate-left 60s infinite linear;
+}
+
+.screwdriver{
+	bottom: 10%;
+	left: 10%;
+	width: 10%;
+	animation: icon-rotate-right 65s infinite linear;
+}
+
+.gear{
+	bottom: 5%;
+	right: 8%;
+	width: 10%;
+	animation: icon-rotate-left 80s infinite linear;
+}
+.wrench-company {
+	bottom: 75%;
+	right: 10%;
 	width: 10%;
 	animation: icon-rotate-left 80s infinite linear;
 }
 
-.clipper{
-	bottom: 10%;
-	right: 10%;
+.book{
+	bottom: 70%;
+	right: 80%;
 	width: 10%;
-	animation: icon-rotate-right 60s infinite linear;
+	animation: icon-rotate-left 85s infinite linear;
+}
+
+.graduation{
+	bottom: 10%;
+	left: 9%;
+	width: 10%;
+	animation: icon-rotate-right 75s infinite linear;
+}
+.pencil-company{
+	bottom: 40%;
+	right: 15%;
+	width: 10%;
+	animation: icon-rotate-right 95s infinite linear;
 }
 
 .hours-wrench,.hours-cut,.hours-pencil{
 	display: none;
 }
-
 
 @media(max-width:992px){
 	.calendar-section{
@@ -220,11 +268,8 @@
 	}
 }
 
-
-
-
 @media (max-width: 480px) {
-		.wrench,.cut,.cut-two,.cut-three,.comb,.clipper,.pencil,.pencil-two {
+		.wrench,.cut,.cut-two,.cut-three,.comb,.clipper,.pencil,.pencil-two,.scissors-company,.screwdriver,.gear,.book,.graduation,.wrench-company,.pencil-company {
 			display: none !important;
 		}	
 }

@@ -12,6 +12,8 @@ const house = document.querySelector('#visit__adress-home-number') as HTMLParagr
 const city = document.querySelector('#visit__adress-city') as HTMLParagraphElement;
 const code = document.querySelector('#visit__adress-code') as HTMLParagraphElement;
 
+const heroCompanyImg = document.querySelector('.hero-img') as HTMLParagraphElement;
+
 
 if (yourProfessionTitle) {
 	yourProfessionTitle.textContent = localStorage.getItem('selectedOptionText');
@@ -19,11 +21,11 @@ if (yourProfessionTitle) {
 
 if (userNameNav) {
 	userNameNav.textContent = localStorage.getItem('name');
-
 }
 
    localStorage.getItem('serviceDay')
    localStorage.getItem("selectedOption");
+   console.log(localStorage.getItem("selectedOption"));
    localStorage.getItem('companyStreet');
    localStorage.getItem("companyHome");
    localStorage.getItem("companyCity");
@@ -44,30 +46,42 @@ if(city){
 if(code){
 	code.textContent =   localStorage.getItem('companyCode');
 }
+
+const combIcon = document.querySelector('.comb') as HTMLElement;
+const clipperIcon = document.querySelector('.clipper') as HTMLElement;
+const scissorsIcon = document.querySelector('.scissors-company') as HTMLElement;
+const barberIcons = [combIcon,clipperIcon,scissorsIcon];
+
+const scredriverIcon = document.querySelector('.screwdriver') as HTMLElement;
+const gearIcon = document.querySelector('.gear') as HTMLElement;
+const wrenchIcon = document.querySelector('.wrench-company') as HTMLElement;
+const mechanicIcons = [scredriverIcon,gearIcon,wrenchIcon];
+
+const bookIcon = document.querySelector('.book') as HTMLElement;
+const graduationIcon = document.querySelector('.graduation') as HTMLElement;
+const pencilIcon = document.querySelector('.pencil-company') as HTMLElement;
+const tutorIcons = [bookIcon,graduationIcon,pencilIcon];
    
 
+if (localStorage.getItem("selectedOption") === "BARBER") {
+	heroCompanyImg.style.backgroundImage = "url('/Reservo-frontend/src/img/barber-large.jpg')";
+
+	barberIcons.forEach(icon => {
+		icon.style.display = "block";
+	})
+}
+
+if (localStorage.getItem("selectedOption") === "TUTOR") {
+	heroCompanyImg.style.backgroundImage = "url('/Reservo-frontend/src/img/tutor-big.jpg')";
+	tutorIcons.forEach(icon => {
+		icon.style.display = "block";
+	})
+}
+if (localStorage.getItem("selectedOption") === "MECHANIC") {
+	heroCompanyImg.style.backgroundImage = "url('/Reservo-frontend/src/img/mechanic-big.jpg')";
+	mechanicIcons.forEach(icon => {
+		icon.style.display = "block";
+	})
+}
 
 
-
-
-
-document.querySelector('#prev')?.addEventListener('click',() => {
-	const td = document.querySelector('td');
-	if (td) {
-	//   prevMonth(td);
-	}
-} );
-
-document.querySelector('#next')?.addEventListener('click',() => {
-	const td = document.querySelector('td');
-	if (td) {
-	//   nextMonth(td);
-	}
-} );
-
-document.addEventListener('DOMContentLoaded', () => {
-	// const td = document.querySelectorAll('td')
-	// prevMonth(td[0])
-	// nextMonth(td[0])
-
-})
