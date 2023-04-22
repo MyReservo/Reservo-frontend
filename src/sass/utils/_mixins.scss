@@ -29,7 +29,7 @@
 @mixin heroCustomerImg {
     display: flex;
 		flex-direction: column;
-		justify-content: space-between;
+        justify-content: end;
 		align-items: center;
 		position: relative;
 		min-height: 78vh;

@@ -33,33 +33,36 @@
         <p id="log-out"> Wyloguj</p>
       </a>
     </div>
-    <div id="burger-btn">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
   </nav>
-    <div class="hero-img ">
-      <h1 class="hero-img__title">
-        <p class="hero-img__title-text">Twoja profesja to</p> <div class="profession-name-box"><span id="profession-name">Fryzjer</span></div>
-      </h1>
-      <a href="#calendar-section" class="arrow"><img src="./src/img/Farrow down.svg" alt="arrow icon"></a>
-      <div class="header-shadow"></div>
+  <div id="burger-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+<header>
+  <div class="hero-img ">
+    <h1 class="hero-img__title">
+      <p class="hero-img__title-text">Twoja profesja to</p> <div class="profession-name-box"><span id="profession-name">Fryzjer</span></div>
+    </h1>
+    <a href="#calendar-section" class="arrow"><img src="./src/img/Farrow down.svg" alt="arrow icon"></a>
+    <div class="header-shadow"></div>
+  </div>
+  
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="nav-shadow-box__user-box-side-nav">
+      <ul>
+        <li>
+          <p class="user-name"><i class="fas fa-user"></i>Nazwa użytkownika</p>
+        </li>
+        <li><a href="#reservations"><i class="far fa-sticky-note"></i>Moje spotkania</a></li>
+        <li><a href="./index.html">
+            <p id="log-out"><i class="fas fa-sign-out-alt"></i>Wyloguj</p>
+          </a></li>
+      </ul>
     </div>
-    
-    <div class="mobile-nav" id="mobile-nav">
-      <div class="nav-shadow-box__user-box-side-nav">
-        <ul>
-          <li>
-            <p class="user-name"><i class="fas fa-user"></i>Nazwa użytkownika</p>
-          </li>
-          <li><a href="#reservations"><i class="far fa-sticky-note"></i>Moje spotkania</a></li>
-          <li><a href="./index.html">
-              <p id="log-out"><i class="fas fa-sign-out-alt"></i>Wyloguj</p>
-            </a></li>
-        </ul>
-      </div>
-    </div>
+  </div>
+</header>
 
     <section class="calendar-section" id="calendar-section">
       <h2>Twoje wizyty</h2>
@@ -96,7 +99,7 @@
     </section>
 
   <div class="your-visits">
-    <h2>Umówione wizyty:</h2>
+    <h2>Szczegóły wizyty:</h2>
     <div class="visit">
       <div class="visit__customers-name">
         <p>Imię klienta:</p> <span id="customers-name"></span>

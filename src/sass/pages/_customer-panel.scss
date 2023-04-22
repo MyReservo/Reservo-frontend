@@ -526,17 +526,17 @@
 		display: flex;
 		flex-direction: column;
 	}
+	#burger-btn {
+		display: block;
+		margin: 2em;
+		span {
+			width: 80%;
+			height: 5px;
+		}
+	}
 	.header {
 		.hero-img {
 			background-image: url('../../img/city-medium.jpg');
-			#burger-btn {
-				display: block;
-				margin: 2em;
-				span {
-					width: 80%;
-					height: 5px;
-				}
-			}
 		}
 
 		h1 {
@@ -679,6 +679,7 @@
 }
 
 @media (max-width: 480px) {
+
 	.header {
 		display: none;
 	}
@@ -688,14 +689,26 @@
 		z-index: 1;
 		margin-bottom: 9em;
 	}
+	#burger-btn{
+		display: none;
+	}
 
 	#header-mobile {
 		display: block;
+
+		.mobile-btn {
+			display: block;
+			margin: 2em;
+			span {
+				width: 80%;
+				height: 5px;
+			}
+		}
 		.hero-img-mobile {
 			background-image: url('../../img/city-medium.jpg');
 			@include heroCustomerImg;
 			min-height: 100vh;
-			justify-content: space-between;
+			justify-content: end;
 			.header-shadow {
 				@include headerShadow;
 				background-color: $headerBgc;
@@ -709,14 +722,6 @@
 
 				.input {
 					font-size: 1.4rem;
-				}
-			}
-			#burger-btn {
-				display: block;
-				margin: 2em;
-				span {
-					width: 80%;
-					height: 5px;
 				}
 			}
 		}
