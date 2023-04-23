@@ -122,11 +122,11 @@ window.matchMedia('(max-width:768px)').addEventListener('change', () => {
 	if (localStorage.getItem('selectedOption') === 'MECHANIC') {
 		if (window.matchMedia('(max-width:768px)').matches) {
 			if (heroCompanyImg) {
-				heroCompanyImg.style.backgroundImage = "url('src/img/mechanic-small.jpg')";
+				heroCompanyImg.style.backgroundImage = "url('/images/mechanic-small.jpg')";
 			}
 		} else {
 			if (heroCompanyImg) {
-				heroCompanyImg.style.backgroundImage = "url('src/img/mechanic-big.jpg')";
+				heroCompanyImg.style.backgroundImage = "url('/images/mechanic-big.jpg')";
 			}
 		}
 	}
