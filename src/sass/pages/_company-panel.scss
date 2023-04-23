@@ -10,8 +10,11 @@
 
 .hero-img{
     // // background-image: url('../../img/barber-large.jpg');
-    // // background-image: url('../../img/tutor-big.jpg');
-    // background-image: url('../../img/mechanic-big.jpg');
+    // // // background-image: url('../../img/tutor-big.jpg');
+    // background-image: url('./images/tutor-small.jpg');
+    // background-image: url("../../img/buildings-large.jpg");
+    // background-image: url("/images/mechanic-small.jpg')");
+    background-image: url("/images/mechanic-big/jpg");
 	@include heroCustomerImg;
     justify-content: center;
     height: 100vh;

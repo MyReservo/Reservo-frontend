@@ -79,11 +79,11 @@ if (localStorage.getItem('selectedOption') === 'TUTOR') {
 if (localStorage.getItem('selectedOption') === 'MECHANIC') {
 	if (window.matchMedia('(max-width:768px)').matches) {
 		if (heroCompanyImg) {
-			heroCompanyImg.style.backgroundImage = "url('../src/img/mechanic-small.jpg')";
+			heroCompanyImg.style.backgroundImage = "url('/images/mechanic-small.jpg')";
 		}
 	} else if (window.matchMedia('(min-width:769px)').matches) {
 		if (heroCompanyImg) {
-			heroCompanyImg.style.backgroundImage = "url('../src/img/mechanic-big.jpg')";
+			heroCompanyImg.style.backgroundImage = "url('/images/mechanic-big.jpg')";
 		}
 	}
 	mechanicIcons.forEach(icon => {
@@ -95,9 +95,13 @@ if (localStorage.getItem('selectedOption') === 'MECHANIC') {
 
 if (localStorage.getItem('selectedOption') === 'BARBER') {
 	if (window.matchMedia('(max-width:768px)').matches) {
-		heroCompanyImg.style.backgroundImage = "url('src/img/barber-small.jpg')";
+		if(heroCompanyImg){
+			heroCompanyImg.style.backgroundImage = "url('src/img/barber-small.jpg')";
+		}
 	} else if (window.matchMedia('(min-width:769px)').matches) {
-		heroCompanyImg.style.backgroundImage = "url('src/img/barber-medium.jpg')";
+		if(heroCompanyImg){
+			heroCompanyImg.style.backgroundImage = "url('src/img/barber-medium.jpg')";
+		}
 	}
 
 	barberIcons.forEach(icon => {
