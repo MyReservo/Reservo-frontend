@@ -8,11 +8,16 @@ export default defineConfig({
     tsconfigPaths(),
   ],
   build: {
+
+    outDir: 'dist',
+    assetsDir: 'assets', 
+
     rollupOptions: {
       input: {
         main: 'index.html',
         customerPanel: 'customer-panel.html',
-        companyPanel: 'company-panel.html' 
+        companyPanel: 'company-panel.html',
+        companyPanelTs: 'src/ts/company-panel.ts',
       },
       output: {
         manualChunks(id) {
@@ -23,8 +28,9 @@ export default defineConfig({
         format: 'es',
         entryFileNames: '[name].[hash].js',
         chunkFileNames: 'chunks/[name].[hash].js',
-        assetFileNames: '[name].[hash].[ext]',
-        dir: 'dist',
+        // assetFileNames: '[name].[hash].[ext]',
+        // dir: 'dist',
+       assetFileNames: 'images/[name]-[hash].[ext]', 
       },
     },
   },

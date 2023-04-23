@@ -51,8 +51,9 @@ const barberIcons = [combIcon, clipperIcon, scissorsIcon];
 
 const scredriverIcon = document.querySelector('.screwdriver') as HTMLElement;
 const gearIcon = document.querySelector('.gear') as HTMLElement;
+const gearTwoIcon = document.querySelector('.gear-two') as HTMLElement;
 const wrenchIcon = document.querySelector('.wrench-company') as HTMLElement;
-const mechanicIcons = [scredriverIcon, gearIcon, wrenchIcon];
+const mechanicIcons = [scredriverIcon, gearIcon,gearTwoIcon,wrenchIcon];
 
 const bookIcon = document.querySelector('.book') as HTMLElement;
 const graduationIcon = document.querySelector('.graduation') as HTMLElement;
@@ -60,90 +61,32 @@ const pencilIcon = document.querySelector('.pencil-company') as HTMLElement;
 const tutorIcons = [bookIcon, graduationIcon, pencilIcon];
 
 if (localStorage.getItem('selectedOption') === 'TUTOR') {
-	if (window.matchMedia('(max-width:768px)').matches) {
 		if (heroCompanyImg) {
-			heroCompanyImg.style.backgroundImage = "url('../src/img/tutor-small.jpg')";
+			heroCompanyImg.classList.add('tutor-img');
 		}
-	} else if (window.matchMedia('(min-width:769px)').matches) {
-		if (heroCompanyImg) {
-			heroCompanyImg.style.backgroundImage = "url('../src/img/tutor-medium.jpg')";
-		}
+		tutorIcons.forEach(icon => {
+			if (icon) {
+				icon.style.display = 'block';
+			}
+		});
 	}
-	tutorIcons.forEach(icon => {
-		if (icon) {
-			icon.style.display = 'block';
-		}
-	});
-}
-
 if (localStorage.getItem('selectedOption') === 'MECHANIC') {
-	if (window.matchMedia('(max-width:768px)').matches) {
 		if (heroCompanyImg) {
-			heroCompanyImg.style.backgroundImage = "url('/images/mechanic-small.jpg')";
+			heroCompanyImg.classList.add('mechanic-img');
 		}
-	} else if (window.matchMedia('(min-width:769px)').matches) {
-		if (heroCompanyImg) {
-			heroCompanyImg.style.backgroundImage = "url('/images/mechanic-big.jpg')";
-		}
-	}
 	mechanicIcons.forEach(icon => {
 		if (icon) {
 			icon.style.display = 'block';
 		}
 	});
 }
-
 if (localStorage.getItem('selectedOption') === 'BARBER') {
-	if (window.matchMedia('(max-width:768px)').matches) {
 		if(heroCompanyImg){
-			heroCompanyImg.style.backgroundImage = "url('src/img/barber-small.jpg')";
+			heroCompanyImg.classList.add('barber-img');
 		}
-	} else if (window.matchMedia('(min-width:769px)').matches) {
-		if(heroCompanyImg){
-			heroCompanyImg.style.backgroundImage = "url('src/img/barber-medium.jpg')";
-		}
-	}
-
 	barberIcons.forEach(icon => {
 		if (icon) {
 			icon.style.display = 'block';
 		}
 	});
 }
-
-window.matchMedia('(max-width:768px)').addEventListener('change', () => {
-	if (localStorage.getItem('selectedOption') === 'BARBER') {
-		if (window.matchMedia('(max-width:768px)').matches) {
-			if (heroCompanyImg) {
-				heroCompanyImg.style.backgroundImage = "url('src/img/barber-small.jpg')";
-			}
-		} else {
-			if (heroCompanyImg) {
-				heroCompanyImg.style.backgroundImage = "url('src/img/barber-medium.jpg')";
-			}
-		}
-	}
-	if (localStorage.getItem('selectedOption') === 'MECHANIC') {
-		if (window.matchMedia('(max-width:768px)').matches) {
-			if (heroCompanyImg) {
-				heroCompanyImg.style.backgroundImage = "url('/images/mechanic-small.jpg')";
-			}
-		} else {
-			if (heroCompanyImg) {
-				heroCompanyImg.style.backgroundImage = "url('/images/mechanic-big.jpg')";
-			}
-		}
-	}
-
-	if (localStorage.getItem('selectedOption') === 'TUTOR') {
-		if (window.matchMedia('(max-width:768px)').matches) {
-			if (heroCompanyImg) {
-				heroCompanyImg.style.backgroundImage = "url('../src/img/tutor-small.jpg')";
-			}
-		} else {
-			if (heroCompanyImg) {
-				heroCompanyImg.style.backgroundImage = "url('../src/img/tutor-medium.jpg')";
-			}
-		}
-	}
-});

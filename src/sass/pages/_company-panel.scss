@@ -7,14 +7,16 @@
 @use "../components/footer" as *;
 @use "../utils/animations" as *;
 @use "../utils/mixins" as *;
+@use "../utils/professions-img.scss" as *;
 
 .hero-img{
-    // // background-image: url('../../img/barber-large.jpg');
+    // background-image: url('../../img/barber-large.jpg');
     // // // background-image: url('../../img/tutor-big.jpg');
     // background-image: url('./images/tutor-small.jpg');
     // background-image: url("../../img/buildings-large.jpg");
     // background-image: url("/images/mechanic-small.jpg')");
-    background-image: url("/images/mechanic-big/jpg");
+    // background-image: url("/images/mechanic-big/jpg");
+    // background-image: url("");
 	@include heroCustomerImg;
     justify-content: center;
     height: 100vh;
@@ -92,7 +94,17 @@
 	text-align: center;
 }
 
+
+.calendar-wrapper{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    max-width: 1650px;
+}
+
 .calendar-section{
+    position: static;
     margin-top: 0;
     background-image: none;
 
@@ -214,15 +226,6 @@
     }
 }
 
-// @media(max-width: 1200px){
-//     header{
-
-//         .hero-img{
-//             background-image: url('../../img/barber-medium.jpg');
-//         }
-//     }
-// }
-
 
 @media(max-width: 992px) {
 
@@ -240,11 +243,24 @@
         width: 80%;
     }
 
+    .barber-img{
+        background-position: 50% ;
+
+    }
+
 }
 @media(max-width: 768px) {
     #burger-btn{
         display: block;
     }
+
+        .tutor-img{
+            background-position: 50% ;
+        }
+        .mechanic-img{
+            background-image: url("../../img/markus-spiske-cjOAigK9xo0-unsplash.jpg");
+        }
+
 
 
     .hero-img{
@@ -268,7 +284,6 @@
     }
 
    .wrapper-calendar{
-
     .calendar-title{
         h4{
             font-size: 2rem;
@@ -277,6 +292,10 @@
         }
     }
 
+   }
+
+   .your-visits-section{
+    background-position: 57%;
    }
 
    .your-visits{
@@ -298,6 +317,7 @@
 }
 
 @media(max-width: 576px) {
+.hero-img{
 
     .hero-img__title{
         font-size: 3.5rem;
@@ -305,6 +325,8 @@
             font-size: 6rem;
         }
     }
+
+}
 
 .your-visits-section{
     min-height: auto;
@@ -336,6 +358,17 @@
             margin: .7em;
         }
     }
+
+.hero-img{
+
+    .hero-img__title{
+        font-size: 3rem;
+        #profession-name{
+            font-size: 5rem;
+        }
+    }
+}
+
 }
 
 
