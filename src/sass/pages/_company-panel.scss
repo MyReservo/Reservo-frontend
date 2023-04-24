@@ -247,6 +247,11 @@
         background-position: 50% ;
 
     }
+    .hero-img{
+        .arrow{
+            top: 76%;
+        }
+    }
 
 }
 @media(max-width: 768px) {
@@ -364,6 +369,7 @@
 .hero-img{
 
     .arrow{
+        top: 80%;
         img{
             width: 70px;
         }
