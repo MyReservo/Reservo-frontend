@@ -32,7 +32,7 @@ To run this project, you must have the following dependencies installed:
 
 The project has no specific requirements for Node.js and NPM versions, but I recommend using the latest stable versions to avoid compatibility issues.
 ### To install the project, follow these steps:
-1. Install Node.js and NPM:
+#### 1. Install Node.js and NPM:
 
 Go to the official Node.js website - https://nodejs.org/en/download/
 
@@ -43,19 +43,22 @@ After downloading the setup file, run it and follow the on-screen instructions.
 Verify that Node.js and NPM have been installed correctly by typing in the command line: <br>
  <img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/img/npm-version.png" alt="node and npm version code" width="620" height="180"/> 
 
-2. Clone this repository using the Git command: 
-<img src="https://raw.githubusercontent.com/MyReservo/Reservo-frontend/master/assets/img/clone.png" alt="clone code" width="630" height="130" />
+#### 2. Clone this repository using the Git command: 
+<img src="https://raw.githubusercontent.com/MyReservo/Reservo-frontend/master/assets/img/clone.png" alt="clone code" width="660" height="130" />
 
-3. Install Vite globally using the NPM command:
+#### 3. Navigate to the directory where you cloned the repository using the cd command. For example, if you cloned the repository in your "Documents" folder, you would type the following command:
+<img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/img/cd.png" alt="instal vite code" width="460" height="130" />
+
+ #### 4. Install Vite globally using the NPM command:
 <img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/img/vite.png" alt="instal vite code" width="330" height="130" />
 
-4. To run the project, use the NPM command:
+#### 5. To run the project, use the NPM command:
 <img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/img/runDev.png" alt="run dev code" width="240" height="130" />
 
-5. To build the project, use the NPM command:
+#### 6. To build the project, use the NPM command:
 <img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/img/buildDev.png" alt="run build code" width="730" height="130" />
 
-6. Go to the project directory and install all NPM dependencies by typing in the console:
+#### 7. Go to the project directory and install all NPM dependencies by typing in the console:
 <img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/img/npmInstall.png" alt="install npm dep code" width="250" height="130" />
 
 ## Screenshots
