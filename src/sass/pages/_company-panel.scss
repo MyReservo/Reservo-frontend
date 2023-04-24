@@ -265,7 +265,7 @@
 
     .hero-img{
         .arrow{
-            top: 75%;
+            top: 70%;
         }
 
         .hero-img__title{
@@ -363,6 +363,11 @@
 
 .hero-img{
 
+    .arrow{
+        img{
+            width: 70px;
+        }
+    }
     .hero-img__title{
         font-size: 3rem;
         #profession-name{
