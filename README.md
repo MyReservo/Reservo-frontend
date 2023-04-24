@@ -1,3 +1,39 @@
+# Reservo <img src="./src/img/pencil.png" alt="pencil icon" width="30px">
+
+
+
+This project is intended both for people looking for a specific service (customers) and for people who run a business and want to acquire customers. This web application allows customers to book an appointment at a specific time and place. On the other hand, people providing services will have access to a calendar in their panel, which will display the days on which they have an appointment with the client to perform their service.
+## Tech Stack
+
+Type Script, <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/>Java Script, Sass, HTML5, Cypress
+
+
+
+
+## Features
+
+- Registration as a customer and as a person providing services
+- Login
+- Booking appointments
+- Responsive Web Design
+
+
+
+## Installation
+
+Install my-project with npm
+
+```bash
+  npm install my-project
+  cd my-project
+```
+    
+## Screenshots
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+
+
 Application under construction...
 live: https://rezervo.github.io/Reservo-frontend/
 
