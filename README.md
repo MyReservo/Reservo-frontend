@@ -15,15 +15,12 @@ https://rezervo.github.io/Reservo-frontend/index.html
  <a href="https://www.cypress.io" target="_blank" rel="noreferrer"> <img src="https://media.slid.es/avatars/1098231/Cypress_Logomark_Color_Dark_BG.jpg" alt="cypress" width="40" height="40"/> </a>
 
 
-
-
 ## Features
 
 - Registration as a customer and as a person providing services
 - Login
 - Booking appointments (will be added soon)
 - Responsive Web Design
-
 
 
 ## Installation
@@ -67,7 +64,6 @@ Verify that Node.js and NPM have been installed correctly by typing in the comma
 ## Screenshots
 
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
 
 
  ## How it's working?
