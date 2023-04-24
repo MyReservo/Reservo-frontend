@@ -41,22 +41,22 @@ Select the appropriate installation file for your operating system and download 
 After downloading the setup file, run it and follow the on-screen instructions.
 
 Verify that Node.js and NPM have been installed correctly by typing in the command line: <br>
- <img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/img/npm-version.png" alt="node and npm version code" width="550" height="200"/> 
+ <img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/img/npm-version.png" alt="node and npm version code" width="550" height="180"/> 
 
 2. Clone this repository using the Git command: 
-<img src="https://raw.githubusercontent.com/MyReservo/Reservo-frontend/master/assets/img/clone.png" alt="clone code" width="600" height="200" />
+<img src="https://raw.githubusercontent.com/MyReservo/Reservo-frontend/master/assets/img/clone.png" alt="clone code" width="600" height="180" />
 
 3. Install Vite globally using the NPM command:
-<img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/img/vite.png" alt="instal vite code" width="350" height="180" />
+<img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/img/vite.png" alt="instal vite code" width="350" height="160" />
 
 4. To run the project, use the NPM command:
-<img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/img/runDev.png" alt="run dev code" width="350" height="180" />
+<img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/img/runDev.png" alt="run dev code" width="300" height="160" />
 
 5. To build the project, use the NPM command:
-<img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/img/build.png" alt="run build code" width="650" height="200" />
+<img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/img/build.png" alt="run build code" width="690" height="180" />
 
 6. Go to the project directory and install all NPM dependencies by typing in the console:
-<img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/img/npmInstall.png" alt="install npm dep code" width="300" height="150" />
+<img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/img/npmInstall.png" alt="install npm dep code" width="250" height="140" />
 
 ## Screenshots
 
