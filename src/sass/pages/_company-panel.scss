@@ -265,7 +265,7 @@
 
     .hero-img{
         .arrow{
-            top: 80%;
+            top: 75%;
         }
 
         .hero-img__title{
@@ -318,7 +318,9 @@
 
 @media(max-width: 576px) {
 .hero-img{
-
+        .arrow{
+            top: 70%;
+        }
     .hero-img__title{
         font-size: 3.5rem;
         #profession-name{
