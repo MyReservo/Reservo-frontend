@@ -1,10 +1,7 @@
-@use 'colors' as *;
-@use 'btn' as *;
-@use 'main' as *;
+@use 'src/sass/utils/colors' as *;
+@use 'src/sass/components/btn' as *;
+@use 'src/sass/main.scss' as *;
 
-// html{
-//     min-width: 100vw;
-// }
 
 .wrapper {
 	margin: 100px auto 100px;
@@ -15,9 +12,6 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	// min-width: 100%;
-	// height: 100%;
-	// width: 100vw;
 	min-height: 100vh;
 	background-size: 300% 300%;
 	background-image: $aquablue;
@@ -27,19 +21,14 @@
 }
 h1 {
 	margin-bottom: 2em;
-	// margin-bottom: 0;
-
 	font-size: 3.5rem;
 }
 
 #form {
 	justify-content: center;
 	align-items: center;
-	// min-width: 650px;
 	font-size: 2.3rem;
 	padding: 2.6em;
-	// width: 90%;
-	// padding: 2.5em 6em 1em 6em;
 }
 .basic-info-data {
 	width: 100%;
