@@ -17,28 +17,6 @@
 
 <body class="customer-panel-body">
 
-  <nav class="nav-shadow-box">
-    <div class="nav-shadow"></div>
-    <a href="./customer-panel.html">
-      <p class="panel-title">Reservo
-        <img src="./src/img/pencil.png" alt="pencil icon">
-      </p>
-    </a>
-    
-    <div class="nav-shadow-box__user-box">
-
-      <a href="#reservations"><i class="far fa-sticky-note"></i>Moje rezerwacje</a>
-      <div class="nav-shadow-box__user">
-        <i class="fas fa-user"></i>
-        <p class="user-name">Nazwa użytkownika</p>
-      </div>
-
-      <a href="./index.html">
-        <i class="fas fa-sign-out-alt"> </i>
-        <p id="log-out"> Wyloguj</p>
-      </a>
-    </div>
-  </nav>
   <div id="burger-btn">
     <span></span>
     <span></span>
@@ -47,49 +25,73 @@
 
   <header class="header">
     <div class="hero-img">
+      <nav class="nav-shadow-box">
+        <div class="nav-shadow"></div>
+        <a href="./customer-panel.html">
+          <p class="panel-title">Reservo
+            <img src="./src/img/pencil.png" alt="pencil icon">
+          </p>
+        </a>
 
+        <div class="nav-shadow-box__user-box">
+
+          <a href="#reservations"><i class="far fa-sticky-note"></i>Moje rezerwacje</a>
+          <div class="nav-shadow-box__user">
+            <i class="fas fa-user"></i>
+            <p class="user-name">Nazwa użytkownika</p>
+          </div>
+
+          <a href="./index.html">
+            <i class="fas fa-sign-out-alt"> </i>
+            <p id="log-out"> Wyloguj</p>
+          </a>
+        </div>
+      </nav>
       <div class="header-shadow"></div>
 
-      <div class="header__title">
-        <h1>
-          <div class="header__text"> Umów
-            się na wizytę z
-          </div>
-          <div class="reservo">
-            <span>Reservo</span>
-            <span class="underline"></span>
-          </div>
-        </h1>
-      </div>
 
-      <div class="pick-profession-box">
-        <div class="pick-profession-box__icons">
-          <i class="fas fa-toolbox"></i>
-          <i class="far fa-building"></i>
+      <div class="header-box">
+        <div class="header__title">
+          <h1>
+            <div class="header__text"> Umów
+              się na wizytę z
+            </div>
+            <div class="reservo">
+              <span>Reservo</span>
+              <span class="underline"></span>
+            </div>
+          </h1>
         </div>
 
-        <div class="pick-profession-box__select-box">
-          <div class="pick-profession-box__select-services">
-            <select name="calendar-services" id="calendar-services" class="input">
-              <option value="default" id="default" selected disabled>Wybierz usługę</option>
-              <option value="TUTOR" id="tutor">Korepetycje</option>
-              <option value="BARBER" id="barber">Fryzjer</option>
-              <option value="MECHANIC" id="mechanic">Mechanik</option>
-            </select>
+        <div class="pick-profession-box">
+          <div class="pick-profession-box__icons">
+            <i class="fas fa-toolbox"></i>
+            <i class="far fa-building"></i>
           </div>
 
-          <div class="pick-profession-box__select-city">
-            <select name="calendar-city" id="calendar-city" class="input">
-              <option value="default" id="default" selected disabled>Wybierz miasto</option>
-              <option value="wroclaw" id="wroclaw">Wrocław</option>
-              <option value="warsaw" id="warsaw">Warszawa</option>
-              <option value="cracow" id="cracow">Kraków</option>
-            </select>
+          <div class="pick-profession-box__select-box">
+            <div class="pick-profession-box__select-services">
+              <select name="calendar-services" id="calendar-services" class="input">
+                <option value="default" id="default" selected disabled>Wybierz usługę</option>
+                <option value="TUTOR" id="tutor">Korepetycje</option>
+                <option value="BARBER" id="barber">Fryzjer</option>
+                <option value="MECHANIC" id="mechanic">Mechanik</option>
+              </select>
+            </div>
+
+            <div class="pick-profession-box__select-city">
+              <select name="calendar-city" id="calendar-city" class="input">
+                <option value="default" id="default" selected disabled>Wybierz miasto</option>
+                <option value="wroclaw" id="wroclaw">Wrocław</option>
+                <option value="warsaw" id="warsaw">Warszawa</option>
+                <option value="cracow" id="cracow">Kraków</option>
+              </select>
+            </div>
           </div>
         </div>
       </div>
+      
     </div>
-
     <div class="header__btn">
       <a href="#pick-person-and-location">
         <button class="submit-btn">Szukaj</button>
@@ -100,36 +102,36 @@
 
   <!-- ///// header on mobile -->
   <header id="header-mobile">
-    <nav class="nav-shadow-box">
-      <div class="nav-shadow"></div>
-      <a href="./customer-panel.html">
-        <p class="panel-title">Reservo
-          <img src="./src/img/pencil.png" alt="pencil icon">
-        </p>
-      </a>
+   
 
-      <div class="nav-shadow-box__user-box">
-
-        <a href="#reservations"><i class="far fa-sticky-note"></i>Moje rezerwacje</a>
-        <div class="nav-shadow-box__user">
-          <i class="fas fa-user"></i>
-          <p class="user-name">Nazwa użytkownika</p>
-        </div>
-
-        <a href="./index.html">
-          <i class="fas fa-sign-out-alt"> </i>
-          <p id="log-out"> Wyloguj</p>
-        </a>
-      </div>
-    </nav>
- 
     <div id="burger-btn" class="mobile-btn">
       <span></span>
       <span></span>
       <span></span>
-    </div> 
+    </div>
     <div class="hero-img-mobile">
-      
+      <nav class="nav-shadow-box">
+        <div class="nav-shadow"></div>
+        <a href="./customer-panel.html">
+          <p class="panel-title">Reservo
+            <img src="./src/img/pencil.png" alt="pencil icon">
+          </p>
+        </a>
+  
+        <div class="nav-shadow-box__user-box">
+  
+          <a href="#reservations"><i class="far fa-sticky-note"></i>Moje rezerwacje</a>
+          <div class="nav-shadow-box__user">
+            <i class="fas fa-user"></i>
+            <p class="user-name">Nazwa użytkownika</p>
+          </div>
+  
+          <a href="./index.html">
+            <i class="fas fa-sign-out-alt"> </i>
+            <p id="log-out"> Wyloguj</p>
+          </a>
+        </div>
+      </nav>
       <div class="header-shadow"></div>
 
       <div class="header-mobile-container">
@@ -247,35 +249,37 @@
         </div>
         <div class="service-location__second-box">
           <div class="service-location__second-box-shadow"></div>
-         <p class="service-location__second-box-text"> Wybierz miejsce, a następnie przejdź do kalenarza, aby wybrać datę spotkania. </p></div>
+          <p class="service-location__second-box-text"> Wybierz miejsce, a następnie przejdź do kalenarza, aby wybrać
+            datę spotkania. </p>
+        </div>
       </div>
     </div>
 
     <div class="client-adress">
       <div class="client-adress__title">Podaj swój adres</div>
-     <div class="client-adress__body">
-      <label for="client-street">Ulica</label>
-      <input type="text" name="client-street" class="input" id="client-street">
-      <label for="client-street">Nr.domu</label>
-      <input type="text" name="client-house" class="input" id="client-house">
-      <label for="client-street">Miasto</label>
-      <input type="text" name="client-city" class="input" id="client-city">
-      <a href="#calendar-section">
-        <button class="submit-btn">OK</button>
-      </a>
-     </div>
+      <div class="client-adress__body">
+        <label for="client-street">Ulica</label>
+        <input type="text" name="client-street" class="input" id="client-street">
+        <label for="client-street">Nr.domu</label>
+        <input type="text" name="client-house" class="input" id="client-house">
+        <label for="client-street">Miasto</label>
+        <input type="text" name="client-city" class="input" id="client-city">
+        <a href="#calendar-section">
+          <button class="submit-btn">OK</button>
+        </a>
+      </div>
     </div>
     <div class="company-adress">
       <div class="client-adress__title">Adres lokalu</div>
-    <div class="company-adress__body">
-      <div class="company-adress__item"><span>Ulica: </span><span id="company-street"></span></div>
-      <div class="company-adress__item"><span>Nr.Domu: </span><span id="company-home-number"></span></div>
-      <div class="company-adress__item"><span>Miasto: </span><span id="company-city"></span></div>
-      <div class="company-adress__item"><span>Kod pocztowy: </span><span id="company-code"></span></div>
-      <a href="#calendar-section">
-        <button class="submit-btn">OK</button>
-      </a>
-    </div>
+      <div class="company-adress__body">
+        <div class="company-adress__item"><span>Ulica: </span><span id="company-street"></span></div>
+        <div class="company-adress__item"><span>Nr.Domu: </span><span id="company-home-number"></span></div>
+        <div class="company-adress__item"><span>Miasto: </span><span id="company-city"></span></div>
+        <div class="company-adress__item"><span>Kod pocztowy: </span><span id="company-code"></span></div>
+        <a href="#calendar-section">
+          <button class="submit-btn">OK</button>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -333,42 +337,42 @@
       <button class="submit-btn" type='submit' id="send">Umów się</button>
     </div>
   </section>
-  
+
 
   <!-- <div class="my-reservations" id="reservations">123</div> -->
 
   <footer class="footer">
     <div class="footer__container">
       <p class="footer__name"><a href="./customer-panel.html">
-        Reservo
-      <img src="./src/img/pencil.png" alt="pencil icon">
-      </a>
+          Reservo
+          <img src="./src/img/pencil.png" alt="pencil icon">
+        </a>
       </p>
 
 
-  <div class="horizontal-line"></div>
+      <div class="horizontal-line"></div>
 
       <div class="footer__cards">
-          <div class="footer__card">
-              <p class="footer__heading">O nas</p>
-              <p class="footer__text">Historia</p>
-              <p class="footer__text">Opinie</p>
+        <div class="footer__card">
+          <p class="footer__heading">O nas</p>
+          <p class="footer__text">Historia</p>
+          <p class="footer__text">Opinie</p>
 
-          </div>
-          <div class="footer__card">
-              <p class="footer__heading">Nasza firma</p>
-              <p class="footer__text">Praca</p>
-              <p class="footer__text">Zarząd</p>
-          </div>
-          <div class="footer__card">
-              <p class="footer__heading">Siedziba firmy</p>
-              <p class="footer__text">ul. Noworoczna 20/77</p>
-              <p class="footer__text">Warszawa 02-077</p>
-          </div>
+        </div>
+        <div class="footer__card">
+          <p class="footer__heading">Nasza firma</p>
+          <p class="footer__text">Praca</p>
+          <p class="footer__text">Zarząd</p>
+        </div>
+        <div class="footer__card">
+          <p class="footer__heading">Siedziba firmy</p>
+          <p class="footer__text">ul. Noworoczna 20/77</p>
+          <p class="footer__text">Warszawa 02-077</p>
+        </div>
       </div>
-  </div>
-  <hr>
-  <p class="footer__company">&copy; 2023 Rerservo Group Company Ltd. </p>
+    </div>
+    <hr>
+    <p class="footer__company">&copy; 2023 Rerservo Group Company Ltd. </p>
   </footer>
 
   <!-- <script src="./src/js/calendar.js"></script> -->

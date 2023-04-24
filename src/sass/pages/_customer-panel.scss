@@ -32,6 +32,7 @@
 	}
 
 	&__title {
+		position: relative;
 		display: flex;
 		margin-bottom: 5em;
 		color: #fff;
@@ -68,12 +69,22 @@
 		animation: header-text-slide-right 1s;
 	}
 
+	&-box{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		align-self: flex-end;
+	}
+
 	&__btn {
+		position: relative;
 		margin: 0 auto;
-		width: 45%;
+		width: 40%;
 		max-width: 700px;
 		padding: 1em;
 		text-align: center;
+		z-index: 5;
 		border-bottom-left-radius: 10px;
 		border-bottom-right-radius: 10px;
 		background-color: #fff;
@@ -87,26 +98,19 @@
 }
 
 .pick-profession-box {
-	position: relative;
-	bottom: 0;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-evenly;
-	width: 45%;
+	width: 40%;
 	max-width: 700px;
 	padding: 2.3em;
-	text-align: center;
+	z-index: 5;
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
 	background-color: $secondary;
 	box-shadow: 0 20px 30px rgba(0, 0, 0, 0.12);
-	z-index: 5;
 	animation: header-div-slide-top 1.5s 0.5s both;
 
 	&__icons {
 		display: flex;
-		width: 100%;
+		// width: 100%;
 		justify-content: space-evenly;
 		font-size: 3rem;
 		margin-bottom: 0.5em;
@@ -142,6 +146,8 @@
 		font-size: 2.3rem;
 	}
 }
+
+
 
 .pick-person-and-location {
 	position: relative;
@@ -686,8 +692,12 @@
 
 
 	.header-mobile-container {
-		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		margin-bottom: 9em;
+		text-align: center;
+		z-index: 1;
 	}
 	#burger-btn{
 		display: none;
@@ -708,13 +718,18 @@
 			background-image: url('../../img/city-medium.jpg');
 			@include heroCustomerImg;
 			min-height: 100vh;
-			justify-content: end;
+			align-items: center;
+
+			.nav-shadow-box{
+				align-self: baseline
+			}
+
 			.header-shadow {
 				@include shadow;
 				background-color: $headerBgc;
 			}
 			.pick-profession-box {
-				width: 100%;
+				// width: 100%;
 				background-color: transparent;
 				padding: 2em 0em 2em;
 				box-shadow: inset 0px 1px 15px 0px $secondary;
