@@ -73,7 +73,7 @@ Verify that Node.js and NPM have been installed correctly by typing in the comma
 <img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/screenshots/login.png" alt="login screenshot" style="width:60%;">
 
 ### Customer panel
-<img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/screenshots/customer-header.png" alt="landing page screenshot" style="width:70%;">
+<img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/screenshots/customer-head.png" alt="landing page screenshot" style="width:70%;">
 <img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/screenshots/your-visit.png" alt="pick person screenshot" style="width:60%;">
 <img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/screenshots/calendar-customer.png" alt="calendar screenshot" style="width:60%;">
 
