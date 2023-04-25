@@ -44,7 +44,7 @@ After downloading the setup file, run it and follow the on-screen instructions.
 Verify that Node.js and NPM have been installed correctly by typing in the command line: <br>
  <img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/img/npm-version.png" alt="node and npm version code" width="650" height="180"/> 
 
-#### 2. Clone this repository using the Git command: 
+#### 2. Clone this repository using the Git command: (before clone, make sure You have installed git on Your computer)
 <img src="https://raw.githubusercontent.com/MyReservo/Reservo-frontend/master/assets/img/clone.png" alt="clone code" width="680" height="130" />
 
 #### 3. Navigate to the directory where you cloned the repository using the cd command. For example, if you cloned the repository in your "Documents" folder, you would type the following command:
