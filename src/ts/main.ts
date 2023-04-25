@@ -7,19 +7,10 @@ import { dataInputsCreator, companyAdress } from './new-elements';
  export const customerInput = document.querySelector('#user') as HTMLInputElement;
  export const checkCompanyInput = document.querySelector('#company') as HTMLInputElement;
 
-
  export const nameInput = document.querySelector('#name') as HTMLInputElement;
-
  export const surnameInput = document.querySelector('#surname') as HTMLInputElement;
-
  export const numberInput = document.querySelector('#phone') as HTMLInputElement;
-//  export const emailInput = document.querySelector('#email') as HTMLInputElement;
  export const emailCustomerInput = document.querySelector('.email-customer') as HTMLInputElement;
-
-
-//  export const emailCompanyInput = document.querySelector('.email-company') as HTMLInputElement;
-
-
 
  export const passwordInput = document.querySelector('#password') as HTMLInputElement;
  export const repeatInput = document.querySelector('#repeat') as HTMLInputElement;

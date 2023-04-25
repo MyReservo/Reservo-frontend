@@ -8,6 +8,8 @@ const companyHomeNumber = document.querySelector('#company-home-number') as HTML
 const companyCity = document.querySelector('#company-city') as HTMLParagraphElement;
 const companyCode = document.querySelector('#company-code') as HTMLParagraphElement;
 
+const searchProvidersBtn = document.querySelector('#search-providers') as HTMLButtonElement;
+
 export let date = new Date();
 
 
@@ -20,7 +22,6 @@ const customerHomeCheckbox = document.querySelector('#client-home') as HTMLInput
 const clientAdressBox = document.querySelector('.client-adress') as HTMLDivElement;
 
 const calendarCheckboxCheck = () => {
-	console.log('odpalam');
 	if (customerHomeCheckbox.checked) {
 		clientAdressBox!.style.display = 'flex';
 		companyAdress.style.display = 'none';
@@ -42,17 +43,22 @@ function handleCheckboxClick(this: HTMLInputElement) {
 	});
 }
 
-const servicesSelect = document.querySelector('#calendar-services') as HTMLSelectElement;
-const servicesCitySelect = document.querySelector('#calendar-city') as HTMLSelectElement;
+const servicesSelect = document.querySelector('#select-services') as HTMLSelectElement;
+const servicesCitySelect = document.querySelector('#select-city') as HTMLSelectElement;
 
-const serviceProviderBox = document.querySelector('.service-provider') as HTMLDivElement;
-const serviceProviderSpan = document.querySelector('.service-provider__title') as HTMLHeadingElement;
+// const serviceProviderBox = document.querySelector('.available-service-providers-container') as HTMLDivElement;
+const serviceProviderSmallerBox = document.querySelector('.available-service-providers-container__first-box') as HTMLHeadingElement;
+const serviceProvider = document.querySelector('.available-service-providers-container__title') as HTMLHeadingElement;
+const availableServiceProviders = document.querySelector('.available-service-providers') as HTMLElement;
+const listOfProvidersBox = document.querySelector('.available-service-providers-container__list') as HTMLElement;
+const confirmProviderBtn = document.querySelector('#confirm-provider') as HTMLButtonElement;
 
 const calendarServicesProviderObjectArr = [{ id: 'name-service', name: 'name', city: 'city' }];
+console.log(calendarServicesProviderObjectArr);
 
 const createServiceProviderElement = (name: string) => {
 	const serviceProviderName = document.createElement('div');
-	serviceProviderName.className = 'service-provider__name';
+	serviceProviderName.className = 'service-provider';
 	const serviceProviderText = document.createElement('p');
 	serviceProviderText.textContent = name;
 	const serviceProviderCheckbox = document.createElement('input');
@@ -60,19 +66,23 @@ const createServiceProviderElement = (name: string) => {
 	serviceProviderCheckbox.id = `${name}-tutor`;
 	serviceProviderCheckbox.className = 'service-provider';
 	serviceProviderName.append(serviceProviderText, serviceProviderCheckbox);
-	serviceProviderBox.append(serviceProviderName);
+	listOfProvidersBox.append(serviceProviderName)
+	availableServiceProviders.append(listOfProvidersBox)
+	serviceProviderSmallerBox.append(availableServiceProviders,confirmProviderBtn);
+
 };
 
 const updateServiceProviders = () => {
-	serviceProviderBox.innerHTML = '';
+	// serviceProviderBox.innerHTML = '';
 	const selectedProfession = servicesSelect.value;
 	const selectedCity = servicesCitySelect.value;
 
 	if (selectedProfession === 'TUTOR') {
-		serviceProviderSpan.textContent = 'korepetytorzy:';
+		serviceProvider.textContent = 'korepetytorzy:';
 
 		calendarServicesProviderObjectArr.forEach(provider => {
 			const tutorService = provider.id.includes('tutor');
+			console.log(tutorService);
 
 			if (selectedCity === 'wroclaw' && provider.city === 'Wrocław' && tutorService) {
 				createServiceProviderElement(provider.name);
@@ -87,7 +97,7 @@ const updateServiceProviders = () => {
 	}
 
 	if (selectedProfession === 'BARBER') {
-		serviceProviderSpan.textContent = 'fryzjerzy:';
+		serviceProvider.textContent = 'fryzjerzy:';
 
 		calendarServicesProviderObjectArr.forEach(provider => {
 			const tutorService = provider.id.includes('barber');
@@ -105,7 +115,7 @@ const updateServiceProviders = () => {
 	}
 
 	if (selectedProfession === 'MECHANIC') {
-		serviceProviderSpan.textContent = 'mechanicy:';
+		serviceProvider.textContent = 'Dostępni mechnicy:';
 
 		calendarServicesProviderObjectArr.forEach(provider => {
 			const tutorService = provider.id.includes('mechanic');
@@ -152,15 +162,7 @@ function checkOneCheckbox(event: Event) {
 	}
 }
 
-// const currentYear = new Date().getFullYear();
-// const weekdayName = document.querySelectorAll('#calendar-days span');
-// weekdayName[0].textContent = 'Poniedziałek';
-// weekdayName[1].textContent = 'Wtorek';
-// weekdayName[2].textContent = 'Środa';
-// weekdayName[3].textContent = 'Czwartek';
-// weekdayName[4].textContent = 'Piątek';
-// weekdayName[5].textContent = 'Sobota';
-// weekdayName[6].textContent = 'Niedziela';
+
 
 export const monthArr = [
 	{ pl: 'Styczeń', en: 'January' },
@@ -176,13 +178,6 @@ export const monthArr = [
 	{ pl: 'Listopad', en: 'November' },
 	{ pl: 'Grudzień', en: 'December' },
 ];
-
-
-// const prevMonth = document.querySelector('#previous-month');
-// const nextMonth = document.querySelector('#next-month');
-
-// prevMonth!.addEventListener('click', test);
-// nextMonth!.addEventListener('click', test);
 
 
 
@@ -246,8 +241,10 @@ if(userName){
 	}
 
 	if (servicesSelect !== null && servicesCitySelect !== null) {
-		servicesSelect.addEventListener('change', updateServiceProviders);
-		servicesCitySelect.addEventListener('change', updateServiceProviders);
+		// servicesSelect.addEventListener('change', updateServiceProviders);
+
+		searchProvidersBtn.addEventListener('click', updateServiceProviders);
+		searchProvidersBtn.addEventListener('click', updateServiceProviders);
 		customerHomeCheckbox.addEventListener('change', calendarCheckboxCheck);
 		companyLocalCheckbox.addEventListener('change', calendarCheckboxCheck);
 	}

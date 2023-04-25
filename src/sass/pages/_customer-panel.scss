@@ -170,7 +170,7 @@
 
 	}
 
-	.available-service-providers {
+	.available-service-providers-container {
 		@include pickPersonAndLocationBoxes;
 
 		&__title {
@@ -287,6 +287,12 @@
 		display: flex;
 		flex-direction: column;
 		padding: 2.2em 5em 1em;
+
+		#confirm-adress{
+			@include customerBtn;
+			width: 40%;
+			max-width: 190px;
+		}
 	}
 	label {
 		font-size: 1.9rem;
@@ -299,11 +305,6 @@
 	}
 }
 
-.client-adress,.company-adress{
-	.submit-btn{
-		display: none;
-	}
-}
 
 .company-adress {
 	@include sectionBox;
@@ -322,6 +323,13 @@
 		#company-code {
 			font-weight: bold;
 		}
+
+	}
+	a{
+		width: 100%;
+	}
+	#confirm-local{
+		@include customerBtn;
 	}
 
 	&__item {
@@ -442,15 +450,15 @@
 		.service-location__container {
 			padding: 1.5em;
 		}
-		.available-service-providers {
+		.available-service-providers-container {
 			padding: 0;
 
 			.available-service-providers__text {
 				font-size: 1.8rem;
 			}
 		}
-		.available-service-providers__second-box,
-		.available-service-providers__first-box {
+		.available-service-providers-container__second-box,
+		.available-service-providers-container__first-box {
 			width: 70%;
 		}
 
@@ -485,12 +493,12 @@
 	}
 
 	.pick-person-and-location {
-		.available-service-providers__title,
+		.available-service-providers-container__title,
 		.service-location__title {
 			font-size: 2rem;
 		}
-		.available-service-providers__second-box,
-		.available-service-providers__first-box,
+		.available-service-providers-container__second-box,
+		.available-service-providers-container__first-box,
 		.service-location__second-box,
 		.service-location__first-box {
 			margin: 1em;
@@ -515,6 +523,14 @@
 			width: 55%;
 			label{
 				font-size: 1.8rem;
+			}
+		}
+
+		.company-adress{
+			.company-adress__body{
+				#confirm-local{
+					width: 40%;
+				}
 			}
 		}
 		.client-adress__title, .company-adress__title{
@@ -556,15 +572,15 @@
 
 	.pick-person-and-location{
 
-		.available-service-providers__title,
+		.available-service-providers-container__title,
 		.service-location__title {
 			font-size: 2.3rem;
 		}
 
-		.available-service-providers__second-box{
+		.available-service-providers-container__second-box{
 			display: none;
 		}
-		.available-service-providers__first-box{
+		.available-service-providers-container__first-box{
 			width: 65%;
 		}
 
@@ -649,18 +665,18 @@
 			font-size: 3.3rem;
 		}
 
-		 .available-service-providers__list{
+		.available-service-providers-container__list{
 			max-height: 140px;
 		 }
 
 
-		.available-service-providers__title,
+		 .available-service-providers-container__title,
 		.service-location__title {
 			font-size: 2rem;
 		}
 
 
-		.available-service-providers__first-box{
+		.available-service-providers-container__first-box{
 			width: 75%;
 		}
 
@@ -764,11 +780,15 @@
 
 
 	.pick-person-and-location{
+		.section-line{
+			width: 20%;
+			height: 7px;
+		}
 		h3{
 			font-size: 2.9rem;
 		}
 
-		.available-service-providers__first-box{
+		.available-service-providers-container__first-box{
 			width: 90%;
 		}
 
@@ -832,9 +852,10 @@
 
 
 	.pick-person-and-location{
+
 		h3{
 			font-size: 2.5rem;
-			margin: 3em 1em;
+			margin:  2em 0em 0em;
 		}
 		.service-location__container{
 			padding: .7em;

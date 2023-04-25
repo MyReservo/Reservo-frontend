@@ -71,7 +71,7 @@
 
           <div class="pick-profession-box__select-box">
             <div class="pick-profession-box__select-services">
-              <select name="calendar-services" id="calendar-services" class="input">
+              <select name="select-services" id="select-services" class="input">
                 <option value="default" id="default" selected disabled>Wybierz usługę</option>
                 <option value="TUTOR" id="tutor">Korepetycje</option>
                 <option value="BARBER" id="barber">Fryzjer</option>
@@ -80,7 +80,7 @@
             </div>
 
             <div class="pick-profession-box__select-city">
-              <select name="calendar-city" id="calendar-city" class="input">
+              <select name="select-city" id="select-city" class="input">
                 <option value="default" id="default" selected disabled>Wybierz miasto</option>
                 <option value="wroclaw" id="wroclaw">Wrocław</option>
                 <option value="warsaw" id="warsaw">Warszawa</option>
@@ -94,7 +94,7 @@
     </div>
     <div class="header__btn">
       <a href="#pick-person-and-location">
-        <button class="submit-btn">Szukaj</button>
+        <button class="submit-btn" id="search-providers">Szukaj</button>
       </a>
     </div>
   </header>
@@ -153,7 +153,7 @@
           </div>
           <div class="pick-profession-box__select-box">
             <div class="pick-profession-box__select-services">
-              <select name="calendar-services" id="calendar-services" class="input">
+              <select name="select-services" id="select-services" class="input">
                 <option value="default" id="default" selected disabled>Wybierz usługę</option>
                 <option value="TUTOR" id="tutor">Korepetycje</option>
                 <option value="BARBER" id="barber">Fryzjer</option>
@@ -162,7 +162,7 @@
             </div>
 
             <div class="pick-profession-box__select-city">
-              <select name="calendar-city" id="calendar-city" class="input">
+              <select name="select-city" id="select-city" class="input">
                 <option value="default" id="default" selected disabled>Wybierz miasto</option>
                 <option value="wroclaw" id="wroclaw">Wrocław</option>
                 <option value="warsaw" id="warsaw">Warszawa</option>
@@ -171,7 +171,7 @@
             </div>
           </div>
           <a href="#pick-person-and-location">
-            <button class="submit-btn">Szukaj</button>
+            <button class="submit-btn" id="search-providers">Szukaj</button>
           </a>
         </div>
       </div>
@@ -206,11 +206,11 @@
 
     <div class="pick-person-and-location__box">
 
-      <div class="available-service-providers">
-        <div class="available-service-providers__first-box">
-          <h4 class="available-service-providers__title">Wybierz dostępną osobę<span></span></h4>
+      <div class="available-service-providers-container">
+        <div class="available-service-providers-container__first-box">
+          <h4 class="available-service-providers-container__title">Wybierz dostępną osobę</h4>
           <div class="available-service-providers">
-            <div class="available-service-providers__list">
+            <div class="available-service-providers-container__list">
               <div class="service-provider">
                 <p>Andrzej</p>
                 <input type="checkbox">
@@ -221,17 +221,17 @@
               </div>
             </div>
           </div>
-          <button class="submit-btn">OK</button>
+          <a href="#service-location"><button class="submit-btn" id="confirm-provider">OK</button></a>
         </div>
 
-        <div class="available-service-providers__second-box">
-          <div class="available-service-providers__shadow"></div>
-          <p class="available-service-providers__text">Wybierz jedną spośród zarejestrowanych osób, z którą chchcesz się
+        <div class="available-service-providers-container__second-box">
+          <div class="available-service-providers-container__shadow"></div>
+          <p class="available-service-providers-container__text">Wybierz jedną spośród zarejestrowanych osób, z którą chchcesz się
             umówić na spotkanie.</p>
         </div>
       </div>
 
-      <div class="service-location">
+      <div class="service-location" id="service-location">
         <div class="service-location__first-box">
           <h4 class="service-location__title">Wybierz miejsce wizyty</h4>
           <div class="service-location__container">
@@ -265,7 +265,7 @@
         <label for="client-street">Miasto</label>
         <input type="text" name="client-city" class="input" id="client-city">
         <a href="#calendar-section">
-          <button class="submit-btn">OK</button>
+          <button class="submit-btn" id="confirm-adress">OK</button>
         </a>
       </div>
     </div>
@@ -277,7 +277,7 @@
         <div class="company-adress__item"><span>Miasto: </span><span id="company-city"></span></div>
         <div class="company-adress__item"><span>Kod pocztowy: </span><span id="company-code"></span></div>
         <a href="#calendar-section">
-          <button class="submit-btn">OK</button>
+          <button class="submit-btn" id="confirm-local">OK</button>
         </a>
       </div>
     </div>
