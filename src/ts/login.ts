@@ -1,4 +1,4 @@
-// export {}
+export {}
 const emailLoginInput = document.querySelector('#email-login') as HTMLInputElement;
 const passwordLoginInput = document.querySelector('#password-login') as HTMLInputElement;
  const loginBtn = document.querySelector('#login-btn') as HTMLButtonElement;

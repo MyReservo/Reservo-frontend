@@ -16,60 +16,6 @@ export const allTd: NodeListOf<HTMLTableDataCellElement> = document.querySelecto
 
 
 
-
-
-// 	const monthAndYear = document.querySelector('#calendar-top') as HTMLElement;
-// 	monthAndYear.textContent = monthArr[date.getMonth()] + ' ' + date.getFullYear();
-
-// 	const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
-// 	const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-
-// 	let day = 1;
-
-// 	for (let i = 0; i < allTd.length; i++) {
-// 		allTd[i].textContent = i.toString();
-
-// 		if (i < firstDay.getDay() - 1) {
-// 			allTd[i].innerHTML = '';
-// 		} else if (day <= lastDay.getDate()) {
-// 			allTd[i].innerHTML = day.toString();
-// 			day++;
-// 		} else {
-// 			allTd[i].innerHTML = '';
-// 		}
-// 	}
-// };
-
-// export const prevMonth = (td:HTMLElement) => {
-// 	date.setMonth(date.getMonth() - 1);
-// 	date.setDate(1);
-// 	calendar(td);
-// };
-
-// export const nextMonth = (td:HTMLElement) => {
-// 	date.setMonth(date.getMonth() + 1);
-// 	date.setDate(1);
-// 	calendar(td);
-// };
-
-// document.querySelector('#prev')?.addEventListener('click',() => {
-
-// 	const td = document.querySelector('td');
-// 	if (td) {
-// 	  prevMonth(td);
-// 	}
-// } );
-
-// document.querySelector('#next')?.addEventListener('click',() => {
-// 	const td = document.querySelector('td');
-// 	if (td) {
-// 	  nextMonth(td);
-// 	}
-// } );
-
-
-
-
 const customerHomeCheckbox = document.querySelector('#client-home') as HTMLInputElement;
 const clientAdressBox = document.querySelector('.client-adress') as HTMLDivElement;
 

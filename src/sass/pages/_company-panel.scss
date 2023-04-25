@@ -9,59 +9,65 @@
 @use "../utils/mixins" as *;
 @use "../utils/professions-img.scss" as *;
 
-.hero-img{
-	@include heroImg;
-    justify-content: center;
-    height: 100vh;
-
-    &__title{
-        z-index: 5;
-        font-size: 6.5rem;
-        color: #ffffffe3;
-        letter-spacing: 0.1em;
-        text-shadow: 3px 3px 10px black;
-        
-        &-text{
-            font-weight: normal;
-            animation: header-div-slide-top 1s;
-            margin-bottom: .5em;
+.company-panel-body{
+    .hero-img{
+        @include heroImg;
+        justify-content: center;
+        height: 100vh;
+    
+        &__title{
+            z-index: 5;
+            font-size: 6.5rem;
+            color: #ffffffe3;
+            letter-spacing: 0.1em;
+            text-shadow: 3px 3px 10px black;
+            
+            &-text{
+                font-weight: normal;
+                animation: header-div-slide-top 1s;
+                margin-bottom: .5em;
+            }
+            span {
+                font-weight: bold;
+                font-style: italic;
+                font-size: 7.5rem;
+            }
+            .profession-name-box{
+                text-align: center;
+                animation: header-text-slide-right 1s 1s both;
+            }
         }
-        span {
-            font-weight: bold;
-            font-style: italic;
-            font-size: 7.5rem;
+    
+        .arrow {
+            position: absolute;
+            top: 85%;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            z-index: 5;
+            cursor: pointer;
+            img{
+                display: block;
+                width: 85px;
+            }
         }
-        .profession-name-box{
-            text-align: center;
-            animation: header-text-slide-right 1s 1s both;
+        .arrow::before {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            animation: arrowAnimation 2.3s infinite;
         }
+    
     }
-
-    .arrow {
-        position: absolute;
-        top: 85%;
-        left: 50%;
-        transform: translate(-50%, 0%);
-        z-index: 5;
-        cursor: pointer;
-        img{
-            display: block;
-            width: 85px;
-        }
-    }
-    .arrow::before {
-        position: absolute;
-        content: "";
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        border-radius: 50%;
-        border: 2px solid #fff;
-        animation: arrowAnimation 2.3s infinite;
-    }
+    
 
 }
+    
+
 
 .nav-shadow-box{
     position: absolute;
