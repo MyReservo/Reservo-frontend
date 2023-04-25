@@ -48,7 +48,7 @@ Verify that Node.js and NPM have been installed correctly by typing in the comma
 <img src="https://raw.githubusercontent.com/MyReservo/Reservo-frontend/master/assets/img/clone.png" alt="clone code" width="680" height="130" />
 
 #### 3. Navigate to the directory where you cloned the repository using the cd command. For example, if you cloned the repository in your "MyFolder", you have to  type the correct path to this folder, for e.g the following command:
-<img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/img/cd.png" alt="instal vite code" width="460" height="130" />
+<img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/img/cd-myfolder.png" alt="instal vite code" width="460" height="130" />
 
  #### 4. Install Vite globally using the NPM command:
 <img src="https://github.com/MyReservo/Reservo-frontend/blob/master/assets/img/vite.png" alt="instal vite code" width="300" height="130" />
