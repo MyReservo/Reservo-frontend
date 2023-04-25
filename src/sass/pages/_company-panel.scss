@@ -64,15 +64,13 @@
     
     }
     
-
+    .nav-shadow-box{
+        position: absolute;
+        box-shadow: inset 0px 85px 30px rgba(18, 20, 23, 0.486);
+    }
 }
     
 
-
-.nav-shadow-box{
-    position: absolute;
-    box-shadow: inset 0px 85px 30px rgba(18, 20, 23, 0.486);
-}
 
 
 .mobile-nav{
