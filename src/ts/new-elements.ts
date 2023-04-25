@@ -1,5 +1,3 @@
-// import{registerBtn, toggleError, inputsEvents,checkCompanyInput,
-// 	customerInput} from "./main"
 
 
 export const companyAdress = document.createElement('div');

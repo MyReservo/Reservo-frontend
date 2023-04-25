@@ -13,7 +13,13 @@ import { dataInputsCreator, companyAdress } from './new-elements';
  export const surnameInput = document.querySelector('#surname') as HTMLInputElement;
 
  export const numberInput = document.querySelector('#phone') as HTMLInputElement;
- export const emailInput = document.querySelector('#email') as HTMLInputElement;
+//  export const emailInput = document.querySelector('#email') as HTMLInputElement;
+ export const emailCustomerInput = document.querySelector('.email-customer') as HTMLInputElement;
+
+
+//  export const emailCompanyInput = document.querySelector('.email-company') as HTMLInputElement;
+
+
 
  export const passwordInput = document.querySelector('#password') as HTMLInputElement;
  export const repeatInput = document.querySelector('#repeat') as HTMLInputElement;
@@ -117,6 +123,9 @@ basicInfoData.className = 'basic-info-data';
 export const basicInfoData2 = document.createElement('div');
 basicInfoData2.className = 'basic-info-data';
 
+const basicInfoContact = document.querySelector('.basic-info-contact') as HTMLElement;
+const emailCustomerData = document.querySelector('.email-customer-data') as HTMLElement; 
+
 export const companyNamelabel = document.createElement('label');
 companyNamelabel.htmlFor = 'company-name';
 companyNamelabel.innerText = 'Nazwa firmy';
@@ -144,8 +153,11 @@ const inputsValidation = () => {
 	if (!regExPhone.test(numberInput.value)) {
 		toggleError(numberInput, true, 'Podaj numer telefonu');
 	}
-	if (!regExEmail.test(emailInput.value)) {
-		toggleError(emailInput, true, 'Podaj adres e-mail');
+	if (!regExEmail.test(companyEmail.value)) {
+		toggleError(companyEmail, true, 'Podaj adres e-mail');
+	}
+	if (!regExEmail.test(emailCustomerInput.value)){
+		toggleError(emailCustomerInput, true, 'Podaj adres e-mail');
 	}
 	
 	if (passwordInput.value.length < 8) {
@@ -164,9 +176,9 @@ const inputsValidation = () => {
 	termsCheckboxCheck();
 };
 
+const companyEmail = document.createElement('input');
 
-
-const inputsArr = [nameInput,surnameInput,numberInput,emailInput,passwordInput,repeatInput,select,companyInput];
+const inputsArr = [nameInput,surnameInput,numberInput,emailCustomerInput,passwordInput,repeatInput,select,companyInput,companyEmail];
 
 const clearAllErrors = (
 	termsBox: HTMLElement,
@@ -183,11 +195,18 @@ const clearAllErrors = (
 	};
 
 
+
 	let checkCompanyInputChecked = false;
 	const addInputs = () => {
 
     if (checkCompanyInput.checked && checkCompanyInputChecked === false) {
 		checkCompanyInputChecked = true;
+		emailCustomerInput.remove();
+		companyEmail.id = "email-company";
+		companyEmail.type = "text";
+		companyEmail.classList.add("input");
+
+		basicInfoContact.append(companyEmail);
         basicInfoData.append(companyNamelabel, companyInput);
         basicInfoData2.append(servicesLabel, select);
         basicInfoCompany.append(basicInfoData, basicInfoData2);
@@ -196,6 +215,10 @@ const clearAllErrors = (
 
     } else if (customerInput.checked) {
 		checkCompanyInputChecked = false;
+		companyEmail.remove()
+		emailCustomerData.append(emailCustomerInput)
+		basicInfoContact.append(emailCustomerData);
+		basicInfo.append(basicInfoContact)
         basicInfoCompany.remove();
         companyAdress.remove();
 		clearAllErrors(termsBox, termsError);
@@ -209,7 +232,7 @@ const clearAllErrors = (
 		  const target = e.target as HTMLElement;
 		  
 		  if (e.type === 'input') {
-			  if (target.matches('#name, #surname, #number, #email, #company-name, #password, #repeat, #phone, #city,#code,#home,#street')) {
+			  if (target.matches('#name, #surname, #number, #email, #email-company, #company-name, #password, #repeat, #phone, #city,#code,#home,#street')) {
 				  
 			if (target instanceof HTMLInputElement) {
 				removeError(target);
@@ -246,8 +269,6 @@ const homeInput = inputs.inputs[1];
 const cityInput = inputs.inputs[2];
 const codeInput = inputs.inputs[3];
 
-
-
 	document.addEventListener('DOMContentLoaded' , function() {
 	document.addEventListener('input', handleEvent);
 	document.addEventListener('change', handleEvent);
@@ -257,7 +278,6 @@ const codeInput = inputs.inputs[3];
 	if(registerBtn !== null){
 		registerBtn.addEventListener('click', inputsValidation);
 		 registerBtn.addEventListener('click', () => {
-			console.log(emailInput.value);
 			 const selectElement= document.getElementById('services') as  HTMLSelectElement; 
 	
 			 if(selectElement !== null){
@@ -272,25 +292,25 @@ const codeInput = inputs.inputs[3];
 			localStorage.setItem('companyHome', homeInput.value);
 			localStorage.setItem('companyCity', cityInput.value);
 			localStorage.setItem('companyCode', codeInput.value);
-
+			localStorage.setItem('customerEmail', emailCustomerInput.value);
+			localStorage.setItem('companyEmail', companyEmail.value);
 			localStorage.setItem('registerPassword', passwordInput.value);
+
 		})	
 	}
 
-
-
 	const adressInputsArr = [streetInput,homeInput,cityInput,codeInput];
-	const allInputsArr = inputsArr.concat(adressInputsArr);
+	const inputsArrCompany = [nameInput,surnameInput,numberInput,passwordInput,repeatInput,select,companyInput,companyEmail];
+	const newInputsArrCompany = inputsArrCompany.concat(adressInputsArr);
 
 	
 	function checkInputsAndRedirect() {
-
-		if (checkCompanyInput.checked && allInputsArr.every(input => !input.classList.contains('red-input')) &&!companyInput.classList.contains('red-input') &&!select.classList.contains('red-input') &&termsInput.checked) {
+		if (checkCompanyInput.checked && newInputsArrCompany.every(input => !input.classList.contains('red-input')) && !companyInput.classList.contains('red-input') && !select.classList.contains('red-input') && termsInput.checked) {
 			window.location.assign('./company-panel.html');
 		}
-
 		const newInputsArr = inputsArr.slice(0,6);
 		if (customerInput.checked && newInputsArr.every(input => !input.classList.contains('red-input')) && termsInput.checked) {
+			console.log('przenosze do customer');
 		  window.location.assign('./customer-panel.html');
 		}
 	  }	 
