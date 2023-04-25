@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/d3231c159b.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <link rel="shortcut icon" type="image/x-icon" href="./src/img/favicon.ico">
+  <title>Customer panel</title>
+  <link rel="stylesheet" href="./src/sass/pages/_customer-panel.scss">
+</head>
+
+<body class="customer-panel-body">
+
+  <div id="burger-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <header class="header">
+    <div class="hero-img">
+      <nav class="nav-shadow-box">
+        <div class="nav-shadow"></div>
+        <a href="./customer-panel.html">
+          <p class="panel-title">Reservo
+            <img src="./src/img/pencil.png" alt="pencil icon">
+          </p>
+        </a>
+
+        <div class="nav-shadow-box__user-box">
+
+          <a href="#reservations"><i class="far fa-sticky-note"></i>Moje rezerwacje</a>
+          <div class="nav-shadow-box__user">
+            <i class="fas fa-user"></i>
+            <p class="user-name">Nazwa użytkownika</p>
+          </div>
+
+          <a href="./index.html">
+            <i class="fas fa-sign-out-alt"> </i>
+            <p id="log-out"> Wyloguj</p>
+          </a>
+        </div>
+      </nav>
+      <div class="header-shadow"></div>
+
+
+      <div class="header-box">
+        <div class="header__title">
+          <h1>
+            <div class="header__text"> Umów
+              się na wizytę z
+            </div>
+            <div class="reservo">
+              <span>Reservo</span>
+              <span class="underline"></span>
+            </div>
+          </h1>
+        </div>
+
+        <div class="pick-profession-box">
+          <div class="pick-profession-box__icons">
+            <i class="fas fa-toolbox"></i>
+            <i class="far fa-building"></i>
+          </div>
+
+          <div class="pick-profession-box__select-box">
+            <div class="pick-profession-box__select-services">
+              <select name="calendar-services" id="calendar-services" class="input">
+                <option value="default" id="default" selected disabled>Wybierz usługę</option>
+                <option value="TUTOR" id="tutor">Korepetycje</option>
+                <option value="BARBER" id="barber">Fryzjer</option>
+                <option value="MECHANIC" id="mechanic">Mechanik</option>
+              </select>
+            </div>
+
+            <div class="pick-profession-box__select-city">
+              <select name="calendar-city" id="calendar-city" class="input">
+                <option value="default" id="default" selected disabled>Wybierz miasto</option>
+                <option value="wroclaw" id="wroclaw">Wrocław</option>
+                <option value="warsaw" id="warsaw">Warszawa</option>
+                <option value="cracow" id="cracow">Kraków</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="header__btn">
+      <a href="#pick-person-and-location">
+        <button class="submit-btn">Szukaj</button>
+      </a>
+    </div>
+  </header>
+
+
+  <!-- ///// header on mobile -->
+  <header id="header-mobile">
+   
+
+    <div id="burger-btn" class="mobile-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="hero-img-mobile">
+      <nav class="nav-shadow-box">
+        <div class="nav-shadow"></div>
+        <a href="./customer-panel.html">
+          <p class="panel-title">Reservo
+            <img src="./src/img/pencil.png" alt="pencil icon">
+          </p>
+        </a>
+  
+        <div class="nav-shadow-box__user-box">
+  
+          <a href="#reservations"><i class="far fa-sticky-note"></i>Moje rezerwacje</a>
+          <div class="nav-shadow-box__user">
+            <i class="fas fa-user"></i>
+            <p class="user-name">Nazwa użytkownika</p>
+          </div>
+  
+          <a href="./index.html">
+            <i class="fas fa-sign-out-alt"> </i>
+            <p id="log-out"> Wyloguj</p>
+          </a>
+        </div>
+      </nav>
+      <div class="header-shadow"></div>
+
+      <div class="header-mobile-container">
+        <div class="header__title">
+          <h1>
+            <div class="header__text"> Umów
+              się na wizytę z
+            </div>
+            <div class="reservo">
+              <span>Reservo</span>
+              <span class="underline"></span>
+            </div>
+          </h1>
+        </div>
+        <div class="pick-profession-box">
+          <div class="pick-profession-box__icons">
+            <i class="fas fa-toolbox"></i>
+            <i class="far fa-building"></i>
+          </div>
+          <div class="pick-profession-box__select-box">
+            <div class="pick-profession-box__select-services">
+              <select name="calendar-services" id="calendar-services" class="input">
+                <option value="default" id="default" selected disabled>Wybierz usługę</option>
+                <option value="TUTOR" id="tutor">Korepetycje</option>
+                <option value="BARBER" id="barber">Fryzjer</option>
+                <option value="MECHANIC" id="mechanic">Mechanik</option>
+              </select>
+            </div>
+
+            <div class="pick-profession-box__select-city">
+              <select name="calendar-city" id="calendar-city" class="input">
+                <option value="default" id="default" selected disabled>Wybierz miasto</option>
+                <option value="wroclaw" id="wroclaw">Wrocław</option>
+                <option value="warsaw" id="warsaw">Warszawa</option>
+                <option value="cracow" id="cracow">Kraków</option>
+              </select>
+            </div>
+          </div>
+          <a href="#pick-person-and-location">
+            <button class="submit-btn">Szukaj</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ////////////////// -->
+
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="nav-shadow-box__user-box-side-nav">
+      <ul>
+        <li>
+          <p class="user-name"><i class="fas fa-user"></i>Nazwa użytkownika</p>
+        </li>
+        <li><a href="#reservations"><i class="far fa-sticky-note"></i>Moje rezerwacje</a></li>
+        <li><a href="./index.html">
+            <p id="log-out"><i class="fas fa-sign-out-alt"></i>Wyloguj</p>
+          </a></li>
+      </ul>
+    </div>
+  </div>
+
+
+  <section class="pick-person-and-location" id="pick-person-and-location">
+    <h3>Twoja wizyta</h3>
+    <div class="horizontal-line section-line"></div>
+
+    <img class="wrench" src="./src/img/wrench-solid.svg" alt="wrench icon">
+    <img class="wrench wrench-two" src="./src/img/wrench-solid.svg" alt="wrench icon">
+    <img class="cut" src="./src/img/cut-solid.svg" alt="scissors icon">
+    <img class="cut-two" src="./src/img/cut-solid.svg" alt="scissors icon">
+    <img class=" pencil" src="./src/img/pencil-alt-solid.svg" alt="pencil icon">
+
+    <div class="pick-person-and-location__box">
+
+      <div class="available-service-providers">
+        <div class="available-service-providers__first-box">
+          <h4 class="available-service-providers__title">Wybierz dostępną osobę<span></span></h4>
+          <div class="available-service-providers">
+            <div class="available-service-providers__list">
+              <div class="service-provider">
+                <p>Andrzej</p>
+                <input type="checkbox">
+              </div>
+              <div class="service-provider">
+                <p>Anna</p>
+                <input type="checkbox">
+              </div>
+            </div>
+          </div>
+          <button class="submit-btn">OK</button>
+        </div>
+
+        <div class="available-service-providers__second-box">
+          <div class="available-service-providers__shadow"></div>
+          <p class="available-service-providers__text">Wybierz jedną spośród zarejestrowanych osób, z którą chchcesz się
+            umówić na spotkanie.</p>
+        </div>
+      </div>
+
+      <div class="service-location">
+        <div class="service-location__first-box">
+          <h4 class="service-location__title">Wybierz miejsce wizyty</h4>
+          <div class="service-location__container">
+            <div class="service-location__box">
+              <div class="service-location__box-home-box">
+                <label for="client-home"><i class="fas fa-home"> </i> U mnie w domu</label>
+                <input type="checkbox" id="client-home" name="home">
+              </div>
+              <div class="service-location__box-local-box">
+                <label for="local"> <i class="fas fa-map-marker-alt"> </i> W lokalu</label>
+                <input type="checkbox" id="local" name="local">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="service-location__second-box">
+          <div class="service-location__second-box-shadow"></div>
+          <p class="service-location__second-box-text"> Wybierz miejsce, a następnie przejdź do kalenarza, aby wybrać
+            datę spotkania. </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="client-adress">
+      <div class="client-adress__title">Podaj swój adres</div>
+      <div class="client-adress__body">
+        <label for="client-street">Ulica</label>
+        <input type="text" name="client-street" class="input" id="client-street">
+        <label for="client-street">Nr.domu</label>
+        <input type="text" name="client-house" class="input" id="client-house">
+        <label for="client-street">Miasto</label>
+        <input type="text" name="client-city" class="input" id="client-city">
+        <a href="#calendar-section">
+          <button class="submit-btn">OK</button>
+        </a>
+      </div>
+    </div>
+    <div class="company-adress">
+      <div class="client-adress__title">Adres lokalu</div>
+      <div class="company-adress__body">
+        <div class="company-adress__item"><span>Ulica: </span><span id="company-street"></span></div>
+        <div class="company-adress__item"><span>Nr.Domu: </span><span id="company-home-number"></span></div>
+        <div class="company-adress__item"><span>Miasto: </span><span id="company-city"></span></div>
+        <div class="company-adress__item"><span>Kod pocztowy: </span><span id="company-code"></span></div>
+        <a href="#calendar-section">
+          <button class="submit-btn">OK</button>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="calendar-section" id="calendar-section">
+    <div class="calendar-shadow"></div>
+    <div class="calendar-box">
+      <div class="wrapper-calendar">
+        <div class="calendar-title">
+          <h4>Wybierz dzień wizyty</h4>
+        </div>
+        <header>
+          <p class="current-date"></p>
+          <div class="icons">
+            <span id="prev" class="material-symbols-rounded">chevron_left</span>
+            <span id="next" class="material-symbols-rounded">chevron_right</span>
+          </div>
+        </header>
+        <div class="calendar">
+          <ul class="weeks">
+            <li>Nie</li>
+            <li>Pon</li>
+            <li>Wt</li>
+            <li>Śr</li>
+            <li>Czw</li>
+            <li>Pt</li>
+            <li>Sob</li>
+          </ul>
+          <ul class="days"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- </div> -->
+
+
+  <section class="hours-container-section">
+
+    <img class="wrench hours-wrench" src="./src/img/wrench-solid.svg" alt="wrench icon">
+    <img class=" cut hours-cut" src="./src/img/cut-solid.svg" alt="scissors icon">
+    <img class="pencil hours-pencil" src="./src/img/pencil-alt-solid.svg" alt="pencil icon">
+    <!-- <img class="pencil pencil-two" src="./src/img/pencil-alt-solid.svg" alt="pencil icon"> -->
+
+    <div class="hours-container" id="hours-container">
+      <i class="fas fa-times"></i>
+      <h3>Wybierz godzinę</h3>
+      <p class="hours-container__info">Umawiasz się na <span class="hours-container__info-span">...</span></p>
+      <div class="hours-container__btn-box">
+        <button class="hour-btn">9:00</button>
+        <button class="hour-btn">10:00</button>
+        <button class="hour-btn">11:00</button>
+        <button class="hour-btn">12:00</button>
+        <button class="hour-btn">13:00</button>
+        <button class="hour-btn">14:00</button>
+      </div>
+      <button class="submit-btn" type='submit' id="send">Umów się</button>
+    </div>
+  </section>
+
+
+  <!-- <div class="my-reservations" id="reservations">123</div> -->
+
+  <footer class="footer">
+    <div class="footer__container">
+      <p class="footer__name"><a href="./customer-panel.html">
+          Reservo
+          <img src="./src/img/pencil.png" alt="pencil icon">
+        </a>
+      </p>
+
+
+      <div class="horizontal-line"></div>
+
+      <div class="footer__cards">
+        <div class="footer__card">
+          <p class="footer__heading">O nas</p>
+          <p class="footer__text">Historia</p>
+          <p class="footer__text">Opinie</p>
+
+        </div>
+        <div class="footer__card">
+          <p class="footer__heading">Nasza firma</p>
+          <p class="footer__text">Praca</p>
+          <p class="footer__text">Zarząd</p>
+        </div>
+        <div class="footer__card">
+          <p class="footer__heading">Siedziba firmy</p>
+          <p class="footer__text">ul. Noworoczna 20/77</p>
+          <p class="footer__text">Warszawa 02-077</p>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <p class="footer__company">&copy; 2023 Rerservo Group Company Ltd. </p>
+  </footer>
+
+  <!-- <script src="./src/js/calendar.js"></script> -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script type="module" defer src="./src/ts/nav-elements.ts"></script>
+  <script type="module" defer src="./src/ts/calendar.ts"></script>
+  <script type="module" defer src="./src/ts/customer-panel.ts"></script>
+</body>
+
+</html>

@@ -1,0 +1,275 @@
+@use "../utils/colors" as *;
+@use "../components/lines" as *;
+ 
+
+.register-body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	min-height: 100vh;
+	background-size: 300% 300%;
+	background-image: $aquablue;
+	font-family: 'Lato', sans-serif;
+	font-size: 1.6rem;
+	animation: AnimateBg 30s ease infinite;
+}
+
+form {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	max-width: 805px;
+	flex-direction: column;
+	padding: 3.5em;
+	text-align: center;
+	border-radius: 8px;
+	box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.35);
+	background-color: #fdfbfbb6;
+}
+
+h1 {
+	text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25);
+	letter-spacing: 0.1em;
+	margin-bottom: 1em;
+	text-transform: uppercase;
+}
+
+.user-company {
+	display: flex;
+	justify-content: space-evenly;
+	margin: 0.7em 0em 0em;
+}
+.user-company-user,
+.user-company-company {
+	display: flex;
+	align-items: center;
+}
+
+.basic-info {
+	&-names,
+	&-contact {
+		display: flex;
+	}
+	&-data {
+		display: flex;
+		flex-direction: column;
+		width: 50%;
+	}
+	&-company{
+		display: flex;
+	}
+}
+
+.company-adress{
+	display: flex;
+justify-content: center;
+flex-wrap: wrap;
+
+	&-title{
+		font-size: 1.7rem;
+		margin: 1em;
+	}
+	&-place{
+		display: flex;
+		width: 100%;
+		flex-wrap: wrap;
+	}
+
+	&-data{
+		display: flex;
+		flex-direction: column;
+		width: 50%;
+	}
+
+}
+
+
+.password-box {
+	display: flex;
+	&-password {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		width: 50%;
+	}
+}
+
+.register-terms {
+	margin: 1.5em;
+}
+
+.red-input {
+	border: 1px solid $errorBgc;
+	background-color: rgba(255, 99, 71, 0.158);
+}
+
+.red-placeholder::placeholder {
+	color: $errorFont;
+}
+
+
+.terms-error {
+	margin: .7em 0em 0em 1em;
+	color: $errorFont;
+	font-size: 1.4rem;
+}
+
+
+.login{
+	&__text{
+
+		&--link{
+		cursor: pointer;
+		color: $loginLink;
+		}
+	}
+}
+
+.info {
+	position: absolute;
+	right: 2em;
+	background-color: transparent;
+	border: none;
+	img {
+		width: 20px;
+	}
+}
+
+.info::before {
+	position: absolute;
+	content: 'Hasło powinno zawierać conajmniej 8 znaków.';
+	bottom: 20px;
+	left: 20px;
+	width: 170px;
+	padding: 0.7em;
+	border-radius: 7px;
+	background-color: rgb(148, 148, 148);
+	box-shadow: 1px 1px 1px 0px rgba(27, 35, 36, 0.35);
+	background-color: white;
+	display: none;
+}
+
+.info:hover::before {
+	display: block;
+}
+
+@media(max-width: 350px){
+	html{
+		.register-body{
+			.wrapper-register{
+				#form{
+					background-color: #fdfbfb5b;
+					h1{
+						font-size: 2.8rem;
+					}
+
+					#register{
+						background-color: rgb(58, 161, 252);
+						font-size: 1.8rem;
+					}
+					.register-terms{
+						margin: 0;
+						margin-bottom: 1.5em;
+					}
+					.company-adress-place{
+						margin-bottom: 1.6em;
+						.company-adress-data{
+							input{
+								margin: .6em;
+							} }
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+
+@media (max-width: 450px) {
+	html{
+		min-width: 100vw;
+        .register-body {
+			display: block;
+			min-width: 100vw;
+           .wrapper-register{
+               #form {
+				   background-color: #fdfbfba7;
+					padding: 1.5em;
+
+
+				   h1{
+					position: relative;
+					margin-top: 1.4em;
+					margin-bottom: 2em;
+					z-index: 1;
+					color: #000000cf;
+					font-weight: lighter;
+					font-weight: normal;
+					text-transform: capitalize;
+					margin-left: 1em;
+					margin-right: 1em;
+				}
+				
+				h1::before{
+					position: absolute;
+					content: "";
+					top: -12px;
+					left: 0px;
+					// width: 250px;
+					width: 100%;
+					height: 60px;
+					box-shadow: 3px 5px 8px 2px rgba(27, 75, 131, 0.781);
+					border-radius: 8px;
+					background-color: $buttonColor;
+					z-index: -1;
+				   }
+                   label{
+
+                    font-size: 1.9rem;
+                   }
+
+                   input{
+                    font-size: 1.6rem;
+					box-shadow: 2px 2px 5px 0px rgba(27, 75, 131, 0.781);
+
+                   }
+                   #register{
+                    width: 80%;
+					margin-top: 2em;
+					font-size: 1.9rem;
+					box-shadow: 2px 2px 10px 1px rgba(27, 75, 131, 0.781);
+
+                   }
+				   
+					.basic-info-names,.basic-info-contact,.password-box{
+						flex-direction: column;
+					}
+					.basic-info-data{
+						width: 100%;
+					}
+					.password-box-password{
+						width: 100%;
+						.info::before{
+							left: -170px;
+						}
+					}
+
+					.basic-info{
+						.basic-info-company{
+							flex-direction: column;
+							select{
+						box-shadow: 2px 2px 5px 1px rgba(27, 75, 131, 0.781);
+
+							}
+						}
+
+					}
+
+               }
+           }
+            
+        }
+    }
+}

@@ -1,0 +1,27 @@
+
+.mechanic-img{
+    background-image: url('../../img/mechanic-medium.jpg');
+}
+.tutor-img{
+    background-image: url('../../img/tutor-medium.jpg');
+}
+.barber-img{
+    background-image: url('../../img/barber-medium.jpg');
+}
+
+@media(max-width:576px){
+    .mechanic-img{
+        background-image: url('../../img/mechanic-small.jpg');
+    } 
+    .tutor-img{
+        background-image: url('../../img/tutor-small.jpg');
+    }
+    .barber-img{
+        background-image: url('../../img/barber-small.jpg');
+    }
+}
+
+
+
+
+

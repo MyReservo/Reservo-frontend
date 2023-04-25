@@ -1,0 +1,172 @@
+@use 'src/sass/utils/colors' as *;
+@use 'src/sass/components/btn' as *;
+@use 'src/sass/main.scss' as *;
+
+
+.wrapper {
+	margin: 100px auto 100px;
+	width: 40%;
+	max-width: 780px;
+}
+.login-body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	background-size: 300% 300%;
+	background-image: $aquablue;
+	font-family: 'Lato', sans-serif;
+	font-size: 1.6rem;
+	animation: AnimateBg 30s ease infinite;
+}
+h1 {
+	margin-bottom: 2em;
+	font-size: 3.5rem;
+}
+
+#form {
+	justify-content: center;
+	align-items: center;
+	font-size: 2.3rem;
+	padding: 2.6em;
+}
+.basic-info-data {
+	width: 100%;
+}
+.register {
+	&__text {
+		font-size: 1.8rem;
+		&--link {
+			cursor: pointer;
+			color: $loginLink;
+		}
+	}
+	a {
+		font-size: 1.8rem;
+	}
+}
+
+#register {
+	margin-top: 2.6em;
+	width: 60%;
+	font-size: 1.8rem;
+}
+
+.input {
+	padding: 0.9em;
+	margin-bottom: 4em;
+}
+.horizontal-line{
+    display: none;
+}
+
+@media (max-width: 350px) {
+	html {
+		.login-body {
+			#mobile-wrapper {
+                margin: 0;
+                width: 100%;
+                height: 100vh;
+				#form {
+                    min-height: 100%;                  
+					background-color: #fdfbfb5b;
+                    margin-top: 0em;
+					h1 {
+						font-size: 2.6rem;
+                        margin-bottom: 0em;
+
+					}
+					input {
+						margin-bottom: 3em;
+					}
+                    .horizontal-line{
+                        display: block;
+                        margin-bottom: 2em;
+                        margin-top: .4em;
+                        height: 1px;
+                        box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.715);
+                        width: 50%;
+                    }
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 450px) {
+	html {
+		.login-body {
+			.wrapper {
+				#form {
+                    margin-top: -3em;
+					padding-bottom: 2em;
+                    padding-left: .9em;
+                    padding-right: .9em;
+                    padding: -3em .9em 2em .9em;
+					h1 {
+						margin-bottom: 1.5em;
+                        font-size: 3rem;
+					}
+					label {
+						font-size: 2.2rem;
+					}
+
+					input {
+						padding: .6em;
+					}
+
+                    #email{
+                        margin-bottom: 3em;
+                    }
+					#register {
+						width: 75%;
+					}
+				}
+			}
+		}
+	}
+}
+@media (max-width: 576px) {
+	html {
+		.login-body {
+			.wrapper {
+                margin: 100px auto 100px;
+				width: 90%;
+				max-width: 780px;
+				#form {
+					font-size: 2rem;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+    html{
+        body {
+            .wrapper {
+				margin: 100px auto 100px;
+				width: 70%;
+				max-width: 780px;
+			}
+        }
+    }
+}
+
+@media (max-width: 992px) {
+		body {
+			.wrapper {
+				margin: 100px auto 100px;
+				width: 60%;
+				max-width: 780px;
+			}
+		}
+}
+
+@media (max-width: 1200px) {
+	.wrapper {
+		margin: 100px auto 100px;
+		width: 50%;
+		max-width: 780px;
+	}
+}

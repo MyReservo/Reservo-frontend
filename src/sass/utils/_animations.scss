@@ -1,0 +1,371 @@
+@keyframes AnimateBg {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes btn {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1.3);
+		opacity: 0;
+	}
+}
+
+@keyframes arrowAnimation {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+
+	100% {
+		transform: scale(1.3);
+		border: 2px solid #fff;
+		opacity: 0;
+	}
+}
+
+@keyframes header-div-slide-top {
+	0% {
+		opacity: 0;
+		transform: translateY(100px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
+@keyframes header-text-slide-right {
+	0% {
+		opacity: 0;
+		transform: translateX(-100px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+@keyframes h1-slide-left {
+	0% {
+		opacity: 0;
+		transform: translateX(100px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+@keyframes header-btn-slide-top {
+	0% {
+		opacity: 0;
+		transform: translateY(-100px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
+@keyframes icon-rotate-right {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+@keyframes icon-rotate-left {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(-360deg);
+	}
+}
+
+#burger-btn.open span:nth-child(1) {
+	z-index: 1000;
+	top: 18px;
+	transform: rotate(135deg);
+}
+
+#burger-btn.open span:nth-child(2) {
+	z-index: 1000;
+	opacity: 0;
+	left: 60px;
+}
+
+#burger-btn.open span:nth-child(3) {
+	z-index: 1000;
+	top: 18px;
+	transform: rotate(-135deg);
+}
+
+.nav--active {
+	transform: translateX(0%) !important;
+}
+
+.li--active {
+	transform: translateX(0%) !important;
+}
+
+.body-overflow {
+	overflow: hidden;
+}
+
+.wrench,
+.cut,
+.cut-two,
+.pencil,
+.pencil-two,
+.comb,
+.clipper,
+.screwdriver,
+.gear,
+.book,
+.graduation,
+.wrench-company,
+.scissors-company,
+.pencil-company,
+.gear-two {
+	position: absolute;
+	color: #0000000e;
+	opacity: 0.07;
+	z-index: -1;
+}
+.comb,
+.clipper,
+.screwdriver,
+.gear,
+.gear-two,
+.book,
+.graduation,
+.scissors-company,
+.wrench-company,
+.pencil-company {
+	display: none;
+}
+
+.wrench {
+	top: 9%;
+	left: 5%;
+	width: 20%;
+	animation: icon-rotate-right 140s infinite linear;
+}
+.wrench-two {
+	top: 50%;
+	left: 85%;
+	width: 10%;
+	animation: icon-rotate-right 100s infinite linear;
+}
+.wrench-three {
+	top: 79%;
+	left: 5%;
+	width: 10%;
+	animation: icon-rotate-right 110s infinite linear;
+}
+
+.cut {
+	bottom: 80%;
+	left: 80%;
+	width: 15%;
+	animation: icon-rotate-left 90s infinite linear;
+}
+
+.hours-cut {
+	bottom: 60%;
+	left: 85%;
+	width: 12%;
+	animation: icon-rotate-left 90s infinite linear;
+}
+
+.cut-two {
+	bottom: 0%;
+	left: 0%;
+	width: 10%;
+	animation: icon-rotate-right 40s infinite linear;
+}
+
+.pencil {
+	bottom: -10%;
+	left: 70%;
+	width: 10%;
+	animation: icon-rotate-left 80s infinite linear;
+}
+
+.comb {
+	bottom: 10%;
+	left: 10%;
+	width: 10%;
+	animation: icon-rotate-left 100s infinite linear;
+}
+
+.clipper {
+	bottom: 20%;
+	right: 7%;
+	width: 14%;
+	animation: icon-rotate-right 90s infinite linear;
+}
+.scissors-company {
+	bottom: 72%;
+	left: 10%;
+	width: 10%;
+	animation: icon-rotate-left 60s infinite linear;
+}
+
+.screwdriver {
+	bottom: 10%;
+	left: 10%;
+	width: 10%;
+	animation: icon-rotate-right 65s infinite linear;
+}
+
+.gear {
+	bottom: 5%;
+	right: 8%;
+	width: 9%;
+	animation: icon-rotate-left 80s infinite linear;
+}
+
+.gear-two {
+	bottom: 59%;
+	right: 87%;
+	width: 12%;
+	animation: icon-rotate-left 80s infinite linear;
+}
+.wrench-company {
+	bottom: 75%;
+	right: 10%;
+	width: 10%;
+	animation: icon-rotate-left 80s infinite linear;
+}
+
+.book {
+	bottom: 70%;
+	right: 80%;
+	width: 10%;
+	animation: icon-rotate-left 85s infinite linear;
+}
+
+.graduation {
+	bottom: 10%;
+	left: 9%;
+	width: 10%;
+	animation: icon-rotate-right 75s infinite linear;
+}
+.pencil-company {
+	bottom: 40%;
+	right: 10%;
+	width: 10%;
+	animation: icon-rotate-right 95s infinite linear;
+}
+
+.hours-wrench,
+.hours-cut,
+.hours-pencil {
+	display: none;
+}
+
+@media (max-width: 992px) {
+	.calendar-section {
+		// .clipper{
+		// 	right: 4%;
+		// }
+		// .comb{
+		// 	left: 3%;
+		// }
+
+		#cut-company {
+			left: 88%;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.pencil-company {
+		right: 0%;
+	}
+	.book {
+		bottom: 80%;
+		right: 87%;
+	}
+
+	.graduation {
+		left: 0%;
+		bottom: 0%;
+		width: 12%;
+	}
+
+	.clipper {
+		right: 0%;
+		width: 15%;
+	}
+	.comb {
+		left: 0%;
+		bottom: 0%;
+		width: 13%;
+	}
+	.scissors-company {
+		bottom: 77%;
+		left: 1%;
+		width: 12%;
+	}
+
+	.screwdriver {
+		left: 0%;
+		bottom: 0%;
+		width: 13%;
+	}
+
+	.gear {
+		right: 0%;
+		bottom: 0%;
+		width: 13%;
+	}
+
+	.gear-two {
+		bottom: 77%;
+		width: 10%;
+	}
+	.wrench-company{
+		right: 3%;
+		width: 12%;
+		bottom: 77%;
+	}
+}
+
+@media (max-width: 480px) {
+	.wrench,
+	.cut,
+	.cut-two,
+	.cut-three,
+	.comb,
+	.clipper,
+	.pencil,
+	.pencil-two,
+	.scissors-company,
+	.screwdriver,
+	.gear,
+	.book,
+	.graduation,
+	.wrench-company,
+	.pencil-company,
+	.gear-two {
+		display: none !important;
+	}
+}

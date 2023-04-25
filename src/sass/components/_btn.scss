@@ -1,0 +1,78 @@
+@use '../utils/colors' as *;
+
+.submit-btn {
+	position: relative;
+	height: 55px;
+	width: 40%;
+	margin: 1.2em auto;
+	border-radius: 8px;
+	border: none;
+	padding: 1em;
+	font-size: 1.5rem;
+	letter-spacing: 0.1em;
+	background-color: $buttonColor;
+	box-shadow: 2px 2px 2px 0px rgba(24, 58, 63, 0.35);
+	font-weight: 600;
+	cursor: pointer;
+	color: #000000a8;
+	transition: 0.3s;
+}
+
+.submit-btn:hover {
+	background-color: #1a8ef3d7;
+	color: #fdfdfdd8;
+}
+
+.submit-btn::before {
+	position: absolute;
+	content: '';
+	border: 2px solid #1a8ef3d7;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	border-radius: 8px;
+	transition: 0.3s;
+	opacity: 0;
+}
+
+.submit-btn:hover::before {
+	animation: btn 0.7s;
+}
+
+
+#burger-btn{
+	display: none;
+	position: fixed;
+	right: 0;
+	z-index: 100;
+	margin: 1.5em;
+	padding: 1.8em;
+	transform: rotate(0deg);
+	transition: .5s ease-in-out;
+	cursor: pointer;
+  }
+
+  #burger-btn span {
+	position: absolute;
+	height: 6px;
+	width: 100%;
+	background: #ffffffe3;
+	border-radius: 10px;
+	opacity: 1;
+	left: 0;
+	transform: rotate(0deg);
+	transition: .25s ease-in-out;
+  }
+
+  #burger-btn span:nth-child(1) {
+	top: 0px;
+  }
+  
+  #burger-btn span:nth-child(2) {
+	top: 18px;
+  }
+  
+  #burger-btn span:nth-child(3) {
+	top: 36px;
+  }

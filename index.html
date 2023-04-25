@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="./src/img/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=DynaPuff:wght@400;700&display=swap" rel="stylesheet">
+    <title>ReservoApp</title>
+</head>
+
+<body class="register-body">
+    <div class="wrapper-register">
+        <form id="form">
+            <h1>Rejestracja</h1>
+            <div class="user-company">
+                <div class="user-company-user">
+                    <input id="user" name="user" type="checkbox" class="special-input" checked>
+                    <label for="user">
+                        użytkownik
+                    </label>
+                </div>
+
+                <div class="user-company-company">
+                    <input id="company" name="company" type="checkbox" class="special-input">
+                    <label for="company">
+                        firma
+                    </label>
+                </div>
+
+            </div>
+            <div class="horizontal-line"></div>
+
+            <div class="basic-info">
+                <div class="basic-info-names">
+                    <div class="basic-info-data">
+                        <label for="name">Imię</label>
+                        <input id="name" name="name" type="text" class="input" required>
+                    </div>
+                    <div class="basic-info-data">
+                        <label for="surname">Nazwisko</label>
+                        <input id="surname" name="surname" type="text" class="input" required>
+                    </div>
+                </div>
+
+                <div class="basic-info-contact">
+                    <div class="basic-info-data"> <label for="phone">Numer telefonu</label>
+                        <input id="phone" name="phone" type="text" class="input" required>
+                    </div>
+
+                    <div class="basic-info-data">
+                        <label for="email">E-mail</label>
+                        <input id="email" name="email" type="email" class="input" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="password-box">
+
+                <div class="password-box-password">
+                    <label for="password">Hasło</label>
+                    <button class="info" id="one"><img src="./src/img/Group 1.png" alt="info icon"></button>
+                    <input id="password" name="password" type="password" class="input" required>
+                </div>
+
+                <div class="password-box-password">
+                    <label for="repeat">Powtórz hasło</label>
+                    <input id="repeat" name="repeat" type="password" class="input" required>
+                </div>
+
+            </div>
+
+            <div class="register-terms">
+                <input id="terms" type="checkbox" class="special-input">
+                <label for="terms">
+                    Akceptuję warunki regulaminu
+                </label>
+            </div>
+
+            <div class="login">
+                <p class="login__text">Masz już konto?<a class="login__text--link" href="./login.html"> Zaloguj się</a>
+                </p>
+            </div>
+
+            <button type="submit" id="register" class="submit-btn">REJESTRUJ</button>
+
+
+        </form>
+    </div>
+
+
+    <script type="module" defer src="./src/ts/new-elements.ts"></script>
+    <script type="module" defer src="./src/ts/main.ts"></script>
+</body>
+
+</html>
+
+<!-- <script>
+console.log('jestem');
+const form = document.getElementById('form');
+    if (form) {
+	form.addEventListener('submit', function (e) {
+		console.log('trzy');
+		e.preventDefault();
+
+		// const companyNameInput = document.querySelector('#company-name');
+		// // const servicesInput = document.querySelector('#services');
+		// const streetInput = document.querySelector('#street');
+		// const homeInput = document.querySelector('#home') ;
+		// const cityInput = document.querySelector('#city') ;
+		// const codeInput = document.querySelector('#code') ;
+
+		// const tutorService = document.querySelector('#tutor') as HTMLOptionElement;
+		// const barberService = document.querySelector('#barber') as HTMLOptionElement;
+		// const mechanicService = document.querySelector('#mechanic') as HTMLOptionElement;
+
+		// const selectedServices = Array.from(document.querySelectorAll('#services option:checked')).map(
+		// 	option => option.getAttribute('value')
+		// );
+
+		// const data = {
+		// 	name: nameInput.value,
+		// 	surname: surnameInput.value,
+		// 	email: emailInput.value,
+		// 	number: numberInput.value,
+		// 	companyName: companyNameInput.value,
+		// 	services: selectedServices,
+		// 	street: streetInput.value,
+		// 	home: homeInput.value,
+		// 	city: cityInput.value,
+		// 	zipCode: codeInput.value,
+		// 	password: passwordInput.value,
+		// 	repeatPassword: repeatInput.value,
+		// };
+
+		// const options = {
+		// 	method: 'POST',
+		// 	body: JSON.stringify(data),
+		// 	headers: {
+		// 		'Content-Type': 'application/json',
+		// 	},
+		// };
+
+        const payload = new FormData(form);
+
+        console.log([...payload]);
+
+		// fetch('http://srv17.mikr.us:20193/reservo/professions', options)
+		// 	.then(response => response.json())
+		// 	.then(data => console.log(data))
+		// 	.catch((error) => console.log(error));
+	});
+} 
+
+</script> -->

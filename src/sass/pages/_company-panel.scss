@@ -1,0 +1,389 @@
+@use '../utils/reset' as *;
+@use '../utils/colors' as *;
+@use "../components/nav-elements" as *;
+@use '../components/calendar' as *;
+@use "../components/btn" as *;
+@use "../components/lines" as *;
+@use "../components/footer" as *;
+@use "../utils/animations" as *;
+@use "../utils/mixins" as *;
+@use "../utils/professions-img.scss" as *;
+
+.hero-img{
+    // background-image: url('../../img/barber-large.jpg');
+    // // // background-image: url('../../img/tutor-big.jpg');
+    // background-image: url('./images/tutor-small.jpg');
+    // background-image: url("../../img/buildings-large.jpg");
+    // background-image: url("/images/mechanic-small.jpg')");
+    // background-image: url("/images/mechanic-big/jpg");
+    // background-image: url("");
+	@include heroCustomerImg;
+    justify-content: center;
+    height: 100vh;
+
+    &__title{
+        z-index: 5;
+        font-size: 6.5rem;
+        color: #ffffffe3;
+        letter-spacing: 0.1em;
+        text-shadow: 3px 3px 10px black;
+        
+        &-text{
+            font-weight: normal;
+            animation: header-div-slide-top 1s;
+            margin-bottom: .5em;
+        }
+        span {
+            font-weight: bold;
+            font-style: italic;
+            font-size: 7.5rem;
+        }
+        .profession-name-box{
+            text-align: center;
+            animation: header-text-slide-right 1s 1s both;
+        }
+    }
+
+    .arrow {
+        position: absolute;
+        top: 85%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        z-index: 5;
+        cursor: pointer;
+        img{
+            display: block;
+            width: 85px;
+        }
+    }
+    .arrow::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        animation: arrowAnimation 2.3s infinite;
+    }
+
+}
+
+.nav-shadow-box{
+    position: absolute;
+    box-shadow: inset 0px 85px 30px rgba(18, 20, 23, 0.486);
+}
+
+
+.mobile-nav{
+    background-color: rgb(65, 105, 225);
+}
+
+.header-shadow{
+    height: 80vh;
+    @include shadow;
+    background-color: #1110108f;
+}
+
+.your-profession {
+	width: 50%;
+	margin: 2em auto;
+    margin: auto;
+	padding: 1em;
+	text-align: center;
+}
+
+
+.calendar-wrapper{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    max-width: 1650px;
+}
+
+.calendar-section{
+    position: static;
+    margin-top: 0;
+    background-image: none;
+
+    h2{
+        position: relative;
+        z-index: 1;
+        padding: 2em;
+       padding-bottom: .3em;
+        font-size: 3.5rem;
+        font-size: 4rem;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.174);
+        text-align: center;
+    }
+
+    .cut{
+        bottom: 60%;
+        left: 80%;
+        width: 9%;
+        animation: icon-rotate-left 100s infinite linear;
+    }
+
+    .horizontal-line{
+        background-color: rgba(65, 105, 225, 0.781);
+    }
+}
+
+
+.your-visits-section{
+    position: relative;
+    background-image: url("../../img/empty-office-medium.jpg");
+    background-image: url("../../img/office-medium.jpg");
+   @include heroCustomerImg;
+   background-attachment: fixed;
+   background-position: 15% 80%;
+   align-items: normal;
+   margin-top: 2em;
+   .your-visits-box{
+    padding: 5em;
+   }
+}
+.your-visits-shadow{
+    @include shadow;
+}
+
+.your-visits {
+    position: relative;
+    @include sectionBox;
+    background-color: #ffffffbb;
+    display: block;
+    max-width: 700px;
+    z-index: 10;
+
+    &__title {
+		@include boxTitle;
+        background-color: rgba(65, 105, 225, 0.781);
+	}
+    
+	.fa-times {
+		position: absolute;
+		top: 8px;
+		right: 12px;
+		font-size: 2rem;
+		padding: 0.5em;
+		color: #fff;
+		text-shadow: 1px 1px 3px black;
+		z-index: 5;
+		cursor: pointer;
+	}
+
+    .your-visits-visit-box{
+        font-size: 2rem;
+        padding: 2em;
+        padding-top: 1em;
+        span{
+            font-weight: bold;
+        }
+        p{
+            margin: 1em;
+        }
+
+        &__customers-name{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__adress{
+            margin: 0em 3em;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgb(20, 23, 27);
+
+            .your-visits__meeting-adress{
+                margin-bottom: .7em;
+                font-weight: bold;
+                padding: 1em;
+                margin: 0;
+                border-bottom: 1px solid rgb(20, 23, 27);
+            }
+        }
+    }
+
+
+    &__info {
+		margin: 2em;
+		font-size: 1.9rem;
+		&-span {
+			text-decoration: underline;
+			font-weight: bold;
+		}
+	}
+
+    &__date-exact{
+		@include boxTitle;
+        background-color: rgba(65, 105, 225, 0.781);
+        font-size: 2.2rem;
+    }
+}
+
+
+@media(max-width: 992px) {
+
+    .hero-img__title{
+        font-size: 5rem;
+    }
+
+    .calendar-section{
+        h2{
+            font-size: 3rem;
+        }
+    }
+
+    .your-visits{
+        width: 80%;
+    }
+
+    .barber-img{
+        background-position: 50% ;
+
+    }
+    .hero-img{
+        .arrow{
+            top: 76%;
+        }
+    }
+
+}
+@media(max-width: 768px) {
+    #burger-btn{
+        display: block;
+    }
+
+        .tutor-img{
+            background-position: 50% ;
+        }
+        .mechanic-img{
+            background-image: url("../../img/markus-spiske-cjOAigK9xo0-unsplash.jpg");
+        }
+
+
+
+    .hero-img{
+        .arrow{
+            top: 70%;
+        }
+
+        .hero-img__title{
+            font-size: 4rem;
+            margin-bottom: 2em;
+            #profession-name{
+                font-size: 6rem;
+            }
+        }
+    }
+
+    .calendar-section{
+        .horizontal-line{
+            margin-bottom: 0;
+        }
+    }
+
+   .wrapper-calendar{
+    .calendar-title{
+        h4{
+            font-size: 2rem;
+            padding: 1.2em;
+
+        }
+    }
+
+   }
+
+   .your-visits-section{
+    background-position: 57%;
+   }
+
+   .your-visits{
+    width: 85%;
+
+    .your-visits__title{
+        font-size: 2.2rem;
+    }
+
+    .your-visits__date-exact{
+        font-size: 2rem;
+    }
+
+    .your-visits-visit-box{
+        padding: 0;
+        padding-bottom: 1em;
+    }
+}
+}
+
+@media(max-width: 576px) {
+.hero-img{
+        .arrow{
+            top: 70%;
+        }
+    .hero-img__title{
+        font-size: 3.5rem;
+        #profession-name{
+            font-size: 6rem;
+        }
+    }
+
+}
+
+.your-visits-section{
+    min-height: auto;
+    background-position: 45% 40%;
+    .your-visits-box{
+        padding-top: 7em;
+        padding-bottom: 7em;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+}
+    .your-visits{
+        width: 90%;
+    }
+}
+
+@media(max-width: 480px){
+    .wrapper-calendar{
+        .calendar-title{
+            h4{
+                font-size: 1.7rem;
+            }
+        }
+       }
+       .your-visits{
+        width: 95%;
+        .your-visits-visit-box__adress{
+            margin: .7em;
+        }
+    }
+
+.hero-img{
+
+    .arrow{
+        top: 80%;
+        img{
+            width: 70px;
+        }
+    }
+    .hero-img__title{
+        font-size: 3rem;
+        #profession-name{
+            font-size: 5rem;
+        }
+    }
+}
+
+}
+
+
+
+

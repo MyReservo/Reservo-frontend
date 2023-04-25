@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/sass/pages/_login.scss">
+    <link rel="shortcut icon" type="image/x-icon" href="./src/img/favicon.ico">
+    <title>Login</title>
+</head>
+
+<body class="login-body">
+    <div class="wrapper" id="mobile-wrapper">
+
+        <form id="form">
+            <h1>LOGOWANIE</h1>
+    <div class="horizontal-line"></div>
+
+            <div class="basic-info-data">
+    
+                <label for="email">E-mail</label>
+                <input id="email-login" name="email" type="email" class="input" required>
+                
+                <label for="password">Hasło</label>
+                <button class="info" id="one"></button>
+                <input id="password-login" name="password" type="password" class="input" required>
+    
+            </div>
+    
+            <div class="register">
+                <p class="register__text">Nie masz jeszcze konta?</p><a class="register__text--link" href="./index.html">Zarejestruj
+                    się</a>
+            </div>
+    
+            <button type="submit" id="login-btn" class="submit-btn">ZALOGUJ</button>
+    
+    
+        </form>
+    </div>
+   
+    <!-- <script src="./src/ts/main.ts"></script> -->
+    <script src="./src/ts/login.ts"></script>
+</body>
+
+</html>

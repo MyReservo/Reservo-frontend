@@ -1,0 +1,243 @@
+@use '../utils/colors' as *;
+@use '../utils/mixins' as *;
+
+.calendar-section {
+	position: relative;
+	margin-top: 7em;
+	background-image: url('../../img/buildings-big.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center
+}
+
+.calendar-box {
+	padding: 3.5em 0em 3.5em;
+}
+
+.calendar-shadow {
+	@include shadow;
+}
+.my-reservations {
+	height: 100vh;
+}
+
+.wrapper-calendar {
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	justify-content: center;
+	margin: auto;
+	max-width: 750px;
+	z-index: 1;
+	background: #ffffffea;
+	border-radius: 10px;
+	box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+
+	header {
+		display: flex;
+		align-items: center;
+		padding: 25px 30px 10px;
+		justify-content: space-between;
+		margin-left: 1em;
+		.current-date {
+			font-size: 2.3rem;
+			text-shadow: 1px 1px 10px rgba(168, 156, 156, 0.377);
+		}
+		.icons {
+			span {
+				font-size: 3.5rem;
+				margin-left: 0.5em;
+				cursor: pointer;
+				color: $calendarPrevNext;
+				border-radius: 50%;
+				&:hover {
+					background: $noActiveBgc;
+				}
+			}
+		}
+	}
+
+	.calendar-title {
+		font-size: 2rem;
+		text-align: center;
+		background-color: $calendarTitleBgc;
+		border-top-left-radius: 8px;
+		border-top-right-radius: 8px;
+		h4 {
+			padding: 1em;
+			font-size: 2.4rem;
+			color: $calendarTitle;
+			text-shadow: 1px 2px 5px black;
+		}
+	}
+}
+
+.icons {
+	span {
+		&:last-child {
+			margin-right: -10px;
+		}
+	}
+}
+.calendar {
+	padding: 20px;
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		list-style: none;
+		text-align: center;
+	}
+	.days {
+		margin-bottom: 20px;
+		li {
+			z-index: 1;
+			cursor: pointer;
+			position: relative;
+			margin-top: 30px;
+		}
+	}
+	li {
+		width: calc(100% / 7);
+		font-size: 1.07rem;
+	}
+	.weeks {
+		li {
+			font-size: 1.8rem;
+			font-weight: 500;
+			cursor: default;
+		}
+	}
+}
+.days {
+	li.inactive {
+		color: $inactiveDay;
+	}
+	li.active {
+		color: $activeDayFont;
+		&::before {
+			background: $activeDayBgc;
+		}
+	}
+	li {
+		font-size: 2rem;
+		position: relative;
+		&::before {
+			position: absolute;
+			content: '';
+			left: 50%;
+			top: 50%;
+			height: 40px;
+			width: 40px;
+			z-index: -1;
+			border-radius: 50%;
+			transform: translate(-50%, -50%);
+			background-color: var(--before-bg-color);
+		}
+		&:not(.active) {
+			&:hover::before {
+				background: $noActiveBgc;
+			}
+		}
+		&.active2::before {
+			background-color: $checkedDay;
+		}
+		&.active2:hover::before {
+			background-color: $hoverCheckedDay;
+		}
+	}
+}
+
+@media (max-width: 1200px) {
+	.calendar {
+		li {
+			font-size: 1.8rem;
+		}
+	}
+}
+
+@media (max-width: 992px) {
+	.calendar-section{
+	background-image: url('../../img/buildings-big.jpg');
+
+	}
+	.wrapper-calendar {
+		width: 70%;
+	}
+}
+
+@media (max-width: 768px) {
+	.wrapper-calendar {
+		width: 75%;
+		header {
+			padding: 10px 20px 0px;
+			padding: 1em 2em 0em 1em;
+		}
+		.calendar {
+			padding-top: 0.8em;
+			li {
+				margin-top: 20px;
+			}
+		}
+	}
+}
+
+@media (max-width: 576px) {
+	.calendar-section{
+	background-image: url('../../img/buildings-small.jpg');
+
+	}
+	.wrapper-calendar {
+		width: 80%;
+		.calendar {
+			padding-top: 0.6em;
+			.days {
+				margin-bottom: 0.5em;
+			}
+		}
+	}
+}
+
+
+@media (max-width: 480px){
+
+	.wrapper-calendar {
+		width: 90%;
+		.calendar-title{
+			h4{
+				font-size: 2.2rem;
+				padding: .9em;
+			}
+		}
+		.calendar {
+			padding-top: 0em;
+		}
+	}
+
+}
+
+
+@media(max-width: 380px){
+
+	.wrapper-calendar {
+		width: 95%;
+
+		header{
+			padding-right: 1em;
+			margin-left: .5em;
+			.icons{
+				#prev{
+					margin-left: 0;
+
+				}
+			}
+		}
+		.calendar-title{
+			h4{
+				font-size: 2rem;
+				padding: .8em;
+			}
+		}
+	}
+
+
+}
