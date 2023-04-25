@@ -26,9 +26,9 @@
 
 }
 
-@mixin heroCustomerImg {
+@mixin heroImg {
         display: grid;
-		align-items: baseline;
+		align-items: center;
 		position: relative;
 		min-height: 78vh;
 		background-position: 15%;

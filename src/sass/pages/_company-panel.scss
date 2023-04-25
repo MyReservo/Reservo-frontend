@@ -10,14 +10,7 @@
 @use "../utils/professions-img.scss" as *;
 
 .hero-img{
-    // background-image: url('../../img/barber-large.jpg');
-    // // // background-image: url('../../img/tutor-big.jpg');
-    // background-image: url('./images/tutor-small.jpg');
-    // background-image: url("../../img/buildings-large.jpg");
-    // background-image: url("/images/mechanic-small.jpg')");
-    // background-image: url("/images/mechanic-big/jpg");
-    // background-image: url("");
-	@include heroCustomerImg;
+	@include heroImg;
     justify-content: center;
     height: 100vh;
 
@@ -138,7 +131,7 @@
     position: relative;
     background-image: url("../../img/empty-office-medium.jpg");
     background-image: url("../../img/office-medium.jpg");
-   @include heroCustomerImg;
+   @include heroImg;
    background-attachment: fixed;
    background-position: 15% 80%;
    align-items: normal;
