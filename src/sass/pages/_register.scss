@@ -121,7 +121,10 @@ flex-wrap: wrap;
 
 		&--link{
 		cursor: pointer;
-		color: $loginLink;
+		color: $link;
+		}
+		&--link:hover {
+			color:$hoverLink;
 		}
 	}
 }

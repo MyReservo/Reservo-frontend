@@ -38,7 +38,10 @@ h1 {
 		font-size: 1.8rem;
 		&--link {
 			cursor: pointer;
-			color: $loginLink;
+			color: $link;
+		}
+		&--link:hover {
+			color:$hoverLink;
 		}
 	}
 	a {
