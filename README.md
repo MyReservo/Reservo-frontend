@@ -22,6 +22,7 @@ This project is intended both for people looking for a specific service (custome
 - Login - Thanks to local storage, after successful registration, you can log out and then log in using the same e-mail address and password that you provided during registration
 - Booking appointments (will be added soon)
 - Responsive Web Design
+- This app is tested with Cypress (full test will be written soon)
 
 
 ## Installation
@@ -100,3 +101,4 @@ Verify that Node.js and NPM have been installed correctly by typing in the comma
  - In order to test the application after registering as a company, You can register as a customer and then You will be transferred to the customer panel, where You can select the service (so far there are 3 to choose from). Then after selecting the appropriate city and selecting the option to display the address of the local, the address of the company should appear that was entered during registration of a company and the name of the service provider
  
  - In the future, a script will be added, thanks to which, after the customer selects the appropriate day in the calendar and the appropriate time, data will be sent to the calendar in the service provider's panel.
+ 
