@@ -117,6 +117,7 @@ basicInfoData2.className = 'basic-info-data';
 const basicInfoContact = document.querySelector('.basic-info-contact') as HTMLElement;
 const emailCustomerData = document.querySelector('.email-customer-data') as HTMLElement; 
 
+
 export const companyNamelabel = document.createElement('label');
 companyNamelabel.htmlFor = 'company-name';
 companyNamelabel.innerText = 'Nazwa firmy';
@@ -125,6 +126,7 @@ companyInput.className = 'input';
 companyInput.id = 'company-name';
 companyInput.name = "company-name";
 companyInput.type = 'text';
+
 
 
  const servicesLabel = document.createElement('label');
@@ -168,6 +170,11 @@ const inputsValidation = () => {
 };
 
 const companyEmail = document.createElement('input');
+const companyEmailLabel = document.createElement('label');
+companyEmailLabel.textContent = "E-mail"
+const emailCompanyData = document.createElement('div');
+emailCompanyData.classList.add('basic-info-data');
+emailCompanyData.classList.add('email-company-data');
 
 const inputsArr = [nameInput,surnameInput,numberInput,emailCustomerInput,passwordInput,repeatInput,select,companyInput,companyEmail];
 
@@ -193,11 +200,13 @@ const clearAllErrors = (
     if (checkCompanyInput.checked && checkCompanyInputChecked === false) {
 		checkCompanyInputChecked = true;
 		emailCustomerInput.remove();
+		emailCustomerData.remove()
 		companyEmail.id = "email-company";
 		companyEmail.type = "text";
 		companyEmail.classList.add("input");
 
-		basicInfoContact.append(companyEmail);
+		emailCompanyData.append(companyEmailLabel,companyEmail)
+		basicInfoContact.append(emailCompanyData);
         basicInfoData.append(companyNamelabel, companyInput);
         basicInfoData2.append(servicesLabel, select);
         basicInfoCompany.append(basicInfoData, basicInfoData2);
