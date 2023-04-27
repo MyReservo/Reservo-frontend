@@ -15,6 +15,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: 'index.html',
+        login: 'login.html',
         customerPanel: 'customer-panel.html',
         companyPanel: 'company-panel.html',
         companyPanelTs: 'src/ts/company-panel.ts',
