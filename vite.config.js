@@ -29,8 +29,6 @@ export default defineConfig({
         format: 'es',
         entryFileNames: '[name].[hash].js',
         chunkFileNames: 'chunks/[name].[hash].js',
-        // assetFileNames: '[name].[hash].[ext]',
-        // dir: 'dist',
        assetFileNames: 'images/[name]-[hash].[ext]', 
       },
     },
