@@ -1,8 +1,15 @@
-# Reservo <img src="./src/img/pencil.png" alt="pencil icon" width="30px">
+
+<div align="center">
+  <h1>Reservo <img src="./src/img/pencil.png" alt="pencil icon" width="30px"></h1>
+</div>
 
 
 
+<div align="center">
 This project is intended both for people looking for a specific service (customers) and for people who run a business and want to acquire customers. This web application allows customers to book an appointment at a specific time and place. On the other hand, people providing services will have access to a calendar in their panel, which will display the days on which they have an appointment with the client to perform their service. Keep in mind that the app is not finished, I'm still working on it.
+</div>
+
+
 
 ## <a href="https://myreservo.github.io/Reservo-frontend/" target="_blank" rel="noreferrer"> <img src="https://w7.pngwing.com/pngs/286/384/png-transparent-live-streaming-youtube-button-online-internet-social-media-media-icon.png" alt="live icon" width="70" height="40" /> </a>
 
