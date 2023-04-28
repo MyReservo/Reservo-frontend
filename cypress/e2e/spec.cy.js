@@ -1,8 +1,3 @@
-// describe('Rejestracja', () => {
-//   it('Prawidłowa rejestracja klienta', () => {
-//     cy.visit('https://rezervo.github.io/Reservo-frontend/')
-//   })
-// })
 
 describe('Rejestracja', () => {
   it('Prawidłowa rejestracja klienta', () => {

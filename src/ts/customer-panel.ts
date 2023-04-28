@@ -11,15 +11,15 @@ const companyCode = document.querySelector('#company-code') as HTMLParagraphElem
 const searchProvidersBtn = document.querySelector('#search-providers') as HTMLButtonElement;
 
 export let date = new Date();
-
-
-
 export const allTd: NodeListOf<HTMLTableDataCellElement> = document.querySelectorAll('tbody td');
-
-
 
 const customerHomeCheckbox = document.querySelector('#client-home') as HTMLInputElement;
 const clientAdressBox = document.querySelector('.client-adress') as HTMLDivElement;
+
+ export const footerYear = document.querySelector('.footer__current-year') as HTMLSpanElement;
+ export const currnetYear = new Date().getFullYear();
+
+ footerYear!.textContent = currnetYear.toString();
 
 const calendarCheckboxCheck = () => {
 	if (customerHomeCheckbox.checked) {
@@ -46,7 +46,9 @@ function handleCheckboxClick(this: HTMLInputElement) {
 const servicesSelect = document.querySelector('#select-services') as HTMLSelectElement;
 const servicesCitySelect = document.querySelector('#select-city') as HTMLSelectElement;
 
-const serviceProviderSmallerBox = document.querySelector('.available-service-providers-container__first-box') as HTMLHeadingElement;
+const serviceProviderSmallerBox = document.querySelector(
+	'.available-service-providers-container__first-box'
+) as HTMLHeadingElement;
 const serviceProvider = document.querySelector('.available-service-providers-container__title') as HTMLHeadingElement;
 const availableServiceProviders = document.querySelector('.available-service-providers') as HTMLElement;
 const listOfProvidersBox = document.querySelector('.available-service-providers-container__list') as HTMLElement;
@@ -65,10 +67,9 @@ const createServiceProviderElement = (name: string) => {
 	serviceProviderCheckbox.id = `${name}-tutor`;
 	serviceProviderCheckbox.className = 'service-provider';
 	serviceProviderName.append(serviceProviderText, serviceProviderCheckbox);
-	listOfProvidersBox.append(serviceProviderName)
-	availableServiceProviders.append(listOfProvidersBox)
-	serviceProviderSmallerBox.append(availableServiceProviders,confirmProviderBtn);
-
+	listOfProvidersBox.append(serviceProviderName);
+	availableServiceProviders.append(listOfProvidersBox);
+	serviceProviderSmallerBox.append(availableServiceProviders, confirmProviderBtn);
 };
 
 const updateServiceProviders = () => {
@@ -160,8 +161,6 @@ function checkOneCheckbox(event: Event) {
 	}
 }
 
-
-
 export const monthArr = [
 	{ pl: 'Styczeń', en: 'January' },
 	{ pl: 'Luty', en: 'February' },
@@ -177,16 +176,12 @@ export const monthArr = [
 	{ pl: 'Grudzień', en: 'December' },
 ];
 
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
 	// const td = document.querySelectorAll('td')
 
-if(userName){
-	userName.textContent = localStorage.getItem('name');
-
-}
+	if (userName) {
+		userName.textContent = localStorage.getItem('name');
+	}
 
 	localStorage.getItem('name');
 
@@ -206,20 +201,17 @@ if(userName){
 		}
 	});
 
-
-
-
 	if (companyStreet !== null) {
 		companyStreet.textContent = localStorage.getItem('companyStreet');
 	}
 	if (companyHomeNumber !== null) {
-		companyHomeNumber.textContent =   localStorage.getItem('companyHome');
+		companyHomeNumber.textContent = localStorage.getItem('companyHome');
 	}
 	if (companyCity) {
-		companyCity.textContent =   localStorage.getItem('companyCity');
+		companyCity.textContent = localStorage.getItem('companyCity');
 	}
 	if (companyCode) {
-		companyCode.textContent =  localStorage.getItem('companyCode');
+		companyCode.textContent = localStorage.getItem('companyCode');
 	}
 
 	if (localCheckbox !== null) {
