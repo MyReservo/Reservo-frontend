@@ -24,8 +24,7 @@
 	.hero-img {
 		@include heroImg;
 		align-items: baseline;
-		background-image: url('../../img/city-original-size.jpg');
-
+		background-image: url('../../img/city-large.jpg');
 		.header-shadow {
 			@include shadow;
 			background-color: $headerBgc;
@@ -111,7 +110,6 @@
 
 	&__icons {
 		display: flex;
-		// width: 100%;
 		justify-content: space-evenly;
 		font-size: 3rem;
 		margin-bottom: 0.5em;
