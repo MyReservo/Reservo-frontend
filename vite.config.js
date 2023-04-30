@@ -1,5 +1,7 @@
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import { imageminPlugin } from './ścieżka/do/pliku/imagemin-plugin.js';
+
 
 export default defineConfig({
   publicDir: 'public',
@@ -33,4 +35,9 @@ export default defineConfig({
       },
     },
   },
+  plugins: [
+    tsconfigPaths(),
+    imageminPlugin(),
+  ],
+  
 });

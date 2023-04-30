@@ -28,37 +28,9 @@ export{}
 //  const registerBtn = document.querySelector('#register') as HTMLButtonElement;
 //  const select = document.createElement('select');
 //  const companyInput = document.createElement('input');
-
 //  const termsInput = document.querySelector('#terms') as HTMLInputElement;
-// console.log('dwa');
 
 //  const inputs = [nameInput,surnameInput,numberInput,emailInput,passwordInput,repeatInput,companyInput,select,streetInput,cityInput,homeInput,codeInput];
-
-//  console.log(inputs);
-
-
-
-
-//  registerBtn.addEventListener("click", (event) => {
-// 	 event.preventDefault();
-	 
-// 	//  const inputs = [inputsArr,adressInputsArr];
-
-// 	 let allInputsFilled = true;
-// 	 inputs.forEach((input) => {
-// 		 if (input.value.trim() === "") {
-// 			 allInputsFilled = false;
-// 		 }
-// 	 });
-
-// 	 if (allInputsFilled) {
-// 		 // Przejdź do strony calendar.html
-// 		 window.location.href = "calendar.html";
-// 	 } else {
-// 		 alert("")
-// 	 }
-// })
-
 
 // import { addressData } from './new-elements';
 
@@ -73,55 +45,17 @@ export{}
 
 form.addEventListener('submit', function (e) {
 	e.preventDefault();
-// console.log('ok');
 	const selectedServices = Array.from(document.querySelectorAll('#services option:checked')).map(
 		option => option.getAttribute('value') as string
 	);
 
-	// const data = {
-	// 	name: nameInput.value,
-	// 	surname: surnameInput.value,
-	// 	email: emailInput.value,
-	// 	number: numberInput.value,
-	// 	services: selectedServices,
-	// 	companyName: companyInput.value,
-	// 	adress: addressData,
-	// 	password: passwordInput.value,
-	// 	repeatPassword: repeatInput.value,
-	// };
-
-	// 		const options: Options = {
-	// 			method: 'GET',
-	// 			mode: 'no-cors',
-	// 			// body: JSON.stringify(data),
-	// 			headers: {
-	// 				'Content-Type': 'application/json',
-	// 			},
-	// 		};
-
-	// 		const queryParams = new URLSearchParams(data);
-	// fetch(`http://srv17.mikr.us:20193/reservo/professions?${queryParams}`)
-
-	// 			.then((response) => response.text())
-	// 			.then((data) => console.log(data))
-	// 			.catch((error: Error) => console.log(error));
 
 	const query = new URLSearchParams();
-	// query.set('name', nameInput.value);
-	// query.set('surname', surnameInput.value);
-	// query.set('email', emailInput.value);
-	// query.set('number', numberInput.value);
 	query.set('services', selectedServices.join(','));
-	// query.set('companyName', companyInput.value);
-	// query.set('adress', JSON.stringify(addressData));
-	// query.set('password', passwordInput.value);
-	// query.set('repeatPassword', repeatInput.value);
-	// console.log(query);
 	const options: RequestInit = {
 		method: 'GET',
 		mode: 'cors',
 	};
-
 	const url = `http://srv17.mikr.us:20193/reservo/professions?${query.toString()}`;
 	fetch(url, options)
 		.then(response => response.text())
