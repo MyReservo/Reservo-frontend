@@ -139,10 +139,10 @@
 			}
 		}
 		&.active2::before {
-			background-color: $checkedDay;
+			background-color: $checked;
 		}
 		&.active2:hover::before {
-			background-color: $hoverCheckedDay;
+			background-color: $hoverChecked;
 		}
 	}
 }

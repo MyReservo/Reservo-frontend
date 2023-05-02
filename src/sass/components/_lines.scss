@@ -1,3 +1,5 @@
+@use "../utils/colors" as *; 
+
 .horizontal-line {
 	height: 1px;
 	width: 80%;
@@ -10,7 +12,7 @@
 	margin-top: 0;
 	height: 8px;
 	width: 11%;
-	background-color: rgba(89, 187, 240, 0.9058823529);
+	background-color: $customerUnderline;
 	border-radius: 13px
 }
 

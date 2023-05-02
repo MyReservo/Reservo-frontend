@@ -1,19 +1,18 @@
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import { imageminPlugin } from './ścieżka/do/pliku/imagemin-plugin.js';
-
+import { imageminPlugin } from './plugins/imagemin-plugin';
 
 export default defineConfig({
   publicDir: 'public',
   base: '/Reservo-frontend/',
   plugins: [
     tsconfigPaths(),
+    tsconfigPaths(),
+    imageminPlugin(),
   ],
   build: {
-
     outDir: 'dist',
     assetsDir: 'assets', 
-
     rollupOptions: {
       input: {
         main: 'index.html',
@@ -35,9 +34,5 @@ export default defineConfig({
       },
     },
   },
-  plugins: [
-    tsconfigPaths(),
-    imageminPlugin(),
-  ],
   
 });

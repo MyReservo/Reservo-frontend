@@ -60,7 +60,6 @@
 			height: 13px;
 			width: 50%;
 			border-radius: 15px;
-			background-color: royalblue;
 			background-color: $secondary;
 		}
 	}
@@ -163,7 +162,7 @@
 		margin-top: 0;
 		height: 8px;
 		width: 11%;
-		background-color: rgba(89, 187, 240, 0.9058823529);
+		background-color: $customerUnderline;
 		border-radius: 13px
 
 	}
@@ -371,7 +370,7 @@
 	}
 
 	.active-hour-btn {
-		background-color: lime;
+		background-color: $checked;
 	}
 	h3 {
 		@include boxTitle;
@@ -744,7 +743,6 @@
 				background-color: $headerBgc;
 			}
 			.pick-profession-box {
-				// width: 100%;
 				background-color: transparent;
 				padding: 2em 0em 2em;
 				box-shadow: inset 0px 1px 15px 0px $secondary;
