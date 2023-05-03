@@ -11,7 +11,8 @@ This project is intended both for people looking for a specific service (custome
 
 
 
-## <a href="https://myreservo.github.io/Reservo-frontend/" target="_blank" rel="noreferrer"> <img src="https://w7.pngwing.com/pngs/286/384/png-transparent-live-streaming-youtube-button-online-internet-social-media-media-icon.png" alt="live icon" width="70" height="40" /> </a>
+##   <div align="center" ><a href="https://myreservo.github.io/Reservo-frontend/" target="_blank" rel="noreferrer"> <img src="https://w7.pngwing.com/pngs/286/384/png-transparent-live-streaming-youtube-button-online-internet-social-media-media-icon.png" alt="live icon" width="70" height="40" /> </a>  </div>
+
 
 
 
