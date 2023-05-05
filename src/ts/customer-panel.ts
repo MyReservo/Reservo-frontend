@@ -19,7 +19,9 @@ const clientAdressBox = document.querySelector('.client-adress') as HTMLDivEleme
  export const footerYear = document.querySelector('.footer__current-year') as HTMLSpanElement;
  export const currnetYear = new Date().getFullYear();
 
- footerYear!.textContent = currnetYear.toString();
+ if(footerYear){
+	 footerYear!.textContent = currnetYear.toString();
+ }
 
 const calendarCheckboxCheck = () => {
 	if (customerHomeCheckbox.checked) {
