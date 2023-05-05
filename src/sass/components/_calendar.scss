@@ -7,7 +7,7 @@
 	background-image: url('../../img/buildings-big.jpg');
 	background-size: cover;
 	background-attachment: fixed;
-	background-position: center
+	background-position: center;
 }
 
 .calendar-box {
@@ -43,18 +43,6 @@
 			font-size: 2.3rem;
 			text-shadow: 1px 1px 10px rgba(168, 156, 156, 0.377);
 		}
-		.icons {
-			span {
-				font-size: 3.5rem;
-				margin-left: 0.5em;
-				cursor: pointer;
-				color: $calendarPrevNext;
-				border-radius: 50%;
-				&:hover {
-					background: $noActiveBgc;
-				}
-			}
-		}
 	}
 
 	.calendar-title {
@@ -71,17 +59,27 @@
 		}
 	}
 
-	.company-calendar-title{
+	.company-calendar-title {
 		background-color: $calendarCompanyTitleBgc;
 	}
 }
 
 .icons {
-	span {
-		&:last-child {
-			margin-right: -10px;
-		}
+	width: 20%;
+	display: flex;
+	justify-content: space-between;
+	.fa-chevron-left,
+	.fa-chevron-right {
+		padding: 0.4em;
+		font-size: 2rem;
+		cursor: pointer;
 	}
+	.fa-chevron-left:hover,
+	.fa-chevron-right:hover{
+		background-color: rgba(0, 0, 0, 0.129);
+		border-radius: 15px;
+	}
+
 }
 .calendar {
 	padding: 20px;
@@ -160,10 +158,6 @@
 }
 
 @media (max-width: 992px) {
-	.calendar-section{
-	background-image: url('../../img/buildings-big.jpg');
-
-	}
 	.wrapper-calendar {
 		width: 70%;
 	}
@@ -186,9 +180,8 @@
 }
 
 @media (max-width: 576px) {
-	.calendar-section{
-	background-image: url('../../img/buildings-small.jpg');
-
+	.calendar-section {
+		background-image: url('../../img/buildings-small.jpg');
 	}
 	.wrapper-calendar {
 		width: 80%;
@@ -201,47 +194,49 @@
 	}
 }
 
-
-@media (max-width: 480px){
-
+@media (max-width: 480px) {
 	.wrapper-calendar {
 		width: 90%;
-		.calendar-title{
-			h4{
+		.calendar-title {
+			h4 {
 				font-size: 2.2rem;
-				padding: .9em;
+				padding: 0.9em;
 			}
 		}
 		.calendar {
 			padding-top: 0em;
 		}
-	}
-
-}
-
-
-@media(max-width: 380px){
-
-	.wrapper-calendar {
-		width: 95%;
 
 		header{
-			padding-right: 1em;
-			margin-left: .5em;
-			.icons{
-				#prev{
-					margin-left: 0;
-
+			.icons {
+				margin-right: 1em;
+				#prev {
+					margin-right: 2em;
 				}
 			}
 		}
-		.calendar-title{
-			h4{
+	}
+}
+
+@media (max-width: 380px) {
+	.wrapper-calendar {
+		width: 95%;
+
+		header {
+			padding-right: 1em;
+			margin-left: 0.5em;
+			.icons {
+				margin-right: 2em;
+				#prev {
+					margin-right: 1.2em;
+				}
+			}
+		}
+		.calendar-title {
+			h4 {
 				font-size: 2rem;
-				padding: .8em;
+				padding: 0.8em;
 			}
 		}
 	}
-
-
 }

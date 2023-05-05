@@ -12,17 +12,16 @@
   "devDependencies": {
     "cypress": "^12.9.0",
     "sass": "^1.58.3",
+    "sharp": "^0.32.1",
+    "svgo": "^3.0.2",
     "typescript": "^4.9.5",
     "vite": "^4.1.4",
+    "vite-plugin-image-optimizer": "^1.1.4",
     "vite-plugin-sass": "^0.1.0",
     "vite-tsconfig-paths": "^4.0.5"
   },
   "dependencies": {
     "calendarpickerjs": "^1.4.0",
-    "gh-pages": "^5.0.0",
-    "imagemin": "^8.0.1",
-    "imagemin-gifsicle": "^7.0.0",
-    "imagemin-mozjpeg": "^10.0.0",
-    "imagemin-pngquant": "^9.0.2"
+    "gh-pages": "^5.0.0"
   }
 }

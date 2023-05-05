@@ -273,70 +273,6 @@
 	}
 }
 
-.client-adress {
-	@include sectionBox;
-	max-width: 750px;
-
-	&__title {
-		@include boxTitle;
-	}
-	&__body {
-		display: flex;
-		flex-direction: column;
-		padding: 2.2em 5em 1em;
-
-		#confirm-adress{
-			@include customerBtn;
-			width: 40%;
-			max-width: 190px;
-		}
-	}
-	label {
-		font-size: 1.9rem;
-	}
-	input {
-		cursor: auto;
-		font-size: 1.8rem;
-		background-color: #ebebebd8;
-		box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.407);
-	}
-}
-
-
-.company-adress {
-	@include sectionBox;
-	max-width: 650px;
-	font-size: 2.2rem;
-
-	&__body {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		padding: 2.5em 2em 2em;
-
-		#company-street,
-		#company-home-number,
-		#company-city,
-		#company-code {
-			font-weight: bold;
-		}
-
-	}
-	a{
-		width: 100%;
-	}
-	#confirm-local{
-		@include customerBtn;
-	}
-
-	&__item {
-		margin-bottom: 1.4em;
-	}
-
-	&__street-box {
-		display: flex;
-	}
-}
 
 #calendar-services,
 #calendar-city {
@@ -515,27 +451,7 @@
 		.service-location__box {
 			font-size: 1.8rem;
 		}
-		.client-adress{
-			margin-top: 2em;
-			width: 55%;
-			label{
-				font-size: 1.8rem;
-			}
-		}
-
-		.company-adress{
-			.company-adress__body{
-				#confirm-local{
-					width: 40%;
-				}
-			}
-		}
-		.client-adress__title, .company-adress__title{
-			font-size: 2.3rem;
-		}
-		.client-adress__body{
-			padding: 2.2em 2em 1em;
-		}
+		
 	}
 
 
@@ -594,22 +510,6 @@
 			}
 		}
 
-		.client-adress,.company-adress{
-			width: 65%;
-			a{
-				width: 100%;
-			}
-			.submit-btn{
-				display: block;
-				@include customerBtn;
-				width: 45%;
-			}
-		}
-
-
-		.client-adress__body, .company-adress__body{
-			padding: 2.2em 1em 1em;
-		}
 	}
 
 	.hours-container {
@@ -633,15 +533,15 @@
 }
 
 @media (max-width: 576px) {
-	.header,
-	.header-mobile {
+	.header {
 		.hero-img,
-		.hero-img-mobile {
+		.hero-mobile-container {
 			.pick-profession-box {
 				width: 91%;
 				padding: 1.5em;
 			}
 		}
+
 		.header__btn {
 			width: 91%;
 			.submit-btn {
@@ -681,13 +581,6 @@
 			.service-location__first-box{
 				width: 75%;
 			}
-		}
-
-		.client-adress,.company-adress{
-			width: 75%;
-		}
-		.company-adress__body{
-			padding: 2em 1em 1.5em;
 		}
 	}
 
@@ -793,10 +686,6 @@
 				width: 90%;
 			}
 		}
-
-		.client-adress,.company-adress{
-			width: 90%
-		}
 	}
 	.hours-container{
 		width: 90%;
@@ -819,14 +708,9 @@
 				margin-bottom: 3em;
 			}
 			.pick-profession-box {
+				width: 95%;
 				.input {
 					font-size: 1.3rem;
-				}
-			}
-			#burger-btn {
-				span {
-					width: 75%;
-					height: 4px;
 				}
 			}
 		}
@@ -861,17 +745,6 @@
 			   font-size: 1.8rem;
 		   }
 		} 
-
-		.company-adress__body, .client-adress__body{
-			font-size: 1.8rem;
-			padding: 1.5em .5em 1em;
-		}
-
-		.client-adress__body{
-			input{
-				margin: 0.7em 1em 2.5em 1em;
-			}
-		}
 		}
 
 		.hours-container{

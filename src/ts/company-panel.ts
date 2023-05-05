@@ -12,7 +12,9 @@ const code = document.querySelector('#visit__adress-code') as HTMLParagraphEleme
 
 const heroCompanyImg = document.querySelector('.hero-img') as HTMLParagraphElement;
 
-footerYear!.textContent = currnetYear.toString();
+if (footerYear) {
+	footerYear.textContent = currnetYear.toString();
+}
 
 if (yourProfessionTitle) {
 	yourProfessionTitle.textContent = localStorage.getItem('selectedOptionText');

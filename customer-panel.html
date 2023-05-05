@@ -6,13 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,500&display=swap" rel="stylesheet">
+
+
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,500&display=swap" rel="stylesheet"> -->
+
   <script src="https://kit.fontawesome.com/d3231c159b.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"> -->
+
   <link rel="shortcut icon" type="image/x-icon" href="./src/img/favicon.ico">
   <title>Customer panel</title>
   <link rel="stylesheet" href="./src/sass/pages/_customer-panel.scss">
+  <link async rel="stylesheet" href="./src/sass/components/_client-company-adress.scss">
 </head>
 
 <body class="customer-panel-body">
@@ -198,11 +204,11 @@
     <h3>Twoja wizyta</h3>
     <div class="horizontal-line section-line"></div>
 
-    <img class="wrench" src="./src/img/wrench-solid.svg" alt="wrench icon">
-    <img class="wrench wrench-two" src="./src/img/wrench-solid.svg" alt="wrench icon">
-    <img class="cut" src="./src/img/cut-solid.svg" alt="scissors icon">
-    <img class="cut-two" src="./src/img/cut-solid.svg" alt="scissors icon">
-    <img class=" pencil" src="./src/img/pencil-alt-solid.svg" alt="pencil icon">
+    <img defer class="wrench" src="./src/img/wrench-solid.svg" alt="wrench icon">
+    <img  defer class="wrench wrench-two" src="./src/img/wrench-solid.svg" alt="wrench icon">
+    <img  defer class="cut" src="./src/img/cut-solid.svg" alt="scissors icon">
+    <img  defer class="cut-two" src="./src/img/cut-solid.svg" alt="scissors icon">
+    <img  class=" pencil" src="./src/img/pencil-alt-solid.svg" alt="pencil icon">
 
     <div class="pick-person-and-location__box">
 
@@ -293,8 +299,8 @@
         <header>
           <p class="current-date"></p>
           <div class="icons">
-            <span id="prev" class="material-symbols-rounded">chevron_left</span>
-            <span id="next" class="material-symbols-rounded">chevron_right</span>
+           <i id="prev" class="fas fa-chevron-left"></i>
+           <i id="next" class="fas fa-chevron-right"></i>
           </div>
         </header>
         <div class="calendar">
@@ -319,8 +325,8 @@
 
     <img class="wrench hours-wrench" src="./src/img/wrench-solid.svg" alt="wrench icon">
     <img class=" cut hours-cut" src="./src/img/cut-solid.svg" alt="scissors icon">
-    <img class="pencil hours-pencil" src="./src/img/pencil-alt-solid.svg" alt="pencil icon">
-    <!-- <img class="pencil pencil-two" src="./src/img/pencil-alt-solid.svg" alt="pencil icon"> -->
+    <img  class="pencil hours-pencil" src="./src/img/pencil-alt-solid.svg" alt="pencil icon">
+
 
     <div class="hours-container" id="hours-container">
       <i class="fas fa-times"></i>
@@ -381,7 +387,7 @@
   </script>
   <script type="module" defer src="./src/ts/nav-elements.ts"></script>
   <script type="module" defer src="./src/ts/calendar.ts"></script>
-  <script type="module" defer src="./src/ts/customer-panel.ts"></script>
+  <script type="module"  src="./src/ts/customer-panel.ts"></script>
 </body>
 
 </html>
