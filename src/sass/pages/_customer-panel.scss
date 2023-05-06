@@ -345,11 +345,6 @@
 }
 
 @media (max-width: 1200px) {
-	.header {
-		.hero-img {
-			background-image: url('../../img/city-large.jpg');
-		}
-	}
 
 	.header__title {
 		margin-bottom: 4em;
@@ -622,7 +617,7 @@
 			}
 		}
 		.hero-img-mobile {
-			background-image: url('../../img/city-medium.jpg');
+			background-image: url('../../img/city-small.jpg');
 			@include heroImg;
 			min-height: 100vh;
 			align-items: center;

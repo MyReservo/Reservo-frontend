@@ -1,6 +1,5 @@
 export{}
 
-
 const daysTag = document.querySelector(".days");
 const currentDate = document.querySelector(".current-date");
 const prevNextIcon = document.querySelectorAll(".icons i");
@@ -29,14 +28,11 @@ const renderCalendar = () => {
     if(currentDate){
         currentDate!.textContent = `${months[currMonth]} ${currYear}`; 
     }
-
     if(daysTag){
         daysTag!.innerHTML = liTag;
     }
 }
 renderCalendar();
-
-
 
 const dayAcitveClassToggler = () => {
     const allLi = document.querySelectorAll('.days li');
@@ -55,12 +51,9 @@ const dayAcitveClassToggler = () => {
                 console.log('dodaje klase');
                  li.classList.add('active2');
                }
-
-
 		});
 	});
 }
-
 
 if(prevNextIcon){
     prevNextIcon.forEach(icon => {
@@ -80,8 +73,6 @@ if(prevNextIcon){
         });
     });
 }
-
-
 
 dayAcitveClassToggler()
 
@@ -115,7 +106,6 @@ const handleClick = (e:Event) => {
 	}
 
 };
-
 
 	const exitIcon = document.querySelector('.fa-times');
 	exitIcon?.addEventListener('click', () => {
