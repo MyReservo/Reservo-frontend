@@ -1,4 +1,5 @@
 export {};
+// import { burgerBtnMobileSpans,burgerBtnSpans} from './nav-elements'
 
 const companyLocalCheckbox = document.querySelector('#local') as HTMLInputElement;
 const companyAdress = document.querySelector('.company-adress') as HTMLDivElement;
@@ -57,7 +58,6 @@ const listOfProvidersBox = document.querySelector('.available-service-providers-
 const confirmProviderBtn = document.querySelector('#confirm-provider') as HTMLButtonElement;
 
 const calendarServicesProviderObjectArr = [{ id: 'name-service', name: 'name', city: 'city' }];
-console.log(calendarServicesProviderObjectArr);
 
 const createServiceProviderElement = (name: string) => {
 	const serviceProviderName = document.createElement('div');
@@ -179,14 +179,10 @@ export const monthArr = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-	// const td = document.querySelectorAll('td')
-
 	if (userName) {
 		userName.textContent = localStorage.getItem('name');
 	}
-
 	localStorage.getItem('name');
-
 	localStorage.getItem('selectedOption');
 	localStorage.getItem('companyStreet');
 	localStorage.getItem('companyHome');
@@ -233,11 +229,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	if (servicesSelect !== null && servicesCitySelect !== null) {
-		// servicesSelect.addEventListener('change', updateServiceProviders);
-
 		searchProvidersBtn.addEventListener('click', updateServiceProviders);
 		searchProvidersBtn.addEventListener('click', updateServiceProviders);
 		customerHomeCheckbox.addEventListener('change', calendarCheckboxCheck);
 		companyLocalCheckbox.addEventListener('change', calendarCheckboxCheck);
 	}
+
 });
