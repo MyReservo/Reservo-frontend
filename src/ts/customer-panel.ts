@@ -49,9 +49,7 @@ function handleCheckboxClick(this: HTMLInputElement) {
 const servicesSelect = document.querySelector('#select-services') as HTMLSelectElement;
 const servicesCitySelect = document.querySelector('#select-city') as HTMLSelectElement;
 
-const serviceProviderSmallerBox = document.querySelector(
-	'.available-service-providers-container__first-box'
-) as HTMLHeadingElement;
+const serviceProviderSmallerBox = document.querySelector('.available-service-providers-container__first-box') as HTMLHeadingElement;
 const serviceProvider = document.querySelector('.available-service-providers-container__title') as HTMLHeadingElement;
 const availableServiceProviders = document.querySelector('.available-service-providers') as HTMLElement;
 const listOfProvidersBox = document.querySelector('.available-service-providers-container__list') as HTMLElement;
@@ -62,13 +60,14 @@ const calendarServicesProviderObjectArr = [{ id: 'name-service', name: 'name', c
 const createServiceProviderElement = (name: string) => {
 	const serviceProviderName = document.createElement('div');
 	serviceProviderName.className = 'service-provider';
-	const serviceProviderText = document.createElement('p');
-	serviceProviderText.textContent = name;
+	const serviceProviderLabel = document.createElement('label');
+	serviceProviderLabel.textContent = name;
+	serviceProviderLabel.setAttribute('for',"person");
 	const serviceProviderCheckbox = document.createElement('input');
 	serviceProviderCheckbox.type = 'checkbox';
 	serviceProviderCheckbox.id = `${name}-tutor`;
 	serviceProviderCheckbox.className = 'service-provider';
-	serviceProviderName.append(serviceProviderText, serviceProviderCheckbox);
+	serviceProviderName.append(serviceProviderLabel, serviceProviderCheckbox);
 	listOfProvidersBox.append(serviceProviderName);
 	availableServiceProviders.append(listOfProvidersBox);
 	serviceProviderSmallerBox.append(availableServiceProviders, confirmProviderBtn);
@@ -79,7 +78,7 @@ const updateServiceProviders = () => {
 	const selectedCity = servicesCitySelect.value;
 
 	if (selectedProfession === 'TUTOR') {
-		serviceProvider.textContent = 'korepetytorzy:';
+		serviceProvider.textContent = 'Dostępni korepetytorzy:';
 
 		calendarServicesProviderObjectArr.forEach(provider => {
 			const tutorService = provider.id.includes('tutor');
@@ -98,7 +97,7 @@ const updateServiceProviders = () => {
 	}
 
 	if (selectedProfession === 'BARBER') {
-		serviceProvider.textContent = 'fryzjerzy:';
+		serviceProvider.textContent = 'Dostepni fryzjerzy:';
 
 		calendarServicesProviderObjectArr.forEach(provider => {
 			const tutorService = provider.id.includes('barber');
