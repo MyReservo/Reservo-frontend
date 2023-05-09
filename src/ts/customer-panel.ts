@@ -48,13 +48,11 @@ function handleCheckboxClick(this: HTMLInputElement) {
 
 const servicesSelect = document.querySelector('#select-services') as HTMLSelectElement;
 const servicesCitySelect = document.querySelector('#select-city') as HTMLSelectElement;
-
 const serviceProviderSmallerBox = document.querySelector('.available-service-providers-container__first-box') as HTMLHeadingElement;
 const serviceProvider = document.querySelector('.available-service-providers-container__title') as HTMLHeadingElement;
 const availableServiceProviders = document.querySelector('.available-service-providers') as HTMLElement;
 const listOfProvidersBox = document.querySelector('.available-service-providers-container__list') as HTMLElement;
 const confirmProviderBtn = document.querySelector('#confirm-provider') as HTMLButtonElement;
-
 const calendarServicesProviderObjectArr = [{ id: 'name-service', name: 'name', city: 'city' }];
 
 const createServiceProviderElement = (name: string) => {
