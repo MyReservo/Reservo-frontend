@@ -31,7 +31,6 @@ This project is intended both for people looking for a specific service (custome
 
 - Registration as a customer and as a person providing services
 - Login - Thanks to local storage, after successful registration, you can log out and then log in using the same e-mail address and password that you provided during registration
-- Booking appointments (will be added soon)
 - Responsive Web Design
 - This app is tested with Cypress (full test will be written soon)
 
