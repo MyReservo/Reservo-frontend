@@ -68,7 +68,6 @@ if(prevNextIcon){
             }
             renderCalendar(); 
             dayAcitveClassToggler()
-            console.log('włączam clickevents');
             addClickEvents()
         });
     });
@@ -98,13 +97,11 @@ const handleClick = (e:Event) => {
                 icon!.style.display = "block";
             })            
 		}
-
 	} else if (pickedDate < today ) {
 		alert('Ten dzień już minął!');
         li.classList.remove('active2');
 		return;
 	}
-
 };
 
 	const exitIcon = document.querySelector('.fa-times');
@@ -138,13 +135,10 @@ const handleClick = (e:Event) => {
     };
     
 activeClassButtonToggler()
-
 const addClickEvents = () => {
     const allLi = document.querySelectorAll('.days li');
 	allLi.forEach(li => {
 		li.addEventListener('click', handleClick);
-
 	});
 };
-
 addClickEvents()
