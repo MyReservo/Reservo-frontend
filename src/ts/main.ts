@@ -216,6 +216,7 @@ const clearAllErrors = (
     } else if (customerInput.checked) {
 		checkCompanyInputChecked = false;
 		companyEmail.remove()
+		emailCompanyData.remove()
 		emailCustomerData.append(emailCustomerInput)
 		basicInfoContact.append(emailCustomerData);
 		basicInfo.append(basicInfoContact)
