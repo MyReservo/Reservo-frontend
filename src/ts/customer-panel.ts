@@ -52,12 +52,11 @@ const serviceProvider = document.querySelector('.available-service-providers-con
 const availableServiceProviders = document.querySelector('.available-service-providers') as HTMLElement;
 const listOfProvidersBox = document.querySelector('.available-service-providers-container__list') as HTMLElement;
 const confirmProviderBtn = document.querySelector('#confirm-provider') as HTMLButtonElement;
-console.log(confirmProviderBtn);
 const calendarServicesProviderObjectArr = [{ id: 'name-service', name: 'name', city: 'city' }];
 
 let serviceProviderCheckbox: HTMLInputElement;
 
-const createServiceProviderElement = (name: string) => {
+const createServiceProviderElement = (name: string, id:string) => {
 	const serviceProviderName = document.createElement('div');
 	serviceProviderName.className = 'service-provider';
 	const serviceProviderLabel = document.createElement('label');
@@ -65,7 +64,7 @@ const createServiceProviderElement = (name: string) => {
 	serviceProviderLabel.setAttribute('for',"person");
 	serviceProviderCheckbox = document.createElement('input');
 	serviceProviderCheckbox.type = 'checkbox';
-	serviceProviderCheckbox.id = `${name}-tutor`;
+	serviceProviderCheckbox.id = `${id}`;
 	serviceProviderCheckbox.className = 'person-checkbox';
 	serviceProviderName.append(serviceProviderLabel, serviceProviderCheckbox);
 	listOfProvidersBox.append(serviceProviderName);
@@ -83,13 +82,13 @@ const updateServiceProviders = () => {
 		calendarServicesProviderObjectArr.forEach(provider => {
 			const tutorService = provider.id.includes('tutor');
 			if (selectedCity === 'wroclaw' && provider.city === 'Wrocław' && tutorService) {
-				createServiceProviderElement(provider.name);
+				createServiceProviderElement(provider.name, provider.id);
 			}
 			if (selectedCity == 'warsaw' && provider.city === 'Warszawa' && tutorService) {
-				createServiceProviderElement(provider.name);
+				createServiceProviderElement(provider.name, provider.id);
 			}
 			if (selectedCity == 'cracow' && provider.city === 'Kraków' && tutorService) {
-				createServiceProviderElement(provider.name);
+				createServiceProviderElement(provider.name, provider.id);
 			}
 		});
 	}
@@ -98,16 +97,16 @@ const updateServiceProviders = () => {
 		serviceProvider.textContent = 'Dostepni fryzjerzy:';
 
 		calendarServicesProviderObjectArr.forEach(provider => {
-			const tutorService = provider.id.includes('barber');
+			const barberService = provider.id.includes('barber');
 
-			if (selectedCity === 'wroclaw' && provider.city === 'Wrocław' && tutorService) {
-				createServiceProviderElement(provider.name);
+			if (selectedCity === 'wroclaw' && provider.city === 'Wrocław' && barberService) {
+				createServiceProviderElement(provider.name, provider.id);
 			}
-			if (selectedCity == 'warsaw' && provider.city === 'Warszawa' && tutorService) {
-				createServiceProviderElement(provider.name);
+			if (selectedCity == 'warsaw' && provider.city === 'Warszawa' && barberService) {
+				createServiceProviderElement(provider.name, provider.id);
 			}
-			if (selectedCity == 'cracow' && provider.city === 'Kraków' && tutorService) {
-				createServiceProviderElement(provider.name);
+			if (selectedCity == 'cracow' && provider.city === 'Kraków' && barberService) {
+				createServiceProviderElement(provider.name, provider.id);
 			}
 		});
 	}
@@ -116,16 +115,16 @@ const updateServiceProviders = () => {
 		serviceProvider.textContent = 'Dostępni mechnicy:';
 
 		calendarServicesProviderObjectArr.forEach(provider => {
-			const tutorService = provider.id.includes('mechanic');
+			const mechanicService = provider.id.includes('mechanic');
 
-			if (selectedCity === 'wroclaw' && provider.city === 'Wrocław' && tutorService) {
-				createServiceProviderElement(provider.name);
+			if (selectedCity === 'wroclaw' && provider.city === 'Wrocław' && mechanicService) {
+				createServiceProviderElement(provider.name, provider.id);
 			}
-			if (selectedCity == 'warsaw' && provider.city === 'Warszawa' && tutorService) {
-				createServiceProviderElement(provider.name);
+			if (selectedCity == 'warsaw' && provider.city === 'Warszawa' && mechanicService) {
+				createServiceProviderElement(provider.name, provider.id);
 			}
-			if (selectedCity == 'cracow' && provider.city === 'Kraków' && tutorService) {
-				createServiceProviderElement(provider.name);
+			if (selectedCity == 'cracow' && provider.city === 'Kraków' && mechanicService) {
+				createServiceProviderElement(provider.name, provider.id);
 			}
 		});
 	}
@@ -133,7 +132,6 @@ const updateServiceProviders = () => {
 	if(serviceProviderCheckbox){
 		serviceProviderCheckbox.addEventListener('change', handleCheckboxChange);
 	}
-	console.log(confirmProviderBtn);
 };
 
 
