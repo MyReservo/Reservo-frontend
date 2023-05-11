@@ -1,14 +1,17 @@
 export {};
 
-const burgerBtn = document.querySelector('.burger-btn-tablets') as HTMLButtonElement;
+const burgerBtnTablets = document.querySelector('.burger-btn-tablets') as HTMLButtonElement;
 const burgerBtnMobile = document.querySelector('.mobile-btn') as HTMLButtonElement;
+
+const burgerBtn = document.querySelector('#burger-btn') as HTMLButtonElement;
+
 const nav = document.querySelector('#mobile-nav');
 const allNavLi = document.querySelectorAll('.nav-shadow-box__user-box-side-nav ul li');
 const body = document.querySelector('body');
 const sections = document.querySelectorAll('.section');
 
-if (burgerBtn || burgerBtnMobile) {
-	const burgerBtns = [burgerBtn, burgerBtnMobile];
+if ( burgerBtn) {
+	const burgerBtns = [burgerBtnTablets, burgerBtnMobile,burgerBtn];
 	
 	burgerBtns.forEach(btn => {
 		if (btn) {

@@ -254,6 +254,9 @@
 @media(max-width: 768px) {
     #burger-btn{
         display: block;
+        span{
+            width: 80%;
+        }
     }
 
         .tutor-img{

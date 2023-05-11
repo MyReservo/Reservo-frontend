@@ -1,4 +1,5 @@
 @use '../utils/colors' as *;
+@use '../utils/mixins' as *;
 
 .submit-btn {
 	position: relative;
@@ -40,9 +41,8 @@
 	animation: btn 0.7s;
 }
 
-
-#burger-btn{
-	display: none;
+#burger-btn {
+    display: none;
 	position: fixed;
 	right: 0;
 	z-index: 100;
@@ -51,29 +51,28 @@
 	transform: rotate(0deg);
 	transition: .5s ease-in-out;
 	cursor: pointer;
-  }
+}
 
-  #burger-btn span {
+#burger-btn span {
 	position: absolute;
-	height: 6px;
+	height: 5px;
 	width: 100%;
 	background: #ffffffe3;
 	border-radius: 10px;
 	opacity: 1;
 	left: 0;
 	transform: rotate(0deg);
-	transition: .25s ease-in-out;
-  }
+	transition: 0.25s ease-in-out;
+}
 
-  #burger-btn span:nth-child(1) {
+#burger-btn span:nth-child(1) {
 	top: 0px;
-  }
-  
-  #burger-btn span:nth-child(2) {
-	top: 18px;
-  }
-  
-  #burger-btn span:nth-child(3) {
-	top: 36px;
-  }
+}
 
+#burger-btn span:nth-child(2) {
+	top: 18px;
+}
+
+#burger-btn span:nth-child(3) {
+	top: 36px;
+}
