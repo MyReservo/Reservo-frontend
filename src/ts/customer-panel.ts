@@ -1,5 +1,4 @@
 export {};
-// import { burgerBtnMobileSpans,burgerBtnSpans} from './nav-elements'
 
 const companyLocalCheckbox = document.querySelector('#local') as HTMLInputElement;
 const companyAdress = document.querySelector('.company-adress') as HTMLDivElement;
@@ -143,10 +142,8 @@ if (calendarSendBtn !== null) {
 	});
 }
 
-const localCheckbox = document.querySelector('#local') as HTMLInputElement;
-const homeCheckbox = document.querySelector('#client-home') as HTMLInputElement;
 
-const locationCheckboxArr = [localCheckbox, homeCheckbox];
+const locationCheckboxArr = [customerHomeCheckbox, companyLocalCheckbox];
 
 function checkOneCheckbox(event: Event) {
 	const targetCheckbox = event.target as HTMLInputElement;
@@ -208,13 +205,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	if (companyCode) {
 		companyCode.textContent = localStorage.getItem('companyCode');
 	}
-
-	if (localCheckbox !== null) {
-		localCheckbox.addEventListener('click', checkOneCheckbox);
+	if (customerHomeCheckbox !== null) {
+		customerHomeCheckbox.addEventListener('click', checkOneCheckbox);
 	}
-
-	if (homeCheckbox !== null) {
-		homeCheckbox.addEventListener('click', checkOneCheckbox);
+	if (companyLocalCheckbox !== null) {
+		companyLocalCheckbox.addEventListener('click', checkOneCheckbox);
 	}
 
 	if (checkboxesAdressArr !== null && customerHomeCheckbox !== null && companyLocalCheckbox! == null) {

@@ -183,6 +183,8 @@
 			@include sectionBox;
 			display: flex;
 			margin: 2em;
+			min-height: 320px;
+			justify-content: space-between;
 		}
 
 		&__shadow {
@@ -388,6 +390,7 @@
 		.available-service-providers-container__second-box,
 		.available-service-providers-container__first-box {
 			width: 70%;
+			min-height: auto;
 		}
 
 		.service-location {
@@ -400,6 +403,9 @@
 		}
 
 		.service-location__second-box-text {
+			font-size: 1.8rem;
+		}
+		.available-service-providers-container__text{
 			font-size: 1.8rem;
 		}
 	}

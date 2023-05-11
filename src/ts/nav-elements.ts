@@ -47,7 +47,6 @@ const handleObserver = () => {
 	sections.forEach(section => {
 		if (section.classList.contains('white-section') && section instanceof HTMLElement && section.offsetTop <= currentSection + 100 ) {
 			burgerBtnSpans.forEach(span => {
-				console.log('jest white-section, więc btn black');
 				span.style.backgroundColor = 'black';
 			});
 			burgerBtnMobileSpans.forEach(span => {

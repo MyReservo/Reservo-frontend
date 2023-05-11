@@ -3,7 +3,6 @@ import {footerYear,currnetYear} from "./customer-panel";
 
 const yourProfessionTitle = document.querySelector('#profession-name') as HTMLSpanElement;
 const userNameNav = document.querySelector('.user-name') as HTMLParagraphElement;
-// const userName = document.querySelector('.customers-name') as HTMLSpanElement;
 const userName = document.querySelector('.visit__customers-name p') as HTMLParagraphElement;
 const street = document.querySelector('#visit__adress-street') as HTMLParagraphElement;
 const house = document.querySelector('#visit__adress-home-number') as HTMLParagraphElement;
@@ -15,11 +14,9 @@ const heroCompanyImg = document.querySelector('.hero-img') as HTMLParagraphEleme
 if (footerYear) {
 	footerYear.textContent = currnetYear.toString();
 }
-
 if (yourProfessionTitle) {
 	yourProfessionTitle.textContent = localStorage.getItem('selectedOptionText');
 }
-
 if (userNameNav) {
 	userNameNav.textContent = localStorage.getItem('name');
 }
