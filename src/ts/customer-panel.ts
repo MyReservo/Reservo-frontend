@@ -8,7 +8,17 @@ const companyHomeNumber = document.querySelector('#company-home-number') as HTML
 const companyCity = document.querySelector('#company-city') as HTMLParagraphElement;
 const companyCode = document.querySelector('#company-code') as HTMLParagraphElement;
 
-const searchProvidersBtn = document.querySelector('#search-providers') as HTMLButtonElement;
+const  searchProvidersBtn = document.querySelector('#search-providers') as HTMLButtonElement;
+console.log(searchProvidersBtn);
+
+searchProvidersBtn.addEventListener('click',()=> {
+
+console.log('klikbnueto');
+
+})
+
+
+const  searchProvidersMobileBtn = document.querySelector('#search-providers-mobile') as HTMLButtonElement;
 
 export let date = new Date();
 export const allTd: NodeListOf<HTMLTableDataCellElement> = document.querySelectorAll('tbody td');
@@ -52,6 +62,37 @@ const serviceProvider = document.querySelector('.available-service-providers-con
 const availableServiceProviders = document.querySelector('.available-service-providers') as HTMLElement;
 const listOfProvidersBox = document.querySelector('.available-service-providers-container__list') as HTMLElement;
 const confirmProviderBtn = document.querySelector('#confirm-provider') as HTMLButtonElement;
+
+// const headerBox = document.querySelector('.header-box') as HTMLDivElement;
+const pickProfessionBox = document.querySelector('.pick-profession-box') as HTMLDivElement;
+const headerBtnBox = document.querySelector('.header__btn') as HTMLDivElement;
+const btnLink = document.querySelector('#search-btn-link') as HTMLElement;
+
+
+const changeHeaderStructure = () => {
+
+	if(window.innerWidth < 480 ){
+		btnLink.append(searchProvidersBtn)
+	
+		pickProfessionBox.append(btnLink);
+		headerBtnBox.style.display = "none";
+		console.log('działąm');
+		
+	}else {
+		
+		headerBtnBox.style.display = "block";
+		headerBtnBox.append(searchProvidersBtn);
+	}
+}
+
+
+window.addEventListener('resize', changeHeaderStructure);
+window.addEventListener('load', changeHeaderStructure);
+
+
+
+
+
 const calendarServicesProviderObjectArr = [{ id: 'name-service', name: 'name', city: 'city' }];
 
 let serviceProviderCheckbox: HTMLInputElement;
@@ -76,6 +117,7 @@ const createServiceProviderElement = (name: string, id:string) => {
 const updateServiceProviders = () => {
 	const selectedProfession = servicesSelect.value;
 	const selectedCity = servicesCitySelect.value;
+	console.log('leci');
 
 	if (selectedProfession === 'TUTOR') {
 		serviceProvider.textContent = 'Dostępni korepetytorzy:';
@@ -152,7 +194,6 @@ if(checkboxes){
  for (let i = 0; i < checkboxes.length; i++) {
 	checkboxes[i].addEventListener('change', handleCheckboxChange);
   }
-
 }
 
 let lastCheckedCheckbox: HTMLInputElement | null = null;
@@ -170,7 +211,6 @@ function handleCheckboxChange(this: HTMLInputElement) {
 	  lastCheckedCheckbox = null;
 	}
   }
-
 
 const locationCheckboxArr = [customerHomeCheckbox, companyLocalCheckbox];
 
@@ -252,6 +292,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	if (servicesSelect !== null && servicesCitySelect !== null) {
 		searchProvidersBtn.addEventListener('click', updateServiceProviders);
+		if(searchProvidersMobileBtn){
+			searchProvidersMobileBtn.addEventListener('click', updateServiceProviders);
+		}
 		customerHomeCheckbox.addEventListener('change', calendarCheckboxCheck);
 		companyLocalCheckbox.addEventListener('change', calendarCheckboxCheck);
 	}

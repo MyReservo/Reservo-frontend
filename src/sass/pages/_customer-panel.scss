@@ -23,7 +23,8 @@
 .header {
 	.hero-img {
 		@include heroImg;
-		align-items: baseline;
+		// align-items: baseline;
+		justify-content: space-between;
 		background-image: url('../../img/city-large.jpg');
 		.header-shadow {
 			@include shadow;
@@ -68,12 +69,12 @@
 		animation: header-text-slide-right 1s;
 	}
 
-	&-box{
+	&-box {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		justify-content: end;
 		align-items: center;
-		align-self: flex-end;
+		// align-self: flex-end;
 	}
 
 	&__btn {
@@ -145,26 +146,23 @@
 	}
 }
 
-
-
 .pick-person-and-location {
 	position: relative;
 
 	h3 {
 		font-size: 4rem;
 		text-align: center;
-		margin: 2em 2em 0.2em ;
+		margin: 2em 2em 0.2em;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.356);
 	}
-	.section-line{
+	.section-line {
 		margin-top: 0;
 		height: 8px;
 		width: 11%;
 		background-color: $customerUnderline;
-		border-radius: 13px
-
+		border-radius: 13px;
 	}
 
 	.available-service-providers-container {
@@ -275,13 +273,12 @@
 	}
 }
 
-
 #calendar-services,
 #calendar-city {
 	cursor: pointer;
 }
 
-.hours-container-section{
+.hours-container-section {
 	position: relative;
 }
 
@@ -293,7 +290,6 @@
 	margin-bottom: 5em;
 	max-width: 700px;
 	background-color: #ffffffae;
-
 
 	.fa-times {
 		position: absolute;
@@ -347,7 +343,6 @@
 }
 
 @media (max-width: 1200px) {
-
 	.header__title {
 		margin-bottom: 4em;
 
@@ -405,11 +400,11 @@
 		.service-location__second-box-text {
 			font-size: 1.8rem;
 		}
-		.available-service-providers-container__text{
+		.available-service-providers-container__text {
 			font-size: 1.8rem;
 		}
 	}
-	.hours-container{
+	.hours-container {
 		width: 60%;
 	}
 }
@@ -452,10 +447,7 @@
 		.service-location__box {
 			font-size: 1.8rem;
 		}
-		
 	}
-
-
 }
 
 @media (max-width: 768px) {
@@ -484,33 +476,31 @@
 		}
 	}
 
-	.pick-person-and-location{
-
+	.pick-person-and-location {
 		.available-service-providers-container__title,
 		.service-location__title {
 			font-size: 2.3rem;
 		}
 
-		.available-service-providers-container__second-box{
+		.available-service-providers-container__second-box {
 			display: none;
 		}
-		.available-service-providers-container__first-box{
+		.available-service-providers-container__first-box {
 			width: 65%;
 		}
 
-		.service-location{
+		.service-location {
 			min-height: 350px;
-			.service-location__box{
+			.service-location__box {
 				font-size: 2rem;
 			}
-			.service-location__second-box{
+			.service-location__second-box {
 				display: none;
 			}
-			.service-location__first-box{
+			.service-location__first-box {
 				width: 65%;
 			}
 		}
-
 	}
 
 	.hours-container {
@@ -535,8 +525,7 @@
 
 @media (max-width: 576px) {
 	.header {
-		.hero-img,
-		.hero-mobile-container {
+		.hero-img {
 			.pick-profession-box {
 				width: 91%;
 				padding: 1.5em;
@@ -558,206 +547,176 @@
 		}
 	}
 
-	.pick-person-and-location{
-		h3{
+	.pick-person-and-location {
+		h3 {
 			font-size: 3.3rem;
 		}
 
-		.available-service-providers-container__list{
+		.available-service-providers-container__list {
 			max-height: 140px;
-		 }
+		}
 
-
-		 .available-service-providers-container__title,
+		.available-service-providers-container__title,
 		.service-location__title {
 			font-size: 2rem;
 		}
 
-
-		.available-service-providers-container__first-box{
+		.available-service-providers-container__first-box {
 			width: 75%;
 		}
 
-		.service-location{
-			.service-location__first-box{
+		.service-location {
+			.service-location__first-box {
 				width: 75%;
 			}
 		}
 	}
 
-	.hours-container{
-		#send{
+	.hours-container {
+		#send {
 			width: 45%;
 		}
 	}
 }
 
 @media (max-width: 480px) {
-
 	.header {
-		display: none;
-	}
-
-
-	.header-mobile-container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		margin-bottom: 9em;
-		text-align: center;
-		z-index: 1;
-	}
-	#burger-btn{
-		display: none;
-	}
-
-	#header-mobile {
-		display: block;
-
-		.mobile-btn {
-			margin: 2em;
-			display: block;
-		}
-		.hero-img-mobile {
+		.hero-img {
 			background-image: url('../../img/city-small.jpg');
 			@include heroImg;
+			justify-content: space-between;
 			background-position: 43%;
 			min-height: 100vh;
-			align-items: center;
 
-			.nav-shadow-box{
-				align-self: baseline
+			.header-box {
+				margin-bottom: 3em;
 			}
-
 			.header-shadow {
 				@include shadow;
 				background-color: $headerBgcMobile;
-
 			}
-			.pick-profession-box {
-				background-color: transparent;
-				padding: 2em 0em 2em;
-				box-shadow: inset 0px 1px 15px 0px rgb(120 180 212 / 91%);
-				border-radius: 10px;
-
-				.input {
-					font-size: 1.4rem;
-				}
-			}
-		}
-		.header__title {
-			margin-bottom: 7em;
-		}
-		a {
-			width: 70%;
-		}
-		.submit-btn {
-			width: 65%;
-			font-size: 1.5rem;
-			height: 45px;
-			color: #fff;
-			background-color: #59bbf0;
-		}
-		h1 {
-			font-size: 2.8rem;
-		}
-		.reservo {
-			font-size: 5rem;
 		}
 	}
 
+	.pick-profession-box {
+		display: flex;
+		flex-direction: column;
 
-	.pick-person-and-location{
-		.section-line{
+		background-color: transparent;
+		padding: 2em 0em 2em;
+		box-shadow: inset 0px 1px 15px 0px rgb(120 180 212 / 91%);
+		border-radius: 10px;
+
+		.input {
+			font-size: 1.4rem;
+		}
+		a{
+			display: flex;
+			align-self: center;
+		}
+	}
+
+	.header__title {
+		margin-bottom: 7em;
+		h1 {
+			font-size: 2.4rem;
+		}
+		.reservo {
+			font-size: 4.7rem;
+		}
+	}
+	a {
+		width: 70%;
+	}
+	.submit-btn {
+		width: 65%;
+		font-size: 1.5rem;
+		height: 45px;
+		color: #fff;
+		background-color: #59bbf0;
+	}
+
+	.pick-person-and-location {
+		.section-line {
 			width: 20%;
 			height: 7px;
 		}
-		h3{
+		h3 {
 			font-size: 2.9rem;
 		}
 
-		.available-service-providers-container__first-box{
+		.available-service-providers-container__first-box {
 			width: 90%;
 		}
 
-		.service-location{
-			.service-location__first-box{
+		.service-location {
+			.service-location__first-box {
 				width: 90%;
 			}
 		}
 	}
-	.hours-container{
+	.hours-container {
 		width: 90%;
-		.hours-container__info{
+		.hours-container__info {
 			margin: 2em 1em;
 		}
-		button{
-			margin: .5em;
+		button {
+			margin: 0.5em;
 		}
 	}
 }
 
 @media (max-width: 380px) {
-	.header-mobile-container {
-		margin-bottom: 4em;
+	.header__title {
+		margin-bottom: 3em;
 	}
-	#header-mobile {
-		.hero-img-mobile {
-			.header__title {
-				margin-bottom: 3em;
-			}
-			.pick-profession-box {
-				width: 95%;
-				.input {
-					font-size: 1.3rem;
-				}
-			}
-		}
-
-		h1 {
-			font-size: 2.4rem;
-		}
-		.reservo {
-			font-size: 4rem;
-		}
-		.underline {
-			height: 6px;
-		}
-
-		.submit-btn {
-			width: 80%;
+	.pick-profession-box {
+		width: 95%;
+		.input {
+			font-size: 1.3rem;
 		}
 	}
 
+	h1 {
+		font-size: 2.4rem;
+	}
+	.reservo {
+		font-size: 4rem;
+	}
+	.underline {
+		height: 6px;
+	}
 
-	.pick-person-and-location{
+	.submit-btn {
+		width: 80%;
+	}
 
-		h3{
+	.pick-person-and-location {
+		h3 {
 			font-size: 2.5rem;
-			margin:  2em 0em 0em;
+			margin: 2em 0em 0em;
 		}
-		.service-location__container{
-			padding: .7em;
+		.service-location__container {
+			padding: 0.7em;
 		}
-		.service-location{	
-			.service-location__box{
-			   font-size: 1.8rem;
-		   }
-		} 
+		.service-location {
+			.service-location__box {
+				font-size: 1.8rem;
+			}
 		}
+	}
 
-		.hours-container{
-			width: 95%;
-			.hours-container__info{
-				margin: 1.1em .6em;
-				font-size: 1.6rem;
-			}
-			button{
-				margin: .5em;
-			}
-			#send{
-				width: 55%;
-			}
+	.hours-container {
+		width: 95%;
+		.hours-container__info {
+			margin: 1.1em 0.6em;
+			font-size: 1.6rem;
 		}
-
+		button {
+			margin: 0.5em;
+		}
+		#send {
+			width: 55%;
+		}
+	}
 }
