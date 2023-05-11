@@ -146,7 +146,15 @@ if (calendarSendBtn !== null) {
 	});
 }
 
-let checkboxes = listOfProvidersBox.querySelectorAll('.person-checkbox');
+let checkboxes;
+if(checkboxes){
+ checkboxes = listOfProvidersBox.querySelectorAll('.person-checkbox');
+ for (let i = 0; i < checkboxes.length; i++) {
+	checkboxes[i].addEventListener('change', handleCheckboxChange);
+  }
+
+}
+
 let lastCheckedCheckbox: HTMLInputElement | null = null;
 
 function handleCheckboxChange(this: HTMLInputElement) {
@@ -163,9 +171,6 @@ function handleCheckboxChange(this: HTMLInputElement) {
 	}
   }
 
-    for (let i = 0; i < checkboxes.length; i++) {
-      checkboxes[i].addEventListener('change', handleCheckboxChange);
-    }
 
 const locationCheckboxArr = [customerHomeCheckbox, companyLocalCheckbox];
 
