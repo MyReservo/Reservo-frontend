@@ -52,7 +52,10 @@ const serviceProvider = document.querySelector('.available-service-providers-con
 const availableServiceProviders = document.querySelector('.available-service-providers') as HTMLElement;
 const listOfProvidersBox = document.querySelector('.available-service-providers-container__list') as HTMLElement;
 const confirmProviderBtn = document.querySelector('#confirm-provider') as HTMLButtonElement;
+console.log(confirmProviderBtn);
 const calendarServicesProviderObjectArr = [{ id: 'name-service', name: 'name', city: 'city' }];
+
+let serviceProviderCheckbox: HTMLInputElement;
 
 const createServiceProviderElement = (name: string) => {
 	const serviceProviderName = document.createElement('div');
@@ -60,14 +63,15 @@ const createServiceProviderElement = (name: string) => {
 	const serviceProviderLabel = document.createElement('label');
 	serviceProviderLabel.textContent = name;
 	serviceProviderLabel.setAttribute('for',"person");
-	const serviceProviderCheckbox = document.createElement('input');
+	serviceProviderCheckbox = document.createElement('input');
 	serviceProviderCheckbox.type = 'checkbox';
 	serviceProviderCheckbox.id = `${name}-tutor`;
-	serviceProviderCheckbox.className = 'service-provider';
+	serviceProviderCheckbox.className = 'person-checkbox';
 	serviceProviderName.append(serviceProviderLabel, serviceProviderCheckbox);
 	listOfProvidersBox.append(serviceProviderName);
 	availableServiceProviders.append(listOfProvidersBox);
 	serviceProviderSmallerBox.append(availableServiceProviders, confirmProviderBtn);
+	serviceProviderCheckbox.addEventListener('change', handleCheckboxChange);
 };
 
 const updateServiceProviders = () => {
@@ -76,11 +80,8 @@ const updateServiceProviders = () => {
 
 	if (selectedProfession === 'TUTOR') {
 		serviceProvider.textContent = 'Dostępni korepetytorzy:';
-
 		calendarServicesProviderObjectArr.forEach(provider => {
 			const tutorService = provider.id.includes('tutor');
-			console.log(tutorService);
-
 			if (selectedCity === 'wroclaw' && provider.city === 'Wrocław' && tutorService) {
 				createServiceProviderElement(provider.name);
 			}
@@ -128,9 +129,14 @@ const updateServiceProviders = () => {
 			}
 		});
 	}
+
+	if(serviceProviderCheckbox){
+		serviceProviderCheckbox.addEventListener('change', handleCheckboxChange);
+	}
+	console.log(confirmProviderBtn);
 };
 
-const userName = document.querySelector('.user-name') as HTMLParagraphElement;
+
 const calendarSendBtn = document.querySelector('#send') as HTMLButtonElement;
 
 if (calendarSendBtn !== null) {
@@ -142,10 +148,30 @@ if (calendarSendBtn !== null) {
 	});
 }
 
+let checkboxes = listOfProvidersBox.querySelectorAll('.person-checkbox');
+let lastCheckedCheckbox: HTMLInputElement | null = null;
+
+function handleCheckboxChange(this: HTMLInputElement) {
+	checkboxes = listOfProvidersBox.querySelectorAll('.person-checkbox');
+	const isChecked = this.checked;
+  
+	if (isChecked) {
+	  if (lastCheckedCheckbox  && lastCheckedCheckbox !== this) {
+		lastCheckedCheckbox.checked = false;
+	  }
+	  lastCheckedCheckbox = this;
+	} else {
+	  lastCheckedCheckbox = null;
+	}
+  }
+
+    for (let i = 0; i < checkboxes.length; i++) {
+      checkboxes[i].addEventListener('change', handleCheckboxChange);
+    }
 
 const locationCheckboxArr = [customerHomeCheckbox, companyLocalCheckbox];
 
-function checkOneCheckbox(event: Event) {
+function checkOneLocationCheckbox(event: Event) {
 	const targetCheckbox = event.target as HTMLInputElement;
 
 	if (targetCheckbox.checked) {
@@ -173,6 +199,7 @@ export const monthArr = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
+	const userName = document.querySelector('.user-name') as HTMLParagraphElement;
 	if (userName) {
 		userName.textContent = localStorage.getItem('name');
 	}
@@ -206,10 +233,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		companyCode.textContent = localStorage.getItem('companyCode');
 	}
 	if (customerHomeCheckbox !== null) {
-		customerHomeCheckbox.addEventListener('click', checkOneCheckbox);
+		customerHomeCheckbox.addEventListener('click', checkOneLocationCheckbox);
 	}
 	if (companyLocalCheckbox !== null) {
-		companyLocalCheckbox.addEventListener('click', checkOneCheckbox);
+		companyLocalCheckbox.addEventListener('click', checkOneLocationCheckbox);
 	}
 
 	if (checkboxesAdressArr !== null && customerHomeCheckbox !== null && companyLocalCheckbox! == null) {
@@ -221,7 +248,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	if (servicesSelect !== null && servicesCitySelect !== null) {
-		searchProvidersBtn.addEventListener('click', updateServiceProviders);
 		searchProvidersBtn.addEventListener('click', updateServiceProviders);
 		customerHomeCheckbox.addEventListener('change', calendarCheckboxCheck);
 		companyLocalCheckbox.addEventListener('change', calendarCheckboxCheck);
