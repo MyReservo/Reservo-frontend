@@ -1,4 +1,4 @@
-
+export {}
 
 export const companyAdress = document.createElement('div');
 companyAdress.className = 'company-adress-login';
@@ -22,7 +22,6 @@ export const dataInputsCreator = (
 	toggleError: (input: HTMLInputElement, isError: boolean, placeholderText?: string) => void,
 	inputsEvents: (event: Event) => void,
 	checkCompanyInput:HTMLInputElement | null,
-	// customerInput:HTMLInputElement
 ) : { inputs: HTMLInputElement[], adressInput?: HTMLInputElement } => {
 
 	const inputs: HTMLInputElement[] = [];
@@ -108,6 +107,4 @@ export const dataInputsCreator = (
 		
 		return { inputs };
 	};
-	
-
 companyAdress.append(companyAdressTitle,companyAdressPlace);

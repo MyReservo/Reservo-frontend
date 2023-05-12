@@ -1,13 +1,14 @@
 export {};
 
-import { toggleError } from './toggle-error';
+import { toggleError } from '../validation/toggle-error';
+import '../utils/nav-elements';
 
 const companyLocalCheckbox = document.querySelector('#local') as HTMLInputElement;
 const companyAdress = document.querySelector('.company-adress') as HTMLDivElement;
 
 const companyStreet = document.querySelector('#company-street') as HTMLParagraphElement;
 const companyHomeNumber = document.querySelector('#company-home-number') as HTMLParagraphElement;
-const companyCity = document.querySelector('#company-city') as HTMLParagraphElement;
+const companyCityAdress = document.querySelector('#company-city') as HTMLParagraphElement;
 const companyCode = document.querySelector('#company-code') as HTMLParagraphElement;
 
 const searchProvidersBtn = document.querySelector('#search-providers') as HTMLButtonElement;
@@ -60,19 +61,6 @@ const confirmProviderBtn = document.querySelector('#confirm-provider') as HTMLBu
 
 const pickProfessionBox = document.querySelector('.pick-profession-box') as HTMLDivElement;
 const headerBtnBox = document.querySelector('.header__btn') as HTMLDivElement;
-const btnLink = document.querySelector('#search-btn-link') as HTMLElement;
-
-const changeHeaderStructure = () => {
-	if (window.innerWidth < 480) {
-		btnLink.append(searchProvidersBtn);
-		pickProfessionBox.append(btnLink);
-	} else {
-		headerBtnBox.append(searchProvidersBtn);
-	}
-};
-
-window.addEventListener('resize', changeHeaderStructure);
-window.addEventListener('load', changeHeaderStructure);
 
 const calendarServicesProviderObjectArr = [{ id: 'name-service', name: 'name', city: 'city' }];
 
@@ -197,16 +185,9 @@ if (calendarSendBtn !== null) {
 	});
 }
 
-let checkboxes;
-checkboxes = listOfProvidersBox.querySelectorAll('.person-checkbox');
-for (let i = 0; i < checkboxes.length; i++) {
-	checkboxes[i].addEventListener('change', handleCheckboxChange);
-}
-
 let lastCheckedCheckbox: HTMLInputElement | null = null;
 
 function handleCheckboxChange(this: HTMLInputElement) {
-	checkboxes = listOfProvidersBox.querySelectorAll('.person-checkbox');
 	const isChecked = this.checked;
 
 	if (isChecked) {
@@ -239,27 +220,33 @@ const confirmAdressBtn = document.querySelector('#confirm-adress') as HTMLButton
 const checkClientAdressValidation = () => {
 	if (clientStreet.value === '') {
 		toggleError(clientStreet, true, 'Podaj ulicę');
-	} 	if (clientHouse.value === '') {
-		toggleError(clientHouse, true, 'Podaj numer domu');
-	} 	if (clientCity.value === '') {
-		toggleError(clientCity, true, 'Podaj nazwę miasta');
 	}
-
-	else if (clientStreet.value !== '') {
+	if (clientHouse.value === '') {
+		toggleError(clientHouse, true, 'Podaj numer domu');
+	}
+	if (clientCity.value === '') {
+		toggleError(clientCity, true, 'Podaj nazwę miasta');
+	} else if (clientStreet.value !== '') {
 		toggleError(clientStreet, false);
-	} 	 if (clientHouse.value !== '') {
+	}
+	if (clientHouse.value !== '') {
 		toggleError(clientHouse, false);
-	}  	if (clientCity.value !== '') {
+	}
+	if (clientCity.value !== '') {
 		toggleError(clientCity, false);
 	}
 
-	if(!clientStreet.classList.contains("red-input") || !clientHouse.classList.contains("red-input") || !clientCity.classList.contains("red-input") ){
-	const section = document.querySelector('#calendar-section');
-	if (section) {
-		section.scrollIntoView({ behavior: 'smooth' });
+	if (
+		!clientStreet.classList.contains('red-input') ||
+		!clientHouse.classList.contains('red-input') ||
+		!clientCity.classList.contains('red-input')
+	) {
+		const section = document.querySelector('#calendar-section');
+		if (section) {
+			section.scrollIntoView({ behavior: 'smooth' });
+		}
 	}
 };
-}
 
 export const monthArr = [
 	{ pl: 'Styczeń', en: 'January' },
@@ -277,6 +264,25 @@ export const monthArr = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
+	const changeHeaderStructure = () => {
+		if (window.innerWidth < 480) {
+			if (pickProfessionBox && searchProvidersBtn) {
+				pickProfessionBox.append(searchProvidersBtn);
+			}
+		} else {
+			if (headerBtnBox && searchProvidersBtn) {
+				headerBtnBox.append(searchProvidersBtn);
+			}
+		}
+	};
+
+	if (listOfProvidersBox) {
+		const checkboxes = listOfProvidersBox.querySelectorAll('.person-checkbox');
+		console.log(checkboxes);
+		for (let i = 0; i < checkboxes.length; i++) {
+			checkboxes[i].addEventListener('change', handleCheckboxChange);
+		}
+	}
 	const userName = document.querySelector('.user-name') as HTMLParagraphElement;
 	if (userName) {
 		userName.textContent = localStorage.getItem('name');
@@ -304,8 +310,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	if (companyHomeNumber !== null) {
 		companyHomeNumber.textContent = localStorage.getItem('companyHome');
 	}
-	if (companyCity) {
-		companyCity.textContent = localStorage.getItem('companyCity');
+	if (companyCityAdress) {
+		companyCityAdress.textContent = localStorage.getItem('companyCity');
 	}
 	if (companyCode) {
 		companyCode.textContent = localStorage.getItem('companyCode');
@@ -330,6 +336,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		customerHomeCheckbox.addEventListener('change', calendarCheckboxCheck);
 		companyLocalCheckbox.addEventListener('change', calendarCheckboxCheck);
 		confirmAdressBtn.addEventListener('click', checkClientAdressValidation);
-
 	}
+
+	window.addEventListener('resize', changeHeaderStructure);
+	window.addEventListener('load', changeHeaderStructure);
 });

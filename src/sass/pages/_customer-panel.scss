@@ -596,11 +596,11 @@
 	.pick-profession-box {
 		display: flex;
 		flex-direction: column;
-
 		background-color: transparent;
 		padding: 2em 0em 2em;
 		box-shadow: inset 0px 1px 15px 0px rgb(120 180 212 / 91%);
 		border-radius: 10px;
+		margin-bottom: 2em;
 
 		.input {
 			font-size: 1.4rem;

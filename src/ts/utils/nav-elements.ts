@@ -37,10 +37,12 @@ const handleObserver = () => {
 		}	
 	})
 
-	if(calendarSection.offsetTop <= currentSection + 100){
-		burgerBtnSpans.forEach(span => {
-			span.style.backgroundColor = 'white';
-		});
+	if (calendarSection) {
+		if(calendarSection.offsetTop <= currentSection + 100){
+			burgerBtnSpans.forEach(span => {
+				span.style.backgroundColor = 'white';
+			});
+		}
 	}
 
 	if(window.innerWidth <= 576 && calendarSection.offsetTop <= window.scrollY ) {

@@ -23,9 +23,10 @@
             text-shadow: 3px 3px 10px black;
             
             &-text{
+                margin-bottom: .5em;
+                text-align: center;
                 font-weight: normal;
                 animation: header-div-slide-top 1s;
-                margin-bottom: .5em;
             }
             span {
                 font-weight: bold;

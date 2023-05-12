@@ -1,6 +1,4 @@
-
-export{}
-
+export {}
 
 export const toggleError = (input: HTMLInputElement, isError: boolean, placeholderText?: string) => {
 	if (isError) {
@@ -22,3 +20,6 @@ export const toggleError = (input: HTMLInputElement, isError: boolean, placehold
 	}
 };
 
+export const removeError = (input: HTMLInputElement) => {
+	toggleError(input, false);
+};

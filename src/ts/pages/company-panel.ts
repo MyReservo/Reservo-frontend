@@ -1,5 +1,6 @@
 export {};
-import {footerYear,currnetYear} from "./customer-panel";
+import { footerYear, currnetYear } from './customer-panel';
+import '../utils/nav-elements';
 
 const yourProfessionTitle = document.querySelector('#profession-name') as HTMLSpanElement;
 const userNameNav = document.querySelector('.user-name') as HTMLParagraphElement;
@@ -54,7 +55,7 @@ const scredriverIcon = document.querySelector('.screwdriver') as HTMLElement;
 const gearIcon = document.querySelector('.gear') as HTMLElement;
 const gearTwoIcon = document.querySelector('.gear-two') as HTMLElement;
 const wrenchIcon = document.querySelector('.wrench-company') as HTMLElement;
-const mechanicIcons = [scredriverIcon, gearIcon,gearTwoIcon,wrenchIcon];
+const mechanicIcons = [scredriverIcon, gearIcon, gearTwoIcon, wrenchIcon];
 
 const bookIcon = document.querySelector('.book') as HTMLElement;
 const graduationIcon = document.querySelector('.graduation') as HTMLElement;
@@ -62,19 +63,19 @@ const pencilIcon = document.querySelector('.pencil-company') as HTMLElement;
 const tutorIcons = [bookIcon, graduationIcon, pencilIcon];
 
 if (localStorage.getItem('selectedOption') === 'TUTOR') {
-		if (heroCompanyImg) {
-			heroCompanyImg.classList.add('tutor-img');
-		}
-		tutorIcons.forEach(icon => {
-			if (icon) {
-				icon.style.display = 'block';
-			}
-		});
+	if (heroCompanyImg) {
+		heroCompanyImg.classList.add('tutor-img');
 	}
-if (localStorage.getItem('selectedOption') === 'MECHANIC') {
-		if (heroCompanyImg) {
-			heroCompanyImg.classList.add('mechanic-img');
+	tutorIcons.forEach(icon => {
+		if (icon) {
+			icon.style.display = 'block';
 		}
+	});
+}
+if (localStorage.getItem('selectedOption') === 'MECHANIC') {
+	if (heroCompanyImg) {
+		heroCompanyImg.classList.add('mechanic-img');
+	}
 	mechanicIcons.forEach(icon => {
 		if (icon) {
 			icon.style.display = 'block';
@@ -82,9 +83,9 @@ if (localStorage.getItem('selectedOption') === 'MECHANIC') {
 	});
 }
 if (localStorage.getItem('selectedOption') === 'BARBER') {
-		if(heroCompanyImg){
-			heroCompanyImg.classList.add('barber-img');
-		}
+	if (heroCompanyImg) {
+		heroCompanyImg.classList.add('barber-img');
+	}
 	barberIcons.forEach(icon => {
 		if (icon) {
 			icon.style.display = 'block';
