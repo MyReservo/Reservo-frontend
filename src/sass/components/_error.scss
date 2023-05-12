@@ -1,0 +1,11 @@
+
+@use '../utils/colors' as *;
+
+.red-input {
+	border: 1px solid $errorBgc;
+	background-color: rgba(255, 99, 71, 0.158);
+}
+
+.red-placeholder::placeholder {
+	color: $errorFont;
+}

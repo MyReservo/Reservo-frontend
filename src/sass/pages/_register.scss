@@ -1,5 +1,6 @@
 @use "../utils/colors" as *;
 @use "../components/lines" as *;
+@use "../components/error" as *;
  
 
 .register-body {
@@ -97,16 +98,6 @@ flex-wrap: wrap;
 .register-terms {
 	margin: 1.5em;
 }
-
-.red-input {
-	border: 1px solid $errorBgc;
-	background-color: rgba(255, 99, 71, 0.158);
-}
-
-.red-placeholder::placeholder {
-	color: $errorFont;
-}
-
 
 .terms-error {
 	margin: .7em 0em 0em 1em;

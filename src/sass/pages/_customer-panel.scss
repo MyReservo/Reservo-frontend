@@ -1,12 +1,14 @@
 @use '../utils/animations' as *;
-@use '../utils/reset' as *;
 @use '../utils/colors' as *;
+@use '../utils/reset' as *;
 @use '../utils/mixins' as *;
 @use '../components/nav-elements' as *;
 @use '../components/inputs' as *;
 @use '../components/calendar' as *;
 @use '../components/btn' as *;
+@use '../components/error' as *;
 @use '../components/footer' as *;
+
 
 .wrapper-customer-panel {
 	display: flex;
@@ -16,16 +18,12 @@
 	align-items: center;
 }
 
-#header-mobile {
-	display: none;
-}
-
 .header {
 	.hero-img {
 		@include heroImg;
-		// align-items: baseline;
 		justify-content: space-between;
 		background-image: url('../../img/city-large.jpg');
+
 		.header-shadow {
 			@include shadow;
 			background-color: $headerBgc;
@@ -74,7 +72,6 @@
 		flex-direction: column;
 		justify-content: end;
 		align-items: center;
-		// align-self: flex-end;
 	}
 
 	&__btn {

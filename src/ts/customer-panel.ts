@@ -1,5 +1,7 @@
 export {};
 
+import { toggleError } from './toggle-error';
+
 const companyLocalCheckbox = document.querySelector('#local') as HTMLInputElement;
 const companyAdress = document.querySelector('.company-adress') as HTMLDivElement;
 
@@ -8,11 +10,7 @@ const companyHomeNumber = document.querySelector('#company-home-number') as HTML
 const companyCity = document.querySelector('#company-city') as HTMLParagraphElement;
 const companyCode = document.querySelector('#company-code') as HTMLParagraphElement;
 
-const  searchProvidersBtn = document.querySelector('#search-providers') as HTMLButtonElement;
-
-
-
-// const  searchProvidersMobileBtn = document.querySelector('#search-providers-mobile') as HTMLButtonElement;
+const searchProvidersBtn = document.querySelector('#search-providers') as HTMLButtonElement;
 
 export let date = new Date();
 export const allTd: NodeListOf<HTMLTableDataCellElement> = document.querySelectorAll('tbody td');
@@ -20,12 +18,12 @@ export const allTd: NodeListOf<HTMLTableDataCellElement> = document.querySelecto
 const customerHomeCheckbox = document.querySelector('#client-home') as HTMLInputElement;
 const clientAdressBox = document.querySelector('.client-adress') as HTMLDivElement;
 
- export const footerYear = document.querySelector('.footer__current-year') as HTMLSpanElement;
- export const currnetYear = new Date().getFullYear();
+export const footerYear = document.querySelector('.footer__current-year') as HTMLSpanElement;
+export const currnetYear = new Date().getFullYear();
 
- if(footerYear && currnetYear){
-	 footerYear.textContent = currnetYear.toString();
- }
+if (footerYear && currnetYear) {
+	footerYear.textContent = currnetYear.toString();
+}
 
 const calendarCheckboxCheck = () => {
 	if (customerHomeCheckbox.checked) {
@@ -52,7 +50,9 @@ function handleCheckboxClick(this: HTMLInputElement) {
 const servicesSelect = document.querySelector('#select-services') as HTMLSelectElement;
 const servicesCitySelect = document.querySelector('#select-city') as HTMLSelectElement;
 
-const serviceProviderSmallerBox = document.querySelector('.available-service-providers-container__first-box') as HTMLHeadingElement;
+const serviceProviderSmallerBox = document.querySelector(
+	'.available-service-providers-container__first-box'
+) as HTMLHeadingElement;
 const serviceProvider = document.querySelector('.available-service-providers-container__title') as HTMLHeadingElement;
 const availableServiceProviders = document.querySelector('.available-service-providers') as HTMLElement;
 const listOfProvidersBox = document.querySelector('.available-service-providers-container__list') as HTMLElement;
@@ -63,32 +63,28 @@ const headerBtnBox = document.querySelector('.header__btn') as HTMLDivElement;
 const btnLink = document.querySelector('#search-btn-link') as HTMLElement;
 
 const changeHeaderStructure = () => {
-	if(window.innerWidth < 480 ){
-		btnLink.append(searchProvidersBtn)
+	if (window.innerWidth < 480) {
+		btnLink.append(searchProvidersBtn);
 		pickProfessionBox.append(btnLink);
-	}else {
+	} else {
 		headerBtnBox.append(searchProvidersBtn);
 	}
-}
+};
 
 window.addEventListener('resize', changeHeaderStructure);
 window.addEventListener('load', changeHeaderStructure);
-
-
-
-
 
 const calendarServicesProviderObjectArr = [{ id: 'name-service', name: 'name', city: 'city' }];
 
 let serviceProviderCheckbox: HTMLInputElement;
 let allInputs: NodeListOf<HTMLInputElement>;
 
-const createServiceProviderElement = (name: string, id:string) => {
+const createServiceProviderElement = (name: string, id: string) => {
 	const serviceProviderName = document.createElement('div');
 	serviceProviderName.className = 'service-provider';
 	const serviceProviderLabel = document.createElement('label');
 	serviceProviderLabel.textContent = name;
-	serviceProviderLabel.setAttribute('for',"person");
+	serviceProviderLabel.setAttribute('for', 'person');
 	serviceProviderCheckbox = document.createElement('input');
 	serviceProviderCheckbox.type = 'checkbox';
 	serviceProviderCheckbox.id = `${id}`;
@@ -99,32 +95,31 @@ const createServiceProviderElement = (name: string, id:string) => {
 	serviceProviderSmallerBox.append(availableServiceProviders, confirmProviderBtn);
 	serviceProviderCheckbox.addEventListener('change', handleCheckboxChange);
 
-	 allInputs = listOfProvidersBox.querySelectorAll('input');
+	allInputs = listOfProvidersBox.querySelectorAll('input');
 
 	confirmProviderBtn.addEventListener('click', () => {
-		const section = document.querySelector("#service-location");
+		const section = document.querySelector('#service-location');
 
-	if (allInputs) {
-		allInputs.forEach(input => {
-			if (input.checked) {
-				if (section) {
-					section.scrollIntoView({ behavior: 'smooth' });
+		if (allInputs) {
+			allInputs.forEach(input => {
+				if (input.checked) {
+					if (section) {
+						section.scrollIntoView({ behavior: 'smooth' });
+					}
 				}
-			} 
-		})
-		if (!Array.from(allInputs).some((input)=> input.checked)) {
-			alert('Wybierz jedną z dostepnych osób');
-		} 
-	}
-	})
+			});
+			if (!Array.from(allInputs).some(input => input.checked)) {
+				alert('Wybierz jedną z dostepnych osób');
+			}
+		}
+	});
 };
-
 
 const updateServiceProviders = () => {
 	const selectedProfession = servicesSelect.value;
 	const selectedCity = servicesCitySelect.value;
 
-	const section = document.querySelector("#pick-person-and-location-section");
+	const section = document.querySelector('#pick-person-and-location-section');
 
 	if (servicesSelect.selectedIndex > 0 && servicesCitySelect.selectedIndex > 0) {
 		if (section) {
@@ -186,11 +181,10 @@ const updateServiceProviders = () => {
 		});
 	}
 
-	if(serviceProviderCheckbox){
+	if (serviceProviderCheckbox) {
 		serviceProviderCheckbox.addEventListener('change', handleCheckboxChange);
 	}
 };
-
 
 const calendarSendBtn = document.querySelector('#send') as HTMLButtonElement;
 
@@ -204,37 +198,30 @@ if (calendarSendBtn !== null) {
 }
 
 let checkboxes;
-	checkboxes = listOfProvidersBox.querySelectorAll('.person-checkbox');
-	for (let i = 0; i < checkboxes.length; i++) {
+checkboxes = listOfProvidersBox.querySelectorAll('.person-checkbox');
+for (let i = 0; i < checkboxes.length; i++) {
 	checkboxes[i].addEventListener('change', handleCheckboxChange);
-  }
-
+}
 
 let lastCheckedCheckbox: HTMLInputElement | null = null;
 
 function handleCheckboxChange(this: HTMLInputElement) {
-	console.log('działem');
 	checkboxes = listOfProvidersBox.querySelectorAll('.person-checkbox');
-	console.log(checkboxes);
 	const isChecked = this.checked;
-	console.log(isChecked);
-  
+
 	if (isChecked) {
-		console.log('am i');
-	  if (lastCheckedCheckbox  && lastCheckedCheckbox !== this) {
-		lastCheckedCheckbox.checked = false;
-	  }
-	  lastCheckedCheckbox = this;
+		if (lastCheckedCheckbox && lastCheckedCheckbox !== this) {
+			lastCheckedCheckbox.checked = false;
+		}
+		lastCheckedCheckbox = this;
 	} else {
-	  lastCheckedCheckbox = null;
+		lastCheckedCheckbox = null;
 	}
-  }
+}
 
 const locationCheckboxArr = [customerHomeCheckbox, companyLocalCheckbox];
-
 function checkOneLocationCheckbox(event: Event) {
 	const targetCheckbox = event.target as HTMLInputElement;
-
 	if (targetCheckbox.checked) {
 		locationCheckboxArr.forEach(checkbox => {
 			if (checkbox !== targetCheckbox) {
@@ -242,6 +229,36 @@ function checkOneLocationCheckbox(event: Event) {
 			}
 		});
 	}
+}
+
+const clientStreet = document.querySelector('#client-street') as HTMLInputElement;
+const clientHouse = document.querySelector('#client-house') as HTMLInputElement;
+const clientCity = document.querySelector('#client-city') as HTMLInputElement;
+const confirmAdressBtn = document.querySelector('#confirm-adress') as HTMLButtonElement;
+
+const checkClientAdressValidation = () => {
+	if (clientStreet.value === '') {
+		toggleError(clientStreet, true, 'Podaj ulicę');
+	} 	if (clientHouse.value === '') {
+		toggleError(clientHouse, true, 'Podaj numer domu');
+	} 	if (clientCity.value === '') {
+		toggleError(clientCity, true, 'Podaj nazwę miasta');
+	}
+
+	else if (clientStreet.value !== '') {
+		toggleError(clientStreet, false);
+	} 	 if (clientHouse.value !== '') {
+		toggleError(clientHouse, false);
+	}  	if (clientCity.value !== '') {
+		toggleError(clientCity, false);
+	}
+
+	if(!clientStreet.classList.contains("red-input") || !clientHouse.classList.contains("red-input") || !clientCity.classList.contains("red-input") ){
+	const section = document.querySelector('#calendar-section');
+	if (section) {
+		section.scrollIntoView({ behavior: 'smooth' });
+	}
+};
 }
 
 export const monthArr = [
@@ -311,7 +328,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	if (servicesSelect !== null && servicesCitySelect !== null) {
 		searchProvidersBtn.addEventListener('click', updateServiceProviders);
 		customerHomeCheckbox.addEventListener('change', calendarCheckboxCheck);
-		companyLocalCheckbox.addEventListener('change', calendarCheckboxCheck);		
-	}
+		companyLocalCheckbox.addEventListener('change', calendarCheckboxCheck);
+		confirmAdressBtn.addEventListener('click', checkClientAdressValidation);
 
+	}
 });

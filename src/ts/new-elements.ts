@@ -55,43 +55,45 @@ export const dataInputsCreator = (
 			})
 		}
 
-			
-			registerBtn.addEventListener('click', (e) => {
-				e.preventDefault()
-				let placeholderText = '';
-
-				if(adressInput !== undefined){
-					switch (adressInput.id) {
-						
-						case 'street':
-							placeholderText = 'Podaj nazwę ulicy';
-							break;
-						case 'home':
-							placeholderText = 'Podaj numer domu';
-							break;
-						case 'city':
-							placeholderText = 'Podaj nazwę miasta';
-							break;
-						case 'code':
-							placeholderText = 'Podaj kod pocztowy';
-							break;
-						default:
-							break;
+			if (registerBtn) {
+				
+				registerBtn.addEventListener('click', (e) => {
+					e.preventDefault()
+					let placeholderText = '';
+	
+					if(adressInput !== undefined){
+						switch (adressInput.id) {
+							
+							case 'street':
+								placeholderText = 'Podaj nazwę ulicy';
+								break;
+							case 'home':
+								placeholderText = 'Podaj numer domu';
+								break;
+							case 'city':
+								placeholderText = 'Podaj nazwę miasta';
+								break;
+							case 'code':
+								placeholderText = 'Podaj kod pocztowy';
+								break;
+							default:
+								break;
+						}
 					}
-				}
-
-				if(adressInput !== undefined){
-					if (adressInput.value === '') {
-						toggleError(adressInput, true, placeholderText);
-					} else {
-						toggleError(adressInput, false);
+	
+					if(adressInput !== undefined){
+						if (adressInput.value === '') {
+							toggleError(adressInput, true, placeholderText);
+						} else {
+							toggleError(adressInput, false);
+						}
 					}
-				}
-				if(!/^\d{2}-\d{3}$/.test(adressInput.value) && adressInput.id === "code"){
-					toggleError(adressInput, true, 'Podaj kod pocztowy');
-				}
-
-			});
+					if(!/^\d{2}-\d{3}$/.test(adressInput.value) && adressInput.id === "code"){
+						toggleError(adressInput, true, 'Podaj kod pocztowy');
+					}
+	
+				});
+			}
 			
 			
 			adressDiv.appendChild(adressInput);

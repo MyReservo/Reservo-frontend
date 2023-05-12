@@ -82,6 +82,7 @@ export default defineConfig({
         main: 'index.html',
         login: 'login.html',
         customerPanel: 'customer-panel.html',
+        customerPanelTs: 'src/ts/customer-panel.ts',
         companyPanel: 'company-panel.html',
         companyPanelTs: 'src/ts/company-panel.ts',
       },
