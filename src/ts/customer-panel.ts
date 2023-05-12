@@ -9,16 +9,10 @@ const companyCity = document.querySelector('#company-city') as HTMLParagraphElem
 const companyCode = document.querySelector('#company-code') as HTMLParagraphElement;
 
 const  searchProvidersBtn = document.querySelector('#search-providers') as HTMLButtonElement;
-console.log(searchProvidersBtn);
-
-searchProvidersBtn.addEventListener('click',()=> {
-
-console.log('klikbnueto');
-
-})
 
 
-const  searchProvidersMobileBtn = document.querySelector('#search-providers-mobile') as HTMLButtonElement;
+
+// const  searchProvidersMobileBtn = document.querySelector('#search-providers-mobile') as HTMLButtonElement;
 
 export let date = new Date();
 export const allTd: NodeListOf<HTMLTableDataCellElement> = document.querySelectorAll('tbody td');
@@ -57,34 +51,25 @@ function handleCheckboxClick(this: HTMLInputElement) {
 
 const servicesSelect = document.querySelector('#select-services') as HTMLSelectElement;
 const servicesCitySelect = document.querySelector('#select-city') as HTMLSelectElement;
+
 const serviceProviderSmallerBox = document.querySelector('.available-service-providers-container__first-box') as HTMLHeadingElement;
 const serviceProvider = document.querySelector('.available-service-providers-container__title') as HTMLHeadingElement;
 const availableServiceProviders = document.querySelector('.available-service-providers') as HTMLElement;
 const listOfProvidersBox = document.querySelector('.available-service-providers-container__list') as HTMLElement;
 const confirmProviderBtn = document.querySelector('#confirm-provider') as HTMLButtonElement;
 
-// const headerBox = document.querySelector('.header-box') as HTMLDivElement;
 const pickProfessionBox = document.querySelector('.pick-profession-box') as HTMLDivElement;
 const headerBtnBox = document.querySelector('.header__btn') as HTMLDivElement;
 const btnLink = document.querySelector('#search-btn-link') as HTMLElement;
 
-
 const changeHeaderStructure = () => {
-
 	if(window.innerWidth < 480 ){
 		btnLink.append(searchProvidersBtn)
-	
 		pickProfessionBox.append(btnLink);
-		headerBtnBox.style.display = "none";
-		console.log('działąm');
-		
 	}else {
-		
-		headerBtnBox.style.display = "block";
 		headerBtnBox.append(searchProvidersBtn);
 	}
 }
-
 
 window.addEventListener('resize', changeHeaderStructure);
 window.addEventListener('load', changeHeaderStructure);
@@ -96,6 +81,7 @@ window.addEventListener('load', changeHeaderStructure);
 const calendarServicesProviderObjectArr = [{ id: 'name-service', name: 'name', city: 'city' }];
 
 let serviceProviderCheckbox: HTMLInputElement;
+let allInputs: NodeListOf<HTMLInputElement>;
 
 const createServiceProviderElement = (name: string, id:string) => {
 	const serviceProviderName = document.createElement('div');
@@ -112,12 +98,41 @@ const createServiceProviderElement = (name: string, id:string) => {
 	availableServiceProviders.append(listOfProvidersBox);
 	serviceProviderSmallerBox.append(availableServiceProviders, confirmProviderBtn);
 	serviceProviderCheckbox.addEventListener('change', handleCheckboxChange);
+
+	 allInputs = listOfProvidersBox.querySelectorAll('input');
+
+	confirmProviderBtn.addEventListener('click', () => {
+		const section = document.querySelector("#service-location");
+
+	if (allInputs) {
+		allInputs.forEach(input => {
+			if (input.checked) {
+				if (section) {
+					section.scrollIntoView({ behavior: 'smooth' });
+				}
+			} 
+		})
+		if (!Array.from(allInputs).some((input)=> input.checked)) {
+			alert('Wybierz jedną z dostepnych osób');
+		} 
+	}
+	})
 };
+
 
 const updateServiceProviders = () => {
 	const selectedProfession = servicesSelect.value;
 	const selectedCity = servicesCitySelect.value;
-	console.log('leci');
+
+	const section = document.querySelector("#pick-person-and-location-section");
+
+	if (servicesSelect.selectedIndex > 0 && servicesCitySelect.selectedIndex > 0) {
+		if (section) {
+			section.scrollIntoView({ behavior: 'smooth' });
+		}
+	} else {
+		alert('Wybierz usługę oraz miasto');
+	}
 
 	if (selectedProfession === 'TUTOR') {
 		serviceProvider.textContent = 'Dostępni korepetytorzy:';
@@ -189,20 +204,23 @@ if (calendarSendBtn !== null) {
 }
 
 let checkboxes;
-if(checkboxes){
- checkboxes = listOfProvidersBox.querySelectorAll('.person-checkbox');
- for (let i = 0; i < checkboxes.length; i++) {
+	checkboxes = listOfProvidersBox.querySelectorAll('.person-checkbox');
+	for (let i = 0; i < checkboxes.length; i++) {
 	checkboxes[i].addEventListener('change', handleCheckboxChange);
   }
-}
+
 
 let lastCheckedCheckbox: HTMLInputElement | null = null;
 
 function handleCheckboxChange(this: HTMLInputElement) {
+	console.log('działem');
 	checkboxes = listOfProvidersBox.querySelectorAll('.person-checkbox');
+	console.log(checkboxes);
 	const isChecked = this.checked;
+	console.log(isChecked);
   
 	if (isChecked) {
+		console.log('am i');
 	  if (lastCheckedCheckbox  && lastCheckedCheckbox !== this) {
 		lastCheckedCheckbox.checked = false;
 	  }
@@ -292,11 +310,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	if (servicesSelect !== null && servicesCitySelect !== null) {
 		searchProvidersBtn.addEventListener('click', updateServiceProviders);
-		if(searchProvidersMobileBtn){
-			searchProvidersMobileBtn.addEventListener('click', updateServiceProviders);
-		}
 		customerHomeCheckbox.addEventListener('change', calendarCheckboxCheck);
-		companyLocalCheckbox.addEventListener('change', calendarCheckboxCheck);
+		companyLocalCheckbox.addEventListener('change', calendarCheckboxCheck);		
 	}
 
 });

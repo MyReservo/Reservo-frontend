@@ -302,7 +302,6 @@
 		z-index: 5;
 		cursor: pointer;
 	}
-
 	.active-hour-btn {
 		background-color: $checked;
 	}
@@ -310,7 +309,7 @@
 		@include boxTitle;
 	}
 
-	button {
+	.hour-btn {
 		width: 43%;
 		margin: 0.7em;
 		padding: 0.5em;
@@ -318,18 +317,18 @@
 		justify-items: auto;
 		border-radius: 8px;
 		border: none;
-		background-color: #e8eaebd7;
 		cursor: pointer;
 		transition: 0.3s;
 	}
 
-	button:hover {
+	.hour-btn:hover {
 		transform: scale(1.2);
 	}
 
 	#send {
 		@include customerBtn;
 		margin: 1.5em;
+		font-size: 1.7rem;
 	}
 
 	&__info {
@@ -515,11 +514,6 @@
 			font-size: 1.6rem;
 			padding: 0.7em;
 		}
-
-		#send {
-			padding: 1.2em;
-			font-size: 1.6rem;
-		}
 	}
 }
 
@@ -589,12 +583,16 @@
 			min-height: 100vh;
 
 			.header-box {
-				margin-bottom: 3em;
+				margin-bottom: 5em;
 			}
 			.header-shadow {
 				@include shadow;
 				background-color: $headerBgcMobile;
 			}
+		}
+
+		.header__btn{
+			visibility: hidden;
 		}
 	}
 
@@ -612,7 +610,6 @@
 		}
 		a{
 			display: flex;
-			align-self: center;
 		}
 	}
 
@@ -625,15 +622,11 @@
 			font-size: 4.7rem;
 		}
 	}
-	a {
-		width: 70%;
-	}
 	.submit-btn {
 		width: 65%;
-		font-size: 1.5rem;
 		height: 45px;
 		color: #fff;
-		background-color: #59bbf0;
+		background-color: $secondaryHeaderMobileBtn;
 	}
 
 	.pick-person-and-location {

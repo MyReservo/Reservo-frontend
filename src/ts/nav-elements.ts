@@ -5,7 +5,6 @@ const nav = document.querySelector('#mobile-nav');
 const allNavLi = document.querySelectorAll('.nav-shadow-box__user-box-side-nav ul li');
 const body = document.querySelector('body');
 const sections = document.querySelectorAll('.section');
-console.log(Array.from(sections));
 
 if ( burgerBtn) {
 	burgerBtn.addEventListener('click', () => {
@@ -22,27 +21,20 @@ if ( burgerBtn) {
 export const burgerBtnSpans = document.querySelectorAll('#burger-btn span') as NodeListOf<HTMLElement>;
 const calendarSection = document.querySelector('.calendar-section') as HTMLElement;
 
-
-
 const handleObserver = () => {
 	const currentSection = window.scrollY;
-
 	sections.forEach(section => {
 		 if (!section.classList.contains('white-section') && section instanceof HTMLElement && section.offsetTop <= currentSection + 100 ) {
 			burgerBtnSpans.forEach(span => {
-				console.log('zgadza siue2');
 				span.style.backgroundColor = 'white';
 			});
 		}
 	});
-
 	sections.forEach(section => {
 		if (section.classList.contains('white-section') && section instanceof HTMLElement && section.offsetTop <= currentSection + 100 ) {
 			burgerBtnSpans.forEach(span => {
-				console.log('zgadza siue');
 				span.style.backgroundColor = 'black';
 			});
-
 		}	
 	})
 
@@ -50,10 +42,8 @@ const handleObserver = () => {
 		burgerBtnSpans.forEach(span => {
 			span.style.backgroundColor = 'white';
 		});
-
 	}
 
-	
 	if(window.innerWidth <= 576 && calendarSection.offsetTop <= window.scrollY ) {
 		console.log('szerokość 567');
 		burgerBtnSpans.forEach(span => {
@@ -63,11 +53,3 @@ const handleObserver = () => {
 	};
 
 	window.addEventListener('scroll', handleObserver);
-	// if(currentSection >= headerMobile.offsetTop && currentSection < headerMobile.offsetTop + headerMobile.offsetHeight){
-	// 	burgerBtnMobileSpans.forEach(span => {
-	// 		console.log('jestem na header-mobile, więc btn white');
-	// 		span.style.backgroundColor = 'white';
-	// 	});
-	// } 
-
-
