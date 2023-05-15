@@ -2,7 +2,7 @@ export {};
 
 import { toggleError } from '../validation/toggle-error';
 import '../utils/nav-elements';
-import {confirmProviderBtn} from '../utils/constants';
+import { confirmProviderBtn } from '../utils/constants';
 const companyLocalCheckbox = document.querySelector('#local') as HTMLInputElement;
 const companyAdress = document.querySelector('.company-adress') as HTMLDivElement;
 const companyStreet = document.querySelector('#company-street') as HTMLSpanElement;
@@ -36,9 +36,9 @@ const calendarCheckboxCheck = () => {
 	} else if (companyLocalCheckbox.checked) {
 		companyAdress.style.display = 'block';
 		clientAdressBox!.style.display = 'none';
-		clientStreet.value = ""
-		clientHouse.value = ""
-		clientCity.value = ""
+		clientStreet.value = '';
+		clientHouse.value = '';
+		clientCity.value = '';
 	}
 };
 
@@ -63,13 +63,11 @@ const serviceProviderSmallerBox = document.querySelector(
 const serviceProvider = document.querySelector('.available-service-providers-container__title') as HTMLHeadingElement;
 const availableServiceProviders = document.querySelector('.available-service-providers') as HTMLElement;
 const listOfProvidersBox = document.querySelector('.available-service-providers-container__list') as HTMLElement;
-// export const confirmProviderBtn = document.querySelector('#confirm-provider') as HTMLButtonElement;
 
 const pickProfessionBox = document.querySelector('.pick-profession-box') as HTMLDivElement;
 const headerBtnBox = document.querySelector('.header__btn') as HTMLDivElement;
 
 export const calendarServicesProviderObjectArr = [{ id: 'name-service', name: 'name', city: 'city' }];
-console.log(calendarServicesProviderObjectArr);
 
 let serviceProviderCheckbox: HTMLInputElement;
 let allInputs: NodeListOf<HTMLInputElement>;
@@ -89,7 +87,6 @@ const createServiceProviderElement = (name: string, id: string) => {
 	availableServiceProviders.append(listOfProvidersBox);
 	serviceProviderSmallerBox.append(availableServiceProviders, confirmProviderBtn);
 	serviceProviderCheckbox.addEventListener('change', handleCheckboxChange);
-
 	allInputs = listOfProvidersBox.querySelectorAll('input');
 
 	confirmProviderBtn.addEventListener('click', () => {
@@ -127,7 +124,6 @@ const updateServiceProviders = () => {
 	if (selectedProfession === 'TUTOR') {
 		serviceProvider.textContent = 'Dostępni korepetytorzy:';
 		calendarServicesProviderObjectArr.forEach(provider => {
-			console.log(provider);
 			const tutorService = provider.id.includes('tutor');
 			if (selectedCity === 'wroclaw' && provider.city === 'Wrocław' && tutorService) {
 				createServiceProviderElement(provider.name, provider.id);
@@ -220,7 +216,6 @@ function checkOneLocationCheckbox(event: Event) {
 	}
 }
 
-
 const checkClientAdressValidation = () => {
 	if (clientStreet.value === '') {
 		toggleError(clientStreet, true, 'Podaj ulicę');
@@ -282,7 +277,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	if (listOfProvidersBox) {
 		const checkboxes = listOfProvidersBox.querySelectorAll('.person-checkbox');
-		console.log(checkboxes);
 		for (let i = 0; i < checkboxes.length; i++) {
 			checkboxes[i].addEventListener('change', handleCheckboxChange);
 		}
@@ -292,35 +286,21 @@ document.addEventListener('DOMContentLoaded', () => {
 		userName.textContent = localStorage.getItem('customerName');
 	}
 
-
 	if (confirmAdressBtn) {
-		confirmAdressBtn.addEventListener('click', ()=>{
-				localStorage.setItem('adressStreet', clientStreet.value);
-				localStorage.setItem('adressHouse', clientHouse.value);
-				localStorage.setItem('adressCity', clientCity.value);	
-			})
-		
+		confirmAdressBtn.addEventListener('click', () => {
+			localStorage.setItem('adressStreet', clientStreet.value);
+			localStorage.setItem('adressHouse', clientHouse.value);
+			localStorage.setItem('adressCity', clientCity.value);
+		});
 	}
-
 	if (confirmLocalBtn) {
-		confirmLocalBtn.addEventListener('click', ()=> {
-			localStorage.setItem('adressStreet', companyStreet.textContent ?? "");
-			localStorage.setItem('adressHouse', companyHomeNumber.textContent ?? "");
-			localStorage.setItem('adressCity', companyCityAdress.textContent ?? "");
-			console.log(localStorage.getItem('adressStreet'));
-
-		})
-	}
-	
-	if (confirmProviderBtn) {
-		confirmProviderBtn.addEventListener('click', () => {
-		
-		console.log('kliiknięto');
-		
-		})
+		confirmLocalBtn.addEventListener('click', () => {
+			localStorage.setItem('adressStreet', companyStreet.textContent ?? '');
+			localStorage.setItem('adressHouse', companyHomeNumber.textContent ?? '');
+			localStorage.setItem('adressCity', companyCityAdress.textContent ?? '');
+		});
 	}
 
-	// localStorage.getItem('name');
 	localStorage.getItem('selectedOption');
 	localStorage.getItem('companyStreet');
 	localStorage.getItem('companyHome');
@@ -328,7 +308,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	localStorage.getItem('companyCode');
 
 	calendarServicesProviderObjectArr.forEach(obj => {
-	
 		const name = localStorage.getItem('providerName');
 		const city = localStorage.getItem('companyCity');
 		if (name !== null && city !== null) {
@@ -356,7 +335,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	if (companyLocalCheckbox !== null) {
 		companyLocalCheckbox.addEventListener('click', checkOneLocationCheckbox);
 	}
-
 	if (checkboxesAdressArr !== null && customerHomeCheckbox !== null && companyLocalCheckbox! == null) {
 		checkboxesAdressArr.forEach(checkbox => {
 			checkbox.addEventListener('click', function () {
@@ -364,14 +342,12 @@ document.addEventListener('DOMContentLoaded', () => {
 			});
 		});
 	}
-
 	if (servicesSelect !== null && servicesCitySelect !== null) {
 		searchProvidersBtn.addEventListener('click', updateServiceProviders);
 		customerHomeCheckbox.addEventListener('change', calendarCheckboxCheck);
 		companyLocalCheckbox.addEventListener('change', calendarCheckboxCheck);
 		confirmAdressBtn.addEventListener('click', checkClientAdressValidation);
 	}
-
 	window.addEventListener('resize', changeHeaderStructure);
 	window.addEventListener('load', changeHeaderStructure);
 });

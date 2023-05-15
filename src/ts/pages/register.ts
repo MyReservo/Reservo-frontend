@@ -244,15 +244,12 @@ document.addEventListener('DOMContentLoaded', function () {
 		) {
 			window.location.assign('./company-panel.html');
 		}
-		console.log(inputsArr);
 		const newInputsArr = inputsArr.slice(0, 6);
-		console.log(newInputsArr);
 		if (
 			customerInput.checked &&
 			newInputsArr.every(input => !input.classList.contains('red-input')) &&
 			termsInput.checked
 		) {
-			console.log('przenosze do customer');
 			window.location.assign('./customer-panel.html');
 		}
 	}
