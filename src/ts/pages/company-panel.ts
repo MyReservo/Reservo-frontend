@@ -3,13 +3,12 @@ import { footerYear, currnetYear } from './customer-panel';
 import '../utils/nav-elements';
 
 const yourProfessionTitle = document.querySelector('#profession-name') as HTMLSpanElement;
-const userNameNav = document.querySelector('.user-name') as HTMLParagraphElement;
+const userNameNav = document.querySelector('.user-provider-name') as HTMLParagraphElement;
 const userName = document.querySelector('.your-visits-visit-box__customers-name p') as HTMLParagraphElement;
 
 const street = document.querySelector('#your-visits__street') as HTMLParagraphElement;
 const house = document.querySelector('#your-visits__home-number') as HTMLParagraphElement;
 const city = document.querySelector('#your-visits__city') as HTMLParagraphElement;
-// const code = document.querySelector('#visit__adress-code') as HTMLParagraphElement;
 
 const meetingDate = document.querySelector("#your-visits__date-hour") as HTMLSpanElement;
 
@@ -22,10 +21,8 @@ if (yourProfessionTitle) {
 	yourProfessionTitle.textContent = localStorage.getItem('selectedOptionText');
 }
 if (userNameNav) {
-	userNameNav.textContent = localStorage.getItem('name');
+	userNameNav.textContent = localStorage.getItem('providerName');
 }
-
-console.log(localStorage.getItem('name'));
 
 localStorage.getItem('serviceDay');
 localStorage.getItem('selectedOption');
@@ -35,22 +32,17 @@ localStorage.getItem('companyCity');
 localStorage.getItem('companyCode');
 
 if (userName) {
-	userName.textContent = 'Imię klienta: ' + localStorage.getItem('name');
-	console.log('123');
+	userName.textContent = 'Imię klienta: ' + localStorage.getItem('customerName');
 }
 if (street) {
-	street.textContent = "Ulica: " + localStorage.getItem('companyStreet');
+	street.textContent = "Ulica: " + localStorage.getItem('adressStreet');
 }
 if (house) {
-	house.textContent = "Nr.Domu: " + localStorage.getItem('companyHome');
+	house.textContent = "Nr.Domu: " + localStorage.getItem('adressHouse');
 }
 if (city) {
-	city.textContent = "Miasto:" + localStorage.getItem('companyCity');
+	city.textContent = "Miasto:" + localStorage.getItem('adressCity');
 }
-// if (code) {
-// 	code.textContent = localStorage.getItem('companyCode');
-// }
-
 if(meetingDate){
 	meetingDate.textContent= "asdaSD";
 }

@@ -19,8 +19,6 @@ const clientHouse = document.querySelector('#client-house') as HTMLInputElement;
 const clientCity = document.querySelector('#client-city') as HTMLInputElement;
 const confirmLocalBtn = document.querySelector('#confirm-local') as HTMLInputElement;
 const confirmAdressBtn = document.querySelector('#confirm-adress') as HTMLButtonElement;
-console.log(confirmLocalBtn);
-
 
 export let date = new Date();
 export const allTd: NodeListOf<HTMLTableDataCellElement> = document.querySelectorAll('tbody td');
@@ -30,8 +28,6 @@ export const currnetYear = new Date().getFullYear();
 if (footerYear && currnetYear) {
 	footerYear.textContent = currnetYear.toString();
 }
-
-
 
 const calendarCheckboxCheck = () => {
 	if (customerHomeCheckbox.checked) {
@@ -73,6 +69,7 @@ const pickProfessionBox = document.querySelector('.pick-profession-box') as HTML
 const headerBtnBox = document.querySelector('.header__btn') as HTMLDivElement;
 
 const calendarServicesProviderObjectArr = [{ id: 'name-service', name: 'name', city: 'city' }];
+console.log(calendarServicesProviderObjectArr);
 
 let serviceProviderCheckbox: HTMLInputElement;
 let allInputs: NodeListOf<HTMLInputElement>;
@@ -291,19 +288,15 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 	const userName = document.querySelector('.user-name') as HTMLParagraphElement;
 	if (userName) {
-		userName.textContent = localStorage.getItem('name');
+		userName.textContent = localStorage.getItem('customerName');
 	}
 
 
 	if (confirmAdressBtn) {
 		confirmAdressBtn.addEventListener('click', ()=>{
-	
 				localStorage.setItem('adressStreet', clientStreet.value);
 				localStorage.setItem('adressHouse', clientHouse.value);
-				localStorage.setItem('adressCity', clientCity.value);
-	
-				console.log(localStorage.getItem('clientStreet'));
-	
+				localStorage.setItem('adressCity', clientCity.value);	
 			})
 		
 	}
@@ -320,7 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	
 
 
-	localStorage.getItem('name');
+	// localStorage.getItem('name');
 	localStorage.getItem('selectedOption');
 	localStorage.getItem('companyStreet');
 	localStorage.getItem('companyHome');
@@ -328,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	localStorage.getItem('companyCode');
 
 	calendarServicesProviderObjectArr.forEach(obj => {
-		const name = localStorage.getItem('name');
+		const name = localStorage.getItem('providerName');
 		const city = localStorage.getItem('companyCity');
 		if (name !== null && city !== null) {
 			obj.name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
