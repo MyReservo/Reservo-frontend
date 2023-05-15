@@ -11,6 +11,8 @@ export const surnameLabel = document.querySelector('.surname-label') as HTMLInpu
 export const numberInput = document.querySelector('#phone') as HTMLInputElement;
 export const emailCustomerInput = document.querySelector('.email-customer') as HTMLInputElement;
 
+export const confirmProviderBtn = document.querySelector('#confirm-provider') as HTMLButtonElement;
+
 export const passwordInput = document.querySelector('#password') as HTMLInputElement;
 export const repeatInput = document.querySelector('#repeat') as HTMLInputElement;
 export const termsInput = document.querySelector('#terms') as HTMLInputElement;

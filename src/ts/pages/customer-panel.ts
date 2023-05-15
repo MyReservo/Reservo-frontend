@@ -2,7 +2,7 @@ export {};
 
 import { toggleError } from '../validation/toggle-error';
 import '../utils/nav-elements';
-
+import {confirmProviderBtn} from '../utils/constants';
 const companyLocalCheckbox = document.querySelector('#local') as HTMLInputElement;
 const companyAdress = document.querySelector('.company-adress') as HTMLDivElement;
 const companyStreet = document.querySelector('#company-street') as HTMLSpanElement;
@@ -63,12 +63,12 @@ const serviceProviderSmallerBox = document.querySelector(
 const serviceProvider = document.querySelector('.available-service-providers-container__title') as HTMLHeadingElement;
 const availableServiceProviders = document.querySelector('.available-service-providers') as HTMLElement;
 const listOfProvidersBox = document.querySelector('.available-service-providers-container__list') as HTMLElement;
-const confirmProviderBtn = document.querySelector('#confirm-provider') as HTMLButtonElement;
+// export const confirmProviderBtn = document.querySelector('#confirm-provider') as HTMLButtonElement;
 
 const pickProfessionBox = document.querySelector('.pick-profession-box') as HTMLDivElement;
 const headerBtnBox = document.querySelector('.header__btn') as HTMLDivElement;
 
-const calendarServicesProviderObjectArr = [{ id: 'name-service', name: 'name', city: 'city' }];
+export const calendarServicesProviderObjectArr = [{ id: 'name-service', name: 'name', city: 'city' }];
 console.log(calendarServicesProviderObjectArr);
 
 let serviceProviderCheckbox: HTMLInputElement;
@@ -127,6 +127,7 @@ const updateServiceProviders = () => {
 	if (selectedProfession === 'TUTOR') {
 		serviceProvider.textContent = 'Dostępni korepetytorzy:';
 		calendarServicesProviderObjectArr.forEach(provider => {
+			console.log(provider);
 			const tutorService = provider.id.includes('tutor');
 			if (selectedCity === 'wroclaw' && provider.city === 'Wrocław' && tutorService) {
 				createServiceProviderElement(provider.name, provider.id);
@@ -311,7 +312,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		})
 	}
 	
-
+	if (confirmProviderBtn) {
+		confirmProviderBtn.addEventListener('click', () => {
+		
+		console.log('kliiknięto');
+		
+		})
+	}
 
 	// localStorage.getItem('name');
 	localStorage.getItem('selectedOption');
@@ -321,6 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	localStorage.getItem('companyCode');
 
 	calendarServicesProviderObjectArr.forEach(obj => {
+	
 		const name = localStorage.getItem('providerName');
 		const city = localStorage.getItem('companyCity');
 		if (name !== null && city !== null) {
