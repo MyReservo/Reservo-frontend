@@ -10,12 +10,11 @@ describe('Rejestracja', () => {
     cy.get('#repeat').type("12345678").should('have.value', '12345678')
     cy.get('#terms').check().should('be.checked')
     cy.get('#register').click()
-    .url().should('include', 'calendar.html')
+    .url().should('include', 'customer-panel.html')
     it('Selecting the time of the visit', () => {
       // cy.visit('calendar.html')
       cy.get('.user-name').should('contain', "Name")
       
-  
     })
   })
 
@@ -45,9 +44,9 @@ describe('Rejestracja', () => {
     cy.get('#company-name').type("Company").should("have.value", "Company");
     cy.get('#street').type("Street").should("have.value", "Street");
     cy.get('#home').type("123").should("have.value", "123");
-    cy.get('#city').type("City").should("have.value", "City");
+    // cy.get('#city').type("City").should("have.value", "City");
+    cy.get('#citySelect').should('not.be.empty');
+
     cy.get('#code').should('have.value.match', /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/);
-
-
   })
 })
