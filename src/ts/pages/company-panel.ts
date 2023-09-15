@@ -19,6 +19,12 @@ const meetingHour = document.querySelector('#your-visits__date-hour') as HTMLSpa
 
 const heroCompanyImg = document.querySelector('.hero-img') as HTMLParagraphElement;
 
+const myMeetingsBtn = document.querySelector('#my-meetings') as HTMLAnchorElement;
+
+if(myMeetingsBtn){
+	myMeetingsBtn.addEventListener('click',()=>{alert('Ta funkcja jest nie dostępna')})
+}
+
 if (footerYear) {
 	footerYear.textContent = currnetYear.toString();
 }

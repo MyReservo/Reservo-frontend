@@ -20,6 +20,8 @@ const clientCity = document.querySelector('#client-city') as HTMLInputElement;
 const confirmLocalBtn = document.querySelector('#confirm-local') as HTMLInputElement;
 const confirmAdressBtn = document.querySelector('#confirm-adress') as HTMLButtonElement;
 
+const myReservationsBtn = document.querySelector('#my-reservations')  as HTMLAnchorElement;
+
 export let date = new Date();
 export const allTd: NodeListOf<HTMLTableDataCellElement> = document.querySelectorAll('tbody td');
 export const footerYear = document.querySelector('.footer__current-year') as HTMLSpanElement;
@@ -27,6 +29,12 @@ export const currnetYear = new Date().getFullYear();
 
 if (footerYear && currnetYear) {
 	footerYear.textContent = currnetYear.toString();
+}
+
+if (myReservationsBtn){
+	myReservationsBtn.addEventListener("click",() => {
+		alert('Ta funkcja jest nie dostępna')
+	})
 }
 
 const calendarCheckboxCheck = () => {
