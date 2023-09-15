@@ -183,9 +183,14 @@ const handleEvent = (e: Event) => {
 	}
 };
 
-const inputs = dataInputsCreator(registerBtn!, toggleError, inputsEvents, checkCompanyInput);
+const inputs = dataInputsCreator({
+	registerBtn,
+	toggleError,
+	inputsEvents,
+	checkCompanyInput,
+  });
+
 const streetInput = inputs.inputs[0];
-console.log(streetInput);
 const homeInput = inputs.inputs[1];
 const codeInput = inputs.inputs[2];
 
